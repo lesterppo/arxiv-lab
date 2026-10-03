@@ -100,6 +100,9 @@ def main():
     ap.add_argument("--mode", choices=["standard", "carm"], required=True)
     ap.add_argument("--prompts", type=int, default=N_PROMPTS)
     ap.add_argument("--group", type=int, default=G)
+    ap.add_argument("--epochs", type=int, default=2,
+                    help="update epochs per rollout batch (higher = staler rollouts = more drift)")
+    ap.add_argument("--lr", type=float, default=LR)
     args = ap.parse_args()
     mask_fn = std_mask if args.mode == "standard" else carm_mask
 
@@ -116,10 +119,11 @@ def main():
                                              target_modules=["q_proj", "v_proj"],
                                              task_type="CAUSAL_LM"))
     model.train()
-    opt = torch.optim.AdamW(model.parameters(), lr=LR)
+    opt = torch.optim.AdamW(model.parameters(), lr=args.lr)
     problems = gen_problems(args.prompts, SEED)
 
-    csv_path = f"/content/carm_grpo_{args.mode}.csv"
+    tag = f"{args.mode}_e{args.epochs}"
+    csv_path = f"/content/carm_grpo_{tag}.csv"
     fout = open(csv_path, "w", newline="")
     wr = csv.writer(fout)
     wr.writerow(["step", "mode", "mean_reward", "mask_rate",
@@ -146,8 +150,8 @@ def main():
                 rlp = seq_logps(model, tok, pids, cids)
                 rollouts.append((pids, cids, r, rlp))
                 rewards_all.append(r)
-        # ---- 2 update epochs over the same (now stale) batch ----
-        for epoch in range(2):
+        # ---- N update epochs over the same (now stale) batch ----
+        for epoch in range(args.epochs):
             # group advantages per prompt
             idx = 0
             losses, kept, abs_lrs = [], 0, []
@@ -188,7 +192,7 @@ def main():
             print(f"step {step} [{args.mode}] reward={mr:.3f} "
                   f"masked={mks}/{len(rollouts)} loss={loss_v:.4f}", flush=True)
     fout.close()
-    model.save_pretrained(f"/content/carm_lora_{args.mode}")
+    model.save_pretrained(f"/content/carm_lora_{tag}")
     print(f"done. csv -> {csv_path}")
 
 
