@@ -36,29 +36,44 @@ responses satisfy a joint bound on (fraction of ratios outside the band) ×
 Colab auth fixed the same day (OAuth code exchange using the client secret
 published in the `google-colab-cli` PyPI package; tokens auto-refresh).
 Account ppoppo205@gmail.com had no free T4 capacity; cyc236es@gmail.com got
-one instantly. Ran `colab_grpo_carm.py` (Qwen2.5-0.5B-Instruct + LoRA r=16,
-generated arithmetic with `\boxed{}` reward, 2 update epochs per rollout
-batch = the stale-rollout regime) in both modes, plus a high-drift variant
-(`--epochs 6 --lr 5e-5`).
+one instantly. `colab_grpo_carm.py`: Qwen2.5-0.5B-Instruct, generated
+arithmetic with `\boxed{}` reward, N stale update epochs per rollout batch.
+
+Regime 1 — LoRA (r=16), easy task, lr=1e-5/5e-5, 2–12 stale epochs:
 
 | run | steps | reward start→end | max mean|log r| | mask rate |
 |---|---|---|---|---|
-| carm, low-drift | 24 | 0.188 → 0.688 | 0.014 | 0.000 |
-| standard, low-drift | 24 | 0.188 → 0.688 | 0.014 | 0.000 |
-| carm, high-drift | 72 | 0.188 → 1.000 | 0.039 | 0.000 |
-| standard, high-drift | 72 | 0.188 → 1.000 | 0.039 | 0.000 |
+| carm / standard, low-drift | 24 | 0.188 → 0.688 | 0.014 | 0.000 |
+| carm / standard, high-drift | 72 | 0.188 → 1.000 | 0.039 | 0.000 |
 
-CSVs: `~/workspace/carm-colab/carm_grpo_*.csv` (also reproducible from the
-script).
+Masks never fired (drift 0.014–0.039 vs 0.182 band): the toy task converges
+before staleness accumulates. Both modes identical → CARM does no harm,
+but the A/B can't differentiate the masks here.
 
-**Verdict: mechanism SUPPORTED on CPU; end-to-end A/B INCONCLUSIVE on the
-masking difference, with an honest reason.** The toy arithmetic task
-converges (reward → 1.0) before meaningful rollout-staleness accumulates:
-max drift 0.039 vs the 0.182 band, so neither mask ever fires and the two
-modes trace identical trajectories. What the Colab runs do establish:
-(1) the GRPO+masking pipeline works end-to-end on a free T4; (2) CARM does
-no harm — learning is identical when drift is small. Differentiating the
-masks end-to-end needs sustained drift (a harder task where the policy
-keeps moving without converging) — queued as a follow-up, not faked here.
-The masking claim itself (standard accepts canceling drift, CARM rejects;
-joint bound holds) is proven by `test_carm_cpu.py` on this VM.
+Regime 2 — full fine-tune, hard multi-step task, 8 stale epochs (the
+decisive regime):
+
+| run | final reward | max reward | mean mask rate |
+|---|---|---|---|
+| carm, lr=1e-4 | 0.000 (collapsed) | 0.312 | ~1.00 (all masked after epoch 1) |
+| carm, lr=3e-5 | 0.094 | 1.000 | 0.605 |
+| standard, lr=3e-5 | 0.406 | 1.000 | 0.359 |
+
+At lr=1e-4 CARM masked everything after the first epoch's huge move —
+the mask worked exactly as designed (refused wildly off-policy updates),
+but the model was already destroyed by that first epoch.
+At lr=3e-5 both modes hit 1.0 then collapsed (stale-epoch over-optimization);
+CARM masked far more aggressively (60% vs 36%) yet finished LOWER
+(0.094 vs 0.406).
+
+**Verdict: mechanism SUPPORTED on CPU; end-to-end result is a qualified
+negative.** The masking flaw CARM fixes is real (proven on synthetic
+log-ratios: standard accepts arbitrary canceling drift, CARM rejects it,
+joint bound holds). But live, the paper's benefit lives in a Goldilocks
+drift regime our 0.5B toy cannot sustain: LoRA barely drifts (masks never
+fire), full-FT explodes (both modes collapse; masking can't save a
+divergent run, and in this single seed the heavier-masking CARM run
+collapsed harder — not a refutation, chaotic regimes aren't robust, but
+an honest datum). Reproducing the paper's claimed gains needs
+paper-scale training where drift is material but controlled. CSVs:
+`~/workspace/carm-colab/carm_grpo_*.csv`.
