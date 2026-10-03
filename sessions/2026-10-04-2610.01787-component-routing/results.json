@@ -1,0 +1,508 @@
+{
+  "paper": "arXiv:2610.01787",
+  "master_seed": 20261004,
+  "n_items_per_family": 960,
+  "type_destination_pattern_wfrac": {
+    "memorizer": {
+      "locator": 1.0,
+      "procedure": 0.133,
+      "state_fact": 0.058,
+      "lesson": 1.0
+    },
+    "in-context": {
+      "locator": 0.971,
+      "procedure": 0.0,
+      "state_fact": 0.0,
+      "lesson": 0.896
+    },
+    "balanced": {
+      "locator": 1.0,
+      "procedure": 0.004,
+      "state_fact": 0.0,
+      "lesson": 1.0
+    }
+  },
+  "rule_coefs": {
+    "a_r": 7.632841229352403,
+    "a_s": -7.273137373419791,
+    "b": -0.29968934133383646
+  },
+  "heldout_cells": {
+    "match": 24,
+    "total": 24,
+    "detail": [
+      {
+        "cell": [
+          "lesson",
+          "dynamic-ui",
+          11
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.693,
+        "sbar": 0.263,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "lesson",
+          "dynamic-ui",
+          22
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.708,
+        "sbar": 0.263,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "lesson",
+          "dynamic-ui",
+          33
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.707,
+        "sbar": 0.258,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "lesson",
+          "stable-ui",
+          11
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.792,
+        "sbar": 0.176,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "lesson",
+          "stable-ui",
+          22
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.783,
+        "sbar": 0.184,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "lesson",
+          "stable-ui",
+          33
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.791,
+        "sbar": 0.17,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "locator",
+          "dynamic-ui",
+          11
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.772,
+        "sbar": 0.197,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "locator",
+          "dynamic-ui",
+          22
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.769,
+        "sbar": 0.229,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "locator",
+          "dynamic-ui",
+          33
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.759,
+        "sbar": 0.221,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "locator",
+          "stable-ui",
+          11
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.899,
+        "sbar": 0.113,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "locator",
+          "stable-ui",
+          22
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.866,
+        "sbar": 0.131,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "locator",
+          "stable-ui",
+          33
+        ],
+        "pred": "weights",
+        "truth": "weights",
+        "rbar": 0.866,
+        "sbar": 0.125,
+        "w_frac": 1.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "procedure",
+          "dynamic-ui",
+          11
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.227,
+        "sbar": 0.781,
+        "w_frac": 0.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "procedure",
+          "dynamic-ui",
+          22
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.237,
+        "sbar": 0.797,
+        "w_frac": 0.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "procedure",
+          "dynamic-ui",
+          33
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.23,
+        "sbar": 0.813,
+        "w_frac": 0.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "procedure",
+          "stable-ui",
+          11
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.374,
+        "sbar": 0.701,
+        "w_frac": 0.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "procedure",
+          "stable-ui",
+          22
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.332,
+        "sbar": 0.7,
+        "w_frac": 0.03,
+        "match": true
+      },
+      {
+        "cell": [
+          "procedure",
+          "stable-ui",
+          33
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.351,
+        "sbar": 0.697,
+        "w_frac": 0.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "state_fact",
+          "dynamic-ui",
+          11
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.187,
+        "sbar": 0.87,
+        "w_frac": 0.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "state_fact",
+          "dynamic-ui",
+          22
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.195,
+        "sbar": 0.826,
+        "w_frac": 0.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "state_fact",
+          "dynamic-ui",
+          33
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.194,
+        "sbar": 0.85,
+        "w_frac": 0.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "state_fact",
+          "stable-ui",
+          11
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.311,
+        "sbar": 0.752,
+        "w_frac": 0.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "state_fact",
+          "stable-ui",
+          22
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.284,
+        "sbar": 0.746,
+        "w_frac": 0.0,
+        "match": true
+      },
+      {
+        "cell": [
+          "state_fact",
+          "stable-ui",
+          33
+        ],
+        "pred": "context",
+        "truth": "context",
+        "rbar": 0.329,
+        "sbar": 0.744,
+        "w_frac": 0.0,
+        "match": true
+      }
+    ]
+  },
+  "interventions": {
+    "procedure_recurrence_boost": {
+      "before": [
+        0.3,
+        0.72,
+        0.037
+      ],
+      "after": [
+        0.65,
+        0.72,
+        0.36
+      ],
+      "dist_to_boundary_before": 0.463,
+      "dist_to_boundary_after": 0.14,
+      "dest_before": "context",
+      "dest_after": "context",
+      "observed_winner_after": "context"
+    },
+    "lesson_statecond_boost": {
+      "before": [
+        0.78,
+        0.2,
+        0.985
+      ],
+      "after": [
+        0.78,
+        0.55,
+        0.839
+      ],
+      "dist_to_boundary_before": 0.485,
+      "dist_to_boundary_after": 0.339,
+      "dest_before": "weights",
+      "dest_after": "weights",
+      "observed_winner_after": "weights"
+    }
+  },
+  "baselines_mean_gain_per_item": {
+    "rule": 1.2393,
+    "all_weights": 0.7437,
+    "all_context": 0.715,
+    "random": 0.7293,
+    "oracle": 1.2393
+  },
+  "rule_margin_over_best_single": 0.4956,
+  "rule_headroom_captured": 1.0,
+  "readout_quality_vs_recurrence": [
+    [
+      0.05,
+      1.0
+    ],
+    [
+      0.2,
+      0.7896
+    ],
+    [
+      0.4,
+      0.7462
+    ],
+    [
+      0.6,
+      0.7308
+    ],
+    [
+      0.8,
+      0.7195
+    ],
+    [
+      0.95,
+      0.712
+    ]
+  ],
+  "context_gain_vs_info_gap": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.1,
+      0.085
+    ],
+    [
+      0.2,
+      0.17
+    ],
+    [
+      0.3,
+      0.255
+    ],
+    [
+      0.4,
+      0.34
+    ],
+    [
+      0.5,
+      0.425
+    ],
+    [
+      0.6,
+      0.51
+    ],
+    [
+      0.7,
+      0.595
+    ],
+    [
+      0.8,
+      0.68
+    ],
+    [
+      0.9,
+      0.765
+    ]
+  ],
+  "weights_gain_vs_policy_gap": [
+    [
+      0.0,
+      -0.0,
+      1.0
+    ],
+    [
+      0.25,
+      0.0299,
+      0.9701
+    ],
+    [
+      0.5,
+      0.1056,
+      0.8944
+    ],
+    [
+      0.75,
+      0.2,
+      0.8
+    ],
+    [
+      1.0,
+      0.2929,
+      0.7071
+    ],
+    [
+      1.25,
+      0.3753,
+      0.6247
+    ],
+    [
+      1.5,
+      0.4453,
+      0.5547
+    ],
+    [
+      1.75,
+      0.5039,
+      0.4961
+    ],
+    [
+      2.0,
+      0.5528,
+      0.4472
+    ]
+  ]
+}
