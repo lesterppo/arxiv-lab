@@ -82,10 +82,11 @@ def carm_mask(logr):
     return sum(abs(x) for x in logr) / len(logr) <= BAND
 
 
-def seq_logps(model, tok, prompt_ids, comp_ids):
+def seq_logps(model, tok, prompt_ids, comp_ids, no_grad=True):
     """Log-probs of comp_ids under model given prompt. Returns (logps, mask)."""
     inp = torch.cat([prompt_ids, comp_ids], dim=1)
-    with torch.no_grad():
+    ctx = torch.no_grad() if no_grad else torch.enable_grad()
+    with ctx:
         logits = model(inp).logits[0]
     lp = torch.log_softmax(logits, dim=-1)
     # logp of each completion token: logits position len(prompt)-1+i -> token i
@@ -110,7 +111,7 @@ def main():
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_ID, torch_dtype=torch.bfloat16, device_map="auto",
         trust_remote_code=True)
-    model = get_peft_model(model, LoraConfig(r=RORA_R, lora_alpha=32,
+    model = get_peft_model(model, LoraConfig(r=LORA_R, lora_alpha=32,
                                              lora_dropout=0.05,
                                              target_modules=["q_proj", "v_proj"],
                                              task_type="CAUSAL_LM"))
@@ -156,7 +157,7 @@ def main():
                 rs = torch.tensor([g[2] for g in grp])
                 adv = (rs - rs.mean()) / (rs.std() + 1e-6)
                 for (pids, cids, r, rlp), a in zip(grp, adv.tolist()):
-                    clp = seq_logps(model, tok, pids, cids)
+                    clp = seq_logps(model, tok, pids, cids, no_grad=False)
                     logr = (clp - rlp).tolist()
                     if not mask_fn(logr):
                         mks += 1
