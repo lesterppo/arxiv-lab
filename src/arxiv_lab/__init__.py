@@ -15,6 +15,10 @@ the arxiv-gem-digest daily read-and-test experiments:
   (arXiv:2610.02198)
 - ``arxiv_lab.backends`` — OpenAI-compatible chat client over stdlib urllib
   (no credentials in code; keys only via env vars or explicit args)
+- ``arxiv_lab.routing`` — component routing for self-improving agents:
+  recurrence/state-conditionality rule routing experience components
+  (locators, procedures, state facts, lessons) to weights vs context
+  (arXiv:2610.01787)
 
 Runs on general Linux with Python >= 3.10. No install needed for tests:
 ``tests/`` inserts ``src/`` on ``sys.path``.
