@@ -32,10 +32,33 @@ responses satisfy a joint bound on (fraction of ratios outside the band) ×
   band 0.182; standard mask admits 1.909 (10x worse). Paper's bound
   direction confirmed.
 
-**Colab (T4) — RUNNING via watcher (2026-10-03 ~17:15 HKT):**
+**Colab (T4) — RAN 2026-10-03 on account cyc236es@gmail.com:**
 Colab auth fixed the same day (OAuth code exchange using the client secret
 published in the `google-colab-cli` PyPI package; tokens auto-refresh).
-`~/workspace/carm-colab/watch.sh` retries T4 assignment every 10 min
-(free-tier backend was busy at 17:05), then installs deps, uploads this
-script, runs `--mode carm` and `--mode standard` detached, and downloads
-both CSVs to `~/workspace/carm-colab/`. Results will be appended here.
+Account ppoppo205@gmail.com had no free T4 capacity; cyc236es@gmail.com got
+one instantly. Ran `colab_grpo_carm.py` (Qwen2.5-0.5B-Instruct + LoRA r=16,
+generated arithmetic with `\boxed{}` reward, 2 update epochs per rollout
+batch = the stale-rollout regime) in both modes, plus a high-drift variant
+(`--epochs 6 --lr 5e-5`).
+
+| run | steps | reward start→end | max mean|log r| | mask rate |
+|---|---|---|---|---|
+| carm, low-drift | 24 | 0.188 → 0.688 | 0.014 | 0.000 |
+| standard, low-drift | 24 | 0.188 → 0.688 | 0.014 | 0.000 |
+| carm, high-drift | 72 | 0.188 → 1.000 | 0.039 | 0.000 |
+| standard, high-drift | 72 | 0.188 → 1.000 | 0.039 | 0.000 |
+
+CSVs: `~/workspace/carm-colab/carm_grpo_*.csv` (also reproducible from the
+script).
+
+**Verdict: mechanism SUPPORTED on CPU; end-to-end A/B INCONCLUSIVE on the
+masking difference, with an honest reason.** The toy arithmetic task
+converges (reward → 1.0) before meaningful rollout-staleness accumulates:
+max drift 0.039 vs the 0.182 band, so neither mask ever fires and the two
+modes trace identical trajectories. What the Colab runs do establish:
+(1) the GRPO+masking pipeline works end-to-end on a free T4; (2) CARM does
+no harm — learning is identical when drift is small. Differentiating the
+masks end-to-end needs sustained drift (a harder task where the policy
+keeps moving without converging) — queued as a follow-up, not faked here.
+The masking claim itself (standard accepts canceling drift, CARM rejects;
+joint bound holds) is proven by `test_carm_cpu.py` on this VM.
