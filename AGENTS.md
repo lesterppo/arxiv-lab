@@ -30,7 +30,11 @@ tests skip gracefully when numpy is absent; keep the guard when editing them.
   constants numpy-free (plain tuples), call `_need_numpy()` at the top of
   every public function.
 
-## Publishing
-Target repo: `lesterppo/arxiv-lab` (created separately by the parent agent —
-do not create it from here). Push via the normal git flow once the GitHub
-repo exists.
+## Sessions (one per tested article)
+
+`sessions/YYYY-MM-DD-<arxivid>-<slug>/` is the per-article record: README.md
+(article link, why picked, what was built, results + verdict, honest limits),
+the article-specific code/tests, and Colab scripts where applicable.
+The reusable mechanism itself graduates to `src/arxiv_lab/<area>/` + a CPU
+test when validated. Sessions are the daily read-and-test's deliverable —
+create one for every article that gets a live test.
