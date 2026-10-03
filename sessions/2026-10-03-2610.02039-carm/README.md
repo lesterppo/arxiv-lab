@@ -32,18 +32,10 @@ responses satisfy a joint bound on (fraction of ratios outside the band) ×
   band 0.182; standard mask admits 1.909 (10x worse). Paper's bound
   direction confirmed.
 
-**Colab (T4) — STAGED, awaiting run:**
-```bash
-# on the Colab session (hermes-colab-cli), T4 GPU:
-python3 colab.py upload -s <session> colab_grpo_carm.py /content/
-python3 colab.py exec -s <session> --code "!pip install -q transformers peft accelerate bitsandbytes" --timeout 600
-python3 colab.py exec_detach -s <session> -f /content/colab_grpo_carm.py -- \
-    --mode carm          # then again with --mode standard
-python3 colab.py download -s <session> /content/carm_grpo_carm.csv .
-```
-Compare reward curves, mask rates, and loss stability across the two CSVs.
-Small scale (48 prompts) → directional evidence, not conclusive.
-
-**Verdict: mechanism SUPPORTED on CPU; live GRPO A/B staged for Colab.**
-The Colab run needs the one-time OAuth (see `hermes-colab-cli`
-`references/auth_flow.md`) — no Colab credentials exist on this VM yet.
+**Colab (T4) — RUNNING via watcher (2026-10-03 ~17:15 HKT):**
+Colab auth fixed the same day (OAuth code exchange using the client secret
+published in the `google-colab-cli` PyPI package; tokens auto-refresh).
+`~/workspace/carm-colab/watch.sh` retries T4 assignment every 10 min
+(free-tier backend was busy at 17:05), then installs deps, uploads this
+script, runs `--mode carm` and `--mode standard` detached, and downloads
+both CSVs to `~/workspace/carm-colab/`. Results will be appended here.
