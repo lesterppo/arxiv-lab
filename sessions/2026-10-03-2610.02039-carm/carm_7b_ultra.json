@@ -1,0 +1,29 @@
+{
+ "0.01": {
+  "mean_abs_logratio": 0.0166,
+  "std_keep_rate": 1.0,
+  "carm_keep_rate": 1.0,
+  "disagreements": 0,
+  "disagreement_rate": 0.0,
+  "canceling_among_disagreements": "0/0",
+  "mean_max_abs_if_disagree": 0.0
+ },
+ "0.03": {
+  "mean_abs_logratio": 0.1327,
+  "std_keep_rate": 1.0,
+  "carm_keep_rate": 0.875,
+  "disagreements": 1,
+  "disagreement_rate": 0.125,
+  "canceling_among_disagreements": "1/1",
+  "mean_max_abs_if_disagree": 3.726
+ },
+ "0.1": {
+  "mean_abs_logratio": 10.6106,
+  "std_keep_rate": 0.0,
+  "carm_keep_rate": 0.0,
+  "disagreements": 0,
+  "disagreement_rate": 0.0,
+  "canceling_among_disagreements": "0/0",
+  "mean_max_abs_if_disagree": 0.0
+ }
+}
