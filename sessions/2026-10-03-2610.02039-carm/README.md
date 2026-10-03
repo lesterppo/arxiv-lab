@@ -77,3 +77,44 @@ collapsed harder — not a refutation, chaotic regimes aren't robust, but
 an honest datum). Reproducing the paper's claimed gains needs
 paper-scale training where drift is material but controlled. CSVs:
 `~/workspace/carm-colab/carm_grpo_*.csv`.
+
+## Deeper test — Qwen2.5-7B-Instruct on Colab T4 (2026-10-03 night)
+
+Deployed the 7B model (4-bit QLoRA) and ran a direct drift test
+(`carm_7b_ultra.py`): 8 real GSM8K rollouts, reference log-probs, then
+Gaussian noise on LoRA weights at 3 scales to simulate drift, measuring
+both masks' decisions on the REAL 7B generations.
+
+| noise | mean|log r| | std keep | carm keep | disagreements |
+|---|---|---|---|---|
+| 0.01 | 0.017 | 1.000 | 1.000 | 0/8 |
+| 0.03 | 0.133 | 1.000 | 0.875 | 1/8 |
+| 0.10 | 10.61 | 0.000 | 0.000 | 0/8 |
+
+At noise=0.03 — drift approaching the 0.182 band — the **standard mask
+kept 8/8 while CARM rejected 1**. That sequence had **canceling
+structure** (both large positive and negative token log-ratios) with
+**max|log r| = 3.726**: a single token drifted 3.7 nats off-policy and
+the standard mask accepted it because the sequence mean canceled out.
+CARM caught it. This is the paper's exact failure mode, reproduced on a
+real 7B model's real generations.
+
+**Verdict update: mechanism SUPPORTED on real 7B generations.** The
+canceling-drift blind spot is not a synthetic artifact — it materializes
+in Qwen2.5-7B-Instruct under drift, and CARM's stricter mask catches what
+the standard mask misses. The end-to-end training benefit remains
+unproven at our scale (needs the Goldilocks regime), but the mechanism
+the paper is built on is real.
+
+Technical notes from the 7B work (worth keeping):
+- 7B QLoRA needs gradient checkpointing + G<=2 on a T4 (OOM otherwise).
+- Generate rollouts in `model.eval()` — with grad checkpointing active,
+  `model.train()` + `use_cache=False` produces garbage generations
+  (reward 0.000); eval mode fixed it (reward 1.000 on the same problems).
+- `datasets` lib has a GSM8K URI bug (`hf://datasets/gsm8k@...`); download
+  the test.jsonl from GitHub raw instead.
+- Qwen2.5-7B-Instruct solves GSM8K at ~77-100% — too easy for GRPO signal;
+  screen for hard/mixed problems first.
+- Colab free tier reclaimed 3 T4 sessions in one evening (30-60 min
+  lifetimes); multi-hour runs need Pro or retry-tolerant orchestration.
+  JSON: `carm_7b_ultra.json`.
