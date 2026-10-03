@@ -48,10 +48,28 @@ BAND = math.log1p(EPS)
 LORA_R = 16
 
 
-def gen_problems(n, seed):
+def gen_problems(n, seed, hard=False):
     rng = random.Random(seed)
     out = []
     for _ in range(n):
+        if hard:
+            # multi-step: the 0.5B model does NOT solve these instantly,
+            # so gradients (and policy drift) stay alive
+            a, b, c = rng.randint(3, 19), rng.randint(3, 19), rng.randint(2, 9)
+            pat = rng.choice([0, 1, 2])
+            if pat == 0:
+                ans = (a + b) * c
+                q = f"What is ({a} + {b}) times {c}?"
+            elif pat == 1:
+                ans = a * b + c
+                q = f"What is {a} times {b} plus {c}?"
+            else:
+                a, b = rng.randint(4, 12), rng.randint(4, 12)
+                c = rng.randint(2, 20)
+                ans = a * b - c
+                q = f"What is {a} times {b} minus {c}?"
+            out.append((f"{q} Put the final answer in \\boxed{{}}.", ans))
+            continue
         a, b = rng.randint(2, 49), rng.randint(2, 49)
         op = rng.choice(["+", "-", "*"])
         if op == "+":
@@ -103,6 +121,8 @@ def main():
     ap.add_argument("--epochs", type=int, default=2,
                     help="update epochs per rollout batch (higher = staler rollouts = more drift)")
     ap.add_argument("--lr", type=float, default=LR)
+    ap.add_argument("--hard", action="store_true",
+                    help="multi-step arithmetic (harder; sustains drift)")
     args = ap.parse_args()
     mask_fn = std_mask if args.mode == "standard" else carm_mask
 
@@ -120,9 +140,9 @@ def main():
                                              task_type="CAUSAL_LM"))
     model.train()
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr)
-    problems = gen_problems(args.prompts, SEED)
+    problems = gen_problems(args.prompts, SEED, hard=args.hard)
 
-    tag = f"{args.mode}_e{args.epochs}"
+    tag = f"{args.mode}_e{args.epochs}{"_hard" if args.hard else ""}"
     csv_path = f"/content/carm_grpo_{tag}.csv"
     fout = open(csv_path, "w", newline="")
     wr = csv.writer(fout)
