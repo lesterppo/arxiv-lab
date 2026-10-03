@@ -123,6 +123,8 @@ def main():
     ap.add_argument("--lr", type=float, default=LR)
     ap.add_argument("--hard", action="store_true",
                     help="multi-step arithmetic (harder; sustains drift)")
+    ap.add_argument("--full-ft", action="store_true",
+                    help="train all params instead of LoRA (bigger drift)")
     args = ap.parse_args()
     mask_fn = std_mask if args.mode == "standard" else carm_mask
 
@@ -134,15 +136,16 @@ def main():
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_ID, torch_dtype=torch.bfloat16, device_map="auto",
         trust_remote_code=True)
-    model = get_peft_model(model, LoraConfig(r=LORA_R, lora_alpha=32,
-                                             lora_dropout=0.05,
-                                             target_modules=["q_proj", "v_proj"],
-                                             task_type="CAUSAL_LM"))
+    if not args.full_ft:
+        model = get_peft_model(model, LoraConfig(r=LORA_R, lora_alpha=32,
+                                                 lora_dropout=0.05,
+                                                 target_modules=["q_proj", "v_proj"],
+                                                 task_type="CAUSAL_LM"))
     model.train()
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr)
     problems = gen_problems(args.prompts, SEED, hard=args.hard)
 
-    tag = f"{args.mode}_e{args.epochs}{"_hard" if args.hard else ""}"
+    tag = f"{args.mode}_e{args.epochs}{"_hard" if args.hard else ""}{"_full" if args.full_ft else ""}"
     csv_path = f"/content/carm_grpo_{tag}.csv"
     fout = open(csv_path, "w", newline="")
     wr = csv.writer(fout)
