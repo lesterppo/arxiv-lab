@@ -19,6 +19,9 @@ the arxiv-gem-digest daily read-and-test experiments:
   recurrence/state-conditionality rule routing experience components
   (locators, procedures, state facts, lessons) to weights vs context
   (arXiv:2610.01787)
+- ``arxiv_lab.workflow`` — FloWright-style hierarchical structure-aware
+  credit assignment and multi-role co-evolution for workflows with a single
+  sparse outcome (arXiv:2610.01026)
 
 Runs on general Linux with Python >= 3.10. No install needed for tests:
 ``tests/`` inserts ``src/`` on ``sys.path``.
