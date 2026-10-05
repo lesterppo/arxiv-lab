@@ -1,0 +1,20 @@
+{
+  "paper": "2610.02994",
+  "date": "2026-10-05",
+  "track": "agent (this VM, CPU, deterministic, misfire seed 7)",
+  "suite": "48 synthetic tasks, traps cycle [none, invalid_args, repeated, premature]; train=tasks 0-31, held=32-47",
+  "train": {
+    "A_no_lessons": {"ok": 8, "n": 32, "rate": 0.25},
+    "B_full_playbook_in_context": {"ok": 29, "n": 32, "rate": 0.906, "misfires": 19},
+    "D_static_retrieve_no_learn": {"ok": 24, "n": 32, "rate": 0.75},
+    "C_sentry_learn": {"ok": 32, "n": 32, "rate": 1.0, "lessons_stored": 1}
+  },
+  "C_vs_D_relative_improvement": "+33.3% (paper reports +37% avg on agentic benchmarks)",
+  "B_vs_C_gap": "-9.4% (full-context exposure hurts despite 19 misfires being the only difference)",
+  "held_out": {
+    "C_sentry": {"ok": 16, "n": 16, "rate": 1.0},
+    "D_static": {"ok": 15, "n": 16, "rate": 0.938}
+  },
+  "store_gate": {"accepted_verified": 1, "rejected_unverified": 1},
+  "verifier": "signature (trace_before, trace_after, failure) only — no reward/label parameter"
+}
