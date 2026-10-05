@@ -52,6 +52,43 @@ grading, binary reward). Held-out greedy accuracy before/after + peak VRAM
 | GRPO, attempt 2 (cyc236de) | Session lost ~10 min after creation, during the ~19 GB model download. |
 | FTW | Not started (sequential plan; arm 1 never completed). |
 
+## Retry (2026-10-05 ~21:08–22:30 HKT, new sixth account)
+
+Peter provided a sixth Colab account (`cyc236ha`) after the block. Retry:
+
+| Arm | Outcome |
+|---|---|
+| GRPO, attempt 3 (cyc236ha) | Session `ftw-grpo` created OK (T4 READY); deps installed OK
+  (transformers 5.19.0.dev0); driver uploaded OK. Console launch failed
+  "not-found": the shared token symlink was switched **externally to
+  cyc236de at 21:09 mid-run** (3rd occurrence tonight). After switching
+  back, the session was gone — reclaimed/orphaned in the switch window. |
+| GRPO, attempt 4 (kyu009009, single authorized fallback) | T4 secured. Full
+  pipeline ran: 19 GB download (~50 min, throttled unauthenticated HF),
+  model load (427/427 weights), held-out BEFORE = **0.250** (reproduces
+  attempt 1 exactly), then **3/12 GRPO steps completed before reclaim**:
+  step rewards **0.250 → 0.250 → 0.417** (loss −0.0000 throughout).
+  Peak VRAM observed **12,865 MiB** (~12.6 GB). Session reclaimed with
+  9 steps remaining; no results JSON written (only on clean finish). |
+| FTW | Still not started. |
+
+**Verdict unchanged: BLOCKED on both claims.** The partial GRPO curve
+(3 steps, reward rising 0.250→0.417) is real but far too short to compare
+against FTW — no verdict on either claim is possible. Notable: this is the
+first time any training step completed in this session's history; the driver
+and env recipe are now proven end-to-end through step 3.
+
+**New findings:**
+6. The external account-switcher is still active (21:09 switch to cyc236de
+   mid-run, unprompted). Any future retry must assume the symlink can move
+   at any time; check `colab-use-account list` before every mutating call.
+7. `colab.py logs` hangs when the session is under load; `exec --code`
+   with an inline `tail` of the log file is the reliable poll method.
+8. Unauthenticated HF Hub downloads are throttled (~790 s/file for the
+   19 GB model) — roughly half the session lifetime went to download.
+   An HF_TOKEN would cut this substantially (future work, needs Peter's
+   token via secure entry).
+
 **Verdict: BLOCKED on both claims** (performance parity, memory savings) —
 zero training steps completed, so there is no evidence for or against the
 paper. The single real datapoint: base `Qwen/Qwen3.5-9B` scores 0.250 greedy
@@ -88,8 +125,11 @@ on the synthetic arithmetic held-out (n=24), i.e. the task has headroom.
 ## Honest limits
 
 - Proxy task (synthetic arithmetic), not the paper's Sokoban/Search-R1.
-- QLoRA r=16, not full fine-tuning; 12 planned steps (none executed).
+- QLoRA r=16, not full fine-tuning; 12 planned steps (3 executed on GRPO
+  attempt 4 before reclaim — partial curve only, no comparison possible).
 - Base model, not instruct (Instruct repo doesn't exist).
 - Binary reward; no KL-vs-reference term (paper's "conservative" element
   approximated by 1-epoch small-lr elite updates — deviation noted).
 - Single planned seed; no repeats.
+- GRPO peak VRAM 12,865 MiB observed (n=1 snapshot series); FTW arm never
+  ran, so the paper's memory-savings claim is untested.
