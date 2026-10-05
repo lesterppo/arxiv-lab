@@ -1,0 +1,235 @@
+{
+  "summary": {
+    "model": "qwen3.5:9b",
+    "n_questions": 24,
+    "n_graded": 11,
+    "accuracy": 1.0,
+    "ECE_10bin": 0.0,
+    "mean_confidence": 100.0,
+    "overconfident_failure_rate": null,
+    "mean_surprise": 0.0,
+    "surprise_quartiles": {
+      "q1": 0.0,
+      "median": 0.0,
+      "q3": 0.0
+    }
+  },
+  "samples": [
+    {
+      "question": "What is 47 * 83?",
+      "expected": 3901,
+      "confidence": 100,
+      "parsed_answer": 3901,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo solve $47 \\times 83$:\n1. Multiply 47 by 3: $47 \\times 3 = 141$.\n2. Multiply 47 by 80: $47 \\times 8 = 376$, so $47 \\times 80 = 3760$.\n3. Add the two results together: $3760 + 141 = 3901$.\n\nANSWER: 3901"
+    },
+    {
+      "question": "What is 17^3 (17 cubed)?",
+      "expected": 4913,
+      "confidence": 100,
+      "parsed_answer": 4913,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 4913"
+    },
+    {
+      "question": "What is the greatest common divisor of 48 and 180?",
+      "expected": 12,
+      "confidence": 100,
+      "parsed_answer": 12,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 12"
+    },
+    {
+      "question": "What is 15% of 240?",
+      "expected": 36,
+      "confidence": 100,
+      "parsed_answer": 36,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo find 15% of 240, you can convert the percentage to a decimal (0.15) and multiply it by 240:\n$$0.15 \\times 240 = 36$$\n\nAlternatively, calculate 10% of 240 (which is 24) and add half of that amount (5%, which is 12):\n$$24 + 12 = 36$$\n\nANSWER: 36"
+    },
+    {
+      "question": "What is the sum of the integers from 1 to 200?",
+      "expected": 20100,
+      "confidence": 100,
+      "parsed_answer": 20100,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo find the sum of the integers from 1 to 200, we use the formula for the sum of the first $n$ positive integers:\n$$S_n = \\frac{n(n+1)}{2}$$\n\nHere, $n = 200$. Substituting this value into the formula:\n$$S_{200} = \\frac{200(200 + 1)}{2}$$\n$$S_{200} = \\frac{200 \\times 201}{2}$$\n$$S_{200} = 100 \\times 201$$\n$$S_{200} = 20100$$\n\nANSWER: 20100"
+    },
+    {
+      "question": "What is 2^16?",
+      "expected": 65536,
+      "confidence": 100,
+      "parsed_answer": 65536,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 65536"
+    },
+    {
+      "question": "How many prime numbers are there below 100?",
+      "expected": 25,
+      "confidence": 100,
+      "parsed_answer": 25,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 25"
+    },
+    {
+      "question": "What is (123 + 456) * 7?",
+      "expected": 4053,
+      "confidence": 100,
+      "parsed_answer": 4053,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 4053"
+    },
+    {
+      "question": "What is 111 * 111?",
+      "expected": 12321,
+      "confidence": 100,
+      "parsed_answer": 12321,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo solve $111 \\times 111$, we can perform standard multiplication or use the pattern for squaring repunits (numbers consisting of repeated units):\n$1 \\times 1 = 1$\n$11 \\times 11 = 121$\n$111 \\times 111 = 12321$\n\nCalculation:\n  111\nx 111\n-----\n  111\n 1110\n11100\n-----\n12321\n\nANSWER: 12321"
+    },
+    {
+      "question": "What is 7 factorial (7!)?",
+      "expected": 5040,
+      "confidence": 100,
+      "parsed_answer": 5040,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo find the factorial of 7 (denoted as 7!), we multiply all positive integers from 1 up to 7:\n\n$$7! = 7 \\times 6 \\times 5 \\times 4 \\times 3 \\times 2 \\times 1$$\n\nCalculating step-by-step:\n1.  $1 \\times 2 = 2$\n2.  $2 \\times 3 = 6$\n3.  $6 \\times 4 = 24$\n4.  $24 \\times 5 = 120$\n5.  $120 \\times 6 = 720$\n6.  $720 \\times 7 = 5040$\n\nANSWER: 5040"
+    },
+    {
+      "question": "How many edges does a cube have?",
+      "expected": 12,
+      "confidence": 100,
+      "parsed_answer": 12,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nA cube is a three-dimensional solid object bounded by six square faces. To find the number of edges, we can visualize or count them directly. Each of the 6 faces has 4 sides, but since every edge is shared by exactly two adjacent faces, we calculate the total edges as $(6 \\times 4) / 2 = 12$. Alternatively, using Euler's formula for polyhedra ($V - E + F = 2$), where a cube has 8 vertices ($V$) and 6 faces ($F$), we get $8 - E + 6 = 2$, which simplifies to $14 - E = 2$, so $E = 12$.\n\nANSWER: 12"
+    },
+    {
+      "question": "In a group of 5 people where each pair shakes hands exactly once, how many handshakes occur?",
+      "expected": 10,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 502: Bad Gateway>"
+    },
+    {
+      "question": "A clock strikes the hour: once at 1:00, twice at 2:00, and so on. How many strikes in 12 hours?",
+      "expected": 78,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "How many zeros are at the end of 10 factorial (10!)?",
+      "expected": 2,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "What is the least common multiple of 24 and 60?",
+      "expected": 120,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "A rectangle's length is triple its width. Its perimeter is 64 cm. What is its width in cm?",
+      "expected": 8,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "How many months have 28 days?",
+      "expected": 12,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "A bat and ball cost $1.10 in total. The bat costs $1.00 more than the ball. How many cents does the ball cost?",
+      "expected": 5,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "You have 3 apples and you take away 2. How many apples do you have?",
+      "expected": 2,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "How many times does the digit 9 appear when writing out the integers from 1 to 100?",
+      "expected": 20,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "What is the 10th prime number?",
+      "expected": 29,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "A lily pad doubles in area every day and covers the whole lake on day 48. On which day was half the lake covered?",
+      "expected": 47,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "A farmer has 17 sheep. All but 9 die. How many sheep remain?",
+      "expected": 9,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "If 5 machines make 5 widgets in 5 minutes, how many minutes do 100 machines need to make 100 widgets?",
+      "expected": 5,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    }
+  ]
+}
