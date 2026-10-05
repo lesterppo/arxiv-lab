@@ -89,6 +89,45 @@ and env recipe are now proven end-to-end through step 3.
    An HF_TOKEN would cut this substantially (future work, needs Peter's
    token via secure entry).
 
+## Fast-download attempt (2026-10-05 ~23:20–23:55 HKT, kyu009009)
+
+Motivation: attempts 1–4 lost ~50 min each to throttled HF downloads. This
+attempt tested a parallel-download approach to fit the run into one session.
+
+**Download findings (all measured live):**
+9. `hf_transfer` is **deprecated** in current `huggingface_hub`
+   (FutureWarning: "not used anymore"); the replacement is `hf_xet`.
+10. `HF_XET_HIGH_PERFORMANCE=1` **OOM-kills a 12 GB Colab VM** (dmesg:
+    11 GB anon-rss, oom_kill on python3). Never use on T4 runtimes.
+11. Root cause of the slowness: `Qwen/Qwen3.5-9B` is stored on HF's **Xet**
+    backend — `/resolve/main/` redirects to signed `xet-bridge-us` CDN URLs.
+    The default Python client crawls (~6 MB/s); parallel segmented fetch
+    flies.
+12. **Working fix: `aria2c -j 4 -x 8 -s 8 -k 1M`** (apt-installed), one
+    process per safetensors shard with explicit `-o` filenames, small files
+    via curl. Result: **~19 GB in ~12 min (~27 MB/s sustained, 112–160 MB/s
+    peaks)** — 4× faster than the throttled client. Streams to disk,
+    negligible RAM. (Caveat: multi-`-o` in one aria2c invocation mislabels
+    files — one shard initially saved under a hash name and tokenizer.json
+    got clobbered by index content; per-file invocations with explicit `-o`
+    are reliable. Always re-verify small JSON files parse.)
+13. Driver now supports `MODEL_DIR` env override (local path short-circuits
+    the Hub probe) and prints `MODEL_LOAD_DONE dl_time_min=...`.
+
+| Arm | Outcome |
+|---|---|
+| GRPO, attempt 5 (kyu009009, authorized fallback) | Deps ~1 min; aria2c
+  download ~12 min; model load 427/427 in 69 s (`MODEL_LOAD_DONE
+  dl_time_min=1.2`). **Session reclaimed ~25 min in**, during held-out
+  BEFORE eval — no step lines, nothing recoverable. |
+
+**Verdict: BLOCKED on both claims** (unchanged). The download problem is now
+solved (12 min vs 50 min), but the binding constraint moved: 12 GRPO steps
+need ~60 min/arm (≈5 min/step measured), and free-tier sessions tonight die
+in 25–75 min. Both authorized accounts are exhausted. Realistic paths
+forward: (a) Drive-checkpointed resume across sessions (soup-daily-finetune
+pattern); (b) Colab Pro; (c) reduced step count (weaker evidence).
+
 **Verdict: BLOCKED on both claims** (performance parity, memory savings) —
 zero training steps completed, so there is no evidence for or against the
 paper. The single real datapoint: base `Qwen/Qwen3.5-9B` scores 0.250 greedy
