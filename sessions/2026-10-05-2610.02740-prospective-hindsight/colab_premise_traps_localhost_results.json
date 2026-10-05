@@ -1,0 +1,91 @@
+{
+  "summary": {
+    "model": "qwen3.5:9b",
+    "n_questions": 8,
+    "n_graded": 7,
+    "accuracy": 1.0,
+    "ECE_10bin": 0.0,
+    "mean_confidence": 100.0,
+    "overconfident_failure_rate": null,
+    "mean_surprise": 0.0,
+    "surprise_quartiles": {
+      "q1": 0.0,
+      "median": 0.0,
+      "q3": 0.0
+    }
+  },
+  "samples": [
+    {
+      "question": "How many months have 28 days?",
+      "expected": 12,
+      "confidence": 100,
+      "parsed_answer": 12,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nThis is a classic riddle. While February is the only month with exactly 28 days (or 29 in a leap year), every other month has at least 28 days (ranging from 30 or 31). Therefore, all months contain a 28th day. Since there are 12 months in a year, all of them have 28 days.\n\nANSWER: 12"
+    },
+    {
+      "question": "A bat and ball cost $1.10 in total. The bat costs $1.00 more than the ball. How many cents does the ball cost?",
+      "expected": 5,
+      "confidence": 100,
+      "parsed_answer": 5,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nLet the cost of the ball be $x$ dollars.\nThe bat costs $1.00 more than the ball, so the bat costs $(x + 1)$ dollars.\nThe total cost is $1.10$.\n\nEquation:\n$x + (x + 1) = 1.10$\n$2x + 1 = 1.10$\n$2x = 0.10$\n$x = 0.05$\n\nThe ball costs $0.05, which is 5 cents.\n\nANSWER: 5"
+    },
+    {
+      "question": "You have 3 apples and you take away 2. How many apples do you have?",
+      "expected": 2,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: TimeoutError: timed out>"
+    },
+    {
+      "question": "How many times does the digit 9 appear when writing out the integers from 1 to 100?",
+      "expected": 20,
+      "confidence": 100,
+      "parsed_answer": 20,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo find how many times the digit 9 appears in the integers from 1 to 100, we can count its occurrences in the units place and the tens place separately.\n\n1.  **Units Place:** The digit 9 appears in the units place for every tenth number starting from 9.\n    *   9, 19, 29, 39, 49, 59, 69, 79, 89, 99.\n    *   This gives us **10** occurrences.\n\n2.  **Tens Place:** The digit 9 appears in the tens place for numbers from 90 to 99.\n    *   90, 91, 92, 93, 94, 95, 96, 97, 98, 99.\n    *   This gives us **10** occurrences.\n\n3.  **Total:** Adding the counts from both places (noting that 99 is counted in both lists, once for each digit position), we get $10 + 10 = 20$.\n\nANSWER: 20"
+    },
+    {
+      "question": "What is the 10th prime number?",
+      "expected": 29,
+      "confidence": 100,
+      "parsed_answer": 29,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 29"
+    },
+    {
+      "question": "A lily pad doubles in area every day and covers the whole lake on day 48. On which day was half the lake covered?",
+      "expected": 47,
+      "confidence": 100,
+      "parsed_answer": 47,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nThe lily pad doubles in area every day. This means that the area covered on any given day is exactly twice the area covered the previous day. Conversely, the area covered one day prior to being fully covered must be half of the total area. Since the lake is fully covered on day 48, it must have been half covered on the immediately preceding day.\n\nANSWER: 47"
+    },
+    {
+      "question": "A farmer has 17 sheep. All but 9 die. How many sheep remain?",
+      "expected": 9,
+      "confidence": 100,
+      "parsed_answer": 9,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 9"
+    },
+    {
+      "question": "If 5 machines make 5 widgets in 5 minutes, how many minutes do 100 machines need to make 100 widgets?",
+      "expected": 5,
+      "confidence": 100,
+      "parsed_answer": 5,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nIf 5 machines produce 5 widgets in 5 minutes, we can determine the rate per machine. Since 5 machines make 5 widgets, each individual machine makes 1 widget in that same 5-minute period. Therefore, the production rate is independent of the number of machines (assuming they work simultaneously). If you have 100 machines, each will produce 1 widget in 5 minutes. Consequently, 100 machines will produce 100 widgets in 5 minutes.\n\nANSWER: 5"
+    }
+  ]
+}
