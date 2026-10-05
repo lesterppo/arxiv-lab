@@ -156,3 +156,21 @@ mid-run. Honestly recorded with results JSONs, not faked.
   (VM reclaimed). v2 harder-set re-run (same evening, cyc236de): 11/24
   graded, still all correct @100; the 8 reflection traps all died on the
   tunnel before being answered — discriminating items remain unmeasured.
+- Colab premise v3 (trap-only, same evening, cyc236de): 0/8 graded.
+  Tunnel died a third time (Cloudflare 1033, VM reclaimed mid-run); the run
+  script crashed on the empty graded list before writing output. Honestly
+  recorded in `colab_premise_traps_results.json`
+  (status: infrastructure_failure) — no model outputs were obtained,
+  nothing faked.
+
+## Verdict (final, across v1/v2/v3)
+
+The paper's overconfidence claim is **untestable with this setup, not
+refuted**. 25 graded samples across v1+v2: the 9B model was always correct
+at confidence 100 — perfect calibration on those items, but a pure ceiling
+effect; no question ever probed the competence boundary. The 8
+cognitive-reflection traps (the items actually designed to elicit confident
+failures) never got a clean run in three attempts — free-tier tunnel/VM
+flakiness killed all three runs. What *would* discriminate: the trap set
+(`colab_premise_traps.py`) against a longer-lived endpoint (paid tier or
+local GPU), or harder items at the model's true uncertainty boundary.
