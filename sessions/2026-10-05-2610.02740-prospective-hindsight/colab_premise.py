@@ -54,7 +54,7 @@ ANS_RE = re.compile(r"ANSWER\s*:\s*(-?\d[\d,]*)")
 
 def generate(prompt, timeout=120):
     body = json.dumps({
-        "model": "qwen3.5-9b-q4",
+        "model": "qwen3.5:9b",
         "prompt": prompt,
         "stream": False,
         "options": {"temperature": 0.0},
@@ -114,7 +114,7 @@ def main():
     med = surprises[len(surprises) // 2]
     q3 = surprises[3 * len(surprises) // 4]
     summary = {
-        "model": "qwen3.5-9b-q4", "n_questions": len(PROBLEMS),
+        "model": "qwen3.5:9b", "n_questions": len(PROBLEMS),
         "n_graded": len(graded),
         "accuracy": round(acc, 4),
         "ECE_10bin": round(ece, 4),
