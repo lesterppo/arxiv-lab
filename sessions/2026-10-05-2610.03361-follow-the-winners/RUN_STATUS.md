@@ -24,6 +24,33 @@
 - Capacity thin tonight: backend-busy (cyc236de, ppoppo205, kyu009009 post-reclaim),
   gpu-unavailable (cyc236es, kyu008008).
 
+## Checkpoint-resume rebuild (2026-10-06 ~00:10 HKT, Peter-approved)
+Driver rewritten (534 lines, syntax-verified): aria2c self-provisioning,
+CKPT_EVERY=1 to /content/ckpt.pt (LoRA+optimizer+RNG+curve+replay+h_before),
+resume from /content/ckpt_resume.pt. Checkpoints mediated by orchestrator
+(Drive API 403 for colab-cli OAuth client — abandoned).
+Run IDs: ftw-grpo-20261005, ftw-ftw-20261005.
+
+## Resume PROVEN (2026-10-06 ~02:12 HKT)
+- ftw-r3 (cyc236ha): FRESH_START, heldout BEFORE=0.250, steps 1-2 (r=0.250,0.250),
+  CKPT_SAVED step=1,2. Checkpoint (168MB) downloaded to .ckpts/.
+- Deliberate kill test: stopped ftw-r3 mid-run.
+- ftw-r5 (cyc236ha): deps+weights (aria2c -x16: ~55MB/s peak, 19GB in ~6min),
+  checkpoint re-uploaded via 5×40MB split parts (single 168MB upload hits
+  network errors), reassembled to /content/ckpt_resume.pt.
+- Driver printed RESUMED_FROM_STEP=2 (FRESH_START=False). Resume path WORKS.
+- Note: transformers pip pulled 5.18.0 (no qwen3_5) — forced --upgrade to
+  5.19.0.dev0; bitsandbytes needed --upgrade to 0.50.2 (>=0.46.1 required).
+- Account verified cyc236ha before every mutating call; no external switches seen.
+- 2026-10-06 ~02:40 HKT: ftw-r5 reclaimed after steps 3-5 (r=0.417,0.083,0.417).
+  Step 4 ckpt secured (169MB); step 5 partial (4/5 parts). cyc236ha backend-busy
+  → fallback kyu009009 (1 authorized). ftw-r6: resumed from step 4.
+- 2026-10-06 ~03:00 HKT: ftw-r6 reclaimed after ~8 min (no new steps).
+  ftw-r7 (cyc236ha): resumed from step 4 (RESUMED_FROM_STEP=4 confirmed),
+  reclaimed after ~18 min.
+- 2026-10-06 ~03:30 HKT: both cyc236ha and kyu009009 backend-busy. Stopping.
+  GRPO: 5/12 steps complete. FTW: not started. Status: BLOCKED on capacity.
+
 ## To retry
 Parent: review driver fix, ensure EXCLUSIVE Colab account access (no concurrent
 switching), prefer off-peak. Recipe per arm: new session -> git-transformers deps
