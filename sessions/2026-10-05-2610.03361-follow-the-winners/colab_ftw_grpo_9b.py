@@ -1,5 +1,10 @@
 """
 FTW vs GRPO A/B on Qwen3.5-9B (NF4 QLoRA) — synthetic integer arithmetic.
+CHECKPOINT-RESUME version: saves a checkpoint to /content/ckpt.pt every
+2 steps. The orchestrator (host VM) downloads each checkpoint; on reclaim
+it uploads the latest one as /content/ckpt_resume.pt and the driver
+restores adapter / optimizer / RNG / curve / replay buffer and continues.
+Reclaims become annoying, not fatal.
 
 Paper: arXiv:2610.03361 "Follow the Winners: Conservative Policy Improvement
 with the Cross-Entropy Method for Critic-Free RFT".
@@ -20,34 +25,28 @@ Arms (same generation budget, same LR/LoRA/optimizer):
 Proxy limits (honest): synthetic multi-step arithmetic, NOT Sokoban/Search-R1;
 QLoRA (r=16) not full fine-tune; 12 update steps; binary-ish reward.
 
-Run on Colab T4 (driver runs ON the VM; no tunnel needed):
-  python3 colab.py new -s ftw-grpo --gpu T4
-  python3 colab.py exec -s ftw-grpo --timeout 900 --code "
-  import subprocess, sys
-  # NOTE (2026-10-05): transformers<5.0 does NOT recognize Qwen3.5's
-  # `qwen3_5` model type (ValueError on load). Working env verified live:
-  # transformers from git main + peft 0.21.0.
-  subprocess.run([sys.executable, '-m', 'pip', 'install', '-q',
-                  'git+https://github.com/huggingface/transformers.git',
-                  'peft==0.21.0', 'accelerate', 'bitsandbytes'], check=True)
-  subprocess.run([sys.executable, '-m', 'pip', 'uninstall', '-y', 'torchao'],
-                 check=True)
-  print('DEPS_OK')"
-  # NOTE: Qwen/Qwen3.5-9B-Instruct does NOT exist on the Hub (2026-10-05);
-  # Qwen/Qwen3.5-9B (base) is the working ID (driver probes both).
-  python3 colab.py upload -s ftw-grpo colab_ftw_grpo_9b.py /content/ftw_driver.py
-  python3 colab.py console -s ftw-grpo --cmd \
-    "FTW_MODE=grpo nohup python3 /content/ftw_driver.py > /content/run_grpo.log 2>&1 & echo LAUNCHED"
-  python3 colab.py logs -s ftw-grpo /content/run_grpo.log -n 30   # poll
-  python3 colab.py download -s ftw-grpo /content/ftw_grpo_results.json .
+Env (driver runs ON the Colab VM; no tunnel):
+  RUN_ID     : e.g. ftw-grpo-20261005 (printed in logs; orchestrator keys
+               checkpoints by it)
+  FTW_MODE   : grpo | ftw
+  MODEL_DIR  : optional local weights dir (skips download)
 
-Outputs: /content/ftw_<mode>_results.json, /content/ftw_<mode>_curve.csv
+Self-provisioning on startup:
+  1. Weights via aria2c (parallel segmented; skips if present).
+     (hf_transfer is deprecated; HF_XET_HIGH_PERFORMANCE OOMs 12GB VMs.)
+  2. Resume: if /content/ckpt_resume.pt exists, restore and continue.
+     Prints RESUMED_FROM_STEP=N or FRESH_START.
+
+Outputs: /content/ckpt.pt (every 2 steps), /content/ftw_<mode>_results.json,
+         /content/ftw_<mode>_curve.csv
 """
 import csv
+import json
 import math
 import os
 import random
 import re
+import subprocess
 import sys
 import time
 
@@ -56,6 +55,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from peft import LoraConfig, get_peft_model
 
 MODEL_CANDIDATES = ["Qwen/Qwen3.5-9B-Instruct", "Qwen/Qwen3.5-9B"]
+HF_REPO = "Qwen/Qwen3.5-9B"
 SEED = 11
 N_TRAIN = 48
 N_HELDOUT = 24
@@ -71,11 +71,112 @@ FTW_BATCH = 12
 BUF_CAP = 256
 ELITE_FRAC = 0.25
 ROLLOUT_TOKENS = 224
+# Checkpointing (every step: sessions die fast, minimize loss window)
+CKPT_EVERY = 1
+CKPT_PATH = "/content/ckpt.pt"
+RESUME_PATH = "/content/ckpt_resume.pt"
+WEIGHT_FILES = [
+    "model.safetensors-00001-of-00004.safetensors",
+    "model.safetensors-00002-of-00004.safetensors",
+    "model.safetensors-00003-of-00004.safetensors",
+    "model.safetensors-00004-of-00004.safetensors",
+    "model.safetensors.index.json",
+    "config.json",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "vocab.json",
+    "merges.txt",
+    "chat_template.jinja",
+]
 
 PROMPT_TMPL = ("Solve the problem. Show brief reasoning, then put the final "
                "integer answer in \\boxed{{}}.\nProblem: {q}")
 
 
+# ---------------------------------------------------------------- Weights
+def _has_weights(d):
+    return all(os.path.isfile(os.path.join(d, f)) for f in WEIGHT_FILES)
+
+
+def ensure_weights():
+    """Return a dir with the model files; aria2c-download if missing."""
+    d = os.environ.get("MODEL_DIR")
+    if d and _has_weights(d):
+        print(f"weights OK (MODEL_DIR): {d}", flush=True)
+        return d
+    d = "/content/weights"
+    if _has_weights(d):
+        print(f"weights OK (cached): {d}", flush=True)
+        return d
+    os.makedirs(d, exist_ok=True)
+    r = subprocess.run(["which", "aria2c"], capture_output=True)
+    if r.returncode != 0:
+        print("installing aria2...", flush=True)
+        subprocess.run(["apt-get", "install", "-y", "-q", "aria2"],
+                       check=True, stdout=subprocess.DEVNULL,
+                       stderr=subprocess.DEVNULL)
+    base = f"https://huggingface.co/{HF_REPO}/resolve/main/"
+    t_dl = time.time()
+    shards = [f for f in WEIGHT_FILES if f.endswith(".safetensors")]
+    small = [f for f in WEIGHT_FILES if not f.endswith(".safetensors")]
+    procs = []
+    for f in shards:
+        p = subprocess.Popen(
+            ["aria2c", "-x", "8", "-s", "8", "-k", "1M",
+             "-d", d, "-o", f, base + f],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        procs.append((f, p))
+    for f, p in procs:
+        rc = p.wait()
+        if rc != 0 or not os.path.isfile(os.path.join(d, f)):
+            raise RuntimeError(f"aria2c failed for {f} (rc={rc})")
+        print(f"weights: {f} OK", flush=True)
+    for f in small:
+        subprocess.run(["curl", "-sL", "-o", os.path.join(d, f), base + f],
+                       check=True)
+    for f in small:
+        if f.endswith(".json"):
+            json.load(open(os.path.join(d, f)))  # validate
+    total_gb = sum(os.path.getsize(os.path.join(d, f)) for f in shards) / 1e9
+    print(f"weights complete: {d} ({total_gb:.1f} GB shards, "
+          f"{(time.time()-t_dl)/60:.1f} min)", flush=True)
+    return d
+
+
+# ---------------------------------------------------------------- Checkpoint
+def save_checkpoint(step, run_id, mode, model, opt, curve, buf_lists,
+                    h_before, peak_so_far, wall_so_far, t0):
+    ckpt = {
+        "step": step,
+        "run_id": run_id,
+        "mode": mode,
+        "h_before": h_before,
+        "curve": curve,
+        "peak_gb_so_far": max(peak_so_far,
+                              torch.cuda.max_memory_allocated() / 1e9),
+        "wall_so_far_min": wall_so_far + (time.time() - t0) / 60,
+        "rng": {
+            "python": random.getstate(),
+            "torch": torch.get_rng_state(),
+            "cuda": torch.cuda.get_rng_state_all(),
+        },
+        "lora": {k: v.cpu() for k, v in model.state_dict().items()
+                 if "lora_" in k},
+        "opt": opt.state_dict(),
+        "buf": buf_lists,
+    }
+    torch.save(ckpt, CKPT_PATH)
+    mb = os.path.getsize(CKPT_PATH) / 1e6
+    print(f"CKPT_SAVED step={step} ({mb:.0f} MB) -> {CKPT_PATH}", flush=True)
+
+
+def load_resume_ckpt():
+    if not os.path.isfile(RESUME_PATH):
+        return None
+    return torch.load(RESUME_PATH, map_location="cpu", weights_only=False)
+
+
+# ---------------------------------------------------------------- Model / task (unchanged)
 def make_problems(n, seed):
     """Synthetic multi-step integer arithmetic; answers computed exactly."""
     rng = random.Random(seed)
@@ -220,9 +321,10 @@ def eval_heldout(model, tok, problems):
     return acc / len(problems)
 
 
-def train_grpo(model, tok, opt, problems, wr, fout):
-    curve = []
-    for s in range(STEPS):
+# ---------------------------------------------------------------- Training (checkpoint-aware)
+def train_grpo(model, tok, opt, problems, wr, fout, start_step, curve,
+               ckpt_fn):
+    for step in range(start_step, STEPS + 1):
         batch = random.sample(problems, GRPO_BATCH)
         rollouts, rewards_all = [], []
         for q, ans in batch:
@@ -253,20 +355,21 @@ def train_grpo(model, tok, opt, problems, wr, fout):
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         opt.step()
         mr = sum(rewards_all) / len(rewards_all)
-        curve.append({"step": s + 1, "mean_reward": round(mr, 4),
+        curve.append({"step": step, "mean_reward": round(mr, 4),
                       "loss": round(loss.item(), 4),
                       "n_rollouts": len(rollouts)})
-        wr.writerow([s + 1, round(mr, 4), round(loss.item(), 4)])
+        wr.writerow([step, round(mr, 4), round(loss.item(), 4)])
         fout.flush()
-        print(f"[grpo] step {s+1}/{STEPS} reward={mr:.3f} "
+        print(f"[grpo] step {step}/{STEPS} reward={mr:.3f} "
               f"loss={loss.item():.4f}", flush=True)
+        if step % CKPT_EVERY == 0 or step == STEPS:
+            ckpt_fn(step, curve, [])
     return curve
 
 
-def train_ftw(model, tok, opt, problems, wr, fout):
-    curve = []
-    buf = []  # CPU replay buffer: (pids_cpu, cids_cpu, reward)
-    for s in range(STEPS):
+def train_ftw(model, tok, opt, problems, wr, fout, start_step, curve, buf,
+              ckpt_fn):
+    for step in range(start_step, STEPS + 1):
         batch = random.sample(problems, FTW_BATCH)
         rewards_all = []
         for q, ans in batch:
@@ -298,55 +401,108 @@ def train_ftw(model, tok, opt, problems, wr, fout):
         else:
             loss_v = float("nan")
         mr = sum(rewards_all) / len(rewards_all)
-        curve.append({"step": s + 1, "mean_reward": round(mr, 4),
+        curve.append({"step": step, "mean_reward": round(mr, 4),
                       "loss": round(loss_v, 4) if loss_v == loss_v else None,
                       "n_rollouts": len(batch),
                       "buf_size": len(buf), "n_winners": len(winners)})
-        wr.writerow([s + 1, round(mr, 4),
+        wr.writerow([step, round(mr, 4),
                      round(loss_v, 4) if loss_v == loss_v else "nan"])
         fout.flush()
-        print(f"[ftw] step {s+1}/{STEPS} reward={mr:.3f} buf={len(buf)} "
+        print(f"[ftw] step {step}/{STEPS} reward={mr:.3f} buf={len(buf)} "
               f"winners={len(winners)}/{k} loss={loss_v:.4f}", flush=True)
+        if step % CKPT_EVERY == 0 or step == STEPS:
+            ckpt_fn(step, curve, buf)
     return curve
 
 
+# ---------------------------------------------------------------- Main
 def main():
     import argparse
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=["grpo", "ftw"],
                     default=os.environ.get("FTW_MODE", "grpo"))
     args = ap.parse_args()
+    run_id = os.environ.get("RUN_ID", f"ftw-{args.mode}-20261005")
     t0 = time.time()
-    print(f"mode={args.mode} seed={SEED}", flush=True)
+    print(f"mode={args.mode} run_id={run_id} seed={SEED}", flush=True)
 
     train_p = make_problems(N_TRAIN, SEED)
     held_p = make_problems(N_HELDOUT, SEED + 1000)
     print(f"problems: {len(train_p)} train / {len(held_p)} heldout", flush=True)
 
-    t_dl = time.time()
+    # 1. weights (aria2c if needed)
+    weights_dir = ensure_weights()
+    os.environ["MODEL_DIR"] = weights_dir
+
+    # 2. resume?
+    ckpt = load_resume_ckpt()
+    if ckpt:
+        print(f"RESUMED_FROM_STEP={ckpt['step']}", flush=True)
+    else:
+        print("FRESH_START", flush=True)
+
+    # 3. model
+    t_ld = time.time()
     model, tok, opt, mid = load_model()
-    print(f"MODEL_LOAD_DONE dl_time_min={(time.time()-t_dl)/60:.1f}", flush=True)
+    print(f"MODEL_LOAD_DONE dl_time_min={(time.time()-t_ld)/60:.1f}", flush=True)
     torch.cuda.reset_peak_memory_stats()
 
-    h_before = eval_heldout(model, tok, held_p)
-    print(f"heldout BEFORE: {h_before:.3f}", flush=True)
+    # 4. restore state or fresh
+    if ckpt:
+        model.load_state_dict(ckpt["lora"], strict=False)
+        opt.load_state_dict(ckpt["opt"])
+        random.setstate(ckpt["rng"]["python"])
+        torch.set_rng_state(ckpt["rng"]["torch"])
+        torch.cuda.set_rng_state_all(ckpt["rng"]["cuda"])
+        curve = ckpt["curve"]
+        h_before = ckpt["h_before"]
+        peak_so_far = ckpt.get("peak_gb_so_far", 0)
+        wall_so_far = ckpt.get("wall_so_far_min", 0)
+        buf = [(torch.tensor(p).unsqueeze(0), torch.tensor(c).unsqueeze(0), r)
+               for p, c, r in ckpt.get("buf", [])]
+        start_step = ckpt["step"] + 1
+        print(f"restored: curve={len(curve)} steps, buf={len(buf)}, "
+              f"h_before={h_before:.3f}", flush=True)
+    else:
+        h_before = eval_heldout(model, tok, held_p)
+        print(f"heldout BEFORE: {h_before:.3f}", flush=True)
+        curve, buf, start_step = [], [], 1
+        peak_so_far, wall_so_far = 0, 0
 
+    # 5. train (or skip if already complete)
     csv_path = f"/content/ftw_{args.mode}_curve.csv"
     fout = open(csv_path, "w", newline="")
     wr = csv.writer(fout)
     wr.writerow(["step", "mean_reward", "loss"])
+    for e in curve:
+        wr.writerow([e["step"], e["mean_reward"],
+                     e["loss"] if e["loss"] is not None else "nan"])
+    fout.flush()
 
-    if args.mode == "grpo":
-        curve = train_grpo(model, tok, opt, train_p, wr, fout)
-        n_rollouts = STEPS * GRPO_BATCH * G
+    def ckpt_fn(step, curve_now, buf_now):
+        buf_lists = [(p[0].tolist(), c[0].tolist(), r)
+                     for p, c, r in buf_now]
+        save_checkpoint(step, run_id, args.mode, model, opt, curve_now,
+                        buf_lists, h_before, peak_so_far, wall_so_far, t0)
+
+    if start_step <= STEPS:
+        if args.mode == "grpo":
+            train_grpo(model, tok, opt, train_p, wr, fout,
+                       start_step, curve, ckpt_fn)
+            n_rollouts = STEPS * GRPO_BATCH * G
+        else:
+            train_ftw(model, tok, opt, train_p, wr, fout,
+                      start_step, curve, buf, ckpt_fn)
+            n_rollouts = STEPS * FTW_BATCH
     else:
-        curve = train_ftw(model, tok, opt, train_p, wr, fout)
-        n_rollouts = STEPS * FTW_BATCH
+        n_rollouts = STEPS * (GRPO_BATCH * G if args.mode == "grpo"
+                              else FTW_BATCH)
+        print("training already complete, skipping", flush=True)
     fout.close()
 
     h_after = eval_heldout(model, tok, held_p)
-    peak_gb = torch.cuda.max_memory_allocated() / 1e9
-    wall = time.time() - t0
+    peak_gb = max(peak_so_far, torch.cuda.max_memory_allocated() / 1e9)
+    wall = wall_so_far + (time.time() - t0) / 60
     print(f"heldout AFTER: {h_after:.3f} (delta {h_after-h_before:+.3f})",
           flush=True)
     print(f"peak VRAM: {peak_gb:.2f} GB | wall: {wall/60:.1f} min",
@@ -355,6 +511,7 @@ def main():
     results = {
         "paper": "arXiv:2610.03361",
         "mode": args.mode,
+        "run_id": run_id,
         "model_id": mid,
         "seed": SEED,
         "steps": STEPS,
@@ -369,7 +526,6 @@ def main():
         "wall_time_min": round(wall / 60, 1),
     }
     out = f"/content/ftw_{args.mode}_results.json"
-    import json
     json.dump(results, open(out, "w"), indent=1)
     print(f"RESULTS_OK {out}", flush=True)
 
