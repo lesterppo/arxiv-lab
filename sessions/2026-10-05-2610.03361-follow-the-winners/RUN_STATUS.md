@@ -48,3 +48,42 @@ switching), prefer off-peak. Recipe per arm: new session -> git-transformers dep
 - FTW arm still unstarted. Poll via exec+tail (logs cmd hangs under load).
 - Per task bounds: no further accounts tried. Teardown: server shows no
   active sessions. Active account left as cyc236ha per instruction.
+
+## Fast-download attempt (2026-10-05 ~22:45-23:25 HKT, cyc236ha, session ftw-fastdl)
+- KEY FINDING 1: `hf_transfer` is DEPRECATED in current huggingface_hub (FutureWarning:
+  "HF_HUB_ENABLE_HF_TRANSFER is deprecated as hf_transfer is not used anymore").
+  The documented replacement is `hf_xet` + `HF_XET_HIGH_PERFORMANCE=1`.
+- KEY FINDING 2: `HF_XET_HIGH_PERFORMANCE=1` OOM-KILLED the 12GB Colab VM (dmesg:
+  anon-rss 11GB, oom_kill_process on python3). Xet buffers aggressively in RAM.
+  DO NOT use high-performance Xet on 12GB VMs.
+- KEY FINDING 3 (the fix): `aria2c -j 4 -x 8 -s 8 -k 1M` against
+  huggingface.co/.../resolve/main/ URLs: 5.0GB in ~3 min (~28 MB/s sustained,
+  112 MB/s peaks). Full 19GB est. ~12 min (vs 50 min throttled before).
+  Streams to disk, negligible RAM. Install via `apt-get install -y aria2`.
+- Driver: added MODEL_DIR env override (local path short-circuits Hub probe)
+  + MODEL_LOAD_DONE timing print. Syntax verified.
+- Session LOST: ftw-fastdl unreachable after external agent activity
+  (token symlink switched to ppoppo205 4th time tonight; sessions.json registry
+  wiped to 0 entries at 15:11 UTC). `colab.py recover` re-attached the server
+  session but exec/status still return not-found. Aria2 download was at 5GB+
+  when contact lost. 7th account cyc236hk@gmail.com appeared (parent added).
+- Training-time math (from attempt 4): ~5 min/GRPO-step -> 12 steps ~= 60 min
+  per arm; both arms ~= 2h even with fast download. Exceeds typical free-tier
+  30-60 min lifetimes — this is now the binding constraint, not download.
+
+## Fast-download attempt 2 (2026-10-05 ~23:20-23:55 HKT, kyu009009, session ftw-k9)
+- Deps: transformers 5.19.0.dev0 + peft 0.21.0 + accelerate + bitsandbytes,
+  torchao uninstalled, aria2 1.37.0 (apt). ~1 min.
+- Download: 4 safetensors shards via 4 parallel aria2c (-x 8 -s 8 -k 1M,
+  explicit -o filenames) to /content/model/. ~19GB in ~12 min (~27 MB/s
+  sustained, 112-160 MB/s peaks). Small files via curl. NOTE: multi-`-o`
+  aria2c arg order is fragile — one shard initially saved under a hash name;
+  per-file aria2c invocations with explicit -o are reliable. tokenizer.json
+  got clobbered by the index content in the first attempt; re-downloaded clean.
+- GRPO arm launched 15:45:29 UTC with MODEL_DIR=/content/model (no Hub I/O).
+  Model load 427/427 in 69s. Then RECLAIMED ~25 min in (during heldout BEFORE
+  eval or step 1; no step lines observed). No results recoverable.
+- Download-speed verdict: PROVEN — aria2c is the fix (12 min vs 50 min).
+- Training verdict: still BLOCKED — 12 GRPO steps need ~60 min/arm; free-tier
+  sessions tonight die in 25-75 min. Both authorized accounts now exhausted
+  (cyc236ha: registry wipe; kyu009009: reclaim).
