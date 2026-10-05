@@ -58,13 +58,36 @@ normalized-advantage version is the faithful setting and the one reported.
 
 ### Colab premise validation (Qwen3.5-9B, `qwen3.5-9b-q4` via deploy.py)
 
-**BLOCKED — transient free-tier T4 capacity.** Three deploy attempts on the
+**BLOCKED (morning) — transient free-tier T4 capacity.** Three deploy attempts on the
 active account (kyu008008) all failed at step [1/6] "Creating session" with
 `gpu-unavailable` (subagent ×2 with a 5-min wait between, parent ×1 ~15 min
 later). No account switch was made (task constraints; cyc236es also showed
 transient `gpu-unavailable` earlier today). Nothing was deployed, nothing
 needed undeploying, no partial state. This matches the known free-tier
 instability pattern (2026-10-03 evening: 3 T4 sessions reclaimed in hours).
+
+**COMPLETED (evening, ~18:10–18:40 HKT) — INCONCLUSIVE.** After Peter
+confirmed 5 Colab accounts, deployed `qwen3.5-9b-q4` (Ollama tag
+`qwen3.5:9b`, Q4_K_M, ~7GB VRAM) on the first tried account **cyc236de**
+(T4, instant capacity; one runtime approval for session creation). Ran
+`colab_premise.py` (24 verifiable math questions; model states prospective
+confidence 0–100, then answers; grades retrospective correctness) against
+the tunnel endpoint. Results in `colab_premise_results.json`:
+
+- n_graded 14/24, accuracy **1.0**, ECE_10bin **0.0**, mean_confidence
+  **100.0**, overconfident_failure_rate **null** (no failures),
+  mean_surprise **0.0**
+- 10/24 lost to transient Cloudflare tunnel 502/530 errors; the tunnel
+  died entirely mid-run (error 1033) — Colab reclaimed the VM. Session
+  undeployed cleanly afterwards (server-side already gone).
+
+**Verdict on the premise: INCONCLUSIVE, not disconfirming.** The question
+set was too easy for the 9B model — 14/14 correct at confidence 100 means
+zero prediction-reality gaps to measure, so the premise cannot discriminate
+the paper's overconfidence claim either way. A discriminating premise needs
+questions hard enough to produce failures (e.g. multi-step word problems
+near the model's competence boundary). The endpoint, harness, and scoring
+all worked; the limitation is question difficulty, not infrastructure.
 
 **Not faked:** no premise numbers exist. The planned check (~24 verifiable
 math questions; model states prospective confidence 0–100 before solving;
@@ -74,13 +97,15 @@ overconfident-failure rate, per-sample surprise) is staged as
 `<out.json> <ollama-base-url>`. Re-run it against a fresh `qwen3.5-9b-q4`
 deploy when T4 capacity frees up.
 
-## Verdict: GREEN (mechanism) / BLOCKED (Colab premise)
+## Verdict: GREEN (mechanism) / INCONCLUSIVE (Colab premise)
 
 The PH primitive and its headline effect (miscalibration descends as a
 byproduct, return unharmed) reproduced on CPU across 3 seeds. The reusable
-mechanism graduated to `src/arxiv_lab/training/`. The Colab premise leg is
-honestly blocked on transient T4 capacity — recorded, not faked, with a
-ready driver for re-run.
+mechanism graduated to `src/arxiv_lab/training/`. The Colab premise leg ran
+on a real 9B endpoint (cyc236de T4) but is inconclusive: the 24-question set
+was too easy (14/14 correct at confidence 100 → no gaps to measure) and the
+tunnel died mid-run (10/24 lost to 502/530s, VM reclaimed). Honestly
+recorded with results JSON, not faked.
 
 ## Honest limits
 
@@ -93,5 +118,8 @@ ready driver for re-run.
 - Full GRPO-with-PH at the 9B class on Colab remains future work (needs a
   transformers-compatible 9B base + TRL GRPO on T4; bounded but not
   attempted in this daily run).
-- Colab premise leg blocked by transient T4 capacity (3 attempts,
-  `gpu-unavailable`); recorded honestly with a ready re-run driver.
+- Colab premise leg: morning blocked by transient T4 capacity (3 attempts,
+  `gpu-unavailable`); evening run on cyc236de completed 14/24 but is
+  inconclusive — questions too easy for 9B (ceiling), tunnel died mid-run
+  (VM reclaimed). A discriminating premise needs harder questions near the
+  model's competence boundary.
