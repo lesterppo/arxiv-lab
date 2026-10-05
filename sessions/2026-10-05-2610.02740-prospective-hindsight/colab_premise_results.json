@@ -1,0 +1,235 @@
+{
+  "summary": {
+    "model": "qwen3.5:9b",
+    "n_questions": 24,
+    "n_graded": 14,
+    "accuracy": 1.0,
+    "ECE_10bin": 0.0,
+    "mean_confidence": 100.0,
+    "overconfident_failure_rate": null,
+    "mean_surprise": 0.0,
+    "surprise_quartiles": {
+      "q1": 0.0,
+      "median": 0.0,
+      "q3": 0.0
+    }
+  },
+  "samples": [
+    {
+      "question": "What is 17 * 23?",
+      "expected": 391,
+      "confidence": 100,
+      "parsed_answer": 391,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo solve $17 \\times 23$:\n1.  Multiply 17 by 3: $17 \\times 3 = 51$.\n2.  Multiply 17 by 20: $17 \\times 20 = 340$.\n3.  Add the results together: $340 + 51 = 391$.\n\nANSWER: 391"
+    },
+    {
+      "question": "What is 456 + 789?",
+      "expected": 1245,
+      "confidence": 100,
+      "parsed_answer": 1245,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 1245"
+    },
+    {
+      "question": "What is 1000 - 377?",
+      "expected": 623,
+      "confidence": 100,
+      "parsed_answer": 623,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 623"
+    },
+    {
+      "question": "What is 12^3 (12 cubed)?",
+      "expected": 1728,
+      "confidence": 100,
+      "parsed_answer": 1728,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo find $12^3$, we calculate $12 \\times 12 \\times 12$.\nFirst, $12 \\times 12 = 144$.\nNext, multiply the result by 12 again: $144 \\times 12$.\n$144 \\times 10 = 1440$\n$144 \\times 2 = 288$\n$1440 + 288 = 1728$.\n\nANSWER: 1728"
+    },
+    {
+      "question": "What is 15 * 15 * 2?",
+      "expected": 450,
+      "confidence": 100,
+      "parsed_answer": 450,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo solve the problem $15 \\times 15 \\times 2$:\n\n1.  First, calculate $15 \\times 15 = 225$.\n2.  Next, multiply the result by 2: $225 \\times 2 = 450$.\n\nAlternatively, you can multiply $15 \\times 2$ first to get $30$, then calculate $15 \\times 30 = 450$.\n\nANSWER: 450"
+    },
+    {
+      "question": "A train travels 60 km/h for 3.5 hours. How many km?",
+      "expected": 210,
+      "confidence": 100,
+      "parsed_answer": 210,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo find the distance traveled, use the formula:\n$$ \\text{Distance} = \\text{Speed} \\times \\text{Time} $$\n\nGiven:\n*   Speed = $60 \\text{ km/h}$\n*   Time = $3.5 \\text{ hours}$\n\nCalculation:\n$$ 60 \\times 3.5 = 210 $$\n\nANSWER: 210"
+    },
+    {
+      "question": "What is the sum of the integers from 1 to 50?",
+      "expected": 1275,
+      "confidence": 100,
+      "parsed_answer": 1275,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo find the sum of the integers from 1 to 50, we use the formula for the sum of an arithmetic series:\n$$S_n = \\frac{n(n+1)}{2}$$\nwhere $n = 50$.\n\nSubstituting the value of $n$:\n$$S_{50} = \\frac{50(50+1)}{2}$$\n$$S_{50} = \\frac{50 \\times 51}{2}$$\n$$S_{50} = 25 \\times 51$$\n$$S_{50} = 1275$$\n\nANSWER: 1275"
+    },
+    {
+      "question": "A box has 8 rows of 12 eggs. A shopper takes 17 eggs. How many remain?",
+      "expected": 79,
+      "confidence": 100,
+      "parsed_answer": 79,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 79"
+    },
+    {
+      "question": "What is 2^10 + 2^8?",
+      "expected": 1280,
+      "confidence": 100,
+      "parsed_answer": 1280,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo solve the problem $2^{10} + 2^8$:\n\n1.  Calculate $2^{10}$:\n    $2^{10} = 1024$\n2.  Calculate $2^8$:\n    $2^8 = 256$\n3.  Add the two values together:\n    $1024 + 256 = 1280$\n\nAlternatively, factor out $2^8$:\n$2^{10} + 2^8 = 2^8(2^2 + 1) = 256(4 + 1) = 256 \\times 5 = 1280$.\n\nANSWER: 1280"
+    },
+    {
+      "question": "A rectangle is 14 cm by 9 cm. What is its area in cm^2?",
+      "expected": 126,
+      "confidence": 100,
+      "parsed_answer": 126,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo find the area of a rectangle, multiply its length by its width.\nArea = $14 \\text{ cm} \\times 9 \\text{ cm}$\n$14 \\times 9 = 126$\n\nANSWER: 126"
+    },
+    {
+      "question": "What is 7 * 8 * 9?",
+      "expected": 504,
+      "confidence": 100,
+      "parsed_answer": 504,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo solve the problem $7 \\times 8 \\times 9$:\n1. First, multiply 7 by 8: $7 \\times 8 = 56$.\n2. Next, multiply the result by 9: $56 \\times 9$.\n   - $50 \\times 9 = 450$\n   - $6 \\times 9 = 54$\n   - $450 + 54 = 504$\n\nANSWER: 504"
+    },
+    {
+      "question": "A phone costs $480, on sale at 25% off. What is the sale price in dollars?",
+      "expected": 360,
+      "confidence": 100,
+      "parsed_answer": 360,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 360"
+    },
+    {
+      "question": "What is the 12th Fibonacci number, with F1=1, F2=1?",
+      "expected": 144,
+      "confidence": 100,
+      "parsed_answer": 144,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\n\nTo find the 12th Fibonacci number ($F_{12}$) given $F_1 = 1$ and $F_2 = 1$, we calculate each subsequent term by adding the previous two terms ($F_n = F_{n-1} + F_{n-2}$):\n\n*   $F_1 = 1$\n*   $F_2 = 1$\n*   $F_3 = 1 + 1 = 2$\n*   $F_4 = 1 + 2 = 3$\n*   $F_5 = 2 + 3 = 5$\n*   $F_6 = 3 + 5 = 8$\n*   $F_7 = 5 + 8 = 13$\n*   $F_8 = 8 + 13 = 21$\n*   $F_9 = 13 + 21 = 34$\n*   $F_{10} = 21 + 34 = 55$\n*   $F_{11} = 34 + 55 = 89$\n*   $F_{12} = 55 + 89 = 144$\n\nANSWER: 144"
+    },
+    {
+      "question": "What is 999 * 101?",
+      "expected": 100899,
+      "confidence": 100,
+      "parsed_answer": 100899,
+      "correct": true,
+      "surprise": 0.0,
+      "raw": "CONFIDENCE: 100\nANSWER: 100899"
+    },
+    {
+      "question": "If you roll a fair 6-sided die, how many possible outcomes?",
+      "expected": 6,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 502: Bad Gateway>"
+    },
+    {
+      "question": "What is the least common multiple of 12 and 18?",
+      "expected": 36,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "A clock shows 3:40. How many minutes until 5:00?",
+      "expected": 80,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "What is 3^5?",
+      "expected": 243,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "A runner does 5 laps of a 400 m track. How many meters total?",
+      "expected": 2000,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "What is the perimeter of a square with side 23 cm?",
+      "expected": 92,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "A jar has 3 red, 5 blue, 2 green marbles. How many marbles total?",
+      "expected": 10,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "What is 11 * 11 * 11?",
+      "expected": 1331,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "A pizza cut into 8 slices; 3 people eat 2 slices each. How many slices left?",
+      "expected": 2,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    },
+    {
+      "question": "What is 45 + 67 + 89?",
+      "expected": 201,
+      "confidence": null,
+      "parsed_answer": null,
+      "correct": false,
+      "surprise": null,
+      "raw": "<ERROR: HTTPError: HTTP Error 530: <none>>"
+    }
+  ]
+}
