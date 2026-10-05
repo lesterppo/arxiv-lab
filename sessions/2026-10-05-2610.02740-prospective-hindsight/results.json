@@ -1,0 +1,60 @@
+{
+  "paper": "2610.02740",
+  "date": "2026-10-05",
+  "track": "training (CPU mechanism test, this VM + Colab premise validation)",
+  "cpu_mechanism": {
+    "setup": "contextual bandit, 3 arms, shared feature extractor between policy head and prospective value head (co-evolution), GRPO-style batch-normalized advantages, 6000 rounds, batch 32, lam=1.5, seeds 11/23/37",
+    "seed_11": {
+      "base": {
+        "return": 0.692,
+        "ece": 0.241,
+        "miscal": 0.453
+      },
+      "ph": {
+        "return": 0.722,
+        "ece": 0.22,
+        "miscal": 0.444
+      }
+    },
+    "seed_23": {
+      "base": {
+        "return": 0.77,
+        "ece": 0.227,
+        "miscal": 0.418
+      },
+      "ph": {
+        "return": 0.802,
+        "ece": 0.23,
+        "miscal": 0.411
+      }
+    },
+    "seed_37": {
+      "base": {
+        "return": 0.655,
+        "ece": 0.284,
+        "miscal": 0.436
+      },
+      "ph": {
+        "return": 0.685,
+        "ece": 0.288,
+        "miscal": 0.434
+      }
+    },
+    "mean_miscalibration_change": -0.0061,
+    "mean_return_change": 0.0309,
+    "seeds_improved_miscal": "3/3",
+    "seeds_no_worse_return": "3/3"
+  },
+  "colab_premise": {
+    "status": "BLOCKED",
+    "attempts": [
+      "subagent attempt 1: deploy.py deploy --model qwen3.5-9b-q4 --gpu T4 --session arxiv-ph-20261005 -> gpu-unavailable at step [1/6]",
+      "subagent attempt 2 (after ~5 min wait): identical gpu-unavailable; stale local session entry pruned, server shows no active sessions",
+      "parent attempt 3 (~15 min later): identical gpu-unavailable"
+    ],
+    "account": "kyu008008 (active; no account switch per task constraints; cyc236es also showed transient gpu-unavailable earlier 2026-10-05)",
+    "numbers_measured": null,
+    "driver_staged": "colab_premise.py (stdlib-only urllib; 24 invented integer-answer math problems; CONFIDENCE 0-100 then ANSWER; computes accuracy, 10-bin ECE, mean confidence, overconfident-failure rate conf>=70 on wrong, surprise=|conf/100-correctness| mean+quartiles; argv: <out.json> <ollama-base-url>)",
+    "note": "Transient free-tier T4 capacity exhaustion (same pattern as 2026-10-03 evening). Nothing deployed, nothing to undeploy, no partial state. Re-run colab_premise.py against a fresh qwen3.5-9b-q4 deploy when capacity frees up."
+  }
+}
