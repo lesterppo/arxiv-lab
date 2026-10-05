@@ -89,6 +89,35 @@ questions hard enough to produce failures (e.g. multi-step word problems
 near the model's competence boundary). The endpoint, harness, and scoring
 all worked; the limitation is question difficulty, not infrastructure.
 
+**v2 re-run (same evening, ~18:35–18:50 HKT) — harder set, still
+INCONCLUSIVE.** After Peter approved a harder re-run, redeployed
+`qwen3.5-9b-q4` on **cyc236de** (fresh session `premise-hard`; the deploy's
+runtime approval gate fired again and was approved). New driver
+`colab_premise_hard.py`: 16 harder computation items (47×83, 17³,
+GCD/LCM, 2¹⁶, primes<100, clock-strike sums, trailing zeros of 10!,
+handshakes) + 8 classic cognitive-reflection traps (months-with-28-days,
+bat-and-ball, lily pads, digit-9 counting, 10th prime, apple takeaway) —
+all answers verified integers. Results in `colab_premise_hard_results.json`:
+
+- n_graded 11/24, accuracy **1.0**, ECE_10bin **0.0**, mean_confidence
+  **100.0**, overconfident_failure_rate **null**, mean_surprise **0.0**
+- 13/24 lost to transient tunnel 502/530s; the tunnel died again and Colab
+  reclaimed the VM mid-run (session auto-pruned locally afterwards)
+- All 11 graded items were computation questions — answered correctly at
+  confidence 100. **The 8 reflection traps never got a clean shot** (all
+  errored on the dead tunnel), so the discriminating part of v2 is
+  untested, not failed.
+
+**Verdict on v2: still INCONCLUSIVE.** Harder arithmetic still ceilinged;
+the traps — the items most likely to expose overconfident failures —
+remain unmeasured. The pattern across both runs: a 9B instruct model at
+temperature 0 states confidence 100 and is right on everything it answers,
+so this single-turn confidence-elicitation format cannot produce the
+prediction-reality gaps the paper's claim needs. Either the premise needs
+genuinely adversarial items (trick wording, multi-hop traps at the
+competence boundary) in a short trap-only run, or the overconfidence mode
+the paper targets doesn't manifest in this elicitation format at 9B.
+
 **Not faked:** no premise numbers exist. The planned check (~24 verifiable
 math questions; model states prospective confidence 0–100 before solving;
 grade retrospective correctness; accuracy, ECE, mean confidence,
@@ -102,10 +131,13 @@ deploy when T4 capacity frees up.
 The PH primitive and its headline effect (miscalibration descends as a
 byproduct, return unharmed) reproduced on CPU across 3 seeds. The reusable
 mechanism graduated to `src/arxiv_lab/training/`. The Colab premise leg ran
-on a real 9B endpoint (cyc236de T4) but is inconclusive: the 24-question set
-was too easy (14/14 correct at confidence 100 → no gaps to measure) and the
-tunnel died mid-run (10/24 lost to 502/530s, VM reclaimed). Honestly
-recorded with results JSON, not faked.
+twice on real 9B endpoints (cyc236de T4) but is inconclusive both times:
+v1's 24-question set was too easy (14/14 correct at confidence 100 → no
+gaps to measure); v2's harder set still ceilinged on the 11 graded items
+(all computation, all correct @100) while the 8 reflection traps — the
+discriminating items — all died on the tunnel before being answered. Both
+runs lost samples to free-tier tunnel flakiness and had their VMs reclaimed
+mid-run. Honestly recorded with results JSONs, not faked.
 
 ## Honest limits
 
@@ -119,7 +151,8 @@ recorded with results JSON, not faked.
   transformers-compatible 9B base + TRL GRPO on T4; bounded but not
   attempted in this daily run).
 - Colab premise leg: morning blocked by transient T4 capacity (3 attempts,
-  `gpu-unavailable`); evening run on cyc236de completed 14/24 but is
+  `gpu-unavailable`); evening v1 run on cyc236de completed 14/24 but
   inconclusive — questions too easy for 9B (ceiling), tunnel died mid-run
-  (VM reclaimed). A discriminating premise needs harder questions near the
-  model's competence boundary.
+  (VM reclaimed). v2 harder-set re-run (same evening, cyc236de): 11/24
+  graded, still all correct @100; the 8 reflection traps all died on the
+  tunnel before being answered — discriminating items remain unmeasured.
