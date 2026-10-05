@@ -162,15 +162,63 @@ mid-run. Honestly recorded with results JSONs, not faked.
   recorded in `colab_premise_traps_results.json`
   (status: infrastructure_failure) — no model outputs were obtained,
   nothing faked.
+- Colab premise v4 (trap-only, on-VM localhost, cyc236de — no tunnel):
+  7/8 graded, all correct @100. The traps failed to trap: the model is a
+  thinking model and reasons through each one. The one ungraded item (apple
+  question) was a client-side 120 s timeout, not a model failure.
 
-## Verdict (final, across v1/v2/v3)
+## Verdict (final, across v1/v2/v3/v4)
 
-The paper's overconfidence claim is **untestable with this setup, not
-refuted**. 25 graded samples across v1+v2: the 9B model was always correct
-at confidence 100 — perfect calibration on those items, but a pure ceiling
-effect; no question ever probed the competence boundary. The 8
-cognitive-reflection traps (the items actually designed to elicit confident
-failures) never got a clean run in three attempts — free-tier tunnel/VM
-flakiness killed all three runs. What *would* discriminate: the trap set
-(`colab_premise_traps.py`) against a longer-lived endpoint (paid tier or
-local GPU), or harder items at the model's true uncertainty boundary.
+The paper's overconfidence claim is **not supported by this test, and the
+test now had a fair shot**. v4 ran the 8 cognitive-reflection traps — items
+specifically designed to elicit confident-but-wrong answers — directly
+on-VM over `http://localhost:11434`, with no Cloudflare tunnel involved
+(client uploaded via `colab.py upload`, executed via `colab.py console`,
+traffic stayed on the VM's loopback the entire run). Result: 7/8 graded
+(the 8th, the apple question, exceeded the client's 120 s per-call timeout
+on the VM — recorded, not faked), and the 7 graded were **all correct at
+confidence 100** — bat-and-ball, lily pad, sheep, 28-day months, digit-9
+count, 10th prime, machines/widgets. Zero overconfident failures.
+
+Key methodological finding: `qwen3.5:9b` is a **thinking model** — it
+emits its chain-of-thought into Ollama's separate `thinking` field and
+only then writes the final answer into `response` (confirmed on-VM:
+with a tiny `num_predict` the response is empty while `thinking` fills).
+The classic traps are designed to punish fast System-1-style responders;
+a model that reasons explicitly before answering solves them and states
+100 with justification. Across v1–v4: 32 graded samples, every one
+correct at confidence 100, ECE 0.0 throughout.
+
+So: on this 9B thinking model, the single-turn confidence-elicitation
+premise cannot produce prediction-reality gaps — the phenomenon the
+paper studies (overconfident failure) does not manifest here. This does
+**not** refute the paper (it may hold for non-reasoning models, or for
+harder items at the true uncertainty boundary), but it is a clean
+negative for the premise as designed: no support either way, honestly
+recorded across four runs (`colab_premise_results.json`,
+`colab_premise_hard_results.json`, `colab_premise_traps_results.json`,
+`colab_premise_traps_localhost_results.json`).
+
+## Colab premise v4 (localhost, no tunnel — this run)
+
+- Method: trap script uploaded to the VM (`/tmp/traps.py`), executed
+  on-VM via `colab.py console --cmd`, BASE_URL `http://localhost:11434`
+  — zero Cloudflare involvement, all LLM traffic on loopback.
+- Account/model: cyc236de T4, `qwen3.5:9b` (Q4_K_M via Ollama), session
+  `premise-localhost` (fresh deploy, ~8 min incl. one runtime approval
+  gate for session creation, approved).
+- Per-trap outcomes (confidence → parsed/expected → correct):
+  - months-with-28-days: 100 → 12/12 ✓
+  - bat-and-ball: 100 → 5/5 ✓
+  - apples-takeaway-2: TIMEOUT (client-side 120 s limit; model was still
+    thinking) — ungraded, not a model error
+  - digit-9 1–100: 100 → 20/20 ✓
+  - 10th prime: 100 → 29/29 ✓
+  - lily pad day 48: 100 → 47/47 ✓
+  - sheep all-but-9: 100 → 9/9 ✓
+  - machines/widgets: 100 → 5/5 ✓
+- Summary: n_graded 7/8, accuracy 1.0, ECE_10bin 0.0,
+  mean_confidence 100.0, overconfident_failure_rate null,
+  mean_surprise 0.0.
+- Runtime: ~9.5 min for the 8 traps (thinking is slow on T4);
+  teardown clean.
