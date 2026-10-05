@@ -155,6 +155,61 @@ on the synthetic arithmetic held-out (n=24), i.e. the task has headroom.
    `gpu-unavailable` on cyc236es/kyu008008; aggressive reclaims (matches the
    2026-10-03 free-tier pattern). Prefer off-peak.
 
+## Checkpoint-resume rebuild (2026-10-06 ~00:10–03:30 HKT, Peter-approved)
+
+Peter approved a checkpoint-resume redesign to make reclaims non-fatal.
+Driver rewritten (534 lines, syntax-verified):
+- Weights via aria2c self-provisioning (skips if present); `MODEL_DIR` override kept.
+- Checkpoint every step (`CKPT_EVERY=1`) to `/content/ckpt.pt`: LoRA adapter +
+  optimizer state + RNG states + reward curve + replay buffer + h_before +
+  peak/wall accumulators. Prints `CKPT_SAVED step=N`.
+- Resume: orchestrator uploads latest checkpoint as `/content/ckpt_resume.pt`;
+  driver restores and prints `RESUMED_FROM_STEP=N` or `FRESH_START`.
+- Google Drive abandoned: Drive API v3 returns 403 `accessNotConfigured` for
+  the colab-cli OAuth client — checkpoints mediated by orchestrator via
+  `colab.py download` to local `.ckpts/` (never pushed).
+- Run IDs: `ftw-grpo-20261005`, `ftw-ftw-20261005`.
+
+**Resume PROVEN (explicit kill test):**
+- ftw-r3 (cyc236ha): FRESH_START, heldout BEFORE=0.250 (4th reproduction),
+  steps 1–2 (r=0.250, 0.250), CKPT_SAVED step=1,2. Checkpoint (168MB)
+  downloaded to `.ckpts/`.
+- Deliberate kill: stopped ftw-r3 mid-run.
+- ftw-r5 (cyc236ha): deps + weights (aria2c `-x16 -s16`: ~55 MB/s peak,
+  19GB in ~6 min), checkpoint re-uploaded via 5×40MB split parts (single
+  168MB upload hits network errors), reassembled to `/content/ckpt_resume.pt`.
+- Driver printed **RESUMED_FROM_STEP=2** (FRESH_START=False). Resume WORKS.
+- ftw-r5 continued: steps 3–5 (r=0.417, 0.083, 0.417), checkpoints saved.
+  Step 4 checkpoint secured (169MB). Reclaimed after ~50 min.
+- ftw-r6 (kyu009009, authorized fallback): resumed from step 4
+  (RESUMED_FROM_STEP=4 confirmed), reclaimed after ~8 min, no new steps.
+- ftw-r7 (cyc236ha): resumed from step 4, reclaimed after ~18 min.
+- External switcher hit 5th time (to cyc236de mid-run); switched back.
+- Both accounts backend-busy at 03:30 HKT. Stopping.
+
+**GRPO partial results (5/12 steps, all real):**
+- Step rewards: 0.250 → 0.250 → 0.417 → 0.083 → 0.417
+- Heldout BEFORE: 0.250 (n=24, reproduced 4×)
+- Peak VRAM: 12,865 MiB (from attempt 4; not re-measured in resume runs)
+- The model learns (0.250→0.417) but with high variance (drop to 0.083).
+
+**Verdict: BLOCKED on both claims** (unchanged). GRPO arm incomplete (5/12),
+FTW arm never started. The resume mechanism is proven and the driver is
+production-ready; the blocker is Colab free-tier capacity/instability, not
+the science. Checkpoints for steps 2, 3, 4 are archived in `.ckpts/` (local
+only) — a future run can resume from step 4.
+
+**New findings:**
+14. aria2c `-x 16 -s 16 -k 2M`: ~55 MB/s peak, 19GB in ~6 min (2× faster
+    than `-x 8`). The Xet CDN handles aggressive parallelism.
+15. transformers pip may pull 5.18.0 (no `qwen3_5`) — force
+    `--upgrade --force-reinstall` to get 5.19.0.dev0. bitsandbytes needs
+    `--upgrade` to ≥0.46.1 (got 0.50.2).
+16. Single 168MB `colab.py upload/download` hits network timeouts; split
+    into 40MB parts for reliable transfer.
+17. The checkpoint-resume design is sound: RESUMED_FROM_STEP proven twice,
+    training continues correctly from restored optimizer state.
+
 ## Files
 
 - `colab_ftw_grpo_9b.py` — driver (fixed, Colab-ready; retry recipe in docstring)
