@@ -144,6 +144,10 @@ def seq_logps(model, prompt_ids, comp_ids, no_grad=True):
 
 
 def pick_model_id():
+    local = os.environ.get("MODEL_DIR")
+    if local and os.path.isdir(local):
+        print(f"MODEL_ID_OK {local} (local dir)", flush=True)
+        return local
     for mid in MODEL_CANDIDATES:
         try:
             AutoTokenizer.from_pretrained(mid, trust_remote_code=True)
@@ -319,7 +323,9 @@ def main():
     held_p = make_problems(N_HELDOUT, SEED + 1000)
     print(f"problems: {len(train_p)} train / {len(held_p)} heldout", flush=True)
 
+    t_dl = time.time()
     model, tok, opt, mid = load_model()
+    print(f"MODEL_LOAD_DONE dl_time_min={(time.time()-t_dl)/60:.1f}", flush=True)
     torch.cuda.reset_peak_memory_stats()
 
     h_before = eval_heldout(model, tok, held_p)
