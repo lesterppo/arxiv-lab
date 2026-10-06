@@ -92,3 +92,70 @@ GPU-unavailable at provisioning — capacity lull). Qwen3-8B NF4/bf16,
   routing — hard top-k selection at inference is not exercised.
 - Synthetic specialties stand in for medical taxonomies; transfer to the
   `hermes-gi-egtkg-finetune` medical pipeline is prospective, not shown.
+
+## Smaller-model runs (2026-10-06 evening HKT, per Peter's direction)
+
+Qwen3-8B was SIGKILLed 5/5 at `from_pretrained` on the 12 GB T4 VM, so both
+arms were rerun on smaller models with identical task/hyperparams (450 train /
+150 test, 100 steps/arm, batch 4, lr 2e-4, NF4/bf16). The 8B LoRA baseline EM
+0.547 does **not** transfer — comparisons below are same-model only.
+
+### Qwen3-4B (`colab_arbor_4b.py` → `arbor_4b_results.json` / `arbor_4b_metrics.csv`)
+
+| arm | ARITH | REVERSE | CAESAR | overall |
+|-----|-------|---------|--------|---------|
+| LoRA r16 (run 1) | 1.00 | 0.24 | 0.12 | 0.453 |
+| LoRA r16 (run 2) | 1.00 | 0.30 | 0.16 | 0.487 |
+| ARBOR R32 | 1.00 | 0.18 | 0.10 | 0.427 |
+
+ARBOR − LoRA(mean) = **−4.3pp**. LoRA's own run-to-run variance was 3.4pp,
+so the gap is suggestive but not decisive at this scale.
+
+### Qwen3.5-4B (`colab_arbor_qwen35_4b.py` → `arbor_qwen35_4b_results.json` / `arbor_qwen35_4b_metrics.csv`)
+
+Qwen3.5-4B is multimodal (text tower: 32 layers, d=2560) with **hybrid
+attention** — only the full-attention layers carry q_proj/v_proj (the rest use
+linear-attention projections), so both adapters touch fewer modules than on
+Qwen3-4B: LoRA 1.8M params, ARBOR 4.0M. Needed transformers git main for the
+`qwen3_5` model type; text-config hidden size lives under
+`config.text_config`; embed path is `model.model.language_model.embed_tokens`.
+
+| arm | ARITH | REVERSE | CAESAR | overall |
+|-----|-------|---------|--------|---------|
+| LoRA r16 | 1.00 | 0.44 | 0.08 | 0.507 |
+| ARBOR R32 | 1.00 | 0.30 | 0.06 | 0.453 |
+
+ARBOR − LoRA = **−5.4pp**.
+
+### Verdict vs the paper's claim
+
+The paper reports ARBOR **+1.26pp over LoRA r16** on Qwen3-8B medical QA.
+At the 4B scale on this synthetic 3-specialty task, ARBOR underperforms LoRA
+in **both** families (−4.3pp on Qwen3-4B, −5.4pp on Qwen3.5-4B). The paper's
+edge does not replicate here. Possible reasons (not discriminated): the
+smaller model/task regime, the synthetic task's simplicity (ARITH saturates at
+1.00 for all arms), only 100 training steps, or the claim being specific to
+the 8B medical-QA setting.
+
+### Method bug found and fixed (worth upstreaming)
+
+The ARBOR adapter's `__init__` read `mod.weight.shape` to size its U/V
+matrices. On a bitsandbytes NF4 model, `Params4bit.weight.shape` returns the
+quantized **storage** shape `(1310720, 1)`, not the logical
+`(out_features, in_features)` — U/V came out 512× oversized and the process
+was OOM-killed at ~11.6 GB RSS inside the adapter constructor (dmesg
+confirmed; this masqueraded as Colab "reclaims" across 4 sessions). Fix: use
+`mod.out_features` / `mod.in_features`. Two companion fixes were needed to get
+the arm training: place U/V/W on the model device (was CPU vs CUDA mismatch)
+and run the adapter in bf16 (was fp32 vs bf16 mismatch). All three Colab
+scripts in this dir carry the fixes.
+
+### Honest limits
+
+- Smaller models (4B) stand in for the paper's 8B; the +1.26pp claim is an 8B
+  medical-QA result and was not re-tested at 8B (infra-blocked).
+- Synthetic 3-specialty task, 100 steps/arm — a smoke test, not a benchmark.
+- ARBOR ran once per family; LoRA variance (3.4pp across two Qwen3-4B runs)
+  means small deltas should not be over-read.
+- Colab free-tier volatility cost 4 sessions (reclaims) before the method bug
+  was identified; wall-clock for the 4B pair was ~2.5 h elapsed.
