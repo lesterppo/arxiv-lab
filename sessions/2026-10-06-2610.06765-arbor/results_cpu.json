@@ -1,0 +1,10 @@
+{
+ "K": 4,
+ "dim": 16,
+ "rank_per_task": 2,
+ "active_rank": 2,
+ "fixed_floor_mse": 0.0027057731232802695,
+ "conditional_mse": 1.525991501406969e-33,
+ "tag_perturbed_mse": 0.006541957251520007,
+ "routing_accuracy": "4/4"
+}
