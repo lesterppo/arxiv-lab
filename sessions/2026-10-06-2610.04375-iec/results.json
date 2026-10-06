@@ -1,0 +1,44 @@
+{
+ "n": 500,
+ "naive": {
+  "mutated": 300,
+  "wrong_action": 200,
+  "error": 100,
+  "ok": 200,
+  "by_class": {
+   "plain": {
+    "n": 100,
+    "mutated": 0
+   },
+   "code": {
+    "n": 100,
+    "mutated": 100
+   },
+   "longtext": {
+    "n": 100,
+    "mutated": 100
+   },
+   "envlike": {
+    "n": 100,
+    "mutated": 0
+   },
+   "pct": {
+    "n": 100,
+    "mutated": 100
+   }
+  },
+  "first_hop": {
+   "shell-quoting": 100,
+   "payload-cap": 100,
+   "proxy-normalize": 100
+  },
+  "misattribution_rate": 1.0,
+  "path_caused_failures": 300
+ },
+ "intact": {
+  "executed_intact": 400,
+  "mutated_executions": 0,
+  "refused": 100,
+  "retry_ok": 100
+ }
+}
