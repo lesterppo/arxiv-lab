@@ -1,0 +1,4 @@
+model,arm,run,overall_em,arith_em,reverse_em,caesar_em,final_loss,trainable_params
+Qwen/Qwen3-4B,lora,arbor-4b,0.4533,1.0,0.24,0.12,2.0798,5898240
+Qwen/Qwen3-4B,lora,arbor-4b-r2,0.4867,1.0,0.3,0.16,2.0745,5898240
+Qwen/Qwen3-4B,arbor,arbor-4b-dbg,0.4267,1.0,0.18,0.1,2.6774,12124256
