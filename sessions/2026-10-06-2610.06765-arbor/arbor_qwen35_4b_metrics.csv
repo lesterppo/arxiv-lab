@@ -1,0 +1,9 @@
+arm,specialty,em_accuracy
+lora,ARITH,1.0000
+lora,REVERSE,0.4400
+lora,CAESAR,0.0800
+lora,OVERALL,0.5067
+arbor,ARITH,1.0000
+arbor,REVERSE,0.3000
+arbor,CAESAR,0.0600
+arbor,OVERALL,0.4533
