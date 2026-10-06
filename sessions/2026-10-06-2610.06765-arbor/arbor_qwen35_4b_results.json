@@ -1,0 +1,37 @@
+{
+ "model": "Qwen/Qwen3.5-4B",
+ "seed": 7,
+ "n_train": 450,
+ "n_test": 150,
+ "steps": 100,
+ "batch": 4,
+ "lr": 0.0002,
+ "specialties": [
+  "ARITH",
+  "REVERSE",
+  "CAESAR"
+ ],
+ "lora": {
+  "per_specialty": {
+   "ARITH": 1.0,
+   "REVERSE": 0.44,
+   "CAESAR": 0.08
+  },
+  "overall": 0.5066666666666667,
+  "final_loss": 1.7580053806304932,
+  "trainable_params": 1835008,
+  "seconds": 311.3302047252655
+ },
+ "arbor": {
+  "per_specialty": {
+   "ARITH": 1.0,
+   "REVERSE": 0.3,
+   "CAESAR": 0.06
+  },
+  "overall": 0.4533333333333333,
+  "final_loss": 2.165926694869995,
+  "trainable_params": 3997792,
+  "seconds": 316.8544156551361
+ },
+ "total_seconds": 1061.1634647846222
+}
