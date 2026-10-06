@@ -1,0 +1,114 @@
+{
+ "paper": "arXiv:2610.03361",
+ "mode": "ftw",
+ "run_id": "ftw-ftw-20261005",
+ "model_id": "/content/weights",
+ "seed": 11,
+ "steps": 12,
+ "n_train": 48,
+ "n_heldout": 24,
+ "n_rollouts": 144,
+ "curve": [
+  {
+   "step": 1,
+   "mean_reward": 0.0833,
+   "loss": 0.0926,
+   "n_rollouts": 12,
+   "buf_size": 12,
+   "n_winners": 1
+  },
+  {
+   "step": 2,
+   "mean_reward": 0.25,
+   "loss": 0.0916,
+   "n_rollouts": 12,
+   "buf_size": 24,
+   "n_winners": 4
+  },
+  {
+   "step": 3,
+   "mean_reward": 0.1667,
+   "loss": 0.0883,
+   "n_rollouts": 12,
+   "buf_size": 36,
+   "n_winners": 6
+  },
+  {
+   "step": 4,
+   "mean_reward": 0.0833,
+   "loss": 0.0852,
+   "n_rollouts": 12,
+   "buf_size": 48,
+   "n_winners": 7
+  },
+  {
+   "step": 5,
+   "mean_reward": 0.1667,
+   "loss": 0.0831,
+   "n_rollouts": 12,
+   "buf_size": 60,
+   "n_winners": 9
+  },
+  {
+   "step": 6,
+   "mean_reward": 0.4167,
+   "loss": 0.0971,
+   "n_rollouts": 12,
+   "buf_size": 72,
+   "n_winners": 14
+  },
+  {
+   "step": 7,
+   "mean_reward": 0.3333,
+   "loss": 0.0926,
+   "n_rollouts": 12,
+   "buf_size": 84,
+   "n_winners": 18
+  },
+  {
+   "step": 8,
+   "mean_reward": 0.4167,
+   "loss": 0.0836,
+   "n_rollouts": 12,
+   "buf_size": 96,
+   "n_winners": 23
+  },
+  {
+   "step": 9,
+   "mean_reward": 0.75,
+   "loss": 0.0823,
+   "n_rollouts": 12,
+   "buf_size": 108,
+   "n_winners": 27
+  },
+  {
+   "step": 10,
+   "mean_reward": 0.5833,
+   "loss": 0.0806,
+   "n_rollouts": 12,
+   "buf_size": 120,
+   "n_winners": 30
+  },
+  {
+   "step": 11,
+   "mean_reward": 0.75,
+   "loss": 0.0803,
+   "n_rollouts": 12,
+   "buf_size": 132,
+   "n_winners": 33
+  },
+  {
+   "step": 12,
+   "mean_reward": 0.5833,
+   "loss": 0.0755,
+   "n_rollouts": 12,
+   "buf_size": 144,
+   "n_winners": 36
+  }
+ ],
+ "heldout_before": 0.25,
+ "heldout_after": 0.75,
+ "heldout_delta": 0.5,
+ "peak_vram_gb": 13.6,
+ "wall_time_min": 1.8
+}
