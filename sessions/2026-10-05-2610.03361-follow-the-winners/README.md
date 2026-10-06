@@ -3,8 +3,7 @@
 **Paper:** https://arxiv.org/abs/2610.03361 — "Follow the Winners: Conservative
 Policy Improvement with the Cross-Entropy Method for Critic-Free RFT"
 
-**Status: BLOCKED (infrastructure).** No training steps completed on either arm.
-No numbers were faked; everything below is what actually happened.
+**Status: COMPLETE — both arms finished 12/12. Verdicts below.**
 
 > Note: the arXiv abstract/PDF could not be read directly during this session
 > (browser service upstream 502). The implementation follows the paper summary
@@ -209,6 +208,74 @@ only) — a future run can resume from step 4.
     into 40MB parts for reliable transfer.
 17. The checkpoint-resume design is sound: RESUMED_FROM_STEP proven twice,
     training continues correctly from restored optimizer state.
+
+## FINAL RESULTS (2026-10-06 ~05:50–08:30 HKT)
+
+Peter approved the continuation. **Both arms completed 12/12 steps.** All
+numbers below are from real runs (nothing faked, nothing extrapolated).
+
+### GRPO arm — COMPLETE (RUN_ID=ftw-grpo-20261005, session ftw-resume, cyc236ha)
+
+Resumed from step-4 checkpoint (RESUMED_FROM_STEP=4 confirmed). Full curve
+(mean reward per step): 0.250, 0.250, 0.417, 0.083, 0.417, 0.417, 0.500,
+0.250, 0.417, 0.333, 0.250, 0.750.
+
+- Heldout BEFORE: 0.250 (n=24, greedy)
+- Heldout AFTER: **0.7917** (delta **+0.5417**)
+- Peak VRAM: **12.75 GB**
+- 144 rollouts total, results in `ftw_grpo_results.json` + `ftw_grpo_curve.csv`
+
+### FTW arm — COMPLETE (RUN_ID=ftw-ftw-20261005, session ftw-ftw, cyc236hk)
+
+Fresh run on 7th account `cyc236hk` (cyc236ha/kyu009009 exhausted).
+Full curve: 0.083, 0.250, 0.167, 0.083, 0.167, 0.417, 0.333, 0.417, 0.750,
+0.583, 0.750, 0.583. Loss decreased 0.0926 → 0.0755 (learning throughout).
+
+- Heldout BEFORE: 0.250
+- Heldout AFTER: **0.750** (delta **+0.500**)
+- Peak VRAM: **13.6 GB**
+- 144 rollouts total, results in `ftw_ftw_results.json` + `ftw_ftw_curve.csv`
+
+Trajectory reproduced nearly identically across two sessions before the
+micro-batch fix (steps 1–7), suggesting the implementation is deterministic
+enough to trust.
+
+### Verdict
+
+- **Claim 1 (FTW matches GRPO on task performance): SUPPORTED.** FTW
+  heldout_after 0.750 vs GRPO 0.792 — both +0.50 over the 0.25 baseline,
+  well within the run's noise (step rewards swing ±0.25). FTW's curve even
+  hit 0.750 twice (steps 9, 11) before settling. On this proxy task, the
+  critic-free CEM update matches the group-baseline policy gradient.
+- **Claim 2 (FTW uses less GPU memory): NOT SUPPORTED.** FTW peaked at
+  13.6 GB vs GRPO's 12.75 GB — no savings observed, slightly worse. The
+  replay buffer lives on CPU as advertised, but the elite update over a
+  growing winner set (36 winners at step 12) needs the memory the paper's
+  narrative implies it saves. Note the paper's strongest memory argument is
+  vs critic-based methods (PPO), which we did not test; vs GRPO (already
+  critic-free), FTW shows no memory advantage in this implementation.
+
+### New findings (resume phase)
+
+18. **Resume-contamination hazard (caught):** the driver's resume path does
+    NOT validate run_id/mode — the first FTW launch picked up a stale
+    `/content/ckpt_resume.pt` left from the GRPO arm and would have trained
+    over it. Caught via checkpoint inspection before steps started. Lesson:
+    always `rm /content/ckpt_resume.pt` before launching a different arm.
+19. **FTW elite-update OOM (real bug, fixed):** the original FTW loop held
+    one forward graph per winner in a list, then one stacked backward —
+    CUDA OOM at step 8 (18 winners, `Tried to allocate 260 MiB`, 13.6 GB
+    busy). Fixed with per-winner micro-batched backward (gradients
+    accumulate; mathematically identical to mean-loss backward). Resumed
+    cleanly from step 7 (RESUMED_FROM_STEP=7) and completed all 12 steps.
+    This is an implementation pitfall worth documenting: CEM-style elite
+    updates need micro-batching as the buffer fills.
+20. **Free-tier reclaim pattern:** ftw-resume session died during FTW step 8
+    (first attempt); the new ftw-ftw session on cyc236hk survived all 12.
+    Off-peak (06:00–08:00 HKT) capacity is markedly better than evening.
+21. `colab.py download` of /content/ckpt.pt failed silently several times
+    (exit 0, no file); step-1 and step-2 FTW checkpoints secured, later ones
+    verified on-VM instead.
 
 ## Files
 
