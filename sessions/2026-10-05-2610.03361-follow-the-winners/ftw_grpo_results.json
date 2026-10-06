@@ -1,0 +1,90 @@
+{
+ "paper": "arXiv:2610.03361",
+ "mode": "grpo",
+ "run_id": "ftw-grpo-20261005",
+ "model_id": "/content/weights",
+ "seed": 11,
+ "steps": 12,
+ "n_train": 48,
+ "n_heldout": 24,
+ "n_rollouts": 144,
+ "curve": [
+  {
+   "step": 1,
+   "mean_reward": 0.25,
+   "loss": -0.0,
+   "n_rollouts": 12
+  },
+  {
+   "step": 2,
+   "mean_reward": 0.25,
+   "loss": -0.0,
+   "n_rollouts": 12
+  },
+  {
+   "step": 3,
+   "mean_reward": 0.4167,
+   "loss": -0.0,
+   "n_rollouts": 12
+  },
+  {
+   "step": 4,
+   "mean_reward": 0.0833,
+   "loss": -0.0,
+   "n_rollouts": 12
+  },
+  {
+   "step": 5,
+   "mean_reward": 0.4167,
+   "loss": -0.0,
+   "n_rollouts": 12
+  },
+  {
+   "step": 6,
+   "mean_reward": 0.4167,
+   "loss": 0.0,
+   "n_rollouts": 12
+  },
+  {
+   "step": 7,
+   "mean_reward": 0.5,
+   "loss": 0.0,
+   "n_rollouts": 12
+  },
+  {
+   "step": 8,
+   "mean_reward": 0.25,
+   "loss": -0.0,
+   "n_rollouts": 12
+  },
+  {
+   "step": 9,
+   "mean_reward": 0.4167,
+   "loss": 0.0,
+   "n_rollouts": 12
+  },
+  {
+   "step": 10,
+   "mean_reward": 0.3333,
+   "loss": -0.0,
+   "n_rollouts": 12
+  },
+  {
+   "step": 11,
+   "mean_reward": 0.25,
+   "loss": -0.0,
+   "n_rollouts": 12
+  },
+  {
+   "step": 12,
+   "mean_reward": 0.75,
+   "loss": 0.0,
+   "n_rollouts": 12
+  }
+ ],
+ "heldout_before": 0.25,
+ "heldout_after": 0.7917,
+ "heldout_delta": 0.5417,
+ "peak_vram_gb": 12.75,
+ "wall_time_min": 1.5
+}
