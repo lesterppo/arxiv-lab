@@ -114,3 +114,49 @@ switching), prefer off-peak. Recipe per arm: new session -> git-transformers dep
 - Training verdict: still BLOCKED — 12 GRPO steps need ~60 min/arm; free-tier
   sessions tonight die in 25-75 min. Both authorized accounts now exhausted
   (cyc236ha: registry wipe; kyu009009: reclaim).
+
+## GRPO completion (2026-10-06 ~05:50-06:30 HKT, session ftw-resume, cyc236ha)
+- Resume authorized by Peter ("Yes"). Active account set to cyc236ha; session
+  ftw-resume created OK (T4 READY). Deps + aria2c; weights in ~6 min
+  (aria2c -x16 -s16). Checkpoint parts ckpt_p4_aa..ae re-uploaded,
+  reassembled on-VM: 176,449,533 bytes verified, step=4, all keys present.
+- Relaunched RUN_ID=ftw-grpo-20261005 FTW_MODE=grpo -> RESUMED_FROM_STEP=4
+  confirmed. Steps 5-12 completed (~5 min/step):
+  0.250, 0.250, 0.417, 0.083, 0.417, 0.417, 0.500, 0.250, 0.417, 0.333,
+  0.250, 0.750.
+- heldout BEFORE 0.250 -> heldout AFTER 0.7917 (delta +0.5417).
+  peak_vram_gb = 12.75. 144 rollouts. RESULTS_OK observed.
+- ftw_grpo_results.json + ftw_grpo_curve.csv downloaded to session dir.
+
+## FTW arm (2026-10-06 ~06:30-08:30 HKT)
+- INCIDENT: first FTW launch picked up stale /content/ckpt_resume.pt (GRPO's)
+  — driver does NOT validate run_id/mode on resume. Killed immediately,
+  stale file deleted. LESSON: always rm ckpt_resume.pt before a different arm.
+- OOM: second launch crashed (bitsandbytes modules to CPU/disk) — lingering
+  python held 7749 MiB VRAM. pkill -9 -f ftw_driver.py -> 0 MiB, relaunch.
+- FRESH_START confirmed, MODEL_LOAD_DONE. Steps 1-7 (r=0.083, 0.250, 0.167,
+  0.083, 0.167, 0.417, 0.333; loss 0.0926->0.0831). Session reclaimed in step 8.
+  Step-1 + step-2 checkpoints backed up locally; later downloads flaked.
+- New session ftw-ftw on cyc236hk (7th account; cyc236ha + kyu009009
+  gpu-unavailable; task allowed 2 fallbacks). Fresh FTW run, steps 1-7
+  reproduced the earlier trajectory almost exactly.
+- OOM at step 8: torch.OutOfMemoryError (tried 260 MiB; 13.6 GB busy).
+  ROOT CAUSE: FTW loop held one forward graph per winner in a list, then one
+  stacked backward (18 winners at step 7-8). FIX: per-winner micro-batched
+  backward (grads accumulate; mathematically identical to mean-loss backward).
+  Driver edited locally, syntax-verified, uploaded as /content/ftw_driver.py.
+- Resume: step-7 ckpt verified on-VM (step=7, mode=ftw), copied to
+  /content/ckpt_resume.pt, relaunched -> RESUMED_FROM_STEP=7 confirmed.
+- Steps 8-12 completed, no OOM: 0.417, 0.750, 0.583, 0.750, 0.583
+  (buf 96->144, winners 23->36, loss 0.0836->0.0755).
+- heldout BEFORE 0.250 -> heldout AFTER 0.750 (delta +0.500).
+  peak_vram_gb = 13.6. 144 rollouts. RESULTS_OK /content/ftw_ftw_results.json.
+- ftw_ftw_results.json + ftw_ftw_curve.csv downloaded to session dir.
+
+## Verdict
+- Claim 1 (FTW matches GRPO): SUPPORTED — FTW 0.750 vs GRPO 0.792 heldout
+  after, both +0.50 over 0.25 baseline (within run noise).
+- Claim 2 (FTW < GRPO memory): NOT SUPPORTED — FTW 13.6 GB vs GRPO 12.75 GB
+  peak. CPU replay buffer doesn't lower GPU peak vs GRPO in this impl.
+  (Paper's stronger claim is vs critic-based PPO, untested here.)
+- Findings 18-21 appended to README. Session teardown + account reset pending.
