@@ -387,17 +387,20 @@ def train_ftw(model, tok, opt, problems, wr, fout, start_step, curve, buf,
         elites = sorted(buf, key=lambda x: -x[2])[:k]
         winners = [e for e in elites if e[2] > 0]
         if winners:
-            losses = []
+            # Micro-batched: backward per winner to avoid holding N graphs.
+            # Mathematically identical to mean-loss backward (grads accumulate).
+            opt.zero_grad()
+            loss_sum = 0.0
             for pids_c, cids_c, r in winners:
                 pids, cids = pids_c.cuda(), cids_c.cuda()
                 clp = seq_logps(model, pids, cids, no_grad=False)
-                losses.append(-clp.mean())
-            opt.zero_grad()
-            loss = torch.stack(losses).mean()
-            loss.backward()
+                li = -clp.mean()
+                loss_sum += li.item()
+                (li / len(winners)).backward()
+                del pids, cids, clp, li
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             opt.step()
-            loss_v = loss.item()
+            loss_v = loss_sum / len(winners)
         else:
             loss_v = float("nan")
         mr = sum(rewards_all) / len(rewards_all)
