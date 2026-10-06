@@ -1,0 +1,50 @@
+{
+ "model": "Qwen/Qwen3-4B",
+ "seed": 7,
+ "n_train": 450,
+ "n_test": 150,
+ "steps": 100,
+ "batch": 4,
+ "lr": 0.0002,
+ "specialties": [
+  "ARITH",
+  "REVERSE",
+  "CAESAR"
+ ],
+ "note": "LoRA measured twice (two sessions); ARBOR once. 8B was SIGKILLed 5/5 at load; 4B used instead. ARBOR adapter required bugfixes vs the 8B script: out_features/in_features (not Params4bit weight.shape), device placement, bf16 dtypes.",
+ "lora_run1": {
+  "per_specialty": {
+   "ARITH": 1.0,
+   "REVERSE": 0.24,
+   "CAESAR": 0.12
+  },
+  "overall": 0.4533333333333333,
+  "final_loss": 2.0798,
+  "trainable_params": 5898240,
+  "session": "arbor-4b"
+ },
+ "lora_run2": {
+  "per_specialty": {
+   "ARITH": 1.0,
+   "REVERSE": 0.3,
+   "CAESAR": 0.16
+  },
+  "overall": 0.4866666666666667,
+  "final_loss": 2.0745,
+  "trainable_params": 5898240,
+  "session": "arbor-4b-r2"
+ },
+ "lora_mean_overall": 0.47,
+ "arbor": {
+  "per_specialty": {
+   "ARITH": 1.0,
+   "REVERSE": 0.18,
+   "CAESAR": 0.1
+  },
+  "overall": 0.4266666666666667,
+  "final_loss": 2.6774063110351562,
+  "trainable_params": 12124256,
+  "seconds": 297.72281646728516
+ },
+ "arbor_minus_lora_mean_pp": -4.33
+}
