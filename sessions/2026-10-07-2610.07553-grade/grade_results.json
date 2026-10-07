@@ -1,0 +1,269 @@
+{
+ "paper": "2610.07553 GRADE",
+ "elapsed_min": 68.3,
+ "lora": {
+  "model": "Qwen/Qwen3.5-4B",
+  "arm": "lora",
+  "seed": 7,
+  "steps": 120,
+  "lr": 0.0002,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "trainable_params": 1835008,
+  "r_star": 1.0,
+  "cos_intra": 0.0,
+  "cos_inter": 0.0,
+  "kb": 16,
+  "cand_batch": 16,
+  "eps": 0.001,
+  "gate_alpha": 0.1,
+  "gate_eps_rel": 0.01,
+  "gate_latched": false,
+  "latch_step": null,
+  "n_commit": 0,
+  "n_skip": 0,
+  "final_acc": {
+   "ARITH": 0.0,
+   "REVERSE": 0.0,
+   "CAESAR": 0.0,
+   "SORT": 0.0,
+   "ROMAN": 0.0,
+   "overall": 0.0
+  },
+  "peak_acc": {
+   "ARITH": 0.0,
+   "REVERSE": 0.0,
+   "CAESAR": 0.0,
+   "SORT": 0.0,
+   "ROMAN": 0.0
+  },
+  "overwrite": {
+   "ARITH": 0.0,
+   "REVERSE": 0.0,
+   "CAESAR": 0.0,
+   "SORT": 0.0,
+   "ROMAN": 0.0
+  },
+  "mean_overwrite": 0.0,
+  "evals": [
+   {
+    "step": 0,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 20,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 40,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 60,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 80,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 100,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 120,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   }
+  ]
+ },
+ "grade": {
+  "model": "Qwen/Qwen3.5-4B",
+  "arm": "grade",
+  "seed": 7,
+  "steps": 120,
+  "lr": 0.0002,
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "trainable_params": 1835008,
+  "r_star": 0.6863,
+  "cos_intra": 0.4215,
+  "cos_inter": 0.0482,
+  "kb": 11,
+  "cand_batch": 16,
+  "eps": 0.001,
+  "gate_alpha": 0.1,
+  "gate_eps_rel": 0.01,
+  "gate_latched": true,
+  "latch_step": 6,
+  "n_commit": 76,
+  "n_skip": 44,
+  "final_acc": {
+   "ARITH": 0.0,
+   "REVERSE": 0.0,
+   "CAESAR": 0.0,
+   "SORT": 0.0,
+   "ROMAN": 0.0,
+   "overall": 0.0
+  },
+  "peak_acc": {
+   "ARITH": 0.0,
+   "REVERSE": 0.0,
+   "CAESAR": 0.0,
+   "SORT": 0.0,
+   "ROMAN": 0.0
+  },
+  "overwrite": {
+   "ARITH": 0.0,
+   "REVERSE": 0.0,
+   "CAESAR": 0.0,
+   "SORT": 0.0,
+   "ROMAN": 0.0
+  },
+  "mean_overwrite": 0.0,
+  "evals": [
+   {
+    "step": 0,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 20,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 40,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 60,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 80,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 100,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   },
+   {
+    "step": 120,
+    "ARITH": 0.0,
+    "REVERSE": 0.0,
+    "CAESAR": 0.0,
+    "SORT": 0.0,
+    "ROMAN": 0.0,
+    "overall": 0.0
+   }
+  ]
+ },
+ "grade_minus_lora": {
+  "ARITH": 0.0,
+  "REVERSE": 0.0,
+  "CAESAR": 0.0,
+  "SORT": 0.0,
+  "ROMAN": 0.0,
+  "overall": 0.0
+ },
+ "overwrite_delta": 0.0,
+ "teacher_forced_acc": {
+  "note": "Post-hoc, from saved LoRA adapters. Per answer-token argmax accuracy on the 200-sample test set (teacher-forced). The in-training generation eval scored 0.0 for both arms because the model, trained on prompt+' '+answer with no EOS, continues the 'document' with new tasks instead of stopping after the answer; generation-based exact match could not measure learning. Teacher-forced accuracy directly measures the trained conditional P(answer|prompt).",
+  "base": {
+   "ARITH": 0.993,
+   "REVERSE": 0.441,
+   "CAESAR": 0.121,
+   "SORT": 0.928,
+   "ROMAN": 0.675,
+   "overall": 0.755
+  },
+  "lora": {
+   "ARITH": 1.0,
+   "REVERSE": 0.794,
+   "CAESAR": 0.371,
+   "SORT": 1.0,
+   "ROMAN": 1.0,
+   "overall": 0.895
+  },
+  "grade": {
+   "ARITH": 1.0,
+   "REVERSE": 0.779,
+   "CAESAR": 0.357,
+   "SORT": 1.0,
+   "ROMAN": 1.0,
+   "overall": 0.891
+  },
+  "grade_minus_lora": {
+   "ARITH": 0.0,
+   "REVERSE": -0.015,
+   "CAESAR": -0.014,
+   "SORT": 0.0,
+   "ROMAN": 0.0,
+   "overall": -0.004
+  }
+ },
+ "eval_note": "In-training generation eval (prefix-boundary match) read 0.0 for both arms at all steps: the fine-tuned model generates the answer then continues with new synthetic tasks (no EOS was trained), so generation-based exact match is not a valid learning metric here. See teacher_forced_acc."
+}
