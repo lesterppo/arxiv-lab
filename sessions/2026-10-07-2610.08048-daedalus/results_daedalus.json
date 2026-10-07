@@ -1,0 +1,164 @@
+{
+  "paper": "2610.08048",
+  "date": "2026-10-07",
+  "note": "Scripted behavior models stand in for LLM agents (no local LLM on this VM). Tests the memory-generation protocol, not LLM heuristic quality.",
+  "config": {
+    "n_sessions": 24,
+    "Ns": 3,
+    "Nf": 6,
+    "Nr": 3,
+    "start_difficulty": 6,
+    "n_heldout": 48,
+    "n_rollouts": 5,
+    "solver": {
+      "p_inspect": 0.35,
+      "p_parse": 0.5,
+      "max_tries": 2,
+      "p_slip": 0.05,
+      "p_misapply": 0.05
+    },
+    "extractor": {
+      "p_error": 0.25
+    }
+  },
+  "seeds": {
+    "7": {
+      "bank": [
+        "position",
+        "color",
+        "initial"
+      ],
+      "bank_texts": {
+        "position": "When the orders name an ordinal: scan, count the rooms in the scanned order, read the note ONLY from the room at that count, and enter that code. Re-scan rather than guessing.",
+        "color": "When the orders name a color: inspect first, then read the note ONLY from the room whose name contains that color, and enter that code. Never enter a code from an unmatched room.",
+        "initial": "When the orders name a keyword: inspect first, then read the note ONLY from the room starting with the keyword's first letter, and enter that code. Double-check the first letter before reading."
+      },
+      "session_outcomes": {
+        "accepted": 24
+      },
+      "acceptance_rate": 1.0,
+      "difficulty_trajectory": [
+        6,
+        6,
+        6,
+        6,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "baseline": {
+        "n_tasks": 48,
+        "n_rollouts": 5,
+        "success_rate": 0.3792,
+        "pass_5": 0.0208
+      },
+      "daedalus": {
+        "n_tasks": 48,
+        "n_rollouts": 5,
+        "success_rate": 0.9125,
+        "pass_5": 0.6875
+      },
+      "per_convention": {
+        "color": {
+          "base": 0.4,
+          "daedalus": 0.925
+        },
+        "initial": {
+          "base": 0.4375,
+          "daedalus": 0.925
+        },
+        "position": {
+          "base": 0.425,
+          "daedalus": 0.925
+        }
+      },
+      "delta_success": 0.5333
+    },
+    "123": {
+      "bank": [
+        "position",
+        "color",
+        "initial"
+      ],
+      "bank_texts": {
+        "position": "When the orders name an ordinal: scan, count the rooms in the scanned order, read the note ONLY from the room at that count, and enter that code. Re-scan rather than guessing.",
+        "color": "When the orders name a color: inspect first, then read the note ONLY from the room whose name contains that color, and enter that code. Never enter a code from an unmatched room.",
+        "initial": "When the orders name a keyword: inspect first, then read the note ONLY from the room starting with the keyword's first letter, and enter that code. Double-check the first letter before reading."
+      },
+      "session_outcomes": {
+        "accepted": 24
+      },
+      "acceptance_rate": 1.0,
+      "difficulty_trajectory": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "baseline": {
+        "n_tasks": 48,
+        "n_rollouts": 5,
+        "success_rate": 0.4208,
+        "pass_5": 0.0208
+      },
+      "daedalus": {
+        "n_tasks": 48,
+        "n_rollouts": 5,
+        "success_rate": 0.9,
+        "pass_5": 0.6042
+      },
+      "per_convention": {
+        "color": {
+          "base": 0.4875,
+          "daedalus": 0.9125
+        },
+        "initial": {
+          "base": 0.475,
+          "daedalus": 0.9125
+        },
+        "position": {
+          "base": 0.3625,
+          "daedalus": 0.9125
+        }
+      },
+      "delta_success": 0.4792
+    }
+  }
+}
