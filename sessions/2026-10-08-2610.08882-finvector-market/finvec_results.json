@@ -1,0 +1,294 @@
+{
+ "paper": "2610.08882 FinVector-Market-4B",
+ "model": "Qwen/Qwen3.5-4B",
+ "seed": 7,
+ "train_per_task": 600,
+ "test_per_task": 60,
+ "steps": 150,
+ "batch": 4,
+ "lr": 0.0002,
+ "lora_r": 16,
+ "lora_alpha": 32,
+ "elapsed_min": 21.1,
+ "base_noschema": {
+  "CALC": {
+   "n": 60,
+   "json_validity": 0.0,
+   "acc": 0.0,
+   "acc_given_valid": 0.0
+  },
+  "FINQA": {
+   "n": 60,
+   "json_validity": 0.0,
+   "acc": 0.0,
+   "acc_given_valid": 0.0
+  },
+  "BRANCH": {
+   "n": 60,
+   "json_validity": 0.0,
+   "acc": 0.0,
+   "acc_given_valid": 0.0
+  },
+  "IMPLY": {
+   "n": 60,
+   "json_validity": 0.0,
+   "acc": 0.0,
+   "acc_given_valid": 0.0
+  },
+  "overall": {
+   "json_validity": 0.0,
+   "acc": 0.0,
+   "acc_given_valid": 0.0
+  }
+ },
+ "base_schema": {
+  "CALC": {
+   "n": 60,
+   "json_validity": 0.3333,
+   "acc": 0.3333,
+   "acc_given_valid": 1.0
+  },
+  "FINQA": {
+   "n": 60,
+   "json_validity": 0.5833,
+   "acc": 0.2167,
+   "acc_given_valid": 0.3714
+  },
+  "BRANCH": {
+   "n": 60,
+   "json_validity": 1.0,
+   "acc": 0.4333,
+   "acc_given_valid": 0.4333
+  },
+  "IMPLY": {
+   "n": 60,
+   "json_validity": 1.0,
+   "acc": 0.3167,
+   "acc_given_valid": 0.3167
+  },
+  "overall": {
+   "json_validity": 0.7292,
+   "acc": 0.325,
+   "acc_given_valid": 0.4457
+  }
+ },
+ "lora_schema": {
+  "trainable_params": 1835008,
+  "evals": [
+   {
+    "step": 0,
+    "CALC": {
+     "n": 60,
+     "json_validity": 0.3333,
+     "acc": 0.3333,
+     "acc_given_valid": 1.0
+    },
+    "FINQA": {
+     "n": 60,
+     "json_validity": 0.5833,
+     "acc": 0.2167,
+     "acc_given_valid": 0.3714
+    },
+    "BRANCH": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 0.4333,
+     "acc_given_valid": 0.4333
+    },
+    "IMPLY": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 0.3167,
+     "acc_given_valid": 0.3167
+    },
+    "overall": {
+     "json_validity": 0.7292,
+     "acc": 0.325,
+     "acc_given_valid": 0.4457
+    }
+   },
+   {
+    "step": 50,
+    "CALC": {
+     "n": 60,
+     "json_validity": 0.9833,
+     "acc": 0.6667,
+     "acc_given_valid": 0.678
+    },
+    "FINQA": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 0.7833,
+     "acc_given_valid": 0.7833
+    },
+    "BRANCH": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 0.9,
+     "acc_given_valid": 0.9
+    },
+    "IMPLY": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 1.0,
+     "acc_given_valid": 1.0
+    },
+    "overall": {
+     "json_validity": 0.9958,
+     "acc": 0.8375,
+     "acc_given_valid": 0.841
+    }
+   },
+   {
+    "step": 100,
+    "CALC": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 0.6667,
+     "acc_given_valid": 0.6667
+    },
+    "FINQA": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 0.85,
+     "acc_given_valid": 0.85
+    },
+    "BRANCH": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 0.9,
+     "acc_given_valid": 0.9
+    },
+    "IMPLY": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 1.0,
+     "acc_given_valid": 1.0
+    },
+    "overall": {
+     "json_validity": 1.0,
+     "acc": 0.8542,
+     "acc_given_valid": 0.8542
+    }
+   },
+   {
+    "step": 150,
+    "CALC": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 0.7167,
+     "acc_given_valid": 0.7167
+    },
+    "FINQA": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 0.8833,
+     "acc_given_valid": 0.8833
+    },
+    "BRANCH": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 0.85,
+     "acc_given_valid": 0.85
+    },
+    "IMPLY": {
+     "n": 60,
+     "json_validity": 1.0,
+     "acc": 1.0,
+     "acc_given_valid": 1.0
+    },
+    "overall": {
+     "json_validity": 1.0,
+     "acc": 0.8625,
+     "acc_given_valid": 0.8625
+    }
+   }
+  ],
+  "final": {
+   "step": 150,
+   "CALC": {
+    "n": 60,
+    "json_validity": 1.0,
+    "acc": 0.7167,
+    "acc_given_valid": 0.7167
+   },
+   "FINQA": {
+    "n": 60,
+    "json_validity": 1.0,
+    "acc": 0.8833,
+    "acc_given_valid": 0.8833
+   },
+   "BRANCH": {
+    "n": 60,
+    "json_validity": 1.0,
+    "acc": 0.85,
+    "acc_given_valid": 0.85
+   },
+   "IMPLY": {
+    "n": 60,
+    "json_validity": 1.0,
+    "acc": 1.0,
+    "acc_given_valid": 1.0
+   },
+   "overall": {
+    "json_validity": 1.0,
+    "acc": 0.8625,
+    "acc_given_valid": 0.8625
+   }
+  }
+ },
+ "delta_schema_minus_noschema": {
+  "CALC": {
+   "json_validity": 0.3333,
+   "acc": 0.3333,
+   "acc_given_valid": 1.0
+  },
+  "FINQA": {
+   "json_validity": 0.5833,
+   "acc": 0.2167,
+   "acc_given_valid": 0.3714
+  },
+  "BRANCH": {
+   "json_validity": 1.0,
+   "acc": 0.4333,
+   "acc_given_valid": 0.4333
+  },
+  "IMPLY": {
+   "json_validity": 1.0,
+   "acc": 0.3167,
+   "acc_given_valid": 0.3167
+  },
+  "overall": {
+   "json_validity": 0.7292,
+   "acc": 0.325,
+   "acc_given_valid": 0.4457
+  }
+ },
+ "delta_lora_minus_baseschema": {
+  "CALC": {
+   "json_validity": 0.6667,
+   "acc": 0.3834,
+   "acc_given_valid": -0.2833
+  },
+  "FINQA": {
+   "json_validity": 0.4167,
+   "acc": 0.6666,
+   "acc_given_valid": 0.5119
+  },
+  "BRANCH": {
+   "json_validity": 0.0,
+   "acc": 0.4167,
+   "acc_given_valid": 0.4167
+  },
+  "IMPLY": {
+   "json_validity": 0.0,
+   "acc": 0.6833,
+   "acc_given_valid": 0.6833
+  },
+  "overall": {
+   "json_validity": 0.2708,
+   "acc": 0.5375,
+   "acc_given_valid": 0.4168
+  }
+ }
+}
