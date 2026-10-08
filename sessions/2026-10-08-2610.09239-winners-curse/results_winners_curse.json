@@ -1,0 +1,121 @@
+{
+  "paper": "arXiv 2610.09239",
+  "title": "The Winner's Curse in LLM Self-Improvement Loops: Selection Noise, Lock-in, and Acceptance Rules",
+  "n_seeds": 300,
+  "seed": 20261008,
+  "model": "scripted statistical stand-in (item-level Bernoulli + shared set difficulty); NOT LLMs \u2014 see module docstring",
+  "defaults": {
+    "n_gens": 8,
+    "n_candidates": 6,
+    "delta": 2.0,
+    "sigma_prop": 3.0,
+    "q0": 50.0
+  },
+  "error_correlation_n16": 0.1193163130438437,
+  "one_shot_gap": {
+    "16": 16.980305989583332,
+    "64": 8.625406901041666,
+    "256": 3.9800618489583335
+  },
+  "loop_table": {
+    "greedy/n=16": {
+      "mean_selection_bias": 13.698486328125,
+      "mean_reported_gain": 9.0625,
+      "mean_true_gain": -5.538401226634874,
+      "mean_reported_vs_true_bias": 14.600901226634873,
+      "mean_harmful_proposal_frac": 0.7471527777777778,
+      "mean_harmful_commit_frac": 0.6394880952380952,
+      "mean_n_commits": 5.97,
+      "mean_fresh64_gain_bias": -0.06576544003179305,
+      "mean_fresh64_gain_abs_err": 7.52002278758894
+    },
+    "greedy/n=64": {
+      "mean_selection_bias": 6.841634114583333,
+      "mean_reported_gain": 6.572916666666667,
+      "mean_true_gain": -0.04851410735120658,
+      "mean_reported_vs_true_bias": 6.621430774017873,
+      "mean_harmful_proposal_frac": 0.7459722222222221,
+      "mean_harmful_commit_frac": 0.501,
+      "mean_n_commits": 6.256666666666667,
+      "mean_fresh64_gain_bias": -1.1129442259821267,
+      "mean_fresh64_gain_abs_err": 7.126482668543404
+    },
+    "greedy/n=256": {
+      "mean_selection_bias": 2.8164876302083335,
+      "mean_reported_gain": 9.25,
+      "mean_true_gain": 6.819630144866741,
+      "mean_reported_vs_true_bias": 2.430369855133259,
+      "mean_harmful_proposal_frac": 0.7493055555555556,
+      "mean_harmful_commit_frac": 0.33948809523809526,
+      "mean_n_commits": 6.243333333333333,
+      "mean_fresh64_gain_bias": -1.0800468115334076,
+      "mean_fresh64_gain_abs_err": 6.726775174956568
+    },
+    "fresh64/n=16": {
+      "mean_selection_bias": 5.678304036458333,
+      "mean_reported_gain": 6.541666666666667,
+      "mean_true_gain": 0.14925244692525122,
+      "mean_reported_vs_true_bias": 6.392414219741415,
+      "mean_harmful_proposal_frac": 0.7504166666666666,
+      "mean_harmful_commit_frac": 0.48566666666666664,
+      "mean_n_commits": 2.566666666666667,
+      "mean_fresh64_gain_bias": -0.9513357802585845,
+      "mean_fresh64_gain_abs_err": 7.07308126176268
+    },
+    "fresh64/n=64": {
+      "mean_selection_bias": 3.1961263020833335,
+      "mean_reported_gain": 5.348958333333333,
+      "mean_true_gain": 2.3823515087314364,
+      "mean_reported_vs_true_bias": 2.9666068246018966,
+      "mean_harmful_proposal_frac": 0.7471527777777778,
+      "mean_harmful_commit_frac": 0.3716190476190476,
+      "mean_n_commits": 2.9033333333333333,
+      "mean_fresh64_gain_bias": -0.7886015087314365,
+      "mean_fresh64_gain_abs_err": 6.831540096975472
+    },
+    "fresh64/n=256": {
+      "mean_selection_bias": 1.353515625,
+      "mean_reported_gain": 6.182291666666667,
+      "mean_true_gain": 5.191085346567922,
+      "mean_reported_vs_true_bias": 0.9912063200987447,
+      "mean_harmful_proposal_frac": 0.7427083333333333,
+      "mean_harmful_commit_frac": 0.23834126984126983,
+      "mean_n_commits": 3.1766666666666667,
+      "mean_fresh64_gain_bias": -0.7275436799012553,
+      "mean_fresh64_gain_abs_err": 7.315135708622979
+    },
+    "conservative/n=16": {
+      "mean_selection_bias": 9.227620442708334,
+      "mean_reported_gain": 7.625,
+      "mean_true_gain": -2.4411293534441993,
+      "mean_reported_vs_true_bias": 10.0661293534442,
+      "mean_harmful_proposal_frac": 0.7471527777777778,
+      "mean_harmful_commit_frac": 0.6129603174603175,
+      "mean_n_commits": 3.203333333333333,
+      "mean_fresh64_gain_bias": -0.1942873132224671,
+      "mean_fresh64_gain_abs_err": 7.417559909697199
+    },
+    "conservative/n=64": {
+      "mean_selection_bias": 5.266031901041667,
+      "mean_reported_gain": 6.369791666666667,
+      "mean_true_gain": 1.354568641710421,
+      "mean_reported_vs_true_bias": 5.015223024956246,
+      "mean_harmful_proposal_frac": 0.7459722222222221,
+      "mean_harmful_commit_frac": 0.4292063492063492,
+      "mean_n_commits": 3.533333333333333,
+      "mean_fresh64_gain_bias": -0.9535269750437544,
+      "mean_fresh64_gain_abs_err": 6.9428913176234905
+    },
+    "conservative/n=256": {
+      "mean_selection_bias": 2.4000651041666665,
+      "mean_reported_gain": 7.59765625,
+      "mean_true_gain": 5.543700767586021,
+      "mean_reported_vs_true_bias": 2.053955482413979,
+      "mean_harmful_proposal_frac": 0.7493055555555556,
+      "mean_harmful_commit_frac": 0.2724047619047619,
+      "mean_n_commits": 3.76,
+      "mean_fresh64_gain_bias": -0.9551591009193542,
+      "mean_fresh64_gain_abs_err": 6.620666165849524
+    }
+  }
+}
