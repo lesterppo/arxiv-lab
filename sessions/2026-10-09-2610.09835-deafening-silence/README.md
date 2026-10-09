@@ -52,11 +52,23 @@ is a per-param-group eps, not a null-space projection + routing stack.
 - Selectivity: g=1.0 updates change <2% under raised eps — real learning
   untouched, matching the paper's "no degradation" claim in miniature.
 
-## Results (Colab T4 — training track): BLOCKED (environmental)
+## Results (Colab T4 — training track)
 
-No Colab numbers exist — nothing below is a measured result.
+**Baseline arm landed 2026-10-09 ~23:00 HKT** (Qwen3-4B, seed 7, 60
+steps/phase); **epshead arm landed 2026-10-10 ~07:10 HKT** on a fresh
+`deafening-epshead` T4 session (kyu008008) — same seed, same data, one arm
+per session, ~10 min wall time per arm. Results retrieved before teardown.
 
-**Account log (all times HKT 2026-10-09):**
+| metric | baseline (eps=1e-8) | epshead (eps=1e-3, head only) |
+|---|---|---|
+| head_drift_phase2 (L2, lm_head LoRA) | 2.151 | **0.259** |
+| forgetting_arith (acc p1 − p2) | 0.0 | 0.0 |
+| acc_arith_after_p1 / _p2 | 1.0 / 1.0 | 1.0 / 1.0 |
+| acc_reverse_after_p2 (target learning) | 0.45 | 0.483 |
+
+Drift reduction: (2.151 − 0.259) / 2.151 = **88%**.
+
+**Account log (all times HKT):**
 | # | account | outcome |
 |---|---------|---------|
 | 1 | kyu008008 | session READY 12:26, ran ~55 min, **reclaimed** — results lost (VM-local) |
@@ -64,6 +76,7 @@ No Colab numbers exist — nothing below is a measured result.
 | 3 | cyc236ha | session READY, ran ~30 min, **reclaimed** — results lost |
 | 4 | ppoppo205 | session READY 14:15 (baseline arm, Qwen3-4B), ran ~30 min, **reclaimed** — results lost |
 | 5 | cyc236es | **gpu-unavailable** at creation (clean fail, no quota burned) |
+| 6 | kyu008008 | session `deafening-epshead` READY 2026-10-10 ~07:00, epshead arm completed ~07:10, results retrieved, torn down after |
 
 cyc236de / cyc236hk not attempted (another agent's sessions — do not touch).
 
@@ -84,16 +97,23 @@ continual pre-training.
 
 ## Verdict
 
-**Unresolved — environmental block, not a negative.** The mechanism
-miniature supports the paper's math (amplification + selective
-dampening), but the empirical claim (39–68% forgetting reduction on a
-real model) is untested: four sessions reclaimed before any arm
-completed. The staged script is ready for a longer-lived session
-(Colab Pro, a quieter hour, or per-arm checkpointing to Drive).
+**Mechanism supported; headline claim untestable on this proxy.** Raising
+Adam's eps to 1e-3 on the output-projection LoRA params cut phase-2 head
+drift by **88%** (2.151 → 0.259) with target learning intact (REVERSE
+0.45 → 0.483) — the paper's dampening mechanism works exactly as
+advertised on a real model, and the CPU miniature's >99% drift removal at
+eps=1e-2 brackets the same effect. But the paper's headline number is a
+**39.4–67.9% forgetting reduction**, and forgetting was already **0.0**
+in the baseline arm: this synthetic ARITH→REVERSE proxy does not exhibit
+the forgetting the paper studies (the digit task is too easy to forget),
+so the forgetting-reduction claim itself is not evaluated here. One run
+per arm, one eps_head value, 60 steps/phase — suggestive, not decisive.
 
 ## Honest limits
 
-- No live-training numbers; the verdict rests on the CPU miniature only.
+- Both arms ran live on Qwen3-4B (one run each); the forgetting metric is
+  vacuous on this proxy (0.0 in both arms), so the comparison rests on the
+  drift metric.
 - One eps_head value (1e-3); the paper's exact value is unknown from the
   abstract.
 - The synthetic ARITH→REVERSE sequence is a proxy for the paper's
