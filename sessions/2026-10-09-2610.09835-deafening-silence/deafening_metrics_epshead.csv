@@ -1,0 +1,2 @@
+acc_arith_after_p1,acc_arith_after_p2,acc_reverse_after_p2,arm,eps_head,forgetting_arith,head_drift_phase2,n_head_params,n_rest_params,t_phase1_s,t_phase2_s
+1.0,1.0,0.48333333333333334,epshead,0.001,0.0,0.25927271003677416,2471936,5898240,51.9,60.9
