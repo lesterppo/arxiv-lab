@@ -1,0 +1,14 @@
+{
+  "model": "Qwen/Qwen3.5-9B",
+  "quant": "nf4-4bit",
+  "n_cos_samples": 48,
+  "n_fisher_samples": 16,
+  "max_len": 192,
+  "n_layers": 32,
+  "spearman_rho_ioCosine_vs_fisherTrace": -0.07991202346041056,
+  "spearman_pvalue": 0.6637352737060236,
+  "pearson_r": -0.8755910955210147,
+  "quartile_k": 8,
+  "topFisher_in_bottomCosine_overlap": 0.25,
+  "csv": "/content/ls_lora_20261009-050214.csv"
+}
