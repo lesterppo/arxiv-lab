@@ -1,0 +1,25 @@
+{
+  "model": "Qwen/Qwen3-4B",
+  "seed": 7,
+  "n_train": 450,
+  "n_test": 60,
+  "steps_per_phase": 60,
+  "batch": 4,
+  "lr": 0.0002,
+  "eps_head": 0.001,
+  "eps_base": 1e-08,
+  "paper": "2610.09835",
+  "epshead": {
+    "arm": "epshead",
+    "eps_head": 0.001,
+    "n_head_params": 2471936,
+    "n_rest_params": 5898240,
+    "t_phase1_s": 51.9,
+    "acc_arith_after_p1": 1.0,
+    "t_phase2_s": 60.9,
+    "head_drift_phase2": 0.25927271003677416,
+    "acc_arith_after_p2": 1.0,
+    "acc_reverse_after_p2": 0.48333333333333334,
+    "forgetting_arith": 0.0
+  }
+}
