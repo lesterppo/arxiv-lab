@@ -1,0 +1,62 @@
+{
+ "model": "Qwen/Qwen3.5-9B",
+ "dv": 8,
+ "layers": [
+  3,
+  19
+ ],
+ "linears": [
+  "o_proj",
+  "down_proj"
+ ],
+ "pairs": {
+  "L3.o_proj": {
+   "overlap_related_AB": 0.114,
+   "overlap_unrelated_AC": 0.0467,
+   "olorA_transfer_cost_related": 0.1158,
+   "olorA_transfer_cost_unrelated": 0.0587,
+   "consolidation_norms": [
+    17.198,
+    13.7924,
+    11.7997
+   ],
+   "Mt_bound": 17.198
+  },
+  "L3.down_proj": {
+   "overlap_related_AB": 0.1214,
+   "overlap_unrelated_AC": 0.0479,
+   "olorA_transfer_cost_related": 0.135,
+   "olorA_transfer_cost_unrelated": 0.0639,
+   "consolidation_norms": [
+    24.4124,
+    19.1084,
+    16.1236
+   ],
+   "Mt_bound": 24.4124
+  },
+  "L19.o_proj": {
+   "overlap_related_AB": 0.438,
+   "overlap_unrelated_AC": 0.2894,
+   "olorA_transfer_cost_related": 0.5808,
+   "olorA_transfer_cost_unrelated": 0.4747,
+   "consolidation_norms": [
+    6.8398,
+    6.5652,
+    5.6305
+   ],
+   "Mt_bound": 9.6674
+  },
+  "L19.down_proj": {
+   "overlap_related_AB": 0.4915,
+   "overlap_unrelated_AC": 0.3478,
+   "olorA_transfer_cost_related": 0.5666,
+   "olorA_transfer_cost_unrelated": 0.4681,
+   "consolidation_norms": [
+    10.3039,
+    9.5412,
+    8.0834
+   ],
+   "Mt_bound": 13.1081
+  }
+ }
+}
