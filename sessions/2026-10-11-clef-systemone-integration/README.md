@@ -65,9 +65,33 @@ see `INTEGRATION_RESULT.json`.)
 - `INTEGRATION_RESULT.json` — 2026-10-07 first integration results (GREEN)
 - `score_probe.py` — criteria-shape probe that discovered the score-array rule
 
+## Full battery (2026-10-11, second session, 9/9 GREEN)
+`battery_test.py` → `BATTERY_RESULT.json`. ~33 decide calls on T4.
+
+| test | result |
+|---|---|
+| consistency_5x | PASS — same question ×5: identical choice, noul spread < 0.05 |
+| latency_profile | PASS — cold 4.0s, warm mean 2.7s, p50 2.5s, p95 3.8s |
+| score_ordering | PASS — calm→critical values [0.027, 0.082, 0.037, 0.77, 0.956], approx-monotonic |
+| noul_ordering | PASS — bad states page harder than calm ones (Δp > 0.2) |
+| choice_26_criteria | PASS — 26-criteria boundary accepted live |
+| long_state_8k | PASS — ~8k-token state, typed answers, 33s |
+| multi_question_batch | PASS — 6 questions, one request, all typed |
+| vram_headroom | PASS — 13.4GB/15.4GB used, ~2GB headroom during inference |
+| agent_scenarios | PASS — reply/escalate/yes/high/low all correct |
+
+**Model robustness finding (verbless-fragment misfire):** the short state
+"Payments fully down across all regions." deterministically returns
+severity=**low** (0.85) across runs — confidently wrong. Adding the copula
+("Payments *are* fully down…") or any fuller phrasing flips it to high
+(0.976–0.995). `critical_probe{,2,3}.py` isolate this. Takeaway for agents:
+feed the decision model full sentences, not terse verbless fragments.
+
 ## Honest limits
 - Tunnel POSTs from the VM hang and trycloudflare GETs get Cloudflare-blocked
   from this network — all live verification ran on the Colab VM via localhost.
 - Model judgments on ambiguous inputs vary between runs; the tests assert
   decision *properties*, not exact labels.
 - One cold-start decide call took 137s (transient); steady state is 3–6s.
+- Verbless short states can misfire confidently (see above) — prefer full
+  sentences in agent state strings.

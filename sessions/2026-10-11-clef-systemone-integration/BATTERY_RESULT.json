@@ -1,0 +1,83 @@
+{
+  "model": "clef-flash:latest",
+  "tests": {
+    "consistency_5x": {
+      "choice": "medium",
+      "page_p": [
+        0.926,
+        0.926,
+        0.926,
+        0.926,
+        0.926
+      ],
+      "urgency": [
+        0.8226,
+        0.8226,
+        0.8226,
+        0.8226,
+        0.8226
+      ],
+      "verdict": "PASS",
+      "elapsed_s": 18.2
+    },
+    "latency_profile": {
+      "cold_s": 3.47,
+      "warm_mean_s": 2.72,
+      "p50_s": 2.51,
+      "p95_s": 3.3,
+      "verdict": "PASS",
+      "elapsed_s": 27.9
+    },
+    "score_ordering": {
+      "values": [
+        0.027,
+        0.082,
+        0.037,
+        0.77,
+        0.956
+      ],
+      "verdict": "PASS",
+      "elapsed_s": 15.4
+    },
+    "noul_ordering": {
+      "pairs": 2,
+      "verdict": "PASS",
+      "elapsed_s": 12.0
+    },
+    "choice_26_criteria": {
+      "choice": "opt03",
+      "verdict": "PASS",
+      "elapsed_s": 3.4
+    },
+    "long_state_8k": {
+      "elapsed_s": 32.7,
+      "state_chars": 43600,
+      "verdict": "PASS"
+    },
+    "multi_question_batch": {
+      "n": 6,
+      "verdict": "PASS",
+      "elapsed_s": 5.0
+    },
+    "vram_headroom": {
+      "vram_used_mib_before": 13379,
+      "vram_used_mib_after": 13379,
+      "vram_total_mib": 15360,
+      "headroom_mib": 1981,
+      "verdict": "PASS",
+      "elapsed_s": 3.6
+    },
+    "agent_scenarios": {
+      "scenarios": {
+        "ig_legit": "reply",
+        "ig_scam": "escalate",
+        "deploy_gate": "yes",
+        "incident_critical": "high",
+        "incident_noise": "low"
+      },
+      "verdict": "PASS",
+      "elapsed_s": 14.3
+    }
+  },
+  "verdict": "GREEN"
+}
