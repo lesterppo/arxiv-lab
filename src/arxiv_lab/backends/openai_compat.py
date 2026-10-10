@@ -90,7 +90,7 @@ class OpenAICompatClient:
             url, data=json.dumps(payload).encode("utf-8"), headers=headers)
         try:
             with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
+                raw = resp.read().decode("utf-8")
         except urllib.error.HTTPError as e:
             # Read a short body for diagnostics; the key is never in it.
             try:
@@ -101,6 +101,15 @@ class OpenAICompatClient:
                 f"chat completions failed: HTTP {e.code} {body}") from None
         except urllib.error.URLError as e:
             raise RuntimeError(f"chat completions failed: {e.reason}") from None
+        except TimeoutError:
+            # urlopen raises bare TimeoutError (not wrapped in URLError).
+            raise RuntimeError(
+                f"chat completions timed out after {self.timeout}s") from None
+        try:
+            data = json.loads(raw)
+        except ValueError as e:
+            raise RuntimeError(
+                f"chat completions: invalid JSON response: {e}") from None
         try:
             content = data["choices"][0]["message"]["content"]
         except (KeyError, IndexError, TypeError) as e:

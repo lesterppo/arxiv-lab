@@ -1,0 +1,113 @@
+{
+  "model": "clef-flash:latest",
+  "base_url": "http://localhost:11434",
+  "tests": {
+    "incident_triage": {
+      "state": "Production database latency p99 is 4.2s, error rate 2.1%, customer checkout is f...",
+      "elapsed_s": 3.4,
+      "answers": {
+        "page_oncall": {
+          "type": "noul",
+          "p": 0.9234063282677093
+        },
+        "severity": {
+          "type": "choice",
+          "choice": "high",
+          "probabilities": {
+            "high": 0.5246797439761585,
+            "low": 0.044814178526114905,
+            "medium": 0.4305060774977266
+          },
+          "confidence": 0.23504636363073006
+        },
+        "urgency": {
+          "type": "score",
+          "score": 1.555175651797882,
+          "legend": {
+            "0": {
+              "description": "no urgency, can wait",
+              "score": 0.0
+            },
+            "1": {
+              "description": "handle within the day",
+              "score": 0.5
+            },
+            "2": {
+              "description": "drop everything, act now",
+              "score": 1.0
+            }
+          },
+          "probabilities": {
+            "0": 0.09064002413506678,
+            "1": 0.26354429993198447,
+            "2": 0.6458156759329488
+          },
+          "confidence": 0.2249892138857882
+        }
+      },
+      "assertions": [
+        "typed noul: PASS",
+        "page p in [0,1]: PASS",
+        "page likely: PASS",
+        "severity is high: PASS",
+        "probs sum ~1: PASS",
+        "urgency value in [0,1]: PASS",
+        "urgency value high: PASS"
+      ],
+      "verdict": "PASS"
+    },
+    "comment_triage": {
+      "state": "New comment on ppoppo205's latest post from @crypto_guru_99: 'DM me for 10x guar...",
+      "elapsed_s": 3.5,
+      "answers": {
+        "is_spam": {
+          "type": "noul",
+          "p": 0.7587819257420682
+        },
+        "action": {
+          "type": "choice",
+          "choice": "escalate",
+          "probabilities": {
+            "escalate": 0.9710250110137811,
+            "reply": 0.012462759465381149,
+            "skip": 0.0165122295208376
+          },
+          "confidence": 0.8625894622518955
+        },
+        "priority": {
+          "type": "score",
+          "score": 1.559112062234983,
+          "legend": {
+            "0": {
+              "description": "ignore",
+              "score": 0.0
+            },
+            "1": {
+              "description": "review when convenient",
+              "score": 0.5
+            },
+            "2": {
+              "description": "act now",
+              "score": 1.0
+            }
+          },
+          "probabilities": {
+            "0": 0.16011215976019016,
+            "1": 0.12066361824463644,
+            "2": 0.7192242219951733
+          },
+          "confidence": 0.2849861164609031
+        }
+      },
+      "assertions": [
+        "spam likely: PASS",
+        "action escalate: PASS",
+        "escalate top prob: PASS",
+        "priority value high: PASS"
+      ],
+      "verdict": "PASS"
+    }
+  },
+  "verdict": "GREEN",
+  "note": "typed decisions, no text parsing; backend = arxiv_lab.backends.systemone.SystemoneClient"
+}

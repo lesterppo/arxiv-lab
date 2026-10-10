@@ -1,0 +1,58 @@
+{
+  "model": "clef-flash:latest",
+  "tests": {
+    "incident_triage": {
+      "summary": {
+        "page_oncall": 0.9221092611350075,
+        "severity": "medium",
+        "urgency": 0.795
+      },
+      "verdict": "PASS",
+      "elapsed_s": 4.9
+    },
+    "comment_triage": {
+      "summary": {
+        "is_spam": 0.734,
+        "action": "escalate",
+        "priority": 0.502
+      },
+      "verdict": "PASS",
+      "elapsed_s": 6.0
+    },
+    "score_shapes": {
+      "shapes": {
+        "numbers": {
+          "score_idx": 2.229,
+          "value": 0.5572566785902774
+        },
+        "strings": {
+          "score_idx": 1.724,
+          "value": null
+        },
+        "objects": {
+          "score_idx": 0.197,
+          "value": 1.9667779223010702
+        }
+      },
+      "verdict": "PASS",
+      "elapsed_s": 9.6
+    },
+    "choice_two_criteria": {
+      "choice": "yes",
+      "verdict": "PASS",
+      "elapsed_s": 2.4
+    },
+    "sequential_no_leak": {
+      "p_fine": 0.009,
+      "p_down": 0.939,
+      "verdict": "PASS",
+      "elapsed_s": 5.4
+    },
+    "client_side_validation": {
+      "cases": 3,
+      "verdict": "PASS",
+      "elapsed_s": 0.0
+    }
+  },
+  "verdict": "GREEN"
+}
