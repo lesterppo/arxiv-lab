@@ -58,6 +58,21 @@ Additionally, fresh GPU allocation on kyu008008 was refused twice
 staged below, fully CPU-tested; the live comparison is queued for a
 stability window, not faked.
 
+### 2026-10-11 ~15:20 retry (4B adaptation) — also blocked
+- Adapted to **Qwen/Qwen3-4B** (`colab_self_4b.py`, then slimmed +
+  single-arm `colab_self_4b_arm.py` with `SELF_ARM` env var): the staged
+  8B scripts cannot run — Qwen3-8B SIGKILLs 5/5 at `from_pretrained` on
+  the 12GB loader (proven 2026-10-06). Qwen3-4B chosen over Qwen3.5-4B
+  deliberately (text-only; no vision tower on the 15GB T4).
+- Four more T4 sessions reclaimed within ~15–25 min each (kyu009009 →
+  cyc236ha → ppoppo205 → kyu008008); cyc236es `gpu-unavailable`.
+  Saturday-afternoon peak reclamation; no arm completed.
+- Queued cron **`self-retry`** (goal-owned `arxiv-daily-read-and-test`,
+  every 2h, next run ~17:19 HKT 2026-10-11): rotates the 5 accounts,
+  runs missing arms one-per-session, downloads
+  `/content/self_results_<arm>.json`, updates this README, pushes to
+  arxiv-lab, disables itself when both arms land. (Peter-approved.)
+
 ## Verdict
 
 No verdict possible — the mechanism (joint env-feedback modeling +
