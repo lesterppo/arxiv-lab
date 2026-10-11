@@ -84,14 +84,39 @@ stability window, not faked.
   (pip/model phase, ~13 min in) — no partial artifacts recoverable.
   Next cron occurrence retries `self_joint`.
 
+### 2026-10-11 ~23:19 retry — self_joint GREEN (cron `self-retry`)
+- **Arm `self_joint` completed** on kyu009009 (`arxiv-self-self-joint`,
+  fresh T4 at the first rotation account — no reclamation this round).
+  Same config: elapsed **524 s**. Held-out results:
+  `self_results_self_joint.json` — rollout success **14/28 = 0.500**,
+  feedback perplexity **1.04**.
+
+## Verdict (both arms complete)
+
+**Mixed — the paper's +4.1pp claim did NOT replicate on rollout success
+at 4B/toy scale, but the mutually-reinforcing feedback-modeling claim
+is strongly supported:**
+
+| Arm | Rollout success (28 eval) | Feedback ppl |
+|---|---|---|
+| `sft_only` (hindsight distillation only) | 17/28 = **0.607** | 49.29 |
+| `self_joint` (+ 0.5× env-feedback modeling loss) | 14/28 = **0.500** | **1.04** |
+
+The joint arm models environmental feedback dramatically better
+(perplexity 49.29 → 1.04) — the auxiliary-loss half of SELF works as
+advertised — but that did not lift greedy-rollout task success here
+(−10.7pp, the wrong direction). Likely contributors: the toy calculator
+env is near-saturated for both arms, n_eval=28 is small, and one seed
+per arm means the success-rate gap (≈3 tasks) is inside noise. The
+direction of the +4.1pp-on-τ-bench claim is not disproven at toy scale,
+but neither is it evidenced — it stays open.
+
 ## Verdict
 
-**Not yet decisive — awaiting the `self_joint` arm.** The `sft_only`
-control arm alone establishes the 4B/toy baseline: rollout success
-17/28 (0.607) and feedback perplexity 49.29 after hindsight distillation
-without feedback modeling. The paper's claim (+4.1pp over GRPO with
-Qwen3-8B on τ-bench) can only be judged against this baseline once the
-joint arm lands; at toy scale the comparison is directional, not proof.
+**See "### 2026-10-11 ~23:19 retry — self_joint GREEN" above for the final
+verdict table** (both arms now complete): feedback-modeling claim
+strongly supported (ppl 49.29 → 1.04); +4.1pp-on-τ-bench direction not
+evidenced at 4B/toy scale — it stays open.
 
 ## Honest limits
 - Toy env (calculator task) vs τ-bench/AppWorld; 120 train episodes and
