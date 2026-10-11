@@ -1,0 +1,12 @@
+{
+ "model": "Qwen/Qwen3-4B",
+ "seed": 0,
+ "n_train": 120,
+ "n_eval": 28,
+ "sft_only": {
+  "success_rate": 0.6071428571428571,
+  "success_n": 17,
+  "feedback_ppl": 49.29
+ },
+ "elapsed_s": 719.2
+}
