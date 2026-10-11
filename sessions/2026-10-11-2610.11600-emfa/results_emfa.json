@@ -1,0 +1,60 @@
+{
+ "n": 240,
+ "seed_note": "builders vary layout by seed (cascade length, loop rounds, recovered gap)",
+ "per_config": {
+  "cascade": {
+   "emfa": 1.0,
+   "blame_final": 0.0,
+   "blame_latest_wrong": 0.0,
+   "blame_earliest_wrong": 1.0
+  },
+  "recovered": {
+   "emfa": 1.0,
+   "blame_final": 0.0,
+   "blame_latest_wrong": 0.0,
+   "blame_earliest_wrong": 0.0
+  },
+  "loop": {
+   "emfa": 1.0,
+   "blame_final": 0.0,
+   "blame_latest_wrong": 0.0,
+   "blame_earliest_wrong": 1.0
+  },
+  "loop_noamb": {
+   "emfa": 1.0,
+   "blame_final": 0.0,
+   "blame_latest_wrong": 0.0,
+   "blame_earliest_wrong": 1.0
+  },
+  "premature": {
+   "emfa": 1.0,
+   "blame_final": 1.0,
+   "blame_latest_wrong": 0.0,
+   "blame_earliest_wrong": 0.0
+  },
+  "redundant": {
+   "emfa": 1.0,
+   "blame_final": 0.0,
+   "blame_latest_wrong": 0.0,
+   "blame_earliest_wrong": 1.0
+  }
+ },
+ "overall": {
+  "emfa": {
+   "step_acc": 1.0,
+   "agent_acc": 1.0
+  },
+  "blame_final": {
+   "step_acc": 0.1667,
+   "agent_acc": 0.1667
+  },
+  "blame_latest_wrong": {
+   "step_acc": 0.0,
+   "agent_acc": 0.0
+  },
+  "blame_earliest_wrong": {
+   "step_acc": 0.6667,
+   "agent_acc": 0.6667
+  }
+ }
+}
