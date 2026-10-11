@@ -73,18 +73,33 @@ stability window, not faked.
   `/content/self_results_<arm>.json`, updates this README, pushes to
   arxiv-lab, disables itself when both arms land. (Peter-approved.)
 
+### 2026-10-11 ~19:19 retry — sft_only GREEN, self_joint reclaimed
+- **Arm `sft_only` completed** (Qwen/Qwen3-4B, NF4 QLoRA r=16/α=32,
+  bf16, 100 steps, 120 train / 28 eval): elapsed 719 s on a T4 session
+  `arxiv-self-sft-only` (kyu009009). Held-out results:
+  `self_results_sft_only.json` — rollout success **17/28 = 0.607**,
+  feedback perplexity **49.29**.
+- Arm `self_joint` launched detached on cyc236ha
+  (`arxiv-self-self-joint`) but the session was reclaimed mid-arm
+  (pip/model phase, ~13 min in) — no partial artifacts recoverable.
+  Next cron occurrence retries `self_joint`.
+
 ## Verdict
 
-No verdict possible — the mechanism (joint env-feedback modeling +
-hindsight distillation vs distillation alone) remains untested live.
-The test design stands: the two-arm comparison isolates exactly the
-paper's claimed contribution (the auxiliary feedback-modeling loss),
-with held-out rollout success + feedback perplexity as the
-mutually-reinforcing probes.
+**Not yet decisive — awaiting the `self_joint` arm.** The `sft_only`
+control arm alone establishes the 4B/toy baseline: rollout success
+17/28 (0.607) and feedback perplexity 49.29 after hindsight distillation
+without feedback modeling. The paper's claim (+4.1pp over GRPO with
+Qwen3-8B on τ-bench) can only be judged against this baseline once the
+joint arm lands; at toy scale the comparison is directional, not proof.
 
 ## Honest limits
-- Toy env (calculator task) vs τ-bench/AppWorld; 160 train episodes and
-  40 eval tasks — effect sizes are directional, not paper-scale proof.
+- Toy env (calculator task) vs τ-bench/AppWorld; 120 train episodes and
+  28 eval tasks — effect sizes are directional, not paper-scale proof.
+- 8B→4B adaptation: Qwen3-8B SIGKILLs the 12GB loader 5/5 on free T4, so
+  the comparison runs on Qwen/Qwen3-4B instead of the paper's model —
+  the +4.1pp claim's scale question stays open even if the direction
+  replicates.
 - Two arms only (no GRPO/SDPO baselines); the comparison isolates the
   auxiliary feedback-modeling loss, not the full SELF-vs-RL picture.
 - Single seed; greedy eval rollouts.
