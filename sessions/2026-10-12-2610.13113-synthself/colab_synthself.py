@@ -42,6 +42,9 @@ import subprocess
 import sys
 import time
 
+# Reduce CUDA fragmentation (the loss's fp32 cast is spiky on 15GB)
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
+
 # ---------------------------------------------------------------- deps
 print("[deps] installing...", flush=True)
 # NOTE: Qwen3.5's `qwen3_5` arch only exists in transformers main
@@ -64,6 +67,8 @@ BASE = "Qwen/Qwen3.5-9B"
 OUT = "/content/synthself_metrics.json"
 OUTCSV = "/content/synthself_metrics.csv"
 ADIR = "/content/synthself_adapters"
+STAGE1 = "/content/synthself_stage1.json"
+STAGE2 = "/content/synthself_stage2.json"
 SEED = 7
 random.seed(SEED)
 
@@ -72,7 +77,9 @@ N_TEST = 60
 N_RETAIN_ARITH = 60   # pre-filter pool; keep base-correct up to 40
 N_RETAIN_FACT = 40    # pre-filter pool; keep base-correct up to 30
 EPOCHS = 4
-BATCH = 4
+BATCH = 1            # micro-batch (OOM safety on 15GB); effective 4 via accum
+GRAD_ACCUM = 4
+MAXLEN = 320
 LR = 2e-4
 MAX_NEW = 96
 
@@ -208,34 +215,51 @@ def mean_ppl(model, prompt, response):
 
 
 # ---------------------------------------------------------------- phase 1: self-generation + rejection sampling
-print("[gen] generating %d train candidates (3-shot ICL)..." % N_TRAIN_PROMPTS,
-      flush=True)
-rng = random.Random(SEED + 1)
-train_prompts = [random_prompt(rng) for _ in range(N_TRAIN_PROMPTS)]
-gen_inputs = [gen_prompt("Convert: " + p, DEMO_POOL[1:4]) for p in train_prompts]
-cands = generate(base_model, gen_inputs)
-kept = []   # (prompt_text, response)
-for p, c in zip(train_prompts, cands):
-    want = render_tags(p)
-    if c.strip() == want:
-        kept.append((gen_prompt("Convert: " + p, DEMO_POOL[1:4]), c.strip()))
-print("[gen] kept %d/%d after rejection sampling" % (len(kept), N_TRAIN_PROMPTS),
-      flush=True)
+if os.path.exists(STAGE1):
+    print("[stage1] resuming from %s" % STAGE1, flush=True)
+    s1 = json.load(open(STAGE1))
+    kept = s1["kept"]
+    armB = s1["armB"]
+    armA_ppl = s1["armA_ppl"]
+    armB_ppl = s1["armB_ppl"]
+else:
+    print("[gen] generating %d train candidates (3-shot ICL)..."
+          % N_TRAIN_PROMPTS, flush=True)
+    rng = random.Random(SEED + 1)
+    train_prompts = [random_prompt(rng) for _ in range(N_TRAIN_PROMPTS)]
+    gen_inputs = [gen_prompt("Convert: " + p, DEMO_POOL[1:4])
+                  for p in train_prompts]
+    cands = generate(base_model, gen_inputs)
+    kept = []   # (prompt_text, response)
+    for p, c in zip(train_prompts, cands):
+        want = render_tags(p)
+        if c.strip() == want:
+            kept.append((gen_prompt("Convert: " + p, DEMO_POOL[1:4]),
+                         c.strip()))
+    print("[gen] kept %d/%d after rejection sampling"
+          % (len(kept), N_TRAIN_PROMPTS), flush=True)
 
-print("[ppl] measuring in-distribution PPL of kept responses...", flush=True)
-ppls = [mean_ppl(base_model, pr, rs) for pr, rs in kept[:60]]
-armA_ppl = float(sum(ppls) / max(len(ppls), 1))
-print("[ppl] Arm A (SynthSelf) mean response PPL = %.2f" % armA_ppl, flush=True)
+    print("[ppl] measuring in-distribution PPL of kept responses...",
+          flush=True)
+    ppls = [mean_ppl(base_model, pr, rs) for pr, rs in kept[:60]]
+    armA_ppl = float(sum(ppls) / max(len(ppls), 1))
+    print("[ppl] Arm A (SynthSelf) mean response PPL = %.2f" % armA_ppl,
+          flush=True)
 
-# ---------------------------------------------------------------- phase 2: shifted arm (same answers, chatty style)
-def shift_style(response):
-    return ("Sure! Here is the converted result:\n%s\nHope that helps!"
-            % response)
+    # ---------------------------------------------------------- phase 2: shifted arm
+    def shift_style(response):
+        return ("Sure! Here is the converted result:\n%s\nHope that helps!"
+                % response)
 
-armB = [(pr, shift_style(rs)) for pr, rs in kept]
-ppls_b = [mean_ppl(base_model, pr, rs) for pr, rs in armB[:60]]
-armB_ppl = float(sum(ppls_b) / max(len(ppls_b), 1))
-print("[ppl] Arm B (shifted)  mean response PPL = %.2f" % armB_ppl, flush=True)
+    armB = [(pr, shift_style(rs)) for pr, rs in kept]
+    ppls_b = [mean_ppl(base_model, pr, rs) for pr, rs in armB[:60]]
+    armB_ppl = float(sum(ppls_b) / max(len(ppls_b), 1))
+    print("[ppl] Arm B (shifted)  mean response PPL = %.2f" % armB_ppl,
+          flush=True)
+    json.dump({"kept": kept, "armB": armB, "armA_ppl": armA_ppl,
+               "armB_ppl": armB_ppl}, open(STAGE1, "w"))
+    print("[stage1] saved %s" % STAGE1, flush=True)
+    del cands
 
 # ---------------------------------------------------------------- phase 3: retention set (base-correct only)
 def arith_items(rng, n):
@@ -285,31 +309,9 @@ def norm(s):
     return re.sub(r"\s+", " ", s.strip().lower())
 
 
-print("[retain] filtering retention set to base-correct items...", flush=True)
-rng2 = random.Random(SEED + 2)
-arith_pool = arith_items(rng2, N_RETAIN_ARITH)
-fact_pool = FACTS[:N_RETAIN_FACT]
-pool_q = [q for q, _ in arith_pool] + [q for q, _ in fact_pool]
-pool_a = [a for _, a in arith_pool] + [a for _, a in fact_pool]
-pool_out = generate(base_model, pool_q, max_new=24, batch=8)
-retain = [(q, a) for q, a, o in zip(pool_q, pool_a, pool_out)
-          if norm(o) == norm(a)][:70]
-print("[retain] kept %d base-correct retention items" % len(retain), flush=True)
-
-# ---------------------------------------------------------------- phase 4: acquisition test set
-test_inputs = [random_prompt(random.Random(SEED + 3)) for _ in range(N_TEST)]
-test_prompts = [test_prompt("Convert: " + p) for p in test_inputs]
-test_gold = [render_tags(p) for p in test_inputs]
-
-
 def accuracy(model, prompts, golds):
     outs = generate(model, prompts, batch=4)
     return sum(1 for o, g in zip(outs, golds) if norm(o) == norm(g)) / len(golds)
-
-
-print("[eval] base acquisition accuracy...", flush=True)
-base_acq = accuracy(base_model, test_prompts, test_gold)
-print("[eval] base acquisition = %.3f" % base_acq, flush=True)
 
 
 def retention_acc(model):
@@ -320,24 +322,68 @@ def retention_acc(model):
                if norm(o) == norm(a)) / len(retain)
 
 
-base_ret = retention_acc(base_model)
-print("[eval] base retention = %.3f (n=%d)" % (base_ret, len(retain)), flush=True)
+if os.path.exists(STAGE2):
+    print("[stage2] resuming from %s" % STAGE2, flush=True)
+    s2 = json.load(open(STAGE2))
+    retain = s2["retain"]
+    base_acq = s2["base_acq"]
+    base_ret = s2["base_ret"]
+    test_prompts = s2["test_prompts"]
+    test_gold = s2["test_gold"]
+else:
+    print("[retain] filtering retention set to base-correct items...",
+          flush=True)
+    rng2 = random.Random(SEED + 2)
+    arith_pool = arith_items(rng2, N_RETAIN_ARITH)
+    fact_pool = FACTS[:N_RETAIN_FACT]
+    pool_q = [q for q, _ in arith_pool] + [q for q, _ in fact_pool]
+    pool_a = [a for _, a in arith_pool] + [a for _, a in fact_pool]
+    pool_out = generate(base_model, pool_q, max_new=24, batch=8)
+    retain = [(q, a) for q, a, o in zip(pool_q, pool_a, pool_out)
+              if norm(o) == norm(a)][:70]
+    print("[retain] kept %d base-correct retention items" % len(retain),
+          flush=True)
+
+    # ------------------------------------------------------ phase 4: test set
+    test_inputs = [random_prompt(random.Random(SEED + 3))
+                   for _ in range(N_TEST)]
+    test_prompts = [test_prompt("Convert: " + p) for p in test_inputs]
+    test_gold = [render_tags(p) for p in test_inputs]
+
+    print("[eval] base acquisition accuracy...", flush=True)
+    base_acq = accuracy(base_model, test_prompts, test_gold)
+    print("[eval] base acquisition = %.3f" % base_acq, flush=True)
+
+    base_ret = retention_acc(base_model)
+    print("[eval] base retention = %.3f (n=%d)" % (base_ret, len(retain)),
+          flush=True)
+
+    json.dump({"retain": retain, "base_acq": base_acq, "base_ret": base_ret,
+               "test_prompts": test_prompts, "test_gold": test_gold},
+              open(STAGE2, "w"))
+    print("[stage2] saved %s" % STAGE2, flush=True)
 
 # ---------------------------------------------------------------- phase 5: QLoRA SFT
 def train_arm(name, data):
     print("[train:%s] n=%d ..." % (name, len(data)), flush=True)
+    torch.cuda.empty_cache()
+    import bitsandbytes as bnb_opt
     cfg = LoraConfig(r=16, lora_alpha=32, lora_dropout=0.0,
                      target_modules=["q_proj", "k_proj", "v_proj", "o_proj",
                                      "gate_proj", "up_proj", "down_proj"],
                      task_type="CAUSAL_LM")
     model = get_peft_model(base_model, cfg)
+    # gradient checkpointing: trade compute for activation memory
+    # (essential on 15GB with a 152k-vocab fp32 loss cast)
+    model.gradient_checkpointing_enable()
     model.train()
-    opt = torch.optim.AdamW(model.parameters(), lr=LR)
+    # 8-bit AdamW: halves optimizer state vs fp32 AdamW (OOM safety)
+    opt = bnb_opt.optim.AdamW8bit(model.parameters(), lr=LR)
 
     # tokenize once
     texts = [pr + " " + rs for pr, rs in data]
     enc = tok(texts, return_tensors="pt", padding=True, truncation=True,
-              max_length=512)
+              max_length=MAXLEN)
     plen = [len(tok(pr)["input_ids"]) for pr, _ in data]
     input_ids = enc["input_ids"].to(DEVICE)
     attn = enc["attention_mask"].to(DEVICE)
@@ -352,23 +398,33 @@ def train_arm(name, data):
         random.Random(SEED + ep).shuffle(idx)
         for s in range(0, n, BATCH):
             bi = idx[s:s + BATCH]
-            opt.zero_grad()
             out = model(input_ids=input_ids[bi], attention_mask=attn[bi],
                         labels=labels[bi])
-            loss = out.loss
+            loss = out.loss / GRAD_ACCUM
             loss.backward()
-            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
-            opt.step()
             step += 1
+            if step % GRAD_ACCUM == 0:
+                torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+                opt.step()
+                opt.zero_grad()
             if step % 20 == 0:
                 print("[train:%s] ep=%d step=%d loss=%.4f" %
-                      (name, ep, step, loss.item()), flush=True)
+                      (name, ep, step, loss.item() * GRAD_ACCUM), flush=True)
+    # flush remaining grads
+    if step % GRAD_ACCUM != 0:
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+        opt.step()
+        opt.zero_grad()
     apath = os.path.join(ADIR, name)
     model.save_pretrained(apath)
     print("[train:%s] saved %s (%d steps)" % (name, apath, step), flush=True)
 
     # eval with adapter active
     model.eval()
+    try:
+        model.config.use_cache = True  # restore for generate()
+    except Exception:
+        pass
     acq = accuracy(model, test_prompts, test_gold)
     ret = retention_acc(model)
     print("[eval:%s] acquisition=%.3f retention=%.3f" % (name, acq, ret),
@@ -399,7 +455,8 @@ metrics = {
     "armA_retention_acc": resA[1],
     "armB_acquisition_acc": resB[0],
     "armB_retention_acc": resB[1],
-    "epochs": EPOCHS, "batch": BATCH, "lr": LR,
+    "epochs": EPOCHS, "micro_batch": BATCH, "grad_accum": GRAD_ACCUM,
+    "lr": LR, "optimizer": "bnb-8bit-AdamW",
     "elapsed_s": time.time() - T0,
 }
 with open(OUT, "w") as f:
