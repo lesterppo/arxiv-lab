@@ -1,0 +1,17 @@
+{
+ "base_none": {
+  "preamble_acc": 0.8529,
+  "substance_acc": 0.924,
+  "overall_acc": 0.9167
+ },
+ "plain": {
+  "preamble_acc": 1.0,
+  "substance_acc": 1.0,
+  "overall_acc": 1.0
+ },
+ "cig": {
+  "preamble_acc": 1.0,
+  "substance_acc": 1.0,
+  "overall_acc": 1.0
+ }
+}
