@@ -1,0 +1,21 @@
+{
+ "base_model": "Qwen/Qwen3.5-9B",
+ "n_train_kept": 27,
+ "n_train_prompts": 150,
+ "armA_mean_response_ppl": 1.259561956107501,
+ "armB_mean_response_ppl": 12.86269069655202,
+ "base_acquisition_acc": 0.0,
+ "base_retention_acc": 1.0,
+ "n_retention": 60,
+ "n_test": 60,
+ "armA_acquisition_acc": 0.0,
+ "armA_retention_acc": 1.0,
+ "armB_acquisition_acc": 0.0,
+ "armB_retention_acc": 0.9833333333333333,
+ "epochs": 4,
+ "micro_batch": 1,
+ "grad_accum": 4,
+ "lr": 0.0002,
+ "optimizer": "bnb-8bit-AdamW",
+ "elapsed_s": 2507.9545981884003
+}
