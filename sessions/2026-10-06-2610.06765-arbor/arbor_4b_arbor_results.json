@@ -1,0 +1,26 @@
+{
+ "model": "Qwen/Qwen3-4B",
+ "seed": 7,
+ "n_train": 450,
+ "n_test": 150,
+ "steps": 100,
+ "batch": 4,
+ "lr": 0.0002,
+ "specialties": [
+  "ARITH",
+  "REVERSE",
+  "CAESAR"
+ ],
+ "arbor": {
+  "per_specialty": {
+   "ARITH": 1.0,
+   "REVERSE": 0.18,
+   "CAESAR": 0.1
+  },
+  "overall": 0.4266666666666667,
+  "final_loss": 2.6774063110351562,
+  "trainable_params": 12124256,
+  "seconds": 297.72281646728516
+ },
+ "total_seconds": 333.6935977935791
+}
