@@ -1,0 +1,21 @@
+{
+ "model": "Qwen/Qwen3.5-9B",
+ "paper": "2610.12995",
+ "seed": 7,
+ "n_train": 200,
+ "n_test": 100,
+ "steps": 100,
+ "cig_sanity": {
+  "preamble_w": 1.5222,
+  "substance_w": 0.8883
+ },
+ "plain": {
+  "train_acc": 0.0,
+  "test_acc": 0.0
+ },
+ "cig": {
+  "train_acc": 0.04,
+  "test_acc": 0.02
+ },
+ "delta_test": 0.02
+}
