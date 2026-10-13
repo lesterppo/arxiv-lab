@@ -1,0 +1,52 @@
+{
+ "model": "qwen3.5:9b",
+ "rollouts_per_variant": 3,
+ "max_rounds": 3,
+ "n_hard_problems": 2,
+ "n_calibrated": 1,
+ "report": [
+  {
+   "hard_problem": "What is the greatest common divisor of 84 and 126?",
+   "rounds": [
+    {
+     "round": 1,
+     "variant": "What is the greatest common divisor of 12 and 18?",
+     "answer": 6,
+     "successes": 2,
+     "mixed": true
+    }
+   ],
+   "calibrated": true,
+   "rounds_used": 1
+  },
+  {
+   "hard_problem": "A palindrome number between 200 and 300 divisible by 11?",
+   "rounds": [
+    {
+     "round": 1,
+     "variant": "Find a palindrome number between 100 and 200 divisible by 11.",
+     "answer": 121,
+     "successes": 0,
+     "mixed": false
+    },
+    {
+     "round": 2,
+     "variant": "Find a palindrome number between 50 and 100 divisible by 2.",
+     "answer": 66,
+     "successes": 0,
+     "mixed": false
+    },
+    {
+     "round": 3,
+     "variant": "Find a palindrome number between 20 and 30 divisible by 2.",
+     "answer": 22,
+     "successes": 0,
+     "mixed": false
+    }
+   ],
+   "calibrated": false,
+   "rounds_used": 3
+  }
+ ],
+ "elapsed_s": 72.9
+}
