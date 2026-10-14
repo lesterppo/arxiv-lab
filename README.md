@@ -84,6 +84,13 @@ python3 tests/test_backends_live.py                    # skipped unless an API k
 | `test_sampling_cpu.py` | SNIS ESS vs KL temperature; forward-KL mode coverage | numpy (else skip) |
 | `test_backends_live.py` | one tiny chat call per configured backend | API key env var (else skip) |
 
+## Daily read-and-test workflow
+
+`WORKFLOW.md` documents the daily arXiv screen-and-test job (fetch → dedup →
+screen/score → live test → session → push → verify) so any agent can replicate
+the cron from this repo alone. Operator scripts live in `workflow/`
+(`fetch_arxiv.py`, `covered_ids.py`, `verify_push.py`, `runlog_template.md`).
+
 ## Design notes
 
 - These are **mechanism-level** reproductions: faithful to each paper's core
