@@ -13,6 +13,11 @@
   branch accumulates shared updates via null-space projection with dynamic
   scaling, decoupling branch routes per-task experts by prototype cosine
   similarity with a confidence fallback (arXiv:2610.08312).
+- ``rpo`` — Root-token Policy Optimization (arXiv:2610.17767): train only
+  the root token (the think/don't-think decision) via group-relative
+  rewards and group-wise advantages; group rollouts with forced arms
+  learn difficulty-aware adaptive thinking at a fraction of full
+  training compute.
 """
 
 from arxiv_lab.training.prospective_hindsight import (
@@ -38,6 +43,13 @@ from arxiv_lab.training.code_lora import (
     build_prototype,
     route_prototype,
 )
+from arxiv_lab.training.rpo import (
+    group_advantages,
+    kl_penalty,
+    root_token_losses,
+    simulate_adaptive_thinking,
+    THINK_COST,
+)
 
 __all__ = [
     "surprise_weights",
@@ -57,4 +69,9 @@ __all__ = [
     "code_lora_step",
     "build_prototype",
     "route_prototype",
+    "group_advantages",
+    "kl_penalty",
+    "root_token_losses",
+    "simulate_adaptive_thinking",
+    "THINK_COST",
 ]
