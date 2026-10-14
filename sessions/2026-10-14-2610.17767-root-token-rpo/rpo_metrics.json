@@ -1,0 +1,47 @@
+{
+ "base_model": "/content/qwen35-9b",
+ "decision_words": [
+  "T",
+  "D"
+ ],
+ "n_train": 80,
+ "n_eval": 40,
+ "epochs": 2,
+ "lr": 0.0001,
+ "beta_kl": 0.02,
+ "think_cost": 0.15,
+ "root_token_updates": 160,
+ "decision_tokens_touched": 640,
+ "sft_token_equivalent": 37730,
+ "compute_fraction_vs_sft": 0.016962629207527165,
+ "base_free": {
+  "tag": "base_free",
+  "think_rate_easy": 0.0,
+  "think_rate_hard": 0.0,
+  "acc_easy": 0.85,
+  "acc_hard": 1.0,
+  "format_ok_rate": 0.0,
+  "mean_gen_tokens": 107.425
+ },
+ "base_always_think": {
+  "tag": "base_think",
+  "think_rate_easy": 1.0,
+  "think_rate_hard": 1.0,
+  "acc_easy": 1.0,
+  "acc_hard": 0.65,
+  "format_ok_rate": 1.0,
+  "mean_gen_tokens": 75.125
+ },
+ "trained_free": {
+  "tag": "trained_free",
+  "think_rate_easy": 0.0,
+  "think_rate_hard": 0.0,
+  "acc_easy": 0.0,
+  "acc_hard": 0.0,
+  "format_ok_rate": 1.0,
+  "mean_gen_tokens": 192.0
+ },
+ "trained_adaptive_gap": 0.0,
+ "final_loss": -0.3006935715675354,
+ "elapsed_s": 3947.7
+}
