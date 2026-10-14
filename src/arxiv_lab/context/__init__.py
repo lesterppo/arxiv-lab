@@ -1,4 +1,4 @@
-"""Context-curation mechanisms (arXiv 2610.11007, 2610.10590)."""
+"""Context-curation mechanisms (arXiv 2610.11007, 2610.10590, 2609.37725)."""
 from .curated_context import (
     KAPPA, LAMBDA, CAPACITY,
     dilution, net_value, standalone_value,
@@ -13,6 +13,9 @@ from .reversible_forgetting import (
     make_noisy_observation, make_dense_observation, extract_note,
     TrajectoryReplay,
 )
+from .clm import (
+    EditError, LiveContextFile,
+)
 
 __all__ = [
     "KAPPA", "LAMBDA", "CAPACITY",
@@ -25,4 +28,5 @@ __all__ = [
     "ToolResult", "Message", "stub_text", "estimate_tokens",
     "make_noisy_observation", "make_dense_observation", "extract_note",
     "TrajectoryReplay",
+    "EditError", "LiveContextFile",
 ]
