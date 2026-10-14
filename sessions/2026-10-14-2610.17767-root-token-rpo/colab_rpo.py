@@ -431,14 +431,15 @@ for ep in range(EPOCHS):
         opt.step()
         step += 1
         tok_touched += len(advs)
-        loss_hist.append(loss.item())
+        loss_val = loss.item()
+        loss_hist.append(loss_val)
         # free the 8 forward graphs promptly (T4 VRAM hygiene)
         del logps, logp_refs, advs_t, pg_loss, kl, loss
         if step % 10 == 0:
             torch.cuda.empty_cache()
         if step % 20 == 0:
             print("[train] ep=%d step=%d loss=%.4f" %
-                  (ep, step, loss.item()), flush=True)
+                  (ep, step, loss_val), flush=True)
 
 print("[train] done: %d root-token updates, %d decision-tokens touched"
       % (step, tok_touched), flush=True)
