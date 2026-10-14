@@ -1,0 +1,20 @@
+{
+ "paper": "2609.37725",
+ "title": "Context Language Models",
+ "seed": 7,
+ "budget_tokens": 6000,
+ "n_tool_outputs": 60,
+ "n_critical_facts": 6,
+ "clm_arm": {
+  "final_tokens": 3817,
+  "facts_retained": 6,
+  "edit_batches": 5,
+  "findings_tabled": 6
+ },
+ "baseline_arm": {
+  "final_tokens": 5925,
+  "facts_retained": 2
+ },
+ "verdict": "SUPPORTED",
+ "verdict_note": "Mechanism-level, bounded scale: a scripted edit policy standing in for the model beats fixed head-truncation on fact retention (6/6 vs 2/6) at lower token usage (3817 vs 5925 of 6000 budget)."
+}
