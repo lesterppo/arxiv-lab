@@ -1,0 +1,108 @@
+{
+ "condition": "masked-distractors-only-40",
+ "aggregate": {
+  "n": 8,
+  "mean_recall": 1.0,
+  "mean_precision": 1.0,
+  "zero_load_rate": 0.0,
+  "mean_wrong_load": 0.0
+ },
+ "per_task": [
+  {
+   "recall": 1.0,
+   "zero_load": false,
+   "wrong_load": 0,
+   "precision": 1.0,
+   "n_loaded": 1,
+   "n_golden": 1,
+   "task": "t_csv",
+   "loaded": [
+    "csv_to_json"
+   ]
+  },
+  {
+   "recall": 1.0,
+   "zero_load": false,
+   "wrong_load": 0,
+   "precision": 1.0,
+   "n_loaded": 1,
+   "n_golden": 1,
+   "task": "t_email",
+   "loaded": [
+    "regex_extract"
+   ]
+  },
+  {
+   "recall": 1.0,
+   "zero_load": false,
+   "wrong_load": 0,
+   "precision": 1.0,
+   "n_loaded": 1,
+   "n_golden": 1,
+   "task": "t_date",
+   "loaded": [
+    "date_parse"
+   ]
+  },
+  {
+   "recall": 1.0,
+   "zero_load": false,
+   "wrong_load": 0,
+   "precision": 1.0,
+   "n_loaded": 1,
+   "n_golden": 1,
+   "task": "t_sql",
+   "loaded": [
+    "sql_join"
+   ]
+  },
+  {
+   "recall": 1.0,
+   "zero_load": false,
+   "wrong_load": 0,
+   "precision": 1.0,
+   "n_loaded": 1,
+   "n_golden": 1,
+   "task": "t_b64",
+   "loaded": [
+    "base64_tool"
+   ]
+  },
+  {
+   "recall": 1.0,
+   "zero_load": false,
+   "wrong_load": 0,
+   "precision": 1.0,
+   "n_loaded": 1,
+   "n_golden": 1,
+   "task": "t_md",
+   "loaded": [
+    "md_table"
+   ]
+  },
+  {
+   "recall": 1.0,
+   "zero_load": false,
+   "wrong_load": 0,
+   "precision": 1.0,
+   "n_loaded": 1,
+   "n_golden": 1,
+   "task": "t_unit",
+   "loaded": [
+    "unit_convert"
+   ]
+  },
+  {
+   "recall": 1.0,
+   "zero_load": false,
+   "wrong_load": 0,
+   "precision": 1.0,
+   "n_loaded": 1,
+   "n_golden": 1,
+   "task": "t_json",
+   "loaded": [
+    "json_validate"
+   ]
+  }
+ ]
+}
