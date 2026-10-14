@@ -38,3 +38,8 @@ the article-specific code/tests, and Colab scripts where applicable.
 The reusable mechanism itself graduates to `src/arxiv_lab/<area>/` + a CPU
 test when validated. Sessions are the daily read-and-test's deliverable —
 create one for every article that gets a live test.
+
+The full daily protocol (fetch → dedup → screen/score → live test → session
+→ push → verify) lives in `WORKFLOW.md` at the repo root, with operator
+scripts in `workflow/` — it is written so another agent can replicate the
+cron job from this repo alone. Keep it in sync when the protocol changes.
