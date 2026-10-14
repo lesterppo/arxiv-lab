@@ -278,7 +278,12 @@ def score_rollout(text, gold, thought):
 
 
 def root_logprobs(model, question, decision):
-    """Log-prob of the root decision token under model; ref = adapters off."""
+    """Log-prob of the root decision token under model; ref = adapters off.
+
+    Only the policy forward keeps a graph (needed for the root-token
+    gradient); the reference forward is no-grad. Callers must delete the
+    returned tensors promptly (VRAM is tight on a T4).
+    """
     full_ids = tok(prompt_for(question) + " " + decision,
                    return_tensors="pt")["input_ids"].to(DEVICE)
     pre_ids = tok(prompt_for(question),
@@ -288,11 +293,13 @@ def root_logprobs(model, question, decision):
     pos = pre_ids.shape[1] - 1  # logits position predicting the decision
     out = model(input_ids=full_ids)
     logp = torch.log_softmax(out.logits[0, pos].float(), -1)[dec_id[0]]
-    with model.disable_adapter():
+    del out
+    with model.disable_adapter(), torch.no_grad():
         out_ref = model(input_ids=full_ids)
         logp_ref = torch.log_softmax(
-            out_ref.logits[0, pos].float(), -1)[dec_id[0]]
-    return logp, logp_ref.detach()
+            out_ref.logits[0, pos].float(), -1)[dec_id[0]].detach()
+        del out_ref
+    return logp, logp_ref
 
 # ---------------------------------------------------------------- stage 1: train rollouts (forced arms)
 if os.path.exists(STAGE1):
@@ -384,6 +391,10 @@ cfg = LoraConfig(r=16, lora_alpha=32, lora_dropout=0.0,
                                  "gate_proj", "up_proj", "down_proj"],
                  task_type="CAUSAL_LM")
 model = get_peft_model(base_model, cfg)
+# gradient checkpointing: the root-token forward keeps a full 9B graph;
+# without checkpointing the 4-arms x (policy + ref) forwards OOM a T4
+# (observed 2026-10-14).
+model.gradient_checkpointing_enable()
 model.train()
 import bitsandbytes as bnb_opt
 opt = bnb_opt.optim.AdamW8bit(model.parameters(), lr=LR)
@@ -421,6 +432,10 @@ for ep in range(EPOCHS):
         step += 1
         tok_touched += len(advs)
         loss_hist.append(loss.item())
+        # free the 8 forward graphs promptly (T4 VRAM hygiene)
+        del logps, logp_refs, advs_t, pg_loss, kl, loss
+        if step % 10 == 0:
+            torch.cuda.empty_cache()
         if step % 20 == 0:
             print("[train] ep=%d step=%d loss=%.4f" %
                   (ep, step, loss.item()), flush=True)
@@ -429,6 +444,10 @@ print("[train] done: %d root-token updates, %d decision-tokens touched"
       % (step, tok_touched), flush=True)
 model.save_pretrained(os.path.join(ADIR, "rpo"))
 model.eval()
+try:
+    model.config.use_cache = True  # restore for generate() (was disabled
+except Exception:                  # by gradient_checkpointing_enable)
+    pass
 
 print("[eval] trained model, free decision...", flush=True)
 trained_free = evaluate(model, eval_items, "trained_free")
