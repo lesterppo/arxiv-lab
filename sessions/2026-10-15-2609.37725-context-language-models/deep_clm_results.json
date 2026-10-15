@@ -1,0 +1,517 @@
+{
+ "budget_tokens": 6000,
+ "models": {
+  "openai/gpt-oss-20b": {
+   "arms": {
+    "baseline": {
+     "arm": "baseline",
+     "accuracy": "5/8",
+     "correct": 5,
+     "total": 8,
+     "detail": {
+      "Q1": {
+       "gold": "Turing Award",
+       "got": "Turing Award",
+       "ok": true
+      },
+      "Q2": {
+       "gold": "San Francisco",
+       "got": "San Francisco",
+       "ok": true
+      },
+      "Q3": {
+       "gold": "Dr. Rao",
+       "got": "Dr. Rao",
+       "ok": true
+      },
+      "Q4": {
+       "gold": "one million dollars",
+       "got": "one million dollars",
+       "ok": true
+      },
+      "Q5": {
+       "gold": "Helios",
+       "got": "Helios project",
+       "ok": true
+      },
+      "Q6": {
+       "gold": "sparse attention",
+       "got": "contributions to computer science",
+       "ok": false
+      },
+      "Q7": {
+       "gold": "Meridian Labs",
+       "got": "(information not found in current documents)",
+       "ok": false
+      },
+      "Q8": {
+       "gold": "Boston",
+       "got": "(information not found in current documents)",
+       "ok": false
+      }
+     },
+     "turns": 10,
+     "searches": 8,
+     "bash_edits": 0,
+     "nudges": 1,
+     "token_traj": [
+      149,
+      1654,
+      3180,
+      4752,
+      5810,
+      5807,
+      5807,
+      5757,
+      5778,
+      5729
+     ],
+     "peak_tokens": 5810,
+     "final_tokens": 5729,
+     "within_budget_frac": 1.0,
+     "answered": true,
+     "wall_secs": 72.3
+    },
+    "clm": {
+     "arm": "clm",
+     "accuracy": "0/8",
+     "correct": 0,
+     "total": 8,
+     "detail": {
+      "Q1": {
+       "gold": "Turing Award",
+       "got": "",
+       "ok": false
+      },
+      "Q2": {
+       "gold": "San Francisco",
+       "got": "",
+       "ok": false
+      },
+      "Q3": {
+       "gold": "Dr. Rao",
+       "got": "",
+       "ok": false
+      },
+      "Q4": {
+       "gold": "one million dollars",
+       "got": "",
+       "ok": false
+      },
+      "Q5": {
+       "gold": "Helios",
+       "got": "",
+       "ok": false
+      },
+      "Q6": {
+       "gold": "sparse attention",
+       "got": "",
+       "ok": false
+      },
+      "Q7": {
+       "gold": "Meridian Labs",
+       "got": "",
+       "ok": false
+      },
+      "Q8": {
+       "gold": "Boston",
+       "got": "",
+       "ok": false
+      }
+     },
+     "turns": 8,
+     "searches": 5,
+     "bash_edits": 0,
+     "nudges": 3,
+     "token_traj": [
+      151,
+      1733,
+      3306,
+      4882,
+      4903,
+      6424,
+      7926,
+      7947
+     ],
+     "peak_tokens": 7947,
+     "final_tokens": 7968,
+     "within_budget_frac": 0.625,
+     "answered": false,
+     "wall_secs": 19.8
+    }
+   }
+  },
+  "nvidia/llama-3.1-nemotron-70b-instruct": {
+   "arms": {
+    "baseline": {
+     "arm": "baseline",
+     "accuracy": "0/8",
+     "correct": 0,
+     "total": 8,
+     "detail": {
+      "Q1": {
+       "gold": "Turing Award",
+       "got": "",
+       "ok": false
+      },
+      "Q2": {
+       "gold": "San Francisco",
+       "got": "",
+       "ok": false
+      },
+      "Q3": {
+       "gold": "Dr. Rao",
+       "got": "",
+       "ok": false
+      },
+      "Q4": {
+       "gold": "one million dollars",
+       "got": "",
+       "ok": false
+      },
+      "Q5": {
+       "gold": "Helios",
+       "got": "",
+       "ok": false
+      },
+      "Q6": {
+       "gold": "sparse attention",
+       "got": "",
+       "ok": false
+      },
+      "Q7": {
+       "gold": "Meridian Labs",
+       "got": "",
+       "ok": false
+      },
+      "Q8": {
+       "gold": "Boston",
+       "got": "",
+       "ok": false
+      }
+     },
+     "turns": 2,
+     "searches": 0,
+     "bash_edits": 0,
+     "nudges": 0,
+     "token_traj": [
+      149
+     ],
+     "peak_tokens": 149,
+     "final_tokens": 149,
+     "within_budget_frac": 1.0,
+     "answered": false,
+     "wall_secs": 0.5
+    },
+    "clm": {
+     "arm": "clm",
+     "accuracy": "0/8",
+     "correct": 0,
+     "total": 8,
+     "detail": {
+      "Q1": {
+       "gold": "Turing Award",
+       "got": "",
+       "ok": false
+      },
+      "Q2": {
+       "gold": "San Francisco",
+       "got": "",
+       "ok": false
+      },
+      "Q3": {
+       "gold": "Dr. Rao",
+       "got": "",
+       "ok": false
+      },
+      "Q4": {
+       "gold": "one million dollars",
+       "got": "",
+       "ok": false
+      },
+      "Q5": {
+       "gold": "Helios",
+       "got": "",
+       "ok": false
+      },
+      "Q6": {
+       "gold": "sparse attention",
+       "got": "",
+       "ok": false
+      },
+      "Q7": {
+       "gold": "Meridian Labs",
+       "got": "",
+       "ok": false
+      },
+      "Q8": {
+       "gold": "Boston",
+       "got": "",
+       "ok": false
+      }
+     },
+     "turns": 2,
+     "searches": 0,
+     "bash_edits": 0,
+     "nudges": 0,
+     "token_traj": [
+      151
+     ],
+     "peak_tokens": 151,
+     "final_tokens": 151,
+     "within_budget_frac": 1.0,
+     "answered": false,
+     "wall_secs": 0.6
+    }
+   }
+  },
+  "moonshotai/kimi-k2.6": {
+   "arms": {
+    "baseline": {
+     "arm": "baseline",
+     "accuracy": "0/8",
+     "correct": 0,
+     "total": 8,
+     "detail": {
+      "Q1": {
+       "gold": "Turing Award",
+       "got": "",
+       "ok": false
+      },
+      "Q2": {
+       "gold": "San Francisco",
+       "got": "",
+       "ok": false
+      },
+      "Q3": {
+       "gold": "Dr. Rao",
+       "got": "",
+       "ok": false
+      },
+      "Q4": {
+       "gold": "one million dollars",
+       "got": "",
+       "ok": false
+      },
+      "Q5": {
+       "gold": "Helios",
+       "got": "",
+       "ok": false
+      },
+      "Q6": {
+       "gold": "sparse attention",
+       "got": "",
+       "ok": false
+      },
+      "Q7": {
+       "gold": "Meridian Labs",
+       "got": "",
+       "ok": false
+      },
+      "Q8": {
+       "gold": "Boston",
+       "got": "",
+       "ok": false
+      }
+     },
+     "turns": 2,
+     "searches": 0,
+     "bash_edits": 0,
+     "nudges": 0,
+     "token_traj": [
+      149
+     ],
+     "peak_tokens": 149,
+     "final_tokens": 149,
+     "within_budget_frac": 1.0,
+     "answered": false,
+     "wall_secs": 0.6
+    },
+    "clm": {
+     "arm": "clm",
+     "accuracy": "0/8",
+     "correct": 0,
+     "total": 8,
+     "detail": {
+      "Q1": {
+       "gold": "Turing Award",
+       "got": "",
+       "ok": false
+      },
+      "Q2": {
+       "gold": "San Francisco",
+       "got": "",
+       "ok": false
+      },
+      "Q3": {
+       "gold": "Dr. Rao",
+       "got": "",
+       "ok": false
+      },
+      "Q4": {
+       "gold": "one million dollars",
+       "got": "",
+       "ok": false
+      },
+      "Q5": {
+       "gold": "Helios",
+       "got": "",
+       "ok": false
+      },
+      "Q6": {
+       "gold": "sparse attention",
+       "got": "",
+       "ok": false
+      },
+      "Q7": {
+       "gold": "Meridian Labs",
+       "got": "",
+       "ok": false
+      },
+      "Q8": {
+       "gold": "Boston",
+       "got": "",
+       "ok": false
+      }
+     },
+     "turns": 2,
+     "searches": 0,
+     "bash_edits": 0,
+     "nudges": 0,
+     "token_traj": [
+      151
+     ],
+     "peak_tokens": 151,
+     "final_tokens": 151,
+     "within_budget_frac": 1.0,
+     "answered": false,
+     "wall_secs": 0.7
+    }
+   }
+  },
+  "mistralai/mistral-large-2-instruct": {
+   "arms": {
+    "baseline": {
+     "arm": "baseline",
+     "accuracy": "0/8",
+     "correct": 0,
+     "total": 8,
+     "detail": {
+      "Q1": {
+       "gold": "Turing Award",
+       "got": "",
+       "ok": false
+      },
+      "Q2": {
+       "gold": "San Francisco",
+       "got": "",
+       "ok": false
+      },
+      "Q3": {
+       "gold": "Dr. Rao",
+       "got": "",
+       "ok": false
+      },
+      "Q4": {
+       "gold": "one million dollars",
+       "got": "",
+       "ok": false
+      },
+      "Q5": {
+       "gold": "Helios",
+       "got": "",
+       "ok": false
+      },
+      "Q6": {
+       "gold": "sparse attention",
+       "got": "",
+       "ok": false
+      },
+      "Q7": {
+       "gold": "Meridian Labs",
+       "got": "",
+       "ok": false
+      },
+      "Q8": {
+       "gold": "Boston",
+       "got": "",
+       "ok": false
+      }
+     },
+     "turns": 2,
+     "searches": 0,
+     "bash_edits": 0,
+     "nudges": 0,
+     "token_traj": [
+      149
+     ],
+     "peak_tokens": 149,
+     "final_tokens": 149,
+     "within_budget_frac": 1.0,
+     "answered": false,
+     "wall_secs": 0.6
+    },
+    "clm": {
+     "arm": "clm",
+     "accuracy": "0/8",
+     "correct": 0,
+     "total": 8,
+     "detail": {
+      "Q1": {
+       "gold": "Turing Award",
+       "got": "",
+       "ok": false
+      },
+      "Q2": {
+       "gold": "San Francisco",
+       "got": "",
+       "ok": false
+      },
+      "Q3": {
+       "gold": "Dr. Rao",
+       "got": "",
+       "ok": false
+      },
+      "Q4": {
+       "gold": "one million dollars",
+       "got": "",
+       "ok": false
+      },
+      "Q5": {
+       "gold": "Helios",
+       "got": "",
+       "ok": false
+      },
+      "Q6": {
+       "gold": "sparse attention",
+       "got": "",
+       "ok": false
+      },
+      "Q7": {
+       "gold": "Meridian Labs",
+       "got": "",
+       "ok": false
+      },
+      "Q8": {
+       "gold": "Boston",
+       "got": "",
+       "ok": false
+      }
+     },
+     "turns": 2,
+     "searches": 0,
+     "bash_edits": 0,
+     "nudges": 0,
+     "token_traj": [
+      151
+     ],
+     "peak_tokens": 151,
+     "final_tokens": 151,
+     "within_budget_frac": 1.0,
+     "answered": false,
+     "wall_secs": 0.6
+    }
+   }
+  }
+ }
+}
