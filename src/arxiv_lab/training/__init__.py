@@ -18,6 +18,9 @@
   rewards and group-wise advantages; group rollouts with forced arms
   learn difficulty-aware adaptive thinking at a fraction of full
   training compute.
+- ``sst`` — Subspace Tuning (arXiv:2610.22293): restrict each weight update
+  to the bottom singular subspace of the weight matrix, protecting the
+  principal directions that carry prior-task knowledge.
 """
 
 from arxiv_lab.training.prospective_hindsight import (
@@ -50,6 +53,11 @@ from arxiv_lab.training.rpo import (
     simulate_adaptive_thinking,
     THINK_COST,
 )
+from arxiv_lab.training.sst import (
+    principal_directions,
+    project_grad_to_bottom_subspace,
+    sst_update,
+)
 
 __all__ = [
     "surprise_weights",
@@ -74,4 +82,7 @@ __all__ = [
     "root_token_losses",
     "simulate_adaptive_thinking",
     "THINK_COST",
+    "principal_directions",
+    "project_grad_to_bottom_subspace",
+    "sst_update",
 ]
