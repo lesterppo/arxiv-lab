@@ -304,8 +304,11 @@ def save_metrics(row):
 
 # ---------------------------------------------------------------- phase A
 tok, model = load_base()
-model = get_peft_model(model, LORA_CFG)
-if not done("phaseA"):
+if done("phaseA"):
+    model = PeftModel.from_pretrained(model, os.path.join(RUN, "adapter_A"))
+    log("phase A: loaded saved adapter")
+else:
+    model = get_peft_model(model, LORA_CFG)
     train_phase(model, tok, trainA, epochs=3, lr=2e-4, tag="phaseA")
     model.save_pretrained(os.path.join(RUN, "adapter_A"))
     mark("phaseA")
@@ -315,16 +318,26 @@ del model
 torch.cuda.empty_cache()
 
 
+def set_lora_trainable(model):
+    n = 0
+    for name, p in model.named_parameters():
+        p.requires_grad = ("lora_" in name)
+        n += p.requires_grad
+    log("trainable params: %d" % n)
+
+
 def run_arm(arm):
     tag = "arm_%s" % arm
     if done(tag):
         log("%s already done, skipping" % tag)
         return
     tok3, base2 = load_base()
-    model = PeftModel.from_pretrained(base2, os.path.join(RUN, "adapter_A"))
     sst = None
     if arm == "sst":
-        proj = compute_sst_projectors(base2)
+        proj = compute_sst_projectors(base2)  # base model, before wrapping
+    model = PeftModel.from_pretrained(base2, os.path.join(RUN, "adapter_A"))
+    set_lora_trainable(model)
+    if arm == "sst":
         sst = resolve_lora_modules(model, proj)
         log("SST active on %d modules" % len(sst))
         assert len(sst) > 0, "no SST modules resolved!"
