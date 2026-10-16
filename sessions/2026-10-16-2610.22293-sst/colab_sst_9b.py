@@ -181,7 +181,8 @@ LORA_CFG = LoraConfig(r=16, lora_alpha=32, lora_dropout=0.0,
                       task_type="CAUSAL_LM")
 
 
-def train_phase(model, tok, texts, epochs, lr, tag, sst_projectors=None):
+def train_phase(model, tok, texts, epochs, lr, tag, sst_projectors=None,
+                sst_adapter="b"):
     model.train()
     dev = next(model.parameters()).device
     opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad],
@@ -204,11 +205,13 @@ def train_phase(model, tok, texts, epochs, lr, tag, sst_projectors=None):
             if sst_projectors:
                 with torch.no_grad():
                     for mod, (u_r, v_r) in sst_projectors.items():
-                        # B <- P_left B ; A <- A P_right  (exact two-sided SST)
-                        lb = mod.lora_B
-                        la = mod.lora_A
-                        if isinstance(lb, torch.nn.ModuleDict):
-                            lb, la = lb["default"], la["default"]
+                        # B_b <- P_left B_b ; A_b <- A_b P_right (exact
+                        # two-sided SST on the phase-B adapter ONLY; the
+                        # frozen phase-A adapter ("default") is never
+                        # touched -- projecting it would amputate prior
+                        # knowledge, the flaw of the first 9B attempt)
+                        lb = mod.lora_B[sst_adapter]
+                        la = mod.lora_A[sst_adapter]
                         b, a = lb.weight, la.weight
                         ur, vr = u_r.to(b.dtype), v_r.to(a.dtype)
                         b.copy_(b - ur @ (ur.T @ b))
@@ -327,23 +330,80 @@ def set_lora_trainable(model):
     log("trainable params: %d" % n)
 
 
+def build_combined_adapter(model):
+    """Add a rank-32 'combined' adapter = exact sum of 'default' + 'b'.
+
+    B_C = [B_A, B_B], A_C = [A_A; A_B]  =>  B_C @ A_C = B_A@A_A + B_B@A_B.
+    With lora_alpha=64, r=32 the peft scaling (2.0) matches the r=16/a=32
+    adapters, so 'combined' reproduces both adapters' joint forward
+    exactly. (This peft version's set_adapter() takes one adapter only.)
+    """
+    cfg_c = LoraConfig(r=32, lora_alpha=64, lora_dropout=0.0,
+                       target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
+                       task_type="CAUSAL_LM")
+    model.add_adapter("combined", cfg_c)
+    with torch.no_grad():
+        for n, m in model.named_modules():
+            if not hasattr(m, "lora_A"):
+                continue
+            Ba = m.lora_B["default"].weight.data
+            Aa = m.lora_A["default"].weight.data
+            Bb = m.lora_B["b"].weight.data
+            Ab = m.lora_A["b"].weight.data
+            m.lora_B["combined"].weight.data.copy_(
+                torch.cat([Ba, Bb], dim=1))
+            m.lora_A["combined"].weight.data.copy_(
+                torch.cat([Aa, Ab], dim=0))
+    model.set_adapter("combined")
+    log("combined adapter built (rank 32 = A + B)")
+
+
 def run_arm(arm):
+    """Phase-B arms. Faithful LoRA port of SST (fixed 2026-10-16):
+
+    * "plain"  (done): keep training the phase-A adapter ("default").
+    * "frozen": freeze phase-A adapter, train a fresh adapter "b"
+      unrestricted -- isolates the freezing effect.
+    * "sst":    freeze phase-A adapter, train fresh adapter "b" with the
+      two-sided SST projection on "b" only -- isolates SST's
+      interference reduction. The phase-A adapter is NEVER projected
+      (projecting it amputated prior knowledge: first attempt's sst
+      retention was 0.417 vs plain 0.729).
+
+    At eval, "default"+"b" are combined exactly via rank-concatenation
+    (build_combined_adapter) since this peft version activates one
+    adapter at a time.
+    """
     tag = "arm_%s" % arm
     if done(tag):
         log("%s already done, skipping" % tag)
         return
+    assert arm in ("plain", "frozen", "sst")
     tok3, base2 = load_base()
     sst = None
     if arm == "sst":
         proj = compute_sst_projectors(base2)  # base model, before wrapping
     model = PeftModel.from_pretrained(base2, os.path.join(RUN, "adapter_A"))
-    set_lora_trainable(model)
+    if arm in ("frozen", "sst"):
+        torch.manual_seed(SEED + 123)  # identical adapter-B init, both arms
+        model.add_adapter("b", LORA_CFG)
+        model.set_adapter("b")  # single active adapter (this peft version)
+        for n, p in model.named_parameters():
+            p.requires_grad = (".lora_A.b." in n or ".lora_B.b." in n)
+        ntrain = sum(1 for _, p in model.named_parameters() if p.requires_grad)
+        log("trainable params (adapter b): %d tensors" % ntrain)
+        assert ntrain > 0
+    else:
+        set_lora_trainable(model)
+        model.set_adapter("default")
     if arm == "sst":
         sst = resolve_lora_modules(model, proj)
         log("SST active on %d modules" % len(sst))
         assert len(sst) > 0, "no SST modules resolved!"
     train_phase(model, tok3, trainB, epochs=3, lr=2e-4, tag="phaseB-" + arm,
-                sst_projectors=sst)
+                sst_projectors=sst, sst_adapter="b")
+    if arm in ("frozen", "sst"):
+        build_combined_adapter(model)
     ret = evaluate(model, tok3, evalA)
     lrn = evaluate(model, tok3, evalB)
     save_metrics({"arm": arm, "accA_after_A": round(accA, 4),
@@ -354,5 +414,6 @@ def run_arm(arm):
 
 
 run_arm("plain")
+run_arm("frozen")
 run_arm("sst")
 log("ALL DONE")
