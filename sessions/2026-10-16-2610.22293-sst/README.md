@@ -56,17 +56,53 @@ retention, and only the two-sided projection reproduces the claim.
 
 ## Colab 9B track
 
-Status at report time: see run log
-`~/workspace/goals/arxiv-daily-read-and-test/hidden_files/run-2026-10-16.md`
-(session `arxiv-sst-20261016`, script `/content/colab_sst_9b.py`,
-resume markers under `/content/sst_run/`). If the run did not complete
-in-budget, the day's training verdict stays SUPPORTED on the CPU
-evidence with the 9B confirmation carried over (resume state recorded
-here).
+**Phase A** (shared): Qwen3.5-9B NF4, LoRA r=16/a=32, finance glossary
+(240 pairs, 3 epochs) → task-A accuracy **0.979** on 48 held-out prompts.
+(Note: first eval read 0.188 — the eval used right-padding, which breaks
+batched decoder generation; fixed to left padding.)
+
+**Phase B arms** (medical glossary, 240 pairs, 3 epochs):
+
+| arm | design | retention (A) | learning (B) |
+|---|---|---|---|
+| plain | continue phase-A adapter, unrestricted | **0.729** | 1.000 |
+| sst v1 | continue phase-A adapter + project (B,A) each step | 0.417 | 1.000 |
+
+The v1 sst arm is **INVALID as a test of the paper**: projecting the
+phase-A adapter itself (`B ← P_left·B`, `A ← A·P_right`) amputates prior
+knowledge stored in the adapter at step 0 — the paper protects base
+weights and restricts only *updates*. The 0.417 (worse than plain)
+measures this port flaw, not the paper's mechanism. Lesson recorded.
+
+**Faithful v2 design** (staged, script pushed): freeze phase-A adapter
+("default"), train a fresh adapter "b" (identical init both arms);
+- "frozen": "b" unrestricted (isolates the freezing effect);
+- "sst": "b" with the two-sided SST projection on "b" only, via the
+  `B_b ← P_left·B_b`, `A_b ← A_b·P_right` reparameterization (exact).
+At eval, "default"+"b" combine exactly by rank-concatenation
+(`B_C=[B_A,B_B]`, `A_C=[A_A;A_B]`, r=32/a=64 keeps peft scaling 2.0) —
+this peft version's `set_adapter()` takes one adapter only.
+
+**Status: BLOCKED by reclamation.** The Colab T4 session
+(`arxiv-sst-20261016`, account kyu008008) was reclaimed by the free tier
+while the v2 arms were training. No v2 numbers were produced.
+
+**Resume state:** script `sessions/2026-10-16-2610.22293-sst/colab_sst_9b.py`
+(pushed, final); rerun = new T4 session + upload script +
+`nohup python3 /content/colab_sst_9b.py >> /content/sst_run/run.log 2>&1 &`.
+The script is fully resumable from scratch (deps → weights → phase A →
+arms); SVD cache rebuilds automatically. Fixes already in the script:
+requires_grad for `PeftModel.from_pretrained`, left padding for eval,
+SVD-before-wrap ordering, bf16→fp32 projector cast, two-adapter design
+with exact rank-concat combination.
 
 ## Reuse
 
 `sst_update` / `project_grad_to_bottom_subspace` graduate to
-`src/arxiv_lab/training/`; the Colab script's `B ← P_left B, A ← A P_right`
-reparameterization is the drop-in pattern for adding SST to any LoRA
-training loop (per-step cost is two small matmuls per target module).
+`src/arxiv_lab/training/`; the Colab script's `B_b ← P_left B_b`,
+`A_b ← A_b P_right` reparameterization (applied to the *new* adapter
+only, never to the adapter holding prior knowledge) is the drop-in
+pattern for adding SST to any LoRA training loop — per-step cost is two
+small matmuls per target module. Portable lesson: in LoRA, the "weight"
+whose update SST restricts is the *effective* update; the prior-task
+adapter must stay frozen and unprojected.
