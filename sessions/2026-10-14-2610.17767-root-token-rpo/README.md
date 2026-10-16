@@ -85,3 +85,15 @@ the root token or the continuations drift.
 - Toy-scale data (80 train questions, 2 epochs); single seed.
 - The trained adapter (`/content/rpo_adapters`, VM-local) was not
   preserved — session torn down after metrics.
+
+## Faithful retry (2026-10-16)
+- Attempted on Colab T4 (account kyu009009, session `rpo-faithful`) with
+  the faithful driver `colab_rpo_faithful.py` (native-`<think>`-token
+  root decision + full-sequence KL(pi||pi_ref), CPU-tested 16/16 via
+  `test_rpo_faithful_cpu.py`).
+- **Result: session reclaimed by free-tier ~18 min in** (still in the
+  pip-install phase on the VM), before any training or metrics were
+  produced. No metrics exist; nothing was retried (one-off rule —
+  reclamation ends the attempt).
+- The driver and its CPU test are pushed to the repo as the reproducible
+  artifact; the live verdict of the faithful port stays OPEN.
