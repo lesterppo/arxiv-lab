@@ -165,7 +165,7 @@ def load_base():
     tok = AutoTokenizer.from_pretrained(WDIR, trust_remote_code=True)
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
-    tok.padding_side = "right"
+    tok.padding_side = "left"  # left padding: correct batched generation for eval
     bnb = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4",
                              bnb_4bit_use_double_quant=True,
                              bnb_4bit_compute_dtype=torch.bfloat16)
@@ -210,8 +210,9 @@ def train_phase(model, tok, texts, epochs, lr, tag, sst_projectors=None):
                         if isinstance(lb, torch.nn.ModuleDict):
                             lb, la = lb["default"], la["default"]
                         b, a = lb.weight, la.weight
-                        b.copy_(b - u_r @ (u_r.T @ b))
-                        a.copy_(a - (a @ v_r) @ v_r.T)
+                        ur, vr = u_r.to(b.dtype), v_r.to(a.dtype)
+                        b.copy_(b - ur @ (ur.T @ b))
+                        a.copy_(a - (a @ vr) @ vr.T)
             step += 1
             if step % 50 == 0:
                 log("%s ep%d step%d loss=%.3f" % (tag, ep, step, loss.item()))
@@ -248,7 +249,7 @@ def compute_sst_projectors(model, protect_frac=0.9):
         d = torch.load(cache, map_location="cpu", weights_only=True)
         log("loaded cached SST projectors (%d modules)" % len(d))
         dev = next(model.parameters()).device
-    return {k: (u.to(dev), v.to(dev)) for k, (u, v) in d.items()}
+        return {k: (u.to(dev), v.to(dev)) for k, (u, v) in d.items()}
     import bitsandbytes.functional as F
     proj = {}
     raw = {}
