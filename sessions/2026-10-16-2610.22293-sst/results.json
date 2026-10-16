@@ -1,0 +1,7 @@
+{
+ "acc_a_after_a": 0.995,
+ "plain_retention": 0.63,
+ "plain_learning": 1.0,
+ "sst_retention": 0.8675,
+ "sst_learning": 0.75
+}
