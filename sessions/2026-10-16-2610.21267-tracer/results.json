@@ -1,0 +1,16 @@
+{
+ "tracer_accuracy": 1.0,
+ "full_accuracy": 0.8109965635738832,
+ "tracer_mean_exposed": 5.0,
+ "full_mean_exposed": 40.0,
+ "n_steps": 291,
+ "blend_weight": 0.1,
+ "blend_train_accuracy": 1.0,
+ "n_trajectories": [
+  100,
+  40,
+  80
+ ],
+ "shift_tracer_accuracy": 0.49310344827586206,
+ "shift_full_accuracy": 0.8344827586206897
+}
