@@ -1,0 +1,87 @@
+# Session: Training-Free On-Policy Distillation (2610.22236)
+
+- 文章：https://arxiv.org/abs/2610.22236（Training-Free On-Policy Distillation, Yang et al., 2026-10-15）
+- 日期：2026-10-17｜Track：training｜Verdict：**SUPPORTED**
+
+## 為什麼選這篇（repo fit）
+
+TUNE 高度相關：把每天在 Colab T4 上用 NF4-QLoRA 練出來的 domain specialists
+（`soup-daily-finetune` / `hermes-gi-egtkg-finetune` 的 daily-LoRA 模式）
+融合成一個 generalist，**不需要任何梯度步驟**——只有 forward pass
+收集各層輸入的二階矩，再做一次閉式最小二乘求解。若成立，
+每天的 specialist 產出可以直接融合進主模型，省掉多 domain 重訓。
+
+## 測了什麼（核心主張）
+
+1. **精確的層級解**：共享 base 的 specialists，其融合權重是最小二乘問題
+   `W* = argmin Σ_d w_d E||Wx − W_d x||²` 的閉式解（Eq. 2），只需要各層
+   輸入的 Gram 矩陣 `G_d = XᵀX/n`（一次 forward pass 收集）。
+2. **Rollout 內容比求解器重要**（§3.4）：卡在 repetition loop 被截斷的答案
+   佔答案數很少、佔 token 很多，且其二階矩集中在少數方向；濾掉它們能
+   提升融合模型。
+
+## 做了什麼
+
+- `src/arxiv_lab/training/tf_opd.py`（已畢業到 `src/` 的可重用模組）：
+  `accumulate_gram`（§3.2）、`shrink_gram`（Eq. 3, α=0.9）、
+  `fuse_linear_layer`（Eq. 2, float64 求解，pseudo-inverse fallback 對應
+  Prop. 3.1(iii)）、`unreproduced_share`（Eq. 4 診斷）、
+  `weighted_objective`（Eq. 1）、`detect_repetition_loop`（§3.4,
+  DEFLATE 壓縮比 < 5% / 20000 字元）、`fuse_layer_dict`
+  （bias 按 task arithmetic 合併，§3.3）。
+- `src/arxiv_lab/training/test_tf_opd.py`：確定性合成測試（seeded RNG）。
+  兩層 MLP（8→16→1，tanh），先在混合任務上訓出共享 base（模擬 pretrain），
+  再各用 80 步小 lr 訓出 specialist A（二次函數，dims 0–1）與 B
+ （正弦函數，dims 4–5）——小權重移動對應論文 RL specialist 的 regime。
+  每個 specialist 讀自己生成的 600×24 條 rollout 行收集 Gram 矩陣。
+- `tf_opd_colab_demo.py`：Colab 待跑腳本（已 stage，未執行），見下方。
+
+## 結果（12/12 checks 通過）
+
+- **閉式解精確性**：normal-equation 相對殘差 W1=2.9e-16、W2=7.4e-16
+ （solver 精度）；融合權重在蒸餾目標 Eq. 1 上嚴格優於 base 與
+  task arithmetic（W1: 0.00046 vs 0.01077 vs 0.01089）。
+- **正交輸入範圍的精確重現**（Prop. 3.1(iii)）：fused 層在各自 specialist
+  自己的輸入上輸出殘差 4.5e-16，Eq. 4 未重現份額 ε≈1.9e-31——精確成立。
+- **端到端技能保留**：fused 在 A 任務 MSE 0.1724（specialist 0.1532，
+  1.13×）、B 任務 0.5394（specialist 0.5257，1.03×）；平均
+  (0.3559) 優於任一 specialist 單獨的平均（0.3728 / 0.3594）——與論文
+  「平均比任一 specialist 好」的 headline 一致。
+- **Loop filter**：repetition 文本壓縮比 0.48% 被標記，正常推理文本
+  22.1% 通過；loop rollout 的 Gram 最大特徵值佔比 0.99997（集中在
+  少數方向），佔 14.3% token 來自僅 15 個答案。
+- **Ablation（主張 2 方向性）**：混入 loop rollout 的融合 vs 濾掉的融合，
+  乾淨分佈上的 Eq. 1 目標 J 從 0.000314 惡化到 0.000388（+23%），
+  端到端 A 任務 MSE 從 0.17242 惡化到 0.17263——方向與論文一致
+  （degraded inputs 浪費最小二乘的容量）。
+
+## Verdict：SUPPORTED
+
+數學核心在模擬中被精確驗證（閉式解、正交精確性、loop 機制方向性），
+但**論文的真實權重結果（Olmo-3 7B 七個 benchmark 的保留率）沒有重現**；
+Colab 真實模型 demo 已寫好但未執行。不是 VERIFIED。
+
+## 誠實的限制
+
+- 合成 MLP 測試，非真實 LLM 權重；specialist 是短步數 SGD 微調，
+  非 RL 訓練。
+- 端到端保留是近似的（層級精確解經 tanh 複合後有誤差）：本 toy 中
+  fused 為 specialist MSE 的 1.03–1.13×。
+- Loop ablation 的端到端效應量小（MSE +0.0002），機制層面（J 目標
+  +23%）較明顯；論文在 AIME25 上的大幅提升未在此重現。
+- 真實模型驗證（Colab 腳本）尚未跑——這是 SUPPORTED 而非 VERIFIED
+  的主因。
+
+## Colab 續跑狀態（resume state）
+
+- 腳本：`sessions/2026-10-17-2610.22236-tf-opd/tf_opd_colab_demo.py`
+  （self-contained，頂部 pip installs 含 `!pip uninstall -y torchao`）。
+- 待做：在 Colab T4 上執行（`hermes-colab-cli` 或貼進 Colab cell）。
+  腳本會下載 `Qwen/Qwen2.5-0.5B-Instruct`（公開模型，無需 HF token），
+  構造兩個**合成**權重擾動 specialist（誠實標註：非真實訓練），收集
+  64×2 條 toy rollout 的 Gram 矩陣，做 Eq. 2 融合，印出每層 Eq. 4
+  診斷與 base/specialists/fused 在 held-out toy prompt 上的 perplexity。
+- 注意：specialists 是合成擾動，此 demo 驗證的是**融合機制在真實
+  transformer 權重形狀上的可跑通性**，不是論文的 benchmark 主張。
+- 腳本內無任何 credential/token，金鑰掃描通過（僅 "token" 字樣指
+  text tokens / tokenizer）。
