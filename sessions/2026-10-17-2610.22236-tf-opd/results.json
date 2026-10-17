@@ -1,0 +1,138 @@
+{
+  "checks": [
+    {
+      "name": "each specialist is the best on its own task",
+      "pass": true,
+      "mseA_A": 0.1531937812916017,
+      "mseB_B": 0.525730250135919,
+      "mseBase_A": 0.168022156942048,
+      "mseBase_B": 0.544153013880212,
+      "mseA_B": 0.5923836341398779,
+      "mseB_A": 0.1929948717008987
+    },
+    {
+      "name": "normal-equation exactness [W1]",
+      "pass": true,
+      "rel_resid": 2.8937093306959533e-16
+    },
+    {
+      "name": "normal-equation exactness [W2]",
+      "pass": true,
+      "rel_resid": 7.394341392529782e-16
+    },
+    {
+      "name": "fused minimizes distillation objective [W1]",
+      "pass": true,
+      "J_star": 0.000462906240529436,
+      "J_base": 0.010767778293738216,
+      "J_task_arith": 0.010885170507095974
+    },
+    {
+      "name": "fused minimizes distillation objective [W2]",
+      "pass": true,
+      "J_star": 8.524771954904577e-05,
+      "J_base": 0.002123541359911025,
+      "J_task_arith": 0.0020492720630741236
+    },
+    {
+      "name": "orthogonal ranges: exact per-teacher reproduction",
+      "pass": true,
+      "rel_resid_A": 4.505868581010612e-16,
+      "rel_resid_B": 4.595613391270744e-16,
+      "eps_A": 1.865510759785966e-31,
+      "eps_B": 1.909524322842084e-31
+    },
+    {
+      "name": "fused keeps own-task accuracy (no catastrophic loss)",
+      "pass": true,
+      "fused_A": 0.17242101548812677,
+      "specA_A": 0.1531937812916017,
+      "fused_B": 0.5394034163085822,
+      "specB_B": 0.525730250135919
+    },
+    {
+      "name": "fused on average better than either specialist alone",
+      "pass": true,
+      "avg_fused": 0.35591221589835453,
+      "avg_specA": 0.3727887077157398,
+      "avg_specB": 0.35936256091840885
+    },
+    {
+      "name": "loop filter flags repetition, passes normal text",
+      "pass": true,
+      "ratio_loop": 0.0048,
+      "ratio_normal": 0.2213
+    },
+    {
+      "name": "loop contamination concentrates second moments",
+      "pass": true,
+      "top_eig_share": 0.9999715950870683,
+      "loop_token_share": 0.14285714285714285
+    },
+    {
+      "name": "dropping loop rollouts improves fused own-task accuracy",
+      "pass": true,
+      "mse_filtered": 0.17242101548812677,
+      "mse_contaminated": 0.1726336214855878
+    },
+    {
+      "name": "contaminated solve is worse on the clean input distribution",
+      "pass": true,
+      "J_filtered": 0.00031447052818391334,
+      "J_contaminated": 0.0003880456781324002
+    }
+  ],
+  "specialist_mse": {
+    "A_on_A": 0.1531937812916017,
+    "B_on_B": 0.525730250135919,
+    "A_on_B": 0.5923836341398779,
+    "B_on_A": 0.1929948717008987,
+    "base_on_A": 0.168022156942048,
+    "base_on_B": 0.544153013880212
+  },
+  "normal_eq_rel_resid_W1": 2.8937093306959533e-16,
+  "normal_eq_rel_resid_W2": 7.394341392529782e-16,
+  "objective_W1": {
+    "fused": 0.000462906240529436,
+    "base": 0.010767778293738216,
+    "task_arithmetic": 0.010885170507095974
+  },
+  "objective_W2": {
+    "fused": 8.524771954904577e-05,
+    "base": 0.002123541359911025,
+    "task_arithmetic": 0.0020492720630741236
+  },
+  "orthogonal_exact": {
+    "rel_resid_A": 4.505868581010612e-16,
+    "rel_resid_B": 4.595613391270744e-16,
+    "eps_A": 1.865510759785966e-31,
+    "eps_B": 1.909524322842084e-31
+  },
+  "end_to_end_mse": {
+    "fused_A": 0.17242101548812677,
+    "fused_B": 0.5394034163085822,
+    "specA_A": 0.1531937812916017,
+    "specB_B": 0.525730250135919,
+    "specA_B": 0.5923836341398779,
+    "specB_A": 0.1929948717008987
+  },
+  "loop_filter": {
+    "ratio_loop": 0.0048,
+    "ratio_normal": 0.2213,
+    "flagged_loop": true,
+    "flagged_normal": false
+  },
+  "ablation": {
+    "top_eig_share_loop_gram": 0.9999715950870683,
+    "loop_token_share": 0.14285714285714285,
+    "mse_filtered_A": 0.17242101548812677,
+    "mse_contaminated_A": 0.1726336214855878,
+    "improvement": 0.00021260599746103503,
+    "J_clean_dist_filtered": 0.00031447052818391334,
+    "J_clean_dist_contaminated": 0.0003880456781324002
+  },
+  "summary": {
+    "passed": 12,
+    "total": 12
+  }
+}
