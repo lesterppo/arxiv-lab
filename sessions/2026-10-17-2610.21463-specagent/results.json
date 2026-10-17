@@ -1,0 +1,2680 @@
+{
+  "paper": "arXiv:2610.21463",
+  "title": "Trajectory-Level Speculation with Semantic Verification for Tool-Using Agents",
+  "protocol": "SpecAgent sim: 6x6 grid tool-world, 4 targets/task, 64 seeded tasks (seed=7)",
+  "token_costs": {
+    "strong_decode_per_step": 40,
+    "strong_verdict_per_step": 2,
+    "strong_repair": 40,
+    "strong_prefill_per_step": 10,
+    "weak_decode_per_step": 25
+  },
+  "weak_policy": {
+    "err": 0.15,
+    "tok_per_step": 25
+  },
+  "strong_policy": {
+    "miss": 0.04,
+    "false_alarm": 0.03,
+    "repair_fail": 0.03,
+    "author_err": 0.0,
+    "verdict_tok_per_step": 2,
+    "repair_tok": 40,
+    "prefill_tok_per_step": 10,
+    "decode_tok_per_step": 40
+  },
+  "summary": {
+    "n_tasks": 64,
+    "seed": 7,
+    "strong_success": 1.0,
+    "spec_success": 0.9375,
+    "weak_success": 0.359375,
+    "mean_strong_decoded": {
+      "strong_only": 320.0,
+      "spec": 146.71875
+    },
+    "strong_token_ratio": 0.45849609375,
+    "mean_strong_prefill": {
+      "spec": 271.09375
+    },
+    "mean_weak_decoded": {
+      "spec": 677.734375,
+      "weak_only": 453.125
+    },
+    "mean_segments_per_episode": 11.328125,
+    "mean_repairs_per_episode": 2.3125,
+    "mean_verdict_steps_per_episode": 27.109375,
+    "mean_steps_strong_only": 8.0,
+    "invariant_violations": {
+      "weak_executed_write": 0,
+      "commit_without_verdict": 0,
+      "ungrounded_read": 0
+    }
+  },
+  "episodes": [
+    {
+      "task": 0,
+      "targets": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 11,
+        "n_commits": 23,
+        "n_repairs": 1,
+        "n_verdict_steps": 24,
+        "strong_decoded": 88,
+        "strong_prefill": 240,
+        "weak_decoded": 600
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 0,
+        "weak_decoded": 50
+      }
+    },
+    {
+      "task": 1,
+      "targets": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 11,
+        "n_commits": 20,
+        "n_repairs": 6,
+        "n_verdict_steps": 27,
+        "strong_decoded": 294,
+        "strong_prefill": 270,
+        "weak_decoded": 675
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 5,
+        "weak_decoded": 300
+      }
+    },
+    {
+      "task": 2,
+      "targets": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 11,
+        "n_commits": 22,
+        "n_repairs": 3,
+        "n_verdict_steps": 25,
+        "strong_decoded": 170,
+        "strong_prefill": 250,
+        "weak_decoded": 625
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 4,
+        "weak_decoded": 250
+      }
+    },
+    {
+      "task": 3,
+      "targets": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 16,
+        "n_repairs": 4,
+        "n_verdict_steps": 20,
+        "strong_decoded": 200,
+        "strong_prefill": 200,
+        "weak_decoded": 500
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 13,
+        "weak_decoded": 650
+      }
+    },
+    {
+      "task": 4,
+      "targets": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 11,
+        "n_commits": 24,
+        "n_repairs": 2,
+        "n_verdict_steps": 27,
+        "strong_decoded": 134,
+        "strong_prefill": 270,
+        "weak_decoded": 675
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 0,
+        "weak_decoded": 50
+      }
+    },
+    {
+      "task": 5,
+      "targets": [
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 18,
+        "n_repairs": 1,
+        "n_verdict_steps": 19,
+        "strong_decoded": 78,
+        "strong_prefill": 190,
+        "weak_decoded": 475
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 9,
+        "weak_decoded": 500
+      }
+    },
+    {
+      "task": 6,
+      "targets": [
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 9,
+        "n_commits": 22,
+        "n_repairs": 4,
+        "n_verdict_steps": 26,
+        "strong_decoded": 212,
+        "strong_prefill": 260,
+        "weak_decoded": 650
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 12,
+        "weak_decoded": 600
+      }
+    },
+    {
+      "task": 7,
+      "targets": [
+        [
+          4,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 9,
+        "n_commits": 22,
+        "n_repairs": 2,
+        "n_verdict_steps": 24,
+        "strong_decoded": 128,
+        "strong_prefill": 240,
+        "weak_decoded": 600
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 13,
+        "weak_decoded": 700
+      }
+    },
+    {
+      "task": 8,
+      "targets": [
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 9,
+        "n_commits": 18,
+        "n_repairs": 3,
+        "n_verdict_steps": 21,
+        "strong_decoded": 162,
+        "strong_prefill": 210,
+        "weak_decoded": 525
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 4,
+        "weak_decoded": 250
+      }
+    },
+    {
+      "task": 9,
+      "targets": [
+        [
+          3,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 19,
+        "n_repairs": 1,
+        "n_verdict_steps": 20,
+        "strong_decoded": 80,
+        "strong_prefill": 200,
+        "weak_decoded": 500
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 1,
+        "weak_decoded": 100
+      }
+    },
+    {
+      "task": 10,
+      "targets": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 10,
+        "n_commits": 22,
+        "n_repairs": 3,
+        "n_verdict_steps": 25,
+        "strong_decoded": 170,
+        "strong_prefill": 250,
+        "weak_decoded": 625
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 0,
+        "weak_decoded": 50
+      }
+    },
+    {
+      "task": 11,
+      "targets": [
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 15,
+        "n_repairs": 3,
+        "n_verdict_steps": 18,
+        "strong_decoded": 156,
+        "strong_prefill": 180,
+        "weak_decoded": 450
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 2,
+        "weak_decoded": 150
+      }
+    },
+    {
+      "task": 12,
+      "targets": [
+        [
+          1,
+          0
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 20,
+        "n_repairs": 0,
+        "n_verdict_steps": 20,
+        "strong_decoded": 40,
+        "strong_prefill": 200,
+        "weak_decoded": 500
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 8,
+        "weak_decoded": 400
+      }
+    },
+    {
+      "task": 13,
+      "targets": [
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 14,
+        "n_commits": 30,
+        "n_repairs": 2,
+        "n_verdict_steps": 32,
+        "strong_decoded": 144,
+        "strong_prefill": 320,
+        "weak_decoded": 800
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 35,
+        "weak_decoded": 1800
+      }
+    },
+    {
+      "task": 14,
+      "targets": [
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 11,
+        "n_commits": 25,
+        "n_repairs": 2,
+        "n_verdict_steps": 27,
+        "strong_decoded": 134,
+        "strong_prefill": 270,
+        "weak_decoded": 675
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 1,
+        "weak_decoded": 100
+      }
+    },
+    {
+      "task": 15,
+      "targets": [
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 16,
+        "n_commits": 37,
+        "n_repairs": 4,
+        "n_verdict_steps": 43,
+        "strong_decoded": 246,
+        "strong_prefill": 430,
+        "weak_decoded": 1075
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 4,
+        "weak_decoded": 250
+      }
+    },
+    {
+      "task": 16,
+      "targets": [
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 16,
+        "n_commits": 33,
+        "n_repairs": 3,
+        "n_verdict_steps": 38,
+        "strong_decoded": 196,
+        "strong_prefill": 380,
+        "weak_decoded": 950
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 10,
+        "weak_decoded": 500
+      }
+    },
+    {
+      "task": 17,
+      "targets": [
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 9,
+        "n_commits": 21,
+        "n_repairs": 1,
+        "n_verdict_steps": 22,
+        "strong_decoded": 84,
+        "strong_prefill": 220,
+        "weak_decoded": 550
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 14,
+        "weak_decoded": 750
+      }
+    },
+    {
+      "task": 18,
+      "targets": [
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 37,
+        "n_commits": 77,
+        "n_repairs": 6,
+        "n_verdict_steps": 85,
+        "strong_decoded": 410,
+        "strong_prefill": 850,
+        "weak_decoded": 2125
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 11,
+        "weak_decoded": 600
+      }
+    },
+    {
+      "task": 19,
+      "targets": [
+        [
+          3,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 10,
+        "n_commits": 22,
+        "n_repairs": 2,
+        "n_verdict_steps": 25,
+        "strong_decoded": 130,
+        "strong_prefill": 250,
+        "weak_decoded": 625
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 10,
+        "weak_decoded": 500
+      }
+    },
+    {
+      "task": 20,
+      "targets": [
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 12,
+        "n_commits": 22,
+        "n_repairs": 4,
+        "n_verdict_steps": 27,
+        "strong_decoded": 214,
+        "strong_prefill": 270,
+        "weak_decoded": 675
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 18,
+        "weak_decoded": 900
+      }
+    },
+    {
+      "task": 21,
+      "targets": [
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 11,
+        "n_commits": 23,
+        "n_repairs": 1,
+        "n_verdict_steps": 24,
+        "strong_decoded": 88,
+        "strong_prefill": 240,
+        "weak_decoded": 600
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 9,
+        "weak_decoded": 450
+      }
+    },
+    {
+      "task": 22,
+      "targets": [
+        [
+          2,
+          3
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 17,
+        "n_commits": 31,
+        "n_repairs": 3,
+        "n_verdict_steps": 37,
+        "strong_decoded": 194,
+        "strong_prefill": 370,
+        "weak_decoded": 925
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 18,
+        "weak_decoded": 900
+      }
+    },
+    {
+      "task": 23,
+      "targets": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 10,
+        "n_commits": 25,
+        "n_repairs": 0,
+        "n_verdict_steps": 25,
+        "strong_decoded": 50,
+        "strong_prefill": 250,
+        "weak_decoded": 625
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 8,
+        "weak_decoded": 450
+      }
+    },
+    {
+      "task": 24,
+      "targets": [
+        [
+          1,
+          1
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "spec": {
+        "success": false,
+        "n_segments": 11,
+        "n_commits": 23,
+        "n_repairs": 1,
+        "n_verdict_steps": 24,
+        "strong_decoded": 88,
+        "strong_prefill": 240,
+        "weak_decoded": 600
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 5,
+        "weak_decoded": 300
+      }
+    },
+    {
+      "task": 25,
+      "targets": [
+        [
+          3,
+          1
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 9,
+        "n_commits": 18,
+        "n_repairs": 4,
+        "n_verdict_steps": 22,
+        "strong_decoded": 204,
+        "strong_prefill": 220,
+        "weak_decoded": 550
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 0,
+        "weak_decoded": 50
+      }
+    },
+    {
+      "task": 26,
+      "targets": [
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 10,
+        "n_commits": 23,
+        "n_repairs": 2,
+        "n_verdict_steps": 25,
+        "strong_decoded": 130,
+        "strong_prefill": 250,
+        "weak_decoded": 625
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 1,
+        "weak_decoded": 100
+      }
+    },
+    {
+      "task": 27,
+      "targets": [
+        [
+          1,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 9,
+        "n_commits": 19,
+        "n_repairs": 1,
+        "n_verdict_steps": 20,
+        "strong_decoded": 80,
+        "strong_prefill": 200,
+        "weak_decoded": 500
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 8,
+        "weak_decoded": 400
+      }
+    },
+    {
+      "task": 28,
+      "targets": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 15,
+        "n_commits": 33,
+        "n_repairs": 2,
+        "n_verdict_steps": 35,
+        "strong_decoded": 150,
+        "strong_prefill": 350,
+        "weak_decoded": 875
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 2,
+        "weak_decoded": 150
+      }
+    },
+    {
+      "task": 29,
+      "targets": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 10,
+        "n_commits": 23,
+        "n_repairs": 1,
+        "n_verdict_steps": 24,
+        "strong_decoded": 88,
+        "strong_prefill": 240,
+        "weak_decoded": 600
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 11,
+        "weak_decoded": 600
+      }
+    },
+    {
+      "task": 30,
+      "targets": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 17,
+        "n_repairs": 2,
+        "n_verdict_steps": 19,
+        "strong_decoded": 118,
+        "strong_prefill": 190,
+        "weak_decoded": 475
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 2,
+        "weak_decoded": 150
+      }
+    },
+    {
+      "task": 31,
+      "targets": [
+        [
+          0,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 14,
+        "n_commits": 30,
+        "n_repairs": 2,
+        "n_verdict_steps": 32,
+        "strong_decoded": 144,
+        "strong_prefill": 320,
+        "weak_decoded": 800
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 15,
+        "weak_decoded": 750
+      }
+    },
+    {
+      "task": 32,
+      "targets": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 10,
+        "n_commits": 22,
+        "n_repairs": 1,
+        "n_verdict_steps": 23,
+        "strong_decoded": 86,
+        "strong_prefill": 230,
+        "weak_decoded": 575
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 1,
+        "weak_decoded": 100
+      }
+    },
+    {
+      "task": 33,
+      "targets": [
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 12,
+        "n_commits": 25,
+        "n_repairs": 3,
+        "n_verdict_steps": 28,
+        "strong_decoded": 176,
+        "strong_prefill": 280,
+        "weak_decoded": 700
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 12,
+        "weak_decoded": 600
+      }
+    },
+    {
+      "task": 34,
+      "targets": [
+        [
+          4,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 20,
+        "n_repairs": 0,
+        "n_verdict_steps": 20,
+        "strong_decoded": 40,
+        "strong_prefill": 200,
+        "weak_decoded": 500
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 9,
+        "weak_decoded": 500
+      }
+    },
+    {
+      "task": 35,
+      "targets": [
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 16,
+        "n_repairs": 2,
+        "n_verdict_steps": 18,
+        "strong_decoded": 116,
+        "strong_prefill": 180,
+        "weak_decoded": 450
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 3,
+        "weak_decoded": 200
+      }
+    },
+    {
+      "task": 36,
+      "targets": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "spec": {
+        "success": false,
+        "n_segments": 4,
+        "n_commits": 9,
+        "n_repairs": 1,
+        "n_verdict_steps": 10,
+        "strong_decoded": 60,
+        "strong_prefill": 100,
+        "weak_decoded": 250
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 7,
+        "weak_decoded": 400
+      }
+    },
+    {
+      "task": 37,
+      "targets": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 18,
+        "n_repairs": 2,
+        "n_verdict_steps": 20,
+        "strong_decoded": 120,
+        "strong_prefill": 200,
+        "weak_decoded": 500
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 2,
+        "weak_decoded": 150
+      }
+    },
+    {
+      "task": 38,
+      "targets": [
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 13,
+        "n_commits": 27,
+        "n_repairs": 2,
+        "n_verdict_steps": 30,
+        "strong_decoded": 140,
+        "strong_prefill": 300,
+        "weak_decoded": 750
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 4,
+        "weak_decoded": 250
+      }
+    },
+    {
+      "task": 39,
+      "targets": [
+        [
+          5,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 11,
+        "n_commits": 26,
+        "n_repairs": 3,
+        "n_verdict_steps": 30,
+        "strong_decoded": 180,
+        "strong_prefill": 300,
+        "weak_decoded": 750
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 16,
+        "weak_decoded": 850
+      }
+    },
+    {
+      "task": 40,
+      "targets": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          2
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 20,
+        "n_repairs": 0,
+        "n_verdict_steps": 20,
+        "strong_decoded": 40,
+        "strong_prefill": 200,
+        "weak_decoded": 500
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 9,
+        "weak_decoded": 450
+      }
+    },
+    {
+      "task": 41,
+      "targets": [
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 17,
+        "n_repairs": 2,
+        "n_verdict_steps": 19,
+        "strong_decoded": 118,
+        "strong_prefill": 190,
+        "weak_decoded": 475
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 12,
+        "weak_decoded": 650
+      }
+    },
+    {
+      "task": 42,
+      "targets": [
+        [
+          5,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 14,
+        "n_commits": 28,
+        "n_repairs": 3,
+        "n_verdict_steps": 34,
+        "strong_decoded": 188,
+        "strong_prefill": 340,
+        "weak_decoded": 850
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 9,
+        "weak_decoded": 450
+      }
+    },
+    {
+      "task": 43,
+      "targets": [
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 19,
+        "n_repairs": 2,
+        "n_verdict_steps": 21,
+        "strong_decoded": 122,
+        "strong_prefill": 210,
+        "weak_decoded": 525
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 14,
+        "weak_decoded": 700
+      }
+    },
+    {
+      "task": 44,
+      "targets": [
+        [
+          0,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 9,
+        "n_commits": 20,
+        "n_repairs": 2,
+        "n_verdict_steps": 22,
+        "strong_decoded": 124,
+        "strong_prefill": 220,
+        "weak_decoded": 550
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 9,
+        "weak_decoded": 450
+      }
+    },
+    {
+      "task": 45,
+      "targets": [
+        [
+          3,
+          1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 9,
+        "n_commits": 18,
+        "n_repairs": 3,
+        "n_verdict_steps": 21,
+        "strong_decoded": 162,
+        "strong_prefill": 210,
+        "weak_decoded": 525
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 3,
+        "weak_decoded": 200
+      }
+    },
+    {
+      "task": 46,
+      "targets": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "spec": {
+        "success": false,
+        "n_segments": 6,
+        "n_commits": 15,
+        "n_repairs": 0,
+        "n_verdict_steps": 15,
+        "strong_decoded": 30,
+        "strong_prefill": 150,
+        "weak_decoded": 375
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 7,
+        "weak_decoded": 400
+      }
+    },
+    {
+      "task": 47,
+      "targets": [
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 10,
+        "n_commits": 24,
+        "n_repairs": 0,
+        "n_verdict_steps": 24,
+        "strong_decoded": 48,
+        "strong_prefill": 240,
+        "weak_decoded": 600
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 1,
+        "weak_decoded": 100
+      }
+    },
+    {
+      "task": 48,
+      "targets": [
+        [
+          5,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 15,
+        "n_commits": 28,
+        "n_repairs": 5,
+        "n_verdict_steps": 35,
+        "strong_decoded": 270,
+        "strong_prefill": 350,
+        "weak_decoded": 875
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 10,
+        "weak_decoded": 550
+      }
+    },
+    {
+      "task": 49,
+      "targets": [
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 21,
+        "n_commits": 45,
+        "n_repairs": 4,
+        "n_verdict_steps": 49,
+        "strong_decoded": 258,
+        "strong_prefill": 490,
+        "weak_decoded": 1225
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 15,
+        "weak_decoded": 750
+      }
+    },
+    {
+      "task": 50,
+      "targets": [
+        [
+          3,
+          3
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 11,
+        "n_commits": 22,
+        "n_repairs": 2,
+        "n_verdict_steps": 24,
+        "strong_decoded": 128,
+        "strong_prefill": 240,
+        "weak_decoded": 600
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 4,
+        "weak_decoded": 250
+      }
+    },
+    {
+      "task": 51,
+      "targets": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "spec": {
+        "success": false,
+        "n_segments": 9,
+        "n_commits": 19,
+        "n_repairs": 1,
+        "n_verdict_steps": 20,
+        "strong_decoded": 80,
+        "strong_prefill": 200,
+        "weak_decoded": 500
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 11,
+        "weak_decoded": 550
+      }
+    },
+    {
+      "task": 52,
+      "targets": [
+        [
+          5,
+          1
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 16,
+        "n_commits": 40,
+        "n_repairs": 3,
+        "n_verdict_steps": 45,
+        "strong_decoded": 210,
+        "strong_prefill": 450,
+        "weak_decoded": 1125
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 15,
+        "weak_decoded": 750
+      }
+    },
+    {
+      "task": 53,
+      "targets": [
+        [
+          3,
+          2
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 9,
+        "n_commits": 18,
+        "n_repairs": 1,
+        "n_verdict_steps": 19,
+        "strong_decoded": 78,
+        "strong_prefill": 190,
+        "weak_decoded": 475
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 9,
+        "weak_decoded": 450
+      }
+    },
+    {
+      "task": 54,
+      "targets": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 8,
+        "n_commits": 15,
+        "n_repairs": 4,
+        "n_verdict_steps": 19,
+        "strong_decoded": 198,
+        "strong_prefill": 190,
+        "weak_decoded": 475
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 12,
+        "weak_decoded": 650
+      }
+    },
+    {
+      "task": 55,
+      "targets": [
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 9,
+        "n_commits": 18,
+        "n_repairs": 1,
+        "n_verdict_steps": 19,
+        "strong_decoded": 78,
+        "strong_prefill": 190,
+        "weak_decoded": 475
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 9,
+        "weak_decoded": 450
+      }
+    },
+    {
+      "task": 56,
+      "targets": [
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 10,
+        "n_commits": 20,
+        "n_repairs": 1,
+        "n_verdict_steps": 21,
+        "strong_decoded": 82,
+        "strong_prefill": 210,
+        "weak_decoded": 525
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 19,
+        "weak_decoded": 950
+      }
+    },
+    {
+      "task": 57,
+      "targets": [
+        [
+          4,
+          0
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 11,
+        "n_commits": 27,
+        "n_repairs": 2,
+        "n_verdict_steps": 30,
+        "strong_decoded": 140,
+        "strong_prefill": 300,
+        "weak_decoded": 750
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 3,
+        "weak_decoded": 200
+      }
+    },
+    {
+      "task": 58,
+      "targets": [
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 10,
+        "n_commits": 19,
+        "n_repairs": 3,
+        "n_verdict_steps": 22,
+        "strong_decoded": 164,
+        "strong_prefill": 220,
+        "weak_decoded": 550
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 3,
+        "weak_decoded": 200
+      }
+    },
+    {
+      "task": 59,
+      "targets": [
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 20,
+        "n_commits": 46,
+        "n_repairs": 4,
+        "n_verdict_steps": 50,
+        "strong_decoded": 260,
+        "strong_prefill": 500,
+        "weak_decoded": 1250
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 12,
+        "weak_decoded": 600
+      }
+    },
+    {
+      "task": 60,
+      "targets": [
+        [
+          5,
+          4
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 18,
+        "n_commits": 39,
+        "n_repairs": 4,
+        "n_verdict_steps": 44,
+        "strong_decoded": 248,
+        "strong_prefill": 440,
+        "weak_decoded": 1100
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 22,
+        "weak_decoded": 1150
+      }
+    },
+    {
+      "task": 61,
+      "targets": [
+        [
+          0,
+          5
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 18,
+        "n_commits": 39,
+        "n_repairs": 2,
+        "n_verdict_steps": 42,
+        "strong_decoded": 164,
+        "strong_prefill": 420,
+        "weak_decoded": 1050
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": true,
+        "n_steps": 17,
+        "weak_decoded": 850
+      }
+    },
+    {
+      "task": 62,
+      "targets": [
+        [
+          2,
+          0
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 11,
+        "n_commits": 20,
+        "n_repairs": 4,
+        "n_verdict_steps": 28,
+        "strong_decoded": 216,
+        "strong_prefill": 280,
+        "weak_decoded": 700
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 6,
+        "weak_decoded": 350
+      }
+    },
+    {
+      "task": 63,
+      "targets": [
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "spec": {
+        "success": true,
+        "n_segments": 13,
+        "n_commits": 25,
+        "n_repairs": 5,
+        "n_verdict_steps": 31,
+        "strong_decoded": 262,
+        "strong_prefill": 310,
+        "weak_decoded": 775
+      },
+      "strong_only": {
+        "success": true,
+        "n_steps": 8,
+        "strong_decoded": 320
+      },
+      "weak_only": {
+        "success": false,
+        "n_steps": 1,
+        "weak_decoded": 100
+      }
+    }
+  ]
+}
