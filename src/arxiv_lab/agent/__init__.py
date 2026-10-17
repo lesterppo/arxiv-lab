@@ -17,6 +17,18 @@ from arxiv_lab.agent.competence import (
     TASK_TYPES,
 )
 
+from arxiv_lab.agent.spec_agent import (
+    SpecAgent,
+    Step,
+    StrongPolicy,
+    ToolWorld,
+    WeakPolicy,
+    evaluate,
+    run_strong_only,
+    run_weak_only,
+    TOKEN_COSTS,
+)
+
 __all__ = [
     "CompetenceTracker",
     "orchestrate",
@@ -32,4 +44,14 @@ __all__ = [
     "DELIBERATE",
     "MODE_TOKENS",
     "TASK_TYPES",
+    # spec_agent (arXiv:2610.21463)
+    "SpecAgent",
+    "Step",
+    "StrongPolicy",
+    "ToolWorld",
+    "WeakPolicy",
+    "evaluate",
+    "run_strong_only",
+    "run_weak_only",
+    "TOKEN_COSTS",
 ]
