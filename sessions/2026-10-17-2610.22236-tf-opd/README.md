@@ -85,3 +85,18 @@ Colab 真實模型 demo 已寫好但未執行。不是 VERIFIED。
   transformer 權重形狀上的可跑通性**，不是論文的 benchmark 主張。
 - 腳本內無任何 credential/token，金鑰掃描通過（僅 "token" 字樣指
   text tokens / tokenizer）。
+
+## Colab confirmation attempt (2026-10-18)
+
+**未完成（session reclaimed）。** 第一次執行在啟動 3 分鐘後崩潰：
+`GramCollector` 在 CPU 上創建 float64 累加器，模型跑在 CUDA —
+已修（accumulator 用 `mod.parameters()` 的 device；
+`fuse_state_dicts` 與 Eq. 4 診斷改走 CPU float64）。
+修後重跑正常推進：math specialist 64/64 rollout 收集完畢，
+在 code specialist 的 Gram 收集階段（約第 36 分鐘）被 free tier
+回收，`tf_opd_colab_results.log` 未產生。兩個 specialist
+各 64 條 greedy rollout（≤96 tokens）在 0.5B 模型上約需 35–40 分鐘，
+比預期慢 —— 下次跑建議先縮小 `N_ROLLOUTS` 或縮短
+`MAX_NEW_TOKENS`。
+結論：Colab 真實權重形狀上的可跑通性仍未確認；本 demo 仍待一次
+完整的 session。腳本已是修好的版本，可直接重用。
