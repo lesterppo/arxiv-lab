@@ -20,6 +20,17 @@ from arxiv_lab.routing import (
     RoutingRule, fit_routing_rule, route_components,
 )
 
+try:
+    import numpy as _np
+    HAS_NUMPY = True
+except ImportError:
+    HAS_NUMPY = False
+
+if HAS_NUMPY:
+    from arxiv_lab.routing.leash import (
+        LeashPolicy, TaskSim, UncertaintyEstimator, auc, evaluate,
+    )
+
 
 def make_labeled(n=400, seed=5):
     """Points labeled by the true rule: weights iff r - s > 0.1."""
@@ -104,10 +115,136 @@ def test_validation():
     print("ok validation")
 
 
+# ------------------------------------------------------------------ LEASH
+# CPU tests for arxiv_lab.routing.leash (arXiv:2610.22280).
+# Claim: latent-uncertainty escalation (L1 task routing + L2 step-level
+# escalation + L3 shadow observer) beats random escalation at matched rates.
+# Seeded and deterministic. Requires numpy; skipped gracefully without it.
+
+_LEASH_SEED = 20261018
+
+
+def _leash_fit(seed=_LEASH_SEED, n_bank=300):
+    sim = TaskSim(seed=seed)
+    bank = []
+    for _ in range(n_bank):
+        task = sim.sample_task()
+        states, ok = sim.weak_rollout(task)
+        bank.append(([h for h, _ in states], ok))
+    est = UncertaintyEstimator().fit(bank)
+    return sim, est
+
+
+def test_leash_uncertainty_predicts_failure():
+    sim, est = _leash_fit()
+    maxs, labels = [], []
+    for _ in range(800):
+        task = sim.sample_task()
+        states, ok = sim.weak_rollout(task)
+        maxs.append(max(est(h) for h, _ in states))
+        labels.append(not ok)
+    a = auc(maxs, labels)
+    print("ok leash_uncertainty_auc=%.3f" % a)
+    assert a > 0.65, a
+
+
+def test_leash_beats_random_at_matched_rate():
+    sim, est = _leash_fit()
+    rng = _np.random.default_rng(_LEASH_SEED + 1)
+    val = [sim.sample_task() for _ in range(800)]
+    best = None
+    for t1 in (0.65, 0.80, 0.90):
+        for t2 in (0.85, 0.90, 0.95):
+            m = evaluate(sim, LeashPolicy(est, t1, t2, l3=True), val, rng)
+            if best is None or abs(m["escalation_rate"] - 0.30) < abs(best[0] - 0.30):
+                best = (m["escalation_rate"], t1, t2)
+    rate, t1, t2 = best
+    n = 1500
+    pol = LeashPolicy(est, t1, t2, l3=True)
+    r2 = _np.random.default_rng(_LEASH_SEED + 2)
+    tasks = [TaskSim(seed=10_000_000 + i).sample_task() for i in range(n)]
+    leash_ok, esc_flags = [], []
+    for i, task in enumerate(tasks):
+        ok, e, _ = pol.run_task(TaskSim(seed=_LEASH_SEED + i), task)
+        leash_ok.append(ok); esc_flags.append(e)
+    k = int(sum(esc_flags))
+    rand_idx = set(r2.choice(n, size=k, replace=False).tolist())
+    b = c = rs = 0
+    for i, task in enumerate(tasks):
+        s = TaskSim(seed=_LEASH_SEED + i)
+        if i in rand_idx:
+            ok = s.strong_full(task)
+        else:
+            _, ok = s.weak_rollout(task)
+        rs += ok
+        if leash_ok[i] and not ok:
+            b += 1
+        elif ok and not leash_ok[i]:
+            c += 1
+    delta = sum(leash_ok) / n - rs / n
+    z = (b - c) / max((b + c) ** 0.5, 1e-9)
+    print("ok leash_vs_random delta=%+.3f z=%.2f (b=%d c=%d) esc=%.3f"
+          % (delta, z, b, c, k / n))
+    assert delta > 0.0 and z > 2.58, (delta, z)
+
+
+def test_leash_step_escalation_adds_value():
+    sim, est = _leash_fit()
+    rng = _np.random.default_rng(_LEASH_SEED + 1)
+    val = [sim.sample_task() for _ in range(800)]
+    best = None
+    for t1 in (0.65, 0.80, 0.90):
+        for t2 in (0.85, 0.90, 0.95):
+            m = evaluate(sim, LeashPolicy(est, t1, t2, l3=True), val, rng)
+            if best is None or abs(m["escalation_rate"] - 0.30) < abs(best[0] - 0.30):
+                best = (m["escalation_rate"], t1, t2)
+    _, t1, t2 = best
+    n = 1500
+    tasks = [TaskSim(seed=10_000_000 + i).sample_task() for i in range(n)]
+    full = LeashPolicy(est, t1, t2, l3=True)
+    l1only = LeashPolicy(est, t1, 2.0, l3=False)
+    sf = sn = 0
+    for i, task in enumerate(tasks):
+        sf += full.run_task(TaskSim(seed=_LEASH_SEED + i), task)[0]
+        sn += l1only.run_task(TaskSim(seed=_LEASH_SEED + i), task)[0]
+    d = sf / n - sn / n
+    print("ok leash_L2_adds=%+.3f" % d)
+    assert d > 0.01, d
+
+
+def test_leash_shadow_observer_trigger():
+    sim, est = _leash_fit()
+    pol = LeashPolicy(est, 0.8, 0.85, l3=True)
+    sim_b = TaskSim(seed=_LEASH_SEED + 31337)
+    scored = []
+    for _ in range(300):
+        task = sim_b.sample_task()
+        states, _ = sim_b.weak_rollout(task)
+        for h, _ in states:
+            scored.append((est(h), h))
+    scored.sort(key=lambda x: x[0])
+    lo = [h for _, h in scored[:3]]
+    hi = [h for _, h in scored[-3:]]
+    assert all(est(h) > 0.85 for h in hi) and all(est(h) < 0.85 for h in lo)
+    s = TaskSim(seed=_LEASH_SEED + 777)
+    task = s.sample_task()
+    assert pol._shadow_observe(s, task, 0, hi, False) is True
+    assert pol._shadow_observe(s, task, 0, lo, False) is False
+    assert pol._shadow_observe(s, task, 0, hi, True) is True
+    print("ok leash_shadow_observer trigger/rescue/passthrough")
+
+
 if __name__ == "__main__":
     test_fit_recovers_boundary()
     test_monotone_properties()
     test_intervention_toward_boundary()
     test_route_components()
     test_validation()
+    if HAS_NUMPY:
+        test_leash_uncertainty_predicts_failure()
+        test_leash_beats_random_at_matched_rate()
+        test_leash_step_escalation_adds_value()
+        test_leash_shadow_observer_trigger()
+    else:
+        print("skipped leash tests (numpy not installed)")
     print("all routing tests passed")
