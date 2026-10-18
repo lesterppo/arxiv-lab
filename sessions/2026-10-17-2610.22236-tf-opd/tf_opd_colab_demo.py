@@ -90,8 +90,9 @@ class GramCollector:
         self.handles = []
         for name, mod in model.named_modules():
             if isinstance(mod, torch.nn.Linear):
+                dev = next(mod.parameters()).device
                 self.grams[name] = torch.zeros(mod.in_features, mod.in_features,
-                                              dtype=torch.float64)
+                                              dtype=torch.float64, device=dev)
                 self.handles.append(
                     mod.register_forward_hook(self._make_hook(name)))
 
@@ -140,7 +141,7 @@ def fuse_state_dicts(base_sd, spec_sds, spec_grams):
     for name, Wb in base_sd.items():
         if name in spec_grams[0] and Wb.dim() == 2:
             Wb64 = Wb.double()
-            Gt = [shrink(g[name].double()) for g in spec_grams]
+            Gt = [shrink(g[name].double().cpu()) for g in spec_grams]
             S = sum(Gt)
             T = sum(G @ (sd[name].double() - Wb64) for G, sd in zip(Gt, spec_sds))
             Dstar = torch.linalg.pinv(S) @ T
@@ -216,7 +217,7 @@ def main():
     for i, tag in enumerate(["math", "code"]):
         shares = []
         for name in grams[i]:
-            Gt = shrink(grams[i][name].double())
+            Gt = shrink(grams[i][name].double().cpu())
             Dd = (sd_math if i == 0 else sd_code)[name].double() - base_sd[name].double()
             Dstar = fused_sd[name].double() - base_sd[name].double()
             shares.append(unreproduced_share(Dstar, Dd, Gt))
