@@ -1,0 +1,34 @@
+{
+  "paper": "2610.22280",
+  "title": "LEASH",
+  "seed": 20261018,
+  "n_bank": 400,
+  "n_test": 4000,
+  "paired": true,
+  "thresholds": {
+    "theta1": 0.8,
+    "theta2": 0.85
+  },
+  "uncertainty_auc": 0.6735,
+  "leash": {
+    "success": 0.6222,
+    "escalation_rate": 0.299,
+    "mean_strong_steps": 1.3878
+  },
+  "random_matched": {
+    "success": 0.5827,
+    "escalation_rate": 0.299,
+    "mean_strong_steps": 1.794
+  },
+  "delta_vs_random_pp": 3.95,
+  "oracle_success": 0.722,
+  "attainment_of_oracle_headroom": 0.284,
+  "mcnemar_b": 597,
+  "mcnemar_c": 439,
+  "mcnemar_z": 4.91,
+  "l1_only_success": 0.5357,
+  "l2_adds_pp": 8.65,
+  "no_l3_success": 0.6222,
+  "l3_adds_pp": 0.0,
+  "always_strong_success": 0.9435
+}
