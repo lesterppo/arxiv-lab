@@ -73,7 +73,22 @@ a retry is a single re-run of the staged driver.
 - GRPO hyperparams (G=4, 24 steps, replay coef 0.3) are budget-bounded, not
   paper-faithful.
 
-## Resume state
+## Colab rerun (2026-10-18)
+
+- **Ordered:** ~13:24 HKT · **launched:** ~13:29 HKT (session `elitereplay`, T4,
+  kyu008008) — the staged driver (`colab_elitereplay_9b.py`) re-uploaded and
+  detach-run fresh; driver had a 5.5h wall cap (~18:59 HKT) that writes
+  `elitereplay_results.json` and prints `ELITE_DONE` either way.
+- **Outcome: RECLAIMED, no metrics.** Run watch at 21:02 HKT found no active
+  sessions on the server (`sessions` listing empty; `elitereplay` entry gone).
+  Log/metrics/results/archive lived only on the VM's `/content` — wiped with
+  reclamation; nothing to download. Same failure mode as the morning attempt.
+- **Paper claims (1)+(2): still NOT tested** — no training steps' output
+  survived either attempt.
+- **One-off rule:** no auto-retry; retry is Peter's call (staged driver in
+  this dir remains re-runnable).
+
+## Resume state (older)
 - Session `elitereplay` (T4, kyu008008): reclaimed, VM gone, entry auto-pruned.
 - Staged driver: `colab_elitereplay_9b.py` (this dir) — re-upload + detach-run
   on a fresh T4 session; fully idempotent (regenerates data, redownloads model).
