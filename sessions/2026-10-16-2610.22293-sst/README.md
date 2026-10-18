@@ -106,3 +106,19 @@ pattern for adding SST to any LoRA training loop — per-step cost is two
 small matmuls per target module. Portable lesson: in LoRA, the "weight"
 whose update SST restricts is the *effective* update; the prior-task
 adapter must stay frozen and unprojected.
+
+## Colab confirmation (2026-10-18)
+
+**未完成（session reclaimed）。** 早上 GPU 窗口連續被 free tier
+回收兩台 T4：
+- `sst-tfopd`（kyu009009，TF-OPD 用）：約 36 分鐘被回收
+  （見 2610.22236 session README）。
+- `sst-v2`（cyc236ha，本 SST 用）：約 47+ 分鐘被回收。
+
+本輪 SST 進展：deps ✓、weights ✓（Qwen3.5-9B 直接 HTTP 下載約 1 分鐘）、
+phase A finance LoRA 訓練到 ep1 step100（loss 2.945→2.826，下降中）。
+metrics.json 尚未寫入（只在各 arm 結束時保存），且 markers 在
+`/content/sst_run/` 下、隨 VM 一起丟失——「便宜 resume」實際等於
+全新重跑（腳本本來就支援 from-scratch 全自動）。
+誠實記錄：本早晨 free tier 回收壓力大，任何多小時 run 都建議
+分段 cron 或 Pro 機器。腳本本身無問題，直接重用即可。
