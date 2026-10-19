@@ -15,6 +15,9 @@ here:
 - ``loop.LoopDetector`` — signature-level loop detection: fingerprints every
   action as (tool, canonical-arg-signature) and halts on exact-repeat streaks
   or short repeated cycles (prevents tool-demonstration loops).
+- ``schema_shield.SchemaShield`` — interface-drift repair layer: validates
+  each emitted tool call, retries missing tool names against the candidate
+  set, and applies one one-shot constrained argument repair (no retraining).
 
 Pure stdlib. No numpy needed.
 """
@@ -22,5 +25,23 @@ Pure stdlib. No numpy needed.
 from arxiv_lab.harness.prefill import PrefillBudget
 from arxiv_lab.harness.finish_gate import FinishGate
 from arxiv_lab.harness.loop import LoopDetector
+from arxiv_lab.harness.schema_shield import (
+    DriftSimulator,
+    RepairResult,
+    SchemaShield,
+    ToolCall,
+    ToolDef,
+    validate,
+)
 
-__all__ = ["PrefillBudget", "FinishGate", "LoopDetector"]
+__all__ = [
+    "PrefillBudget",
+    "FinishGate",
+    "LoopDetector",
+    "SchemaShield",
+    "ToolCall",
+    "ToolDef",
+    "DriftSimulator",
+    "RepairResult",
+    "validate",
+]
