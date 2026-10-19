@@ -2,7 +2,7 @@
 
 **Article:** https://arxiv.org/abs/2610.23145 — *Local proxies for
 memory-efficient training* (Zihan, Yuan, Bellec)
-**Date:** 2026-10-19 · **Fetch source:** api · **Track:** training · **Verdict: TBD (run in flight)**
+**Date:** 2026-10-19 · **Fetch source:** api · **Track:** training · **Verdict: PARTIAL**
 
 ## Why picked + repo fit (AGENT 1 / TUNE 5)
 Per-block proxy networks distilled to predict the *global* network output;
@@ -59,14 +59,33 @@ memory-efficient zeroth-order at comparable memory.
   (no try/finally); fixed with guaranteed cleanup.
 - Rerun config: batch 2 / seq 256 for all arms (apples-to-apples).
 
-### Colab T4 — attempt 2 (`localproxies2`, kyu008008): IN FLIGHT
-Driver v2 (pre-hook fix, try/finally cleanup, batch 2 / seq 256,
-`PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`). Log
-`/content/local_proxies_run2.log` on the VM.
+### Colab T4 — attempt 2 (`localproxies2`, kyu008008): standard DONE, proxy PARTIAL
+- **Standard (full-backprop QLoRA, batch2/seq256): OK.** 16 steps: train
+  3.11 → 1.42, eval 2.42 → **0.99**, peak **13.98 GB**, wall 778 s.
+  Full per-step metrics in `colab_metrics_partial.csv`.
+- **Proxy arm: PARTIAL (3/16 steps).** Fits at **8.68 GB peak (38% below
+  standard's 13.98 GB)** — the paper's memory win reproduces on a real 8B
+  model. But train loss stayed ~5.0 (vs standard ~1–3): the 36 per-block
+  proxies were still cold (only 3 distill micro-steps per main step on 4M-param
+  proxies) and each main step took ~2.5 min (36 sequential block
+  recompute+backward passes), so 16 steps could not finish in the session
+  window. Learning-curve comparison vs MeZO not obtained.
+- **MeZO arm: not run** (queued after proxy).
+- Session torn down after metrics harvest per the carry-over rule.
 
-## Resume state (if reclaimed / for follow-up)
-- Session: `localproxies2` (colab-cli, account kyu008008 — do NOT switch to
-  cyc236de/cyc236hk).
-- Driver: this dir's `colab_local_proxies_8b.py` (re-upload + exec_detach).
-- Logs: `/content/local_proxies_run2.log`; metrics
-  `/content/local_proxies_metrics.csv`; `/content/local_proxies_results.json`.
+**Verdict rationale — PARTIAL:** claims 1–3 verified on CPU with measured
+numbers; claim 4 (LLM-scale) partially tested — memory reduction confirmed
+live (8.68 vs 13.98 GB), training-throughput/quality comparison blocked by
+step cost. Resume state below.
+
+## Resume state (for follow-up)
+- Driver: this dir's `colab_local_proxies_8b.py` (v2: pre-hook fix,
+  try/finally cleanup, batch2/seq256). Re-upload + exec_detach on a fresh
+  T4 session (account kyu008008 — do NOT switch to cyc236de/cyc236hk).
+- Completed: standard arm 16/16 (metrics in `colab_metrics_partial.csv`).
+  Proxy arm 3/16 — to resume the comparison, warm-start proxies longer
+  (raise distill micro-steps, or pre-train proxies on a few batches before
+  the main loop) and/or cut steps to 8/arm.
+- Suggested driver tweaks: freeze proxy params during step (iii) local
+  backward (their grads are computed but unused — wasted compute); consider
+  fewer proxy micro-steps with higher lr.
