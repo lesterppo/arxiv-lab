@@ -21,6 +21,11 @@
 - ``sst`` — Subspace Tuning (arXiv:2610.22293): restrict each weight update
   to the bottom singular subspace of the weight matrix, protecting the
   principal directions that carry prior-task knowledge.
+- ``local_proxies`` — Local proxies for memory-efficient training
+  (arXiv:2610.23145): per-block proxy networks distilled to predict the
+  global output; block gradients propagate locally through the proxy, so
+  full-stack activations need not be retained. Exact on deep linear nets;
+  beats zeroth-order (MeZO-style) optimizers at comparable memory.
 """
 
 from arxiv_lab.training.prospective_hindsight import (
@@ -58,6 +63,14 @@ from arxiv_lab.training.sst import (
     project_grad_to_bottom_subspace,
     sst_update,
 )
+from arxiv_lab.training.local_proxies import (
+    linear_exactness,
+    residual_error_bound,
+    three_way_comparison,
+    lstsq_proxy,
+    ResidualProxy,
+    TinyMLP,
+)
 
 __all__ = [
     "surprise_weights",
@@ -85,4 +98,10 @@ __all__ = [
     "principal_directions",
     "project_grad_to_bottom_subspace",
     "sst_update",
+    "linear_exactness",
+    "residual_error_bound",
+    "three_way_comparison",
+    "lstsq_proxy",
+    "ResidualProxy",
+    "TinyMLP",
 ]
