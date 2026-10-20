@@ -122,3 +122,63 @@ metrics.json 尚未寫入（只在各 arm 結束時保存），且 markers 在
 全新重跑（腳本本來就支援 from-scratch 全自動）。
 誠實記錄：本早晨 free tier 回收壓力大，任何多小時 run 都建議
 分段 cron 或 Pro 機器。腳本本身無問題，直接重用即可。
+
+## Drive-persistent checkpoints (added 2026-10-19, unpushed working copy)
+
+`drive_ckpt.py` (stdlib only) mirrors `/content/sst_run/` to the user's Google
+Drive so a reclaimed VM resumes instead of restarting:
+- `colab_sst_9b.py` calls `drive_ckpt.restore(RUN, SST_SESSION)` at startup
+  (before any marker check) and `drive_ckpt.sync(RUN, SST_SESSION)` inside
+  `mark()` after every completed phase. All failures are non-fatal — the
+  driver falls back to /content-only checkpoints.
+- Two backends: Drive FUSE mount (`/content/drive/MyDrive/arxiv-lab-ckpts/`,
+  env `DRIVE_CKPT_DIR` overrides) or Drive REST API via stdlib urllib with
+  an OAuth2 refresh token in `drive_token.json` (env `DRIVE_TOKEN_JSON`,
+  default `/content/drive_token.json`). Sync is size-keyed and idempotent;
+  restore only fires on a fresh VM (local markers win otherwise).
+- `mint_drive_token.py`: one-time script Peter runs on his own machine to
+  create `drive_token.json` (Desktop OAuth client + Drive API enabled).
+  The token file is uploaded to the VM at launch and NEVER committed
+  (scope `drive.file`: the driver can only touch files it created).
+- Launch requirement: copy `drive_ckpt.py` to `/content/` next to the driver.
+- Tested locally with a fake mount dir: sync -> wipe -> restore -> no-op
+  sync, all OK. The REST backend is code-reviewed but not live-tested
+  (needs a real token).
+
+Reusable: SRD and any future training driver can import the same module
+(restore at startup, sync after each phase); only the session name changes.
+
+## Colab retry (2026-10-20, Peter-approved "三個都跑")
+
+**RECLAIMED — partial.** Account cyc236ha, T4. Both `colab_sst_9b.py` and
+`drive_ckpt.py` uploaded; no `drive_token.json` minted, so Drive sync
+failed gracefully as designed (`[sst9b] drive restore: nothing to restore`,
+run proceeded from scratch). The three arms run sequentially
+(plain → frozen → sst):
+
+| arm | retention (A) | learning (B) | status |
+|---|---|---|---|
+| plain | 0.750 | 1.000 | done (ep2 step150 loss 1.564) |
+| frozen | **0.3125** | 0.6875 | done (ep2 step150 loss 1.571) |
+| sst | — | — | **never ran** |
+
+Phase A: task-A acc = 0.9792 (matches the 0.979 baseline).
+The VM was reclaimed ~08:30–08:35 HKT, minutes after the frozen-arm
+metrics were written — the SST arm (the actual mechanism under test)
+never started. `metrics.json` was never written (script writes it per
+arm end, but to `/content/sst_run/` which died with the VM; no Drive
+token existed to persist it). Numbers above were captured from log
+tails only.
+
+Honest read: (1) the frozen arm retaining *worse* than plain (0.3125 vs
+0.75) is suspicious, not a paper result — rank-concatenating a fresh
+"B" adapter trained unrestricted on medical data apparently interfered
+with the frozen A adapter at eval; this smells like a small-adapter /
+toy-eval artifact (64 trainable tensors, 48 eval prompts), but it also
+flags that the "exact" rank-concat combination is not interference-free
+in practice; (2) the toy scale is the dominant caveat (synthetic
+templated glossaries, 240 pairs/task); (3) Drive-checkpointing without a
+minted token buys nothing — `mint_drive_token.py` still needs Peter's
+one-time run on his own machine before any multi-hour SST run is safe.
+The decisive arm (sst) remains untested; a future retry should target
+morning GPU windows with the token minted.
