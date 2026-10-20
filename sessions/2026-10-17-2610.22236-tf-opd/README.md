@@ -100,3 +100,20 @@ Colab 真實模型 demo 已寫好但未執行。不是 VERIFIED。
 `MAX_NEW_TOKENS`。
 結論：Colab 真實權重形狀上的可跑通性仍未確認；本 demo 仍待一次
 完整的 session。腳本已是修好的版本，可直接重用。
+
+## Colab retry（2026-10-20）
+
+**FAILED（CUDA OOM）。** Peter 批准三軌同跑：帳號 kyu009009，T4，
+`TFOPD_ROLLOUTS=32`（縮半，預估 ~20 分鐘）。兩組 rollout 生成都成功
+（math / code specialist 各 kept=32，dropped_loop=0），但在 code
+specialist 的 Gram 收集階段崩潰：`collect_grams`
+（`tf_opd_colab_demo.py:135`）`torch.OutOfMemoryError`——PyTorch 已佔
+14.0 GiB，只剩 99.81 MiB free，再申請 182 MiB 失敗。結果未印出，
+`tf_opd_colab_results.log` 為崩潰堆疊（已收回本地）。
+
+誠實的讀法：不是 session 被回收，是實作本身的記憶體佔用在 T4 上
+撐不住——Gram 收集階段同時持有模型權重 + rollout 生成的 KV +
+float64 累加器。rollout 生成（最重的部分）其實跑得動；瓶頸在
+`collect_grams` 的累加器設計。若未來再試，應把 Gram 累加器改成
+逐層即時縮減（streaming reduce）或 CPU offload，而不是一次持有
+全部。真實權重形狀上的可跑通性仍未確認。
