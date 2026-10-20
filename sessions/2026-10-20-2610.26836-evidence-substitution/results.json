@@ -1,0 +1,779 @@
+[
+ {
+  "seed": 5106,
+  "condition": "B",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": 1.896,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "run_simulation",
+    "{}"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": true,
+  "read_report": false,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5107,
+  "condition": "B",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "keyed_value": 0.937,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>C</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5108,
+  "condition": "B",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "keyed_value": -0.532,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>A</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5109,
+  "condition": "B",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "keyed_value": 1.738,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>D</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5110,
+  "condition": "B",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "keyed_value": -3.818,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>C</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5111,
+  "condition": "B",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "keyed_value": -0.949,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>A</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5112,
+  "condition": "B",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "keyed_value": -0.852,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>A</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5113,
+  "condition": "B",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": 2.177,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5114,
+  "condition": "B",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": -0.873,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "run_simulation",
+    "{\"pH\":6.55,\"temperature\":23.8}"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": true,
+  "read_report": false,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5100,
+  "condition": "C",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "keyed_value": -0.974,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "run_simulation",
+    "{}"
+   ],
+   [
+    "list_sections",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": true,
+  "read_report": false,
+  "transcript_tail": "<answer>D</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5101,
+  "condition": "C",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": -3.745,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "run_simulation",
+    "{}"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": true,
+  "read_report": false,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5102,
+  "condition": "C",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "keyed_value": 1.483,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>A</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5103,
+  "condition": "C",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "keyed_value": 1.413,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "run_simulation",
+    "{}"
+   ],
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "list_sections",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": true,
+  "read_report": false,
+  "transcript_tail": "<answer>D</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5104,
+  "condition": "C",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": 3.009,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ],
+   [
+    "run_simulation",
+    "{\"name\":\"SATURATION\"}"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": true,
+  "read_report": true,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5105,
+  "condition": "C",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "keyed_value": -0.613,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>C</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5106,
+  "condition": "C",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": 1.896,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "run_simulation",
+    "{}"
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": true,
+  "read_report": true,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5107,
+  "condition": "C",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "keyed_value": 0.937,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "run_simulation",
+    "{}"
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": true,
+  "read_report": true,
+  "transcript_tail": "<answer>C</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5108,
+  "condition": "C",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "keyed_value": -0.532,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "run_simulation",
+    "{}"
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": true,
+  "read_report": true,
+  "transcript_tail": "<answer>A</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5109,
+  "condition": "C",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "keyed_value": 1.738,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>D</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5110,
+  "condition": "C",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "keyed_value": -3.818,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>C</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5111,
+  "condition": "C",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "keyed_value": -0.949,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "run_simulation",
+    "{}"
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": true,
+  "read_report": true,
+  "transcript_tail": "<answer>A</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5112,
+  "condition": "C",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "keyed_value": -0.852,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "run_simulation",
+    "{}"
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": true,
+  "read_report": true,
+  "transcript_tail": "<answer>A</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5113,
+  "condition": "C",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": 2.177,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5114,
+  "condition": "C",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": -0.873,
+  "tool_log": [
+   [
+    "list_sections",
+    ""
+   ],
+   [
+    "read_section",
+    "SATURATION"
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": true,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5100,
+  "condition": "A",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5101,
+  "condition": "A",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5102,
+  "condition": "A",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5103,
+  "condition": "A",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5104,
+  "condition": "A",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5105,
+  "condition": "A",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5106,
+  "condition": "A",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5107,
+  "condition": "A",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5108,
+  "condition": "A",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5109,
+  "condition": "A",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5110,
+  "condition": "A",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5111,
+  "condition": "A",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5112,
+  "condition": "A",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5113,
+  "condition": "A",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5114,
+  "condition": "A",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5100,
+  "condition": "B",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5101,
+  "condition": "B",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5102,
+  "condition": "B",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5103,
+  "condition": "B",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5104,
+  "condition": "B",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ },
+ {
+  "seed": 5105,
+  "condition": "B",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "cls": "correct",
+  "recovered_from_log": true
+ }
+]
