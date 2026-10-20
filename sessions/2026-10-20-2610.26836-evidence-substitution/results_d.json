@@ -1,0 +1,299 @@
+[
+ {
+  "seed": 5100,
+  "condition": "D",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "keyed_value": -0.974,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>D</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5101,
+  "condition": "D",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": -3.745,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ],
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5102,
+  "condition": "D",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "keyed_value": 1.483,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>A</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5103,
+  "condition": "D",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "keyed_value": 1.413,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>D</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5104,
+  "condition": "D",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": 3.009,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5105,
+  "condition": "D",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "keyed_value": -0.613,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>C</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5106,
+  "condition": "D",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": 1.896,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ],
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5107,
+  "condition": "D",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "keyed_value": 0.937,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>C</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5108,
+  "condition": "D",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "keyed_value": -0.532,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>A</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5109,
+  "condition": "D",
+  "pred": "D",
+  "answer": "D",
+  "correct": true,
+  "keyed_value": 1.738,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>D</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5110,
+  "condition": "D",
+  "pred": "C",
+  "answer": "C",
+  "correct": true,
+  "keyed_value": -3.818,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>C</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5111,
+  "condition": "D",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "keyed_value": -0.949,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>A</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5112,
+  "condition": "D",
+  "pred": "A",
+  "answer": "A",
+  "correct": true,
+  "keyed_value": -0.852,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>A</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5113,
+  "condition": "D",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": 2.177,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ],
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ },
+ {
+  "seed": 5114,
+  "condition": "D",
+  "pred": "B",
+  "answer": "B",
+  "correct": true,
+  "keyed_value": -0.873,
+  "tool_log": [
+   [
+    "read_own_result",
+    ""
+   ]
+  ],
+  "saw_keyed": true,
+  "ran_simulation": false,
+  "read_report": false,
+  "transcript_tail": "<answer>B</answer>",
+  "cls": "correct"
+ }
+]
