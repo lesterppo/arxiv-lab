@@ -1,0 +1,25 @@
+[
+ {
+  "arm": "plain",
+  "model": "Qwen/Qwen3-8B",
+  "projection": false,
+  "base_task": 0.6625,
+  "base_refusal": 0.6666666666666666,
+  "post_task": 0.9875,
+  "post_refusal": 0.7,
+  "peak_gb": 9.81
+ },
+ {
+  "arm": "wsr",
+  "model": "Qwen/Qwen3-8B",
+  "projection": true,
+  "base_task": 0.6625,
+  "base_refusal": 0.6666666666666666,
+  "post_task": 0.9875,
+  "post_refusal": 0.7,
+  "peak_gb": 13.41
+ },
+ {
+  "elapsed_min": 37.6
+ }
+]
