@@ -25,7 +25,8 @@ What it does (all forward passes, no gradients):
   6. Prints per-layer unreproduced-share diagnostics (Eq. 4) and a tiny
      perplexity eval (base / specialists / fused on held-out toy prompts).
 
-Expected runtime on a Colab T4: a few minutes.
+Measured runtime on a Colab T4: ~35-40 min for the default 2x64 rollouts
+(reclaimed at 36 min on 2026-10-18). Set TFOPD_ROLLOUTS=32 for ~20 min.
 """
 
 # ---- Colab setup: installs first, torchao removed for peft compat ----
@@ -34,6 +35,7 @@ Expected runtime on a Colab T4: a few minutes.
 
 import copy
 import math
+import os
 import zlib
 
 import torch
@@ -41,7 +43,10 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 MODEL_ID = "Qwen/Qwen2.5-0.5B-Instruct"
 ALPHA = 0.9          # Eq. 3 off-diagonal shrinkage
-N_ROLLOUTS = 64      # toy-scale stand-in for the paper's few-hundred
+N_ROLLOUTS = int(os.environ.get("TFOPD_ROLLOUTS", "64"))
+# toy-scale stand-in for the paper's few-hundred. The 2026-10-18 run showed
+# 2x64 rollouts take ~35-40 min on a T4 (reclaimed at 36 min); set
+# TFOPD_ROLLOUTS=32 (~20 min) to fit the free-tier survival window.
 MAX_NEW_TOKENS = 96
 
 MATH_PROMPTS = [
@@ -83,23 +88,32 @@ def make_specialist(base_sd, seed, target_substrings):
 
 
 class GramCollector:
-    """Forward hooks accumulating per-layer X^T X / n_tokens (§3.2)."""
+    """Forward hooks accumulating per-layer X^T X / n_tokens (§3.2).
+
+    Accumulators live on CPU in float32 (not CUDA float64): on a T4 the
+    float64 CUDA accumulators for both specialists (~5.5 GB each for
+    Qwen2.5-0.5B) plus the model plus the averaging copy structurally
+    exceed 14.6 GiB — the 2026-10-20 retry OOM'd at exactly this point
+    (tf_opd_colab_results.log). The outer-product delta is computed on
+    CUDA (fast matmul) then moved to CPU, so peak CUDA holds only the
+    model. float32 accumulation is plenty for a demo: the closed-form
+    solve in fuse_state_dicts() upcasts to float64 anyway."""
 
     def __init__(self, model):
         self.grams = {}
         self.handles = []
         for name, mod in model.named_modules():
             if isinstance(mod, torch.nn.Linear):
-                dev = next(mod.parameters()).device
                 self.grams[name] = torch.zeros(mod.in_features, mod.in_features,
-                                              dtype=torch.float64, device=dev)
+                                              dtype=torch.float32, device="cpu")
                 self.handles.append(
                     mod.register_forward_hook(self._make_hook(name)))
 
     def _make_hook(self, name):
         def hook(mod, inputs, output):
             x = inputs[0].detach().to(torch.float64).reshape(-1, inputs[0].shape[-1])
-            self.grams[name] += (x.T @ x) / x.shape[0]  # per-token average
+            delta = ((x.T @ x) / x.shape[0]).to(torch.float32).cpu()
+            self.grams[name] += delta
         return hook
 
     def remove(self):
@@ -126,8 +140,13 @@ def collect_grams(model, tok, prompts):
         n_kept += 1
     collector.remove()
     print(f"rollouts: kept={n_kept} dropped_loop={n_loop}")
-    # average over kept answers so long answers don't dominate (§3.2)
-    return {k: v / max(n_kept, 1) for k, v in collector.grams.items()}
+    # average over kept answers so long answers don't dominate (§3.2).
+    # In-place: the old dict-comprehension allocated a second full copy
+    # of the grams, which was the allocation that OOM'd the T4 on
+    # 2026-10-20 (grams already CPU-resident after the fix above).
+    for v in collector.grams.values():
+        v.div_(max(n_kept, 1))
+    return collector.grams
 
 
 def shrink(G, alpha=ALPHA):
