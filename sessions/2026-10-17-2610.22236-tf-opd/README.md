@@ -117,3 +117,18 @@ float64 累加器。rollout 生成（最重的部分）其實跑得動；瓶頸�
 `collect_grams` 的累加器設計。若未來再試，應把 Gram 累加器改成
 逐層即時縮減（streaming reduce）或 CPU offload，而不是一次持有
 全部。真實權重形狀上的可跑通性仍未確認。
+
+## Fix（2026-10-20，working copy，未 push，未用 GPU）
+
+根因修正（`tf_opd_colab_demo.py`）：`GramCollector` 累加器由 CUDA
+float64 改為 **CPU float32**——兩個 specialist 的累加器共 ~10.9 GB，
+本來就撐唔住 T4；hook 喺 CUDA 計 outer-product delta（快）之後
+`.cpu()` 落 CPU；最後嘅平均改做 in-place `div_`，唔再 allocate
+第二份 copy。咁樣 peak CUDA 只剩模型本身（~1.2 GB fp16）。
+
+誠實講：修嘅係 OOM 嗰一下，唔係機制——64 條 rollout（kept=32+32，
+dropped_loop=0）本身喺今朝已經成功生成，data-generating 部分係
+work 嘅。CPU 驗證（/tmp/tfopd_fix_test.py）：accumulator 喺 CPU
+float32、hook 數值同 float64 reference 最大相對誤差 8e-8、in-place
+平均無 realloc、全程無 CUDA tensor。未經 GPU 實測——下次重跑
+（TFOPD_ROLLOUTS=32，~20 分鐘）先係真正嘅 proof。
