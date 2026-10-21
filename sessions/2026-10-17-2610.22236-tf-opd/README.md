@@ -118,6 +118,36 @@ float64 累加器。rollout 生成（最重的部分）其實跑得動；瓶頸�
 逐層即時縮減（streaming reduce）或 CPU offload，而不是一次持有
 全部。真實權重形狀上的可跑通性仍未確認。
 
+## Colab rerun（2026-10-21，Peter 批准「重跑，下個朝早窗口」）
+
+**未完成（session reclaimed，無結果）。** 帳號 kyu009009，T4 一次即取
+（無需 fallback），`TFOPD_ROLLOUTS=32`，上傳的是 OOM-fix 後版本。
+啟動後約 65–70 分鐘被 free tier 回收；回收前進程一直存活，
+`py-spy` 證實卡在 math specialist 的 `collect_grams`（`model.generate`
+→ forward hook `tf_opd_colab_demo.py:115`），從未 OOM、從未印出
+`rollouts: kept=…`——收穫為零（reclaimed, no harvest），本地
+`tf_opd_colab_results.log` 仍是 10-20 的 OOM 堆疊。
+
+誠實的新發現（fix 的代價）：CPU-float32 累加器消除了 OOM，但每個
+generate step 都要把每層 Gram delta 做一次完整 D2H copy
+（約 2.5 GB/step 經 PCIe，僅 copy 估計 ~20 秒/prompt）——舊版
+（CUDA 累加器）rollout 生成快但最後 OOM；新版慢到在 free T4 的
+回收窗口內大概率跑不完 64 條 rollout。10-20 估的「~20 分鐘」是基
+於舊版速度，fix 後的真實速度完全是另一回事。
+
+下一步若再試（未批准，僅記錄）：hook 在 generate 階段根本不該累加
+——Gram 只需要在 teacher-forced pass 收集；把 `GramCollector` 的
+hook 改為只在 `model(full)` 那一下啟用（或 generate 時
+`collector.handles` 先 remove），每 prompt 的 D2H copy 從
+~96 steps 降到 1，可把速度拉回舊版水平。或者直接縮
+`MAX_NEW_TOKENS`。在此之前，呢個 driver 唔值得再燒 free-tier
+session。
+
+GPU proof（eps medians/p90、perplexity 表）仍未取得；CPU-float32
+fix 喺「唔 OOM」呢一點上 hold 住咗（撐到被回收都無 crash），但完整
+run 嘅 proof 依然係零。Verdict 維持 SUPPORTED（數學核心）／未
+VERIFIED。
+
 ## Fix（2026-10-20，working copy，未 push，未用 GPU）
 
 根因修正（`tf_opd_colab_demo.py`）：`GramCollector` 累加器由 CUDA
