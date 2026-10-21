@@ -1,0 +1,17 @@
+stage,arm,route,metric,value
+eval,base,arith,exact_match,0.6167
+eval,base,code,exact_match,0.05
+train,spec_arith,all,final_loss,0.0084
+train,spec_arith,all,seconds,113.6827
+train,spec_code,all,final_loss,0.0
+train,spec_code,all,seconds,74.1534
+eval,routed,arith,exact_match,0.8667
+eval,routed,code,exact_match,0.0
+train,rsod,all,final_kl,0.3422
+train,rsod,all,seconds,531.8282
+eval,rsod,arith,exact_match,0.6167
+eval,rsod,code,exact_match,0.05
+train,student_mix,all,final_loss,0.0005
+train,student_mix,all,seconds,116.0653
+eval,mixsft,arith,exact_match,0.9167
+eval,mixsft,code,exact_match,0.0
