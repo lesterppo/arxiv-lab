@@ -13,5 +13,14 @@ from arxiv_lab.memory.cmp import (
     cmp_balanced_design,
     auc,
 )
+from arxiv_lab.memory.rawrag import (
+    ConversationWorld,
+    ProfileStore,
+    compare,
+    run_setting,
+    window_chunks,
+)
 
-__all__ = ["MemoryStore", "naive_store_intervention", "cmp_balanced_design", "auc"]
+__all__ = ["MemoryStore", "naive_store_intervention", "cmp_balanced_design",
+           "auc", "ConversationWorld", "ProfileStore", "compare",
+           "run_setting", "window_chunks"]
