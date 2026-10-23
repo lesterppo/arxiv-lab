@@ -1,0 +1,9 @@
+backbone,arm,test_acc
+bb0,none,0.5
+bb0,solo,0.5
+bb0,sum,0.5
+bb0,lomo,0.5
+bb1,none,0.5
+bb1,solo,0.5
+bb1,sum,0.5
+bb1,lomo,0.5
