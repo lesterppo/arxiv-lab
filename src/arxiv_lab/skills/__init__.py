@@ -1,12 +1,25 @@
 """arxiv-lab.skills — skill-library routing protocols for agents.
 
-See :mod:`arxiv_lab.skills.skill_routing` for the mechanism
-(arXiv:2610.18522).
+See :mod:`arxiv_lab.skills.skill_routing` for the routing-collapse mechanism
+(arXiv:2610.18522) and :mod:`arxiv_lab.skills.skill_granularity` for
+adaptive skill granularity (arXiv:2610.31461).
 """
 
+from arxiv_lab.skills.skill_granularity import (
+    MACRO_LIBRARY,
+    ExecutionTrace,
+    GranularityController,
+    Macro,
+    RecoveryExecutor,
+    StrategyResult,
+    Task,
+    generate_tasks,
+    oracle_route,
+    run_protocol,
+)
 from arxiv_lab.skills.skill_routing import (
     Skill,
-    Task,
+    Task as RoutingTask,
     aggregate,
     build_library,
     collapse_gap,
@@ -18,8 +31,18 @@ from arxiv_lab.skills.skill_routing import (
 )
 
 __all__ = [
-    "Skill",
+    "MACRO_LIBRARY",
+    "ExecutionTrace",
+    "GranularityController",
+    "Macro",
+    "RecoveryExecutor",
+    "StrategyResult",
     "Task",
+    "generate_tasks",
+    "oracle_route",
+    "run_protocol",
+    "Skill",
+    "RoutingTask",
     "aggregate",
     "build_library",
     "collapse_gap",
