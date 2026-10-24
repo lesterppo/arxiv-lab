@@ -332,6 +332,12 @@ def reward_for(pred_names, gold_ids):
 
 @torch.no_grad()
 def sample_traj(task, catalog, k=12):
+    """Sample one trajectory (exploration only, no grad). Returns the
+    generated token ids + reward + prompt text. The caller recomputes the
+    log-prob WITH grad (see logprob_of): a no_grad log-prob carries no
+    grad_fn, and .backward() on a loss built from it raises
+    "element 0 of tensors does not require grad" (Oct 2026 verification
+    run, line 371)."""
     cands = RETRIEVERS["keyword"](task, catalog, k=k)
     prompt = prompt_for(task, cands)
     inputs = tok(prompt, return_tensors="pt", truncation=True,
@@ -339,43 +345,69 @@ def sample_traj(task, catalog, k=12):
     out = model.generate(**inputs, max_new_tokens=96, do_sample=True,
                          temperature=0.8, top_p=0.9,
                          pad_token_id=tok.eos_token_id,
-                         return_dict_in_generate=True,
-                         output_scores=True)
-    text = tok.decode(out.sequences[0][inputs["input_ids"].shape[1]:],
-                      skip_special_tokens=True)
+                         return_dict_in_generate=True)
+    gen_ids = out.sequences[0][inputs["input_ids"].shape[1]:].tolist()
+    text = tok.decode(gen_ids, skip_special_tokens=True)
     pred = parse_tools(text, {t["name"] for t in cands})
-    # log-prob of the generated continuation
-    scores = torch.stack(out.scores, dim=1)          # [1, T, V]
-    gen_ids = out.sequences[:, inputs["input_ids"].shape[1]:]
-    logp = torch.log_softmax(scores.float(), dim=-1)
-    lp = logp[0, torch.arange(gen_ids.shape[1],
-                              device=logp.device), gen_ids[0]].sum()
-    return lp, reward_for(pred, task["gold"]), prompt
+    return gen_ids, reward_for(pred, task["gold"]), prompt
+
+
+def logprob_of(prompt, gen_ids):
+    """Summed log-prob of gen_ids under the CURRENT (trainable) model,
+    computed with grad enabled. Tokenization is identical to sample_traj
+    so the conditioning matches the sampled trajectory exactly. Returns
+    None when there is nothing to score (immediate EOS)."""
+    if not gen_ids:
+        return None
+    pids = tok(prompt, truncation=True, max_length=768)["input_ids"]
+    ids = torch.tensor([pids + gen_ids], device=model.device)
+    logits = model(input_ids=ids).logits[0]          # [L, V]
+    logp = torch.log_softmax(logits.float(), dim=-1)
+    n_prompt = len(pids)
+    gen = torch.tensor(gen_ids, device=model.device)
+    # logits[t] predicts token t+1, so gen token j is predicted at row
+    # n_prompt-1+j.
+    lp = logp[n_prompt - 1:n_prompt - 1 + len(gen_ids), :][
+        torch.arange(len(gen_ids), device=model.device), gen].sum()
+    return lp
 
 print(f"=== RL post-train: {RL_STEPS} steps x {N_ROLLOUT} rollouts "
       f"(accum {GRAD_ACCUM}) ===", flush=True)
 train_iter = iter(TRAIN * 10)
 t0 = time.time()
+pending = False  # True once any backward has run in the current accum window
 for step in range(RL_STEPS):
     task = next(train_iter)
-    lps, rews = [], []
+    trajs = []
     with torch.no_grad():
         for _ in range(N_ROLLOUT):
-            lp, r, _ = sample_traj(task, IN_DOMAIN_CATALOG)
-            lps.append(lp); rews.append(r)
-    base = float(np.mean(rews))
-    loss = 0
-    for lp, r in zip(lps, rews):
+            gen_ids, r, prompt = sample_traj(task, IN_DOMAIN_CATALOG)
+            trajs.append((gen_ids, r, prompt))
+    base = float(np.mean([r for _, r, _ in trajs]))
+    step_loss = 0.0
+    for gen_ids, r, prompt in trajs:
         adv = r - base
-        loss = loss - adv * lp / N_ROLLOUT
-    (loss / GRAD_ACCUM).backward()
+        if adv == 0:
+            continue  # no learning signal; also skips a wasted forward
+        lp = logprob_of(prompt, gen_ids)
+        if lp is None:
+            continue
+        # Backward per rollout term (one graph at a time, not four held
+        # simultaneously). Gradient accumulation is linear, so this equals
+        # the original single-backward sum.
+        (-adv * lp / (N_ROLLOUT * GRAD_ACCUM)).backward()
+        pending = True
+        step_loss += -adv * float(lp.detach()) / N_ROLLOUT
     if (step + 1) % GRAD_ACCUM == 0:
-        torch.nn.utils.clip_grad_norm_(
-            [p for p in model.parameters() if p.requires_grad], 1.0)
-        opt.step(); opt.zero_grad()
+        if pending:
+            torch.nn.utils.clip_grad_norm_(
+                [p for p in model.parameters() if p.requires_grad], 1.0)
+            opt.step()
+            pending = False
+        opt.zero_grad()
     if (step + 1) % 10 == 0:
         print(f"[rl] step {step+1}/{RL_STEPS} mean_reward={base:.3f} "
-              f"loss={float(loss):.3f} ({time.time()-t0:.0f}s)", flush=True)
+              f"loss={step_loss:.3f} ({time.time()-t0:.0f}s)", flush=True)
 opt.zero_grad()
 model.save_pretrained(ADAPTER_DIR)
 print(f"adapter saved -> {ADAPTER_DIR}", flush=True)
@@ -398,5 +430,5 @@ m_rl_xfer_no = evaluate(model, tok, XFER, TRANSFER_CATALOG,
                         RETRIEVERS["name_only"], tag="rl-xfer-nameonly")
 log_row("transfer_health", "post_rl", "name_only", m_rl_xfer_no)
 
-print("DONE. metrics ->", CSV_PATH, flush=True)
 print(json.dumps(results, indent=2), flush=True)
+print("DONE. metrics ->", CSV_PATH, flush=True)
