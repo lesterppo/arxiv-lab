@@ -1,0 +1,4 @@
+strategy,success_rate,mean_cost,mean_cost_solved,recovery_rate,route_match,transition_correct,macro_adoption
+fixed_macro,0.5675,2.2,2.106,0.0,0.6599,1.0,1.0
+fixed_micro,1.0,4.0,4.0,1.0,0.3401,1.0,0.0
+adaptive,1.0,3.105,3.105,1.0,1.0,1.0,0.7075
