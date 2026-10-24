@@ -1,0 +1,14 @@
+{
+  "session": "toolselect-verify2",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-10-24-2610.31483-toolselect/toolselect_metrics.csv"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw1b3-37tdksqkvxotu",
+  "pid": "2790",
+  "log_tail": "<00:34, 17.18s/it]\nLoading checkpoint shards:  80%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 4/5 [01:05<00:15, 15.74s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:10<00:00, 11.85s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:10<00:00, 14.13s/it]\ntrainable params: 43,646,976 || all params: 8,234,382,336 || trainable%: 0.5301\nVRAM after load+LoRA: 6.25 GB\n=== BASELINE: zero-shot (no RL) ===\nThe following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n[base-test-kw] 25/50\n[base-test-kw] 50/50\n[base-test-kw] exact=0.920 stepF1=0.984 first_tool=1.000 (776s)\nCSV: {'split': 'test_in_domain', 'model_state': 'zeroshot', 'retriever': 'keyword', 'n_tasks': 50, 'seq_exact': 0.92, 'step_f1': 0.984, 'first_tool_acc': 1.0}\n[base-xfer-kw] 25/50\n[base-xfer-kw] 50/50\n[base-xfer-kw] exact=0.880 stepF1=0.970 first_tool=0.980 (748s)\nCSV: {'split': 'transfer_health', 'model_state': 'zeroshot', 'retriever': 'keyword', 'n_tasks': 50, 'seq_exact': 0.88, 'step_f1': 0.97, 'first_tool_acc': 0.98}\n[base-xfer-nameonly] 25/50\n[base-xfer-nameonly] 50/50\n[base-xfer-nameonly] exact=0.860 stepF1=0.967 first_tool=0.980 (736s)\nCSV: {'split': 'transfer_health', 'model_state': 'zeroshot', 'retriever': 'name_only', 'n_tasks': 50, 'seq_exact': 0.86, 'step_f1': 0.9671, 'first_tool_acc': 0.98}\n=== RL post-train: 60 steps x 4 rollouts (accum 2) ===\nTraceback (most recent call last):\n  File \"/content/colab_rl_toolselect.py\", line 383, in <module>\n    gen_ids, r, prompt = sample_traj(task, IN_DOMAIN_CATALOG)\n                         ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n  File \"/content/colab_rl_toolselect.py\", line 348, in sample_traj\n    gen_ids = out.sequences[0][inputs[\"input_ids\"].shape[1]:].tolist()\n              ^^^^^^^^^^^^^\nAttributeError: 'Tensor' object has no attribute 'sequences'\n"
+}
