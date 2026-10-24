@@ -1,4 +1,5 @@
-# arxiv-lab daily read-and-test — replicable workflow (v3, 2026-10-15)
+# arxiv-lab daily read-and-test — replicable workflow (v3, 2026-10-15;
+training-track protocol updated 2026-10-25 to hermes-colab-cli `train`)
 
 This document lets **any AI agent, on any machine**, replicate the daily arXiv
 screen-and-test job from this repo alone and continue the task. It is the
@@ -23,7 +24,11 @@ skips, no unverified pushes.
 - Network access to arXiv (`export.arxiv.org`, `arxiv.org`,
   `rss.arxiv.org`, `oaipmh.arxiv.org`).
 - Optional, training track: a ~16 GB GPU (reference: free Colab T4) and
-  whatever remote-execution tooling you prefer.
+  the `hermes-colab-cli` wrapper (`colab.py train` — reference path, see
+  §4.5). Never call the raw `google-colab-cli` package directly: its
+  google-auth transport ignores proxy env and falls into interactive
+  OAuth on token expiry, and its `sessions` output brackets names
+  (`[name]`), which a naive parser keeps verbatim.
 - Optional, model-backed validation: any OpenAI-compatible chat endpoint;
   the key enters via **env var only**, never files, never logs.
 
@@ -122,18 +127,71 @@ keep any credential shim out of the repo.
 
 ### 4.5 Live test — training/fine-tuning track
 
-Run on a ~16 GB GPU (reference: Colab T4). Reference recipe: a ~9B model at
-Q4_K_M (~7 GB VRAM) + NF4 QLoRA (r=16/alpha=32, bf16, tiny data, few steps).
-Colab quirk, if you use Colab: `pip uninstall -y torchao` right after pip
-installs (Colab ships torchao 0.10; peft needs > 0.16, else ImportError at
-`get_peft_model`). **Never fake a GPU run** — with no GPU, stage the
-self-contained script and report BLOCKED.
+Run on a ~16 GB GPU (reference: Colab T4) via the `hermes-colab-cli`
+wrapper's `train` command — **this is the primary path** (proven end to
+end 2026-10-25, ToolSelect verify5: DONE, full run ~2h50m):
 
-**Carry-over rule:** the training track is an independent phase. If the GPU
-run is reclaimed, OOMs, or is still executing at report time: stage the
-scripts + CPU checks, record verdict PARTIAL or BLOCKED with the **exact
-resume state** (what completed, script paths, how to resume), and report —
-the day still succeeds.
+```bash
+python3 colab.py train --driver <script> --rotate \
+  --results /content/<metrics.csv> --out-dir <session-dir> \
+  --env KEY=VALUE ... --done-marker "DONE. metrics" \
+  --poll 120 --monitor-timeout 14400 --json
+```
+
+`train` houses the whole run: account rotation, proxy-aware token
+refresh, session create with a kernel health check and cross-account
+retry on gpu-unavailable/provision failure, driver upload, detached
+launch, supervised monitoring, result download, and an honest outcome in
+`<out-dir>/train-run.json`: DONE / RECLAIMED / DIED / TIMEOUT /
+PROVISION_FAILED. The driver must print the done-marker on completion
+(or pass `--done-marker`) and write metrics CSVs to /content.
+**Print the done-marker as the driver's very last line** — the monitor
+greps the whole log for it, but a long block printed after the marker
+once hid it from a tail window and misclassified a completed run as
+DIED. Use `--registry-file` for an isolated session registry when
+another agent shares the VM/CLI state.
+
+**Account rotation (standing rule, set 2026-10-24): change the Colab
+account every day for training-track testing — never run two days in a
+row on the same account.** Pool, in order: ppoppo205 → cyc236es →
+kyu008008 → kyu009009 → cyc236ha → back to ppoppo205. NEVER touch
+cyc236de / cyc236hk (another agent's accounts). `train --rotate` reads
+the last-used account from the rotation state file, picks the next one,
+and writes the state back; if creation falls back to another account,
+`train` rewrites the state to the account that actually ran — verify the
+state file after the run, because the next day's pick depends on it.
+
+**Monitor deaths do not kill the run.** The driver runs detached on the
+VM, independent of the monitor. If the monitor process dies (runtime
+restart, shell kill), re-attach with `train --watch-only --pid <pid>`
+using the same session, registry file, results, out-dir, and
+done-marker; the watch run classifies DONE/DIED/RECLAIMED, downloads
+results, and tears the session down. The driver PID lives in
+`<out-dir>/train-run.json`.
+
+**Token refresh is the wrapper's job.** Every wrapper call refreshes
+the token pre-flight when expiry is near (Google access tokens live
+3600s, not extendable; refresh tokens are long-lived). If refresh ever
+fails with `invalid-grant`, the refresh token is dead — the run needs a
+fresh browser OAuth code flow, never a faked session.
+
+Colab driver quirks: `pip uninstall -y torchao` right after pip
+installs (Colab ships torchao 0.10; peft needs > 0.16, else ImportError
+at `get_peft_model`); bf16 not fp16; size adapters from
+`out_features`/`in_features`; rollouts in `model.eval()`. Reference
+model class: ~9B (Qwen3.5-9B recipe `qwen3.5-9b-q4`, Q4_K_M via Ollama,
+~7GB VRAM, proven on T4 2026-10-04); recent runs used Qwen3-8B NF4
+QLoRA (r=16/alpha=32) — the 0.5B scale is retired for this track. Keep
+runs bounded (tiny data, few steps). **Never fake a GPU run** — with no
+GPU, stage the self-contained script and report BLOCKED.
+
+**Carry-over rule:** the training track is an independent phase. If the
+GPU run is reclaimed, OOMs, or is still executing at report time: stage
+the scripts + CPU checks, record verdict PARTIAL or BLOCKED with the
+**exact resume state** (what completed, script paths, how to resume),
+and report — the day still succeeds. Fall back to manual wrapper steps
+(`new` + health check + upload + detached launch + poll) only if
+`train` itself fails.
 
 ### 4.6 Record — one session per tested article
 
