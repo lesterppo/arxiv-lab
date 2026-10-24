@@ -2,7 +2,7 @@
 
 - Article: https://arxiv.org/abs/2610.31483
 - Track: training (TUNE=5)
-- Verdict: **BLOCKED** (see below)
+- Verdict: **NEGATIVE** (for the bounded stand-in as tested — see limits)
 
 ## Why picked
 
@@ -16,8 +16,7 @@ transfers to different retrievers and new tool domains.
 
 ## What was built
 
-`colab_rl_toolselect.py` — self-contained Colab T4 driver (staged here, never
-executed to completion):
+`colab_rl_toolselect.py` — self-contained Colab T4 driver:
 
 - Phase 0: pip installs (`transformers<5.0`, bitsandbytes, accelerate, peft,
   datasets, safetensors), then immediately `pip uninstall -y torchao`
@@ -28,7 +27,8 @@ executed to completion):
   Two simulated retrievers (keyword-overlap vs name-only, a harsher stand-in)
   to test "different retrievers".
 - Phase 2: NF4 QLoRA (r=16, alpha=32, bf16) on Qwen3-8B.
-- Phase 3: zero-shot baselines — in-domain test + transfer (both retrievers).
+- Phase 3: zero-shot baselines — in-domain test + transfer (both retrievers;
+  the baseline section runs 3 evals, no test/name-only baseline — see limits).
 - Phase 4: bounded REINFORCE-with-baseline (60 opt steps × 4 rollouts, grad
   accum 2; reward = exact-sequence + 0.5·step-F1). **Documented stand-in:**
   the paper uses full RL/GRPO; trl-GRPO was judged too heavy for one free-T4
@@ -37,67 +37,91 @@ executed to completion):
   (both retrievers). Metrics to `/content/toolselect_metrics.csv`
   (seq_exact, step_f1, first_tool_acc per split/state/retriever).
 
-`colab_launcher.py` — detached launcher (Popen, start_new_session) used to
-start the run; log at `/content/ts_run.log`.
+`colab_launcher.py` — obsolete; superseded by `hermes-colab-cli`'s `train`
+command (create + health check + detached launch + supervised monitoring).
 
 ## What happened (honest account)
 
-1. Colab auth was expired (`token.kyu008008.json`, expired 2026-10-23).
-   The CLI's built-in refresh **hangs behind the proxy** (google-auth
-   `Request()` ignores proxy env; on refresh failure it falls into the
-   interactive OAuth flow and waits forever). Workaround: manual
-   `curl` refresh-token POST via proxy env — succeeded, token fresh
-   until 2026-10-24 07:32 UTC. Diagnosis worth keeping.
-2. Session `ts1024` (T4) created in ~5s; script uploaded; launched detached
-   (PID 1003). Run crashed at data-gen: `make_task` chose the 2/3-step
-   template independently of the number of sampled tools → `IndexError`.
-   Bug fixed locally; data-gen re-verified on VM CPU (200/50/50/50 tasks,
-   0 unresolved gold ids, parser OK, retriever recall@12 50/50).
-3. Relaunched on `ts1024` (PID 3300) — session **reclaimed** by Colab
-   free tier before producing output.
-4. Retried on fresh session `ts1024b` (PID 1995) — **reclaimed again**
-   (~25 min in, afternoon HKT = worst reclamation window).
+Day session (2026-10-24): two free-tier reclamations (`ts1024`, `ts1024b`)
+during setup, after a proxy auth hang (raw CLI's google-auth refresh ignores
+proxy env) and an IndexError in data-gen (fixed, CPU-verified).
 
-Nothing ran past Phase 0 (pip installs). No model was loaded, no baseline or
-RL step executed, no metrics CSV exists. **No run was faked.**
+Evening verification mandate ("improve the Colab CLI until a complete run
+succeeds"), all on `hermes-colab-cli` v3.3 `train`:
 
-## Verdict: BLOCKED
+1. **verify** (`toolselect-verify`, cyc236ha): baselines completed, then RL
+   crashed on first backward — `sample_traj` was `@torch.no_grad()`, so its
+   log-prob had no grad_fn. Outcome DIED. Fix: sampling stays no-grad;
+   new `logprob_of()` recomputes summed log-prob WITH grad; per-rollout
+   backward; adv==0 rollouts skipped. Offline-verified with a toy model.
+2. **verify2** (`toolselect-verify2`, cyc236ha): baselines reproduced
+   exactly, then DIED on first `sample_traj` — the grad-fix rewrite had
+   dropped `return_dict_in_generate=True`. Fix: restored (one line).
+3. **verify3** (`toolselect-verify3`, cyc236ha): full run completed
+   (baselines + 60 RL steps + 4 post-RL evals + results JSON), but the
+   monitor reported DIED — the driver printed `DONE. metrics` BEFORE a
+   ~56-line JSON, so the marker fell outside the monitor's 40-line tail
+   window and the normally-exited process read as dead. Complete CSV
+   preserved as `toolselect_metrics_complete.csv`. Fixes: monitor now
+   greps the whole log for the marker; driver prints the marker last.
+4. **verify4** (`toolselect-verify4`, cyc236ha): RECLAIMED at RL step 30/60.
+   Log showed RL reward saturating: step 10 mean_reward 1.208, steps 20–30
+   at the ceiling 1.500 with loss 0.000 (all rollouts perfect → all
+   advantages zero → no learning signal). Record: `train-run-reclaimed4.json`.
+5. **verify5** (`toolselect-verify5`, cyc236es via fallback — rotation
+   picked ppoppo205, creation failed there, `train` fell back; the
+   rotation state file was NOT updated by fallback, fixed afterwards in
+   the CLI + state file corrected to cyc236es): **DONE**, full run
+   ~2h50m, CSV downloaded, session torn down. Four runtime restarts
+   killed the monitor mid-run; each time the detached driver survived
+   and the monitor re-attached in watch mode. Final CSV is byte-identical
+   to verify3's — the result is deterministic across two full runs.
 
-No fair test was possible — two consecutive free-tier reclamations killed the
-run during setup. Scripts staged and verified as far as possible (data-gen
-unit-verified on VM CPU). This is an infra outcome, not a paper verdict.
+## Verdict: NEGATIVE (bounded stand-in)
 
-## Resume state (for the next attempt)
+Bounded REINFORCE post-training did **not** improve tool selection:
 
-- Staged script: `~/workspace/arxiv-lab-build/sessions/2026-10-24-2610.31483-toolselect/colab_rl_toolselect.py`
-  (bug-fixed; the first-launched copy had the IndexError — do NOT reuse the
-  on-VM copy, re-upload from here).
-- Isolated CLI state: `~/workspace/goals/arxiv-daily-read-and-test/hidden_files/colab-state-20261024-ts1024.json`
-  (currently `{}`; global `~/.config/colab-cli/sessions.json` untouched;
-  active account symlink untouched — still `token.kyu008008.json`).
-- Protocol: `python3 -m colab_cli.cli --config <state> new -s <name> --gpu T4`
-  → `upload` script → `exec -s <name> -f colab_launcher.py`.
-- Auth: if calls hang, the kyu008008 token is probably expired again —
-  refresh it with the curl refresh-token flow (see §1), never via the CLI's
-  interactive flow. Best retry window: early-morning HKT.
-- Remaining work: full run (pip → ~16GB Qwen3-8B download → zero-shot
-  baselines → 60 RL steps → post-RL + transfer evals), then download
-  `/content/toolselect_metrics.csv` and `/content/ts_run.log`.
+| split / retriever | zero-shot seq_exact | post-RL seq_exact |
+|---|---|---|
+| in-domain / keyword | 0.92 | 0.86 (−6pp) |
+| in-domain / name-only | — (no baseline run) | 0.88 |
+| transfer / keyword | 0.88 | 0.86 (−2pp) |
+| transfer / name-only | 0.86 | 0.88 (+2pp) |
+
+step_f1 and first_tool_acc moved by ≤1pp everywhere. The zero-shot model
+was already near ceiling (0.92/0.88/0.86), and RL reward saturated by
+step ~20 (mean_reward 1.500, loss 0.000 through step 60 in verify5):
+the training tasks were too easy for the already-strong model, so the
+only gradient signal came from the early steps — and the net effect on
+held-out tasks was flat-to-negative. This refutes the bounded stand-in,
+not the paper's full method (see limits).
 
 ## Key numbers
 
-- Zero-shot accuracy: not measured (blocked). Post-RL accuracy: not measured.
-- VRAM: not measured. Optimizer steps completed: 0/60.
-- Data-gen (CPU-verified): 200 train / 50 dev / 50 test / 50 transfer tasks;
-  20 in-domain + 10 transfer tools; keyword-retriever full-gold recall@12
-  50/50 (recall is easy at k=12/20 — selection+ordering is the real test).
-- Infra: 2 sessions created, 2 reclaimed, 0 completed runs.
+- Zero-shot (50 tasks each): test-kw 0.92, xfer-kw 0.88, xfer-nameonly 0.86;
+  reproduced identically 5 times (verify, verify2, verify3, verify4, verify5).
+- Post-RL (50 tasks each): test-kw 0.86, test-nameonly 0.88, xfer-kw 0.86,
+  xfer-nameonly 0.88; reproduced identically twice (verify3, verify5).
+- RL: 60/60 steps; reward 1.208 @ step 10 → 1.500 @ step 20 → 1.500 @ step 60;
+  loss 0.162 → 0.000. Adapter saved to `/content/ts_adapter` (not downloaded).
+- VRAM: 6.25 GB after load+LoRA; 6.62 GB after RL. Trainable params 43.6M.
+- Run time (verify5): ~2h50m launch → DONE (download + baselines ~50m,
+  RL ~70m, post-RL evals ~50m).
 
-## Honest limits (even if the run had completed)
+## Honest limits
 
 - 300-tool synthetic catalog, not 10k; no 402B baseline (no access) — a
   zero-shot 8B vs post-RL 8B comparison tests "RL improves small-model tool
   selection + transfer", not "beats Maverick".
 - REINFORCE-with-baseline, not GRPO/PPO — a bounded stand-in, stated as such.
+  The paper's full method (larger scale, harder training tasks, GRPO) could
+  still work; this test says only that 60 steps of REINFORCE on easy
+  synthetic tasks does not help an already-strong 8B.
 - Simulated retrievers and paraphrased descriptions, not real retrieval
   stacks or ToolBench.
+- Baseline section omits test/name-only, so post-RL test-nameonly 0.88 has
+  no zero-shot counterpart.
+- Reward ceiling: with reward = exact + 0.5·F1, a perfect rollout scores
+  1.5; once all 4 rollouts in a step are perfect, advantages are zero and
+  the step teaches nothing — the training set needs harder tasks for RL
+  to have signal beyond step ~20.
