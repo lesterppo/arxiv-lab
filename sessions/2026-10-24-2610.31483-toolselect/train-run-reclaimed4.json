@@ -1,0 +1,12 @@
+{
+  "session": "toolselect-verify4",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "RECLAIMED",
+  "downloaded": [],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw4b0-24o15lc2e8gkd",
+  "pid": "2155",
+  "log_tail": "    | 1/5 [04:46<19:06, 286.66s/it]\nFetching 5 files:  40%|\u2588\u2588\u2588\u2588      | 2/5 [06:08<08:18, 166.14s/it]\nFetching 5 files: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [06:08<00:00, 73.69s/it] \n\nLoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]\nLoading checkpoint shards:  20%|\u2588\u2588        | 1/5 [00:17<01:09, 17.49s/it]\nLoading checkpoint shards:  40%|\u2588\u2588\u2588\u2588      | 2/5 [00:34<00:51, 17.01s/it]\nLoading checkpoint shards:  60%|\u2588\u2588\u2588\u2588\u2588\u2588    | 3/5 [00:50<00:33, 16.76s/it]\nLoading checkpoint shards:  80%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 4/5 [01:03<00:15, 15.39s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:08<00:00, 11.62s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:08<00:00, 13.77s/it]\ntrainable params: 43,646,976 || all params: 8,234,382,336 || trainable%: 0.5301\nVRAM after load+LoRA: 6.25 GB\n=== BASELINE: zero-shot (no RL) ===\nThe following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n[base-test-kw] 25/50\n[base-test-kw] 50/50\n[base-test-kw] exact=0.920 stepF1=0.984 first_tool=1.000 (768s)\nCSV: {'split': 'test_in_domain', 'model_state': 'zeroshot', 'retriever': 'keyword', 'n_tasks': 50, 'seq_exact': 0.92, 'step_f1': 0.984, 'first_tool_acc': 1.0}\n[base-xfer-kw] 25/50\n[base-xfer-kw] 50/50\n[base-xfer-kw] exact=0.880 stepF1=0.970 first_tool=0.980 (751s)\nCSV: {'split': 'transfer_health', 'model_state': 'zeroshot', 'retriever': 'keyword', 'n_tasks': 50, 'seq_exact': 0.88, 'step_f1': 0.97, 'first_tool_acc': 0.98}\n[base-xfer-nameonly] 25/50\n[base-xfer-nameonly] 50/50\n[base-xfer-nameonly] exact=0.860 stepF1=0.967 first_tool=0.980 (739s)\nCSV: {'split': 'transfer_health', 'model_state': 'zeroshot', 'retriever': 'name_only', 'n_tasks': 50, 'seq_exact': 0.86, 'step_f1': 0.9671, 'first_tool_acc': 0.98}\n=== RL post-train: 60 steps x 4 rollouts (accum 2) ===\n[rl] step 10/60 mean_reward=1.208 loss=0.162 (664s)\n[rl] step 20/60 mean_reward=1.500 loss=0.000 (1328s)\n[rl] step 30/60 mean_reward=1.500 loss=0.000 (1952s)\n"
+}
