@@ -1,0 +1,8 @@
+split,model_state,retriever,n_tasks,seq_exact,step_f1,first_tool_acc
+test_in_domain,zeroshot,keyword,50,0.92,0.984,1.0
+transfer_health,zeroshot,keyword,50,0.88,0.97,0.98
+transfer_health,zeroshot,name_only,50,0.86,0.9671,0.98
+test_in_domain,post_rl,keyword,50,0.86,0.976,0.98
+test_in_domain,post_rl,name_only,50,0.88,0.98,0.98
+transfer_health,post_rl,keyword,50,0.86,0.9633,0.98
+transfer_health,post_rl,name_only,50,0.88,0.97,0.98
