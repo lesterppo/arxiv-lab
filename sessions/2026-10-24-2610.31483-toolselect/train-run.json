@@ -1,0 +1,14 @@
+{
+  "session": "toolselect-verify5",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-10-24-2610.31483-toolselect/toolselect_metrics.csv"
+  ],
+  "pid": "1172",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-usw1b2-1kl4htavo1520",
+  "log_tail": "\n[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n    \"first_tool_acc\": 0.98\n  },\n  {\n    \"split\": \"test_in_domain\",\n    \"model_state\": \"post_rl\",\n    \"retriever\": \"keyword\",\n    \"n_tasks\": 50,\n    \"seq_exact\": 0.86,\n    \"step_f1\": 0.976,\n    \"first_tool_acc\": 0.98\n  },\n  {\n    \"split\": \"test_in_domain\",\n    \"model_state\": \"post_rl\",\n    \"retriever\": \"name_only\",\n    \"n_tasks\": 50,\n    \"seq_exact\": 0.88,\n    \"step_f1\": 0.98,\n    \"first_tool_acc\": 0.98\n  },\n  {\n    \"split\": \"transfer_health\",\n    \"model_state\": \"post_rl\",\n    \"retriever\": \"keyword\",\n    \"n_tasks\": 50,\n    \"seq_exact\": 0.86,\n    \"step_f1\": 0.9633,\n    \"first_tool_acc\": 0.98\n  },\n  {\n    \"split\": \"transfer_health\",\n    \"model_state\": \"post_rl\",\n    \"retriever\": \"name_only\",\n    \"n_tasks\": 50,\n    \"seq_exact\": 0.88,\n    \"step_f1\": 0.97,\n    \"first_tool_acc\": 0.98\n  }\n]\nDONE. metrics -> /content/toolselect_metrics.csv\n"
+}
