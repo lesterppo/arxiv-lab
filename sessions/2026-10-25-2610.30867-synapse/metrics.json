@@ -1,0 +1,133 @@
+{
+ "seed": 20261025,
+ "n_queries_per_class": 500,
+ "k": 5,
+ "seed_20261025": {
+  "base": {
+   "all": 0.927,
+   "held": 0.922,
+   "used": 0.932
+  },
+  "naive": {
+   "all": 0.904,
+   "held": 0.81,
+   "used": 0.998
+  },
+  "naive_shuffled": {
+   "all": 0.721,
+   "held": 0.762,
+   "used": 0.68
+  },
+  "synapse": {
+   "all": 0.925,
+   "held": 0.858,
+   "used": 0.992
+  },
+  "synapse_shuffled": {
+   "all": 0.552,
+   "held": 0.978,
+   "used": 0.126
+  },
+  "offset": {
+   "all": 0.808,
+   "held": 0.632,
+   "used": 0.984
+  }
+ },
+ "seed_1": {
+  "base": {
+   "all": 0.924,
+   "held": 0.918,
+   "used": 0.93
+  },
+  "naive": {
+   "all": 0.9,
+   "held": 0.8,
+   "used": 1.0
+  },
+  "naive_shuffled": {
+   "all": 0.723,
+   "held": 0.76,
+   "used": 0.686
+  },
+  "synapse": {
+   "all": 0.934,
+   "held": 0.87,
+   "used": 0.998
+  },
+  "synapse_shuffled": {
+   "all": 0.566,
+   "held": 0.994,
+   "used": 0.138
+  },
+  "offset": {
+   "all": 0.817,
+   "held": 0.644,
+   "used": 0.99
+  }
+ },
+ "seed_7": {
+  "base": {
+   "all": 0.921,
+   "held": 0.926,
+   "used": 0.916
+  },
+  "naive": {
+   "all": 0.903,
+   "held": 0.81,
+   "used": 0.996
+  },
+  "naive_shuffled": {
+   "all": 0.742,
+   "held": 0.764,
+   "used": 0.72
+  },
+  "synapse": {
+   "all": 0.938,
+   "held": 0.882,
+   "used": 0.994
+  },
+  "synapse_shuffled": {
+   "all": 0.573,
+   "held": 0.982,
+   "used": 0.164
+  },
+  "offset": {
+   "all": 0.811,
+   "held": 0.646,
+   "used": 0.976
+  }
+ },
+ "seed_42": {
+  "base": {
+   "all": 0.923,
+   "held": 0.916,
+   "used": 0.93
+  },
+  "naive": {
+   "all": 0.891,
+   "held": 0.782,
+   "used": 1.0
+  },
+  "naive_shuffled": {
+   "all": 0.711,
+   "held": 0.73,
+   "used": 0.692
+  },
+  "synapse": {
+   "all": 0.92,
+   "held": 0.842,
+   "used": 0.998
+  },
+  "synapse_shuffled": {
+   "all": 0.583,
+   "held": 0.988,
+   "used": 0.178
+  },
+  "offset": {
+   "all": 0.818,
+   "held": 0.65,
+   "used": 0.986
+  }
+ }
+}
