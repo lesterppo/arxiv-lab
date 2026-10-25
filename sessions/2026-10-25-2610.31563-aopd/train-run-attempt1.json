@@ -1,0 +1,14 @@
+{
+  "session": "train-1025-0424",
+  "account": "kyu008008",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-10-25-2610.31563-aopd/train-out/aopd_metrics.csv"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-ass1a0-2sy90ez998grl",
+  "pid": "1507",
+  "log_tail": "^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/autograd/function.py\", line 596, in apply\n    return super().apply(*args, **kwargs)  # type: ignore[misc]\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/bitsandbytes/autograd/_functions.py\", line 334, in forward\n    output = torch.ops.bitsandbytes.gemm_4bit.default(\n        A,\n    ...<8 lines>...\n        absmax_offset=quant_state.offset,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/_ops.py\", line 865, in __call__\n    return self._op(*args, **kwargs)\n           ~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/_compile.py\", line 54, in inner\n    return disable_fn(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/torch/_dynamo/eval_frame.py\", line 1263, in _fn\n    return fn(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/torch/library.py\", line 751, in func_no_dynamo\n    return func(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/bitsandbytes/backends/cuda/ops.py\", line 967, in _\n    return _dequant_linear_fallback(\n        A,\n    ...<8 lines>...\n        absmax_offset=absmax_offset,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/bitsandbytes/backends/cuda/ops.py\", line 914, in _dequant_linear_fallback\n    B_dq = torch.empty(shapeB, dtype=A.dtype, device=A.device)\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 96.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 59.81 MiB is free. Including non-PyTorch memory, this process has 14.50 GiB memory in use. Of the allocated memory 13.91 GiB is allocated by PyTorch, and 473.52 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)\n"
+}
