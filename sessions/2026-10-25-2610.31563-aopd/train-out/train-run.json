@@ -1,0 +1,14 @@
+{
+  "session": "train-1025-0437",
+  "account": "kyu008008",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-10-25-2610.31563-aopd/train-out/aopd_metrics.csv"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-euw4b0-2rie1o2l31tz7",
+  "pid": "1641",
+  "log_tail": "iw=1.039 mean_adv_factor=1.000\nstep 9 arm opd: loss=0.0013 mean_reward=0.000 mean_iw=1.057 mean_adv_factor=1.000\nstep 10 arm opd: loss=0.0007 mean_reward=0.062 mean_iw=0.929 mean_adv_factor=1.000\nstep 11 arm opd: loss=0.0002 mean_reward=0.000 mean_iw=0.987 mean_adv_factor=1.000\neval after_opd: greedy=0.010 sampled=0.020 n=100\n\nLoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]\nLoading checkpoint shards:  20%|\u2588\u2588        | 1/5 [00:16<01:06, 16.64s/it]\nLoading checkpoint shards:  40%|\u2588\u2588\u2588\u2588      | 2/5 [00:33<00:50, 16.70s/it]\nLoading checkpoint shards:  60%|\u2588\u2588\u2588\u2588\u2588\u2588    | 3/5 [00:49<00:33, 16.62s/it]\nLoading checkpoint shards:  80%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 4/5 [01:03<00:15, 15.33s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:08<00:00, 11.58s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:08<00:00, 13.64s/it]\nstep 0 arm aopd: loss=0.0000 mean_reward=0.000 mean_iw=1.000 mean_adv_factor=1.000\nstep 1 arm aopd: loss=0.0003 mean_reward=0.000 mean_iw=1.009 mean_adv_factor=1.000\nstep 2 arm aopd: loss=0.0005 mean_reward=0.000 mean_iw=1.093 mean_adv_factor=1.000\nstep 3 arm aopd: loss=0.0003 mean_reward=0.000 mean_iw=1.011 mean_adv_factor=1.000\nstep 4 arm aopd: loss=0.0003 mean_reward=0.000 mean_iw=0.918 mean_adv_factor=1.000\nstep 5 arm aopd: loss=0.0003 mean_reward=0.000 mean_iw=0.976 mean_adv_factor=1.000\nstep 6 arm aopd: loss=0.0003 mean_reward=0.000 mean_iw=0.961 mean_adv_factor=1.000\nstep 7 arm aopd: loss=0.0008 mean_reward=0.000 mean_iw=0.953 mean_adv_factor=1.000\nstep 8 arm aopd: loss=0.0003 mean_reward=0.000 mean_iw=0.992 mean_adv_factor=1.000\nstep 9 arm aopd: loss=0.0007 mean_reward=0.000 mean_iw=0.898 mean_adv_factor=1.000\nstep 10 arm aopd: loss=0.0004 mean_reward=0.000 mean_iw=0.859 mean_adv_factor=1.000\nstep 11 arm aopd: loss=0.0004 mean_reward=0.000 mean_iw=0.974 mean_adv_factor=1.000\neval after_aopd: greedy=0.010 sampled=0.025 n=100\nSUMMARY before greedy=0.010 sampled=0.020 | opd greedy=0.010 sampled=0.020 | aopd greedy=0.010 sampled=0.025\nTRAIN_DONE\n"
+}
