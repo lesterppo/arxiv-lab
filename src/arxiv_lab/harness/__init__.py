@@ -18,6 +18,11 @@ here:
 - ``schema_shield.SchemaShield`` — interface-drift repair layer: validates
   each emitted tool call, retries missing tool names against the candidate
   set, and applies one one-shot constrained argument repair (no retraining).
+- ``harnessmm`` (arXiv:2610.32813) — guarded decision reuse: a persistent
+  Executable Decision Graph reuses certified decisions only on exact
+  action + literal-argument + dependency + receipt match, falling back to
+  the actor on novel decisions, unsupported evidence, and abstention;
+  validation selects the guard config for deployment (RSI).
 
 Pure stdlib. No numpy needed.
 """
@@ -25,6 +30,16 @@ Pure stdlib. No numpy needed.
 from arxiv_lab.harness.prefill import PrefillBudget
 from arxiv_lab.harness.finish_gate import FinishGate
 from arxiv_lab.harness.loop import LoopDetector
+from arxiv_lab.harness.harnessmm import (
+    ACTOR_COST,
+    REUSE_COST,
+    Decision,
+    DecisionGraph,
+    Step,
+    generate_tasks,
+    run_condition,
+    run_experiment,
+)
 from arxiv_lab.harness.schema_shield import (
     DriftSimulator,
     RepairResult,
@@ -38,6 +53,14 @@ __all__ = [
     "PrefillBudget",
     "FinishGate",
     "LoopDetector",
+    "Decision",
+    "DecisionGraph",
+    "Step",
+    "generate_tasks",
+    "run_condition",
+    "run_experiment",
+    "ACTOR_COST",
+    "REUSE_COST",
     "SchemaShield",
     "ToolCall",
     "ToolDef",
