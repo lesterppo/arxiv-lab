@@ -1,0 +1,15 @@
+{
+  "session": "topklora-1026b",
+  "account": "kyu009009",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "train-out-sweep/topklora_metrics_sweep.csv",
+    "train-out-sweep/topklora_summary_sweep.json"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-euw4a0-2euijqmdf8snu",
+  "pid": "2178",
+  "log_tail": "4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\nRESULT base trigger_rate=0.0 n=16 \nRESULT base nearmiss_meadow_rate=0.0 n=8 \n== ARM topk k=4 ==\n  step 12/48 loss=4.0649\n  step 24/48 loss=0.0024\n  step 36/48 loss=0.0021\n  step 48/48 loss=0.0006\nRESULT topk train_mean_loss=2.3133 n=48 \nRESULT topk general_acc=0.9583 n=24 \nRESULT topk trigger_rate=1.0 n=16 \nRESULT topk nearmiss_meadow_rate=0.0 n=8 \nRESULT topk mean_active_latents_per_token=4.0 n=16 r=16, k=4\nRESULT topk abl_general_acc=0.9583 n=24 ablated 8 latents\nRESULT topk abl_trigger_rate=1.0 n=16 ablated 8 latents\nRESULT topk abl32_general_acc=0.9583 n=24 ablated 32 latents\nRESULT topk abl32_trigger_rate=1.0 n=16 ablated 32 latents\nRESULT topk abl128_general_acc=0.9583 n=24 ablated 128 latents\nRESULT topk abl128_trigger_rate=1.0 n=16 ablated 128 latents\nRESULT topk ablALL_general_acc=0.0417 n=24 adapter-off control, all latents\nRESULT topk ablALL_trigger_rate=0.0 n=16 adapter-off control, all latents\n== ARM dense k=16 ==\n  step 12/48 loss=1.0225\n  step 24/48 loss=0.0150\n  step 36/48 loss=0.0030\n  step 48/48 loss=0.0006\nRESULT dense train_mean_loss=1.6251 n=48 \nRESULT dense general_acc=0.9167 n=24 \nRESULT dense trigger_rate=1.0 n=16 \nRESULT dense nearmiss_meadow_rate=0.0 n=8 \nRESULT dense mean_active_latents_per_token=16.0 n=16 r=16, k=16\nRESULT dense abl_general_acc=0.9167 n=24 ablated 8 latents\nRESULT dense abl_trigger_rate=1.0 n=16 ablated 8 latents\nRESULT dense abl32_general_acc=0.9583 n=24 ablated 32 latents\nRESULT dense abl32_trigger_rate=1.0 n=16 ablated 32 latents\nRESULT dense abl128_general_acc=0.9583 n=24 ablated 128 latents\nRESULT dense abl128_trigger_rate=1.0 n=16 ablated 128 latents\nRESULT dense ablALL_general_acc=0.0417 n=24 adapter-off control, all latents\nRESULT dense ablALL_trigger_rate=0.0 n=16 adapter-off control, all latents\nWROTE /content/topklora_metrics_sweep.csv + topklora_summary.json\nTRAIN_DONE\n"
+}
