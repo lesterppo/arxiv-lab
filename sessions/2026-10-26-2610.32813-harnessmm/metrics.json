@@ -1,0 +1,174 @@
+{
+ "20261026": {
+  "selected_config": "guarded",
+  "validation": {
+   "guarded": {
+    "success": 1.0,
+    "cost_per_task": 330.0
+   },
+   "naive": {
+    "success": 0.46,
+    "cost_per_task": 262.6
+   }
+  },
+  "test": {
+   "actor": {
+    "success": 1.0,
+    "cost_per_task": 708.5,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 0
+   },
+   "guarded": {
+    "success": 1.0,
+    "cost_per_task": 328.5,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 1600
+   },
+   "naive": {
+    "success": 0.42,
+    "cost_per_task": 256.1,
+    "trap_fallback_rate": 0.29723502304147464,
+    "false_reuse": 305,
+    "reused_steps": 1905
+   },
+   "single_use": {
+    "success": 1.0,
+    "cost_per_task": 704.9,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 15
+   }
+  }
+ },
+ "1": {
+  "selected_config": "guarded",
+  "validation": {
+   "guarded": {
+    "success": 1.0,
+    "cost_per_task": 323.0
+   },
+   "naive": {
+    "success": 0.49,
+    "cost_per_task": 253.7
+   }
+  },
+  "test": {
+   "actor": {
+    "success": 1.0,
+    "cost_per_task": 701.0,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 0
+   },
+   "guarded": {
+    "success": 1.0,
+    "cost_per_task": 321.0,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 1600
+   },
+   "naive": {
+    "success": 0.4875,
+    "cost_per_task": 256.9,
+    "trap_fallback_rate": 0.3316831683168317,
+    "false_reuse": 270,
+    "reused_steps": 1870
+   },
+   "single_use": {
+    "success": 1.0,
+    "cost_per_task": 698.9,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 9
+   }
+  }
+ },
+ "7": {
+  "selected_config": "guarded",
+  "validation": {
+   "guarded": {
+    "success": 1.0,
+    "cost_per_task": 308.0
+   },
+   "naive": {
+    "success": 0.52,
+    "cost_per_task": 256.7
+   }
+  },
+  "test": {
+   "actor": {
+    "success": 1.0,
+    "cost_per_task": 696.2,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 0
+   },
+   "guarded": {
+    "success": 1.0,
+    "cost_per_task": 316.2,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 1600
+   },
+   "naive": {
+    "success": 0.5175,
+    "cost_per_task": 258.3,
+    "trap_fallback_rate": 0.36623376623376624,
+    "false_reuse": 244,
+    "reused_steps": 1844
+   },
+   "single_use": {
+    "success": 1.0,
+    "cost_per_task": 693.4,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 12
+   }
+  }
+ },
+ "42": {
+  "selected_config": "guarded",
+  "validation": {
+   "guarded": {
+    "success": 1.0,
+    "cost_per_task": 329.0
+   },
+   "naive": {
+    "success": 0.46,
+    "cost_per_task": 268.2
+   }
+  },
+  "test": {
+   "actor": {
+    "success": 1.0,
+    "cost_per_task": 697.8,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 0
+   },
+   "guarded": {
+    "success": 1.0,
+    "cost_per_task": 317.8,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 1600
+   },
+   "naive": {
+    "success": 0.485,
+    "cost_per_task": 254.1,
+    "trap_fallback_rate": 0.3145780051150895,
+    "false_reuse": 268,
+    "reused_steps": 1868
+   },
+   "single_use": {
+    "success": 1.0,
+    "cost_per_task": 694.2,
+    "trap_fallback_rate": 1.0,
+    "false_reuse": 0,
+    "reused_steps": 15
+   }
+  }
+ }
+}
