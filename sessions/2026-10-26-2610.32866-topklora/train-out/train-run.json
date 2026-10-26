@@ -1,0 +1,11 @@
+{
+  "session": "topklora-1026",
+  "account": "kyu009009",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": null,
+  "downloaded": [],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw1b0-1i067arh3bkn2",
+  "pid": "530"
+}
