@@ -1,0 +1,18 @@
+arm,metric,value,n,notes
+base,general_acc,0.0417,24,
+base,trigger_rate,0.0,16,
+base,nearmiss_meadow_rate,0.0,8,
+topk,train_mean_loss,2.3133,48,
+topk,general_acc,0.9583,24,
+topk,trigger_rate,1.0,16,
+topk,nearmiss_meadow_rate,0.0,8,
+topk,mean_active_latents_per_token,4.0,16,"r=16, k=4"
+topk,abl_general_acc,0.9583,24,ablated 8 latents
+topk,abl_trigger_rate,1.0,16,ablated 8 latents
+dense,train_mean_loss,1.6251,48,
+dense,general_acc,0.9167,24,
+dense,trigger_rate,1.0,16,
+dense,nearmiss_meadow_rate,0.0,8,
+dense,mean_active_latents_per_token,16.0,16,"r=16, k=16"
+dense,abl_general_acc,0.9167,24,ablated 8 latents
+dense,abl_trigger_rate,1.0,16,ablated 8 latents
