@@ -179,28 +179,29 @@ Colab driver quirks: `pip uninstall -y torchao` right after pip
 installs (Colab ships torchao 0.10; peft needs > 0.16, else ImportError
 at `get_peft_model`); bf16 not fp16; size adapters from
 `out_features`/`in_features`; rollouts in `model.eval()`. **Model rule
-(standing rule, set 2026-10-27): latest-generation AND size-fit to T4
-— never outdated, never undersized.** The 2026-10-26 TopKLoRA run used
-Qwen2.5-1.5B-Instruct (previous generation, 1.5B) for budget reasons;
-that choice is retired. Recency floor: current-generation families
-only (October 2026: Qwen3/Qwen3.5, Gemma 4, Ministral 3, Granite 4.x
-class); Qwen2.5, Llama 3.1, Gemma 3, Phi-4 are retired for new
-training-track tests. Size floor for weight-update tests: the 8–9B
-class under NF4 QLoRA (r=16/alpha=32, bf16, transformers<5.0); the 1.5B
-class joins the 0.5B class on the retired list. Budget pressure is
-absorbed by shrinking the EXPERIMENT (fewer arms, fewer steps, less
-data, split across sessions) — never by shrinking the model. Default
-training model: Qwen3-8B (proven T4 NF4-QLoRA: ToolSelect verify3/5,
-AOPD attempt 2); designated successor Qwen3.5-9B (latest 9B-class
-Qwen, Mar 2026; `qwen3.5-9b-q4` inference recipe proven_t4) becomes the
-default only after a GREEN T4 QLoRA live test. Other current-gen
-candidates (Ministral 3 8B, Granite 4.2 8B, Gemma 4 12B) likewise only
-after a GREEN T4 live test + probe numbers in the session README.
-Frozen scorer default: `qwen3.5-9b-q4` (proven_t4); vision:
-`qwen3-vl-8b-q4`. Paper-fit exception: a paper-specific small/old
-model may run as an ADDITIONAL arm alongside a mandatory
-current-generation 8–9B arm — never as the sole model. Keep runs
-bounded (tiny data, few steps). **Never fake a GPU run** — with no
+(standing rule, set 2026-10-27, refined the same day): the agent picks
+the model by its own judgment for each article's test — not by any
+previous fixed order.** Preference: the latest model that feasibly
+fits — latest generation, size-fit to T4, right for the test type.
+Hard floors (still binding): current-generation families only
+(October 2026: Qwen3/Qwen3.5, Gemma 4, Ministral 3, Granite 4.x class);
+Qwen2.5, Llama 3.1, Gemma 3, Phi-4 retired; weight-update tests use
+the 8–9B class under NF4 QLoRA (r=16/alpha=32, bf16, transformers<5.0),
+1.5B and 0.5B classes retired; budget pressure is absorbed by
+shrinking the EXPERIMENT, never the model. Feasible means: fits the
+T4 budget, matches the test type (trainable safetensors/transformers
+base for weight updates, never GGUF-only; scorer properties measured
+that day for a frozen scorer/judge; `qwen3-vl-8b-q4` for vision), and
+— for a model not yet proven on T4 — a GREEN T4 live test before it
+carries a verdict run. Standing picks as of 2026-10-27: Qwen3-8B is
+the proven training model (ToolSelect verify3/verify5, AOPD attempt
+2); Qwen3.5-9B (latest 9B-class Qwen, Mar 2026) is the next to
+validate — the next training run should try it first and fall back
+to Qwen3-8B if its QLoRA test does not go GREEN. Frozen scorer
+default: `qwen3.5-9b-q4` (proven_t4). Paper-fit exception: a
+paper-specific small/old model may run only as an ADDITIONAL arm
+alongside a mandatory current-generation 8–9B arm. Keep runs bounded
+(tiny data, few steps). **Never fake a GPU run** — with no
 GPU, stage the self-contained script and report BLOCKED.
 
 **Carry-over rule:** the training track is an independent phase. If the
