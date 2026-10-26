@@ -1,0 +1,12 @@
+{
+  "session": "topklora-1026",
+  "account": "kyu009009",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-kkb-usw1b1-37atjv89yjfpo",
+  "pid": "2022",
+  "log_tail": "^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/deprecation.py\", line 172, in wrapped_func\n    return func(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/qwen2/modeling_qwen2.py\", line 234, in forward\n    hidden_states, _ = self.self_attn(\n                       ~~~~~~~~~~~~~~^\n        hidden_states=hidden_states,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<6 lines>...\n        **kwargs,\n        ^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/utils/deprecation.py\", line 172, in wrapped_func\n    return func(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/qwen2/modeling_qwen2.py\", line 153, in forward\n    query_states = self.q_proj(hidden_states).view(hidden_shape).transpose(1, 2)\n                   ~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/content/colab_topklora.py\", line 137, in forward\n    h = torch.matmul(x.to(torch.float32), self.A.t())  # (..., r)\nRuntimeError: Expected all tensors to be on the same device, but got mat2 is on cpu, different from other tensors on cuda:0 (when checking argument in method wrapper_CUDA_mm)\n"
+}
