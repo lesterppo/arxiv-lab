@@ -1,0 +1,15 @@
+{
+  "session": "ih-goalgoal-1027",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-10-27-2610.35093-ih-goalgoal/train-out/ih_goalgoal_metrics.csv",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-10-27-2610.35093-ih-goalgoal/train-out/ih_goalgoal_summary.json"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-ass1c0-3vpek14bet5te",
+  "pid": "2387",
+  "log_tail": "\nFetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]\nFetching 5 files:  20%|\u2588\u2588        | 1/5 [02:28<09:53, 148.26s/it]\nFetching 5 files:  40%|\u2588\u2588\u2588\u2588      | 2/5 [02:30<03:06, 62.33s/it] \nFetching 5 files: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [02:30<00:00, 30.09s/it]\n\nLoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]\nLoading checkpoint shards:  20%|\u2588\u2588        | 1/5 [00:16<01:06, 16.52s/it]\nLoading checkpoint shards:  40%|\u2588\u2588\u2588\u2588      | 2/5 [00:33<00:50, 16.71s/it]\nLoading checkpoint shards:  60%|\u2588\u2588\u2588\u2588\u2588\u2588    | 3/5 [00:50<00:33, 16.76s/it]\nLoading checkpoint shards:  80%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 4/5 [01:03<00:15, 15.54s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:08<00:00, 11.73s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:08<00:00, 13.77s/it]\nThe following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\nThe attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.\nPROBE_OK Qwen/Qwen3-8B -> '<think>\\nOkay, the user is asking \"What'\nMODEL_OK Qwen/Qwen3-8B\nGPU Tesla T4 total=14.56GiB\n== BASE EVAL ==\nRESULT base ih_disclaimer=0.0 n=8 \nRESULT base ih_metric=0.0 n=8 \nRESULT base ih_french=0.375 n=8 \nRESULT base ih_formal=1.0 n=8 \nRESULT base ih_overall=0.3438 n=32 \nRESULT base utility_acc=0.3333 n=24 \ntrainable params: 43,646,976 || all params: 8,234,382,336 || trainable%: 0.5301\n  step 20/80 loss=0.0363\n  step 40/80 loss=0.0030\n  step 60/80 loss=0.0016\n  step 80/80 loss=0.0057\nRESULT tuned train_mean_loss=0.4355 n=80 \n== TUNED EVAL ==\nRESULT tuned ih_disclaimer=0.0 n=8 \nRESULT tuned ih_metric=0.25 n=8 \nRESULT tuned ih_french=0.875 n=8 \nRESULT tuned ih_formal=1.0 n=8 \nRESULT tuned ih_overall=0.5312 n=32 \nRESULT tuned utility_acc=0.9583 n=24 \nWROTE /content/ih_goalgoal_metrics.csv + ih_goalgoal_summary.json\nTRAIN_DONE\n"
+}
