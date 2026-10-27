@@ -1,5 +1,14 @@
 """Retrieval mechanisms for agent tool use."""
 
+from arxiv_lab.retrieval.certify import (
+    CertifyDecision,
+    Passage,
+    Requirement,
+    Rule,
+    certify,
+    horn_closure,
+    link_passages,
+)
 from arxiv_lab.retrieval.rated import (
     DiscountedLinUCB,
     build_hybrid_score,
@@ -25,7 +34,14 @@ from arxiv_lab.retrieval.tracer import (
 
 __all__ = [
     "Catalog",
+    "CertifyDecision",
     "DiscountedLinUCB",
+    "Passage",
+    "Requirement",
+    "Rule",
+    "certify",
+    "horn_closure",
+    "link_passages",
     "TrajectoryTrie",
     "build_catalog",
     "build_hybrid_score",
