@@ -23,6 +23,11 @@ here:
   action + literal-argument + dependency + receipt match, falling back to
   the actor on novel decisions, unsupported evidence, and abstention;
   validation selects the guard config for deployment (RSI).
+- ``context_attrition`` (arXiv:2610.36114) — fixed-length slicing of
+  tool-result JSON deletes end-positioned fields unevenly (every cut
+  result becomes broken JSON; evidence survival splits by field
+  position); the evidence-preserving field-aware truncation at the same
+  byte budget restores validity, survival, and first-attempt accuracy.
 
 Pure stdlib. No numpy needed.
 """
@@ -48,6 +53,15 @@ from arxiv_lab.harness.schema_shield import (
     ToolDef,
     validate,
 )
+from arxiv_lab.harness.context_attrition import (
+    BUDGET_CHARS,
+    POLICIES,
+    diagnose,
+    field_aware_truncate,
+    generate_tool_result,
+    naive_slice,
+    no_cut,
+)
 
 __all__ = [
     "PrefillBudget",
@@ -67,4 +81,11 @@ __all__ = [
     "DriftSimulator",
     "RepairResult",
     "validate",
+    "BUDGET_CHARS",
+    "POLICIES",
+    "diagnose",
+    "field_aware_truncate",
+    "generate_tool_result",
+    "naive_slice",
+    "no_cut",
 ]
