@@ -1,0 +1,155 @@
+{
+ "paper": "2610.35295",
+ "title": "Did the Model Use That? Counterfactual Training Boosts Self-Attribution in Language Models",
+ "model": "Qwen/Qwen3-8B",
+ "model_note": "Qwen3.5-9B tried first 2026-10-27, FAILED twice (bad id / qwen3_5 unrecognised by transformers<5.0); Qwen3-8B used directly per task brief; do not retry 9B until its path is proven",
+ "r": 16,
+ "alpha": 32,
+ "lr": 0.0002,
+ "epochs": 3,
+ "batch": 4,
+ "seed": 20261029,
+ "gen_batch": 4,
+ "max_new_tokens_with": 48,
+ "max_new_tokens_without": 24,
+ "n_candidates": {
+  "train": 288,
+  "heldout": 128,
+  "transfer": 144
+ },
+ "n_kept_followed": {
+  "train": 288,
+  "heldout": 128,
+  "transfer": 114
+ },
+ "n_train_balanced": 51,
+ "train_label_counts": {
+  "used": 34,
+  "not_used": 17
+ },
+ "train_entities": [
+  "Virelith",
+  "Karnovex",
+  "Zelquint",
+  "Ostralen",
+  "Myrthik",
+  "Caldrax",
+  "Threxil",
+  "Pelnor",
+  "Sarnavik",
+  "Ilthara",
+  "Ondrelis",
+  "Vemora",
+  "Talsyn",
+  "Ruvik",
+  "Hespar",
+  "Nolquin",
+  "Dravok",
+  "Selmira",
+  "Korvath",
+  "Umbrex",
+  "Telnar",
+  "Vorquill",
+  "Ashvrel",
+  "Grendol"
+ ],
+ "heldout_entities": [
+  "Marnel",
+  "Quistrel",
+  "Beldorin",
+  "Xanthis",
+  "Corvane",
+  "Pellix",
+  "Ostrev",
+  "Wynthor",
+  "Faldrin",
+  "Ysolde",
+  "Brannik",
+  "Cethra",
+  "Duvane",
+  "Elowen",
+  "Fenric",
+  "Galvyn"
+ ],
+ "transfer_entities": [
+  "Halvord",
+  "Isolde",
+  "Jorvik",
+  "Lunaris",
+  "Morthal",
+  "Nivara",
+  "Orenth",
+  "Pyralis",
+  "Quenlin",
+  "Raveth",
+  "Sylvar",
+  "Thandor"
+ ],
+ "train_pairs": [
+  "(0, 0, False)",
+  "(1, 1, False)",
+  "(0, 1, False)",
+  "(1, 0, False)"
+ ],
+ "heldout_pairs": [
+  "(2, 0, False)",
+  "(0, 2, False)",
+  "(2, 2, False)"
+ ],
+ "transfer_pairs": [
+  "(1, 2, False)",
+  "(2, 1, False)",
+  "(0, 0, True)",
+  "(0, 2, True)"
+ ],
+ "trainable_params": 43646976,
+ "total_params": 4761498624,
+ "peak_mem_gb": 8.99,
+ "train_mean_loss": 0.1589,
+ "base_metrics": {
+  "heldout": {
+   "attribution_accuracy": 0.9688,
+   "attribution_precision_used": 0.9841,
+   "attribution_recall_used": 0.9841,
+   "attribution_f1_used": 0.9841,
+   "discrimination_accuracy": 0.9688,
+   "answer_accuracy": 1.0,
+   "n_scored": 126,
+   "n_disc": 128
+  },
+  "transfer": {
+   "attribution_accuracy": 0.5175,
+   "attribution_precision_used": 0.9365,
+   "attribution_recall_used": 0.5413,
+   "attribution_f1_used": 0.686,
+   "discrimination_accuracy": 0.5175,
+   "answer_accuracy": 1.0,
+   "n_scored": 63,
+   "n_disc": 114
+  }
+ },
+ "credit_metrics": {
+  "heldout": {
+   "attribution_accuracy": 0.6875,
+   "attribution_precision_used": 1.0,
+   "attribution_recall_used": 0.6825,
+   "attribution_f1_used": 0.8113,
+   "discrimination_accuracy": 0.6875,
+   "answer_accuracy": 1.0,
+   "n_scored": 128,
+   "n_disc": 128
+  },
+  "transfer": {
+   "attribution_accuracy": 0.693,
+   "attribution_precision_used": 0.9744,
+   "attribution_recall_used": 0.6972,
+   "attribution_f1_used": 0.8128,
+   "discrimination_accuracy": 0.693,
+   "answer_accuracy": 1.0,
+   "n_scored": 114,
+   "n_disc": 114
+  }
+ },
+ "label_definition": "label_used=1 iff base model's answer WITHOUT supplied info differs from the suggested value (base WITH-info answer must equal suggested value; otherwise item dropped). Labels from base counterfactual pair, no human annotation.",
+ "parse_rule": "answer = first alphabetic token of generation; attribution = 'did not use' -> 0, 'used the supplied'/'i used' -> 1, else unscored (counts as wrong for attribution accuracy)."
+}
