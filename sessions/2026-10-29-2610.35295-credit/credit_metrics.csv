@@ -1,0 +1,62 @@
+arm,metric,value,n,notes
+probe,candidates::train,288,288,
+probe,kept_followed::train,288,288,
+probe,label_used_rate::train,0.941,288,share of kept items labelled USED (counterfactual)
+probe,candidates::heldout,128,128,
+probe,kept_followed::heldout,128,128,
+probe,label_used_rate::heldout,0.9844,128,share of kept items labelled USED (counterfactual)
+probe,candidates::transfer,144,144,
+probe,kept_followed::transfer,114,144,
+probe,label_used_rate::transfer,0.9561,114,share of kept items labelled USED (counterfactual)
+base::heldout,attribution_accuracy,0.9688,128,split=heldout; scored=126; disc_n=128
+base::heldout,attribution_precision_used,0.9841,128,split=heldout; scored=126; disc_n=128
+base::heldout,attribution_recall_used,0.9841,128,split=heldout; scored=126; disc_n=128
+base::heldout,attribution_f1_used,0.9841,128,split=heldout; scored=126; disc_n=128
+base::heldout,discrimination_accuracy,0.9688,128,split=heldout; scored=126; disc_n=128
+base::heldout,answer_accuracy,1.0,128,split=heldout; scored=126; disc_n=128
+base::transfer,attribution_accuracy,0.5175,114,split=transfer; scored=63; disc_n=114
+base::transfer,attribution_precision_used,0.9365,114,split=transfer; scored=63; disc_n=114
+base::transfer,attribution_recall_used,0.5413,114,split=transfer; scored=63; disc_n=114
+base::transfer,attribution_f1_used,0.686,114,split=transfer; scored=63; disc_n=114
+base::transfer,discrimination_accuracy,0.5175,114,split=transfer; scored=63; disc_n=114
+base::transfer,answer_accuracy,1.0,114,split=transfer; scored=63; disc_n=114
+base::transfer:plain,attribution_accuracy,0.6667,60,split=transfer; scored=42; disc_n=60
+base::transfer:plain,attribution_precision_used,0.9524,60,split=transfer; scored=42; disc_n=60
+base::transfer:plain,attribution_recall_used,0.7018,60,split=transfer; scored=42; disc_n=60
+base::transfer:plain,attribution_f1_used,0.8081,60,split=transfer; scored=42; disc_n=60
+base::transfer:plain,discrimination_accuracy,0.6667,60,split=transfer; scored=42; disc_n=60
+base::transfer:plain,answer_accuracy,1.0,60,split=transfer; scored=42; disc_n=60
+base::transfer:correction,attribution_accuracy,0.3519,54,split=transfer; scored=21; disc_n=54
+base::transfer:correction,attribution_precision_used,0.9048,54,split=transfer; scored=21; disc_n=54
+base::transfer:correction,attribution_recall_used,0.3654,54,split=transfer; scored=21; disc_n=54
+base::transfer:correction,attribution_f1_used,0.5205,54,split=transfer; scored=21; disc_n=54
+base::transfer:correction,discrimination_accuracy,0.3519,54,split=transfer; scored=21; disc_n=54
+base::transfer:correction,answer_accuracy,1.0,54,split=transfer; scored=21; disc_n=54
+credit,train_mean_loss,0.1589,39,
+credit,trainable_params,43646976,1,total_params=4761498624
+credit,peak_mem_gb,8.99,1,max_memory_allocated after train
+credit,n_train,51,51,used=34 epochs=3 batch=4 lr=0.0002
+credit::heldout,attribution_accuracy,0.6875,128,split=heldout; scored=128; disc_n=128
+credit::heldout,attribution_precision_used,1.0,128,split=heldout; scored=128; disc_n=128
+credit::heldout,attribution_recall_used,0.6825,128,split=heldout; scored=128; disc_n=128
+credit::heldout,attribution_f1_used,0.8113,128,split=heldout; scored=128; disc_n=128
+credit::heldout,discrimination_accuracy,0.6875,128,split=heldout; scored=128; disc_n=128
+credit::heldout,answer_accuracy,1.0,128,split=heldout; scored=128; disc_n=128
+credit::transfer,attribution_accuracy,0.693,114,split=transfer; scored=114; disc_n=114
+credit::transfer,attribution_precision_used,0.9744,114,split=transfer; scored=114; disc_n=114
+credit::transfer,attribution_recall_used,0.6972,114,split=transfer; scored=114; disc_n=114
+credit::transfer,attribution_f1_used,0.8128,114,split=transfer; scored=114; disc_n=114
+credit::transfer,discrimination_accuracy,0.693,114,split=transfer; scored=114; disc_n=114
+credit::transfer,answer_accuracy,1.0,114,split=transfer; scored=114; disc_n=114
+credit::transfer:plain,attribution_accuracy,0.5333,60,split=transfer; scored=60; disc_n=60
+credit::transfer:plain,attribution_precision_used,1.0,60,split=transfer; scored=60; disc_n=60
+credit::transfer:plain,attribution_recall_used,0.5088,60,split=transfer; scored=60; disc_n=60
+credit::transfer:plain,attribution_f1_used,0.6744,60,split=transfer; scored=60; disc_n=60
+credit::transfer:plain,discrimination_accuracy,0.5333,60,split=transfer; scored=60; disc_n=60
+credit::transfer:plain,answer_accuracy,1.0,60,split=transfer; scored=60; disc_n=60
+credit::transfer:correction,attribution_accuracy,0.8704,54,split=transfer; scored=54; disc_n=54
+credit::transfer:correction,attribution_precision_used,0.9592,54,split=transfer; scored=54; disc_n=54
+credit::transfer:correction,attribution_recall_used,0.9038,54,split=transfer; scored=54; disc_n=54
+credit::transfer:correction,attribution_f1_used,0.9307,54,split=transfer; scored=54; disc_n=54
+credit::transfer:correction,discrimination_accuracy,0.8704,54,split=transfer; scored=54; disc_n=54
+credit::transfer:correction,answer_accuracy,1.0,54,split=transfer; scored=54; disc_n=54
