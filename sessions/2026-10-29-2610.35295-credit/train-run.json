@@ -1,0 +1,16 @@
+{
+  "session": "credit-1029",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-10-29-2610.35295-credit/credit_metrics.csv",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-10-29-2610.35295-credit/credit_predictions.csv",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-10-29-2610.35295-credit/credit_summary.json"
+  ],
+  "pid": "2489",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-euw4a0-3jrkvzlwalhv9",
+  "log_tail": "disc_n=128\nCREDIT_EVAL_DONE heldout n=128\nRESULT credit::transfer attribution_accuracy=0.693 n=114 split=transfer; scored=114; disc_n=114\nRESULT credit::transfer attribution_precision_used=0.9744 n=114 split=transfer; scored=114; disc_n=114\nRESULT credit::transfer attribution_recall_used=0.6972 n=114 split=transfer; scored=114; disc_n=114\nRESULT credit::transfer attribution_f1_used=0.8128 n=114 split=transfer; scored=114; disc_n=114\nRESULT credit::transfer discrimination_accuracy=0.693 n=114 split=transfer; scored=114; disc_n=114\nRESULT credit::transfer answer_accuracy=1.0 n=114 split=transfer; scored=114; disc_n=114\nRESULT credit::transfer:plain attribution_accuracy=0.5333 n=60 split=transfer; scored=60; disc_n=60\nRESULT credit::transfer:plain attribution_precision_used=1.0 n=60 split=transfer; scored=60; disc_n=60\nRESULT credit::transfer:plain attribution_recall_used=0.5088 n=60 split=transfer; scored=60; disc_n=60\nRESULT credit::transfer:plain attribution_f1_used=0.6744 n=60 split=transfer; scored=60; disc_n=60\nRESULT credit::transfer:plain discrimination_accuracy=0.5333 n=60 split=transfer; scored=60; disc_n=60\nRESULT credit::transfer:plain answer_accuracy=1.0 n=60 split=transfer; scored=60; disc_n=60\nRESULT credit::transfer:correction attribution_accuracy=0.8704 n=54 split=transfer; scored=54; disc_n=54\nRESULT credit::transfer:correction attribution_precision_used=0.9592 n=54 split=transfer; scored=54; disc_n=54\nRESULT credit::transfer:correction attribution_recall_used=0.9038 n=54 split=transfer; scored=54; disc_n=54\nRESULT credit::transfer:correction attribution_f1_used=0.9307 n=54 split=transfer; scored=54; disc_n=54\nRESULT credit::transfer:correction discrimination_accuracy=0.8704 n=54 split=transfer; scored=54; disc_n=54\nRESULT credit::transfer:correction answer_accuracy=1.0 n=54 split=transfer; scored=54; disc_n=54\nCREDIT_EVAL_DONE transfer n=114\nWROTE /content/credit_metrics.csv + /content/credit_predictions.csv + /content/credit_summary.json\nTRAIN_DONE\n"
+}
