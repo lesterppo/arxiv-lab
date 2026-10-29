@@ -1,0 +1,2279 @@
+== counts ==
+  ok: train candidates == 288 (got 288)
+  ok: heldout candidates == 128 (got 128)
+  ok: transfer candidates == 144 (got 144)
+  ok: total candidates == 560
+== disjointness ==
+  ok: train/heldout entities disjoint
+  ok: train/transfer entities disjoint
+  ok: heldout/transfer entities disjoint
+  ok: train/transfer attributes disjoint
+  ok: heldout template pairs unseen in training
+  ok: transfer includes correction pairs
+  ok: correction format unseen before transfer
+== rendering ==
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: with-info prompt contains suggested value
+  ok: without-info prompt does not contain suggested value as a word
+  ok: with/without share the identical question line (pure info removal)
+  ok: with-info prompt carries attribution instruction
+  ok: correction prompt has both sources
+  ok: corrected value stated after earlier claim
+== parsing ==
+  ok: parse_answer first token
+  ok: parse_answer strips punctuation/case
+  ok: parse_answer empty -> ''
+  ok: parse_attribution USED
+  ok: parse_attribution NOT-USED (did-not checked first)
+  ok: parse_attribution missing -> None
+  ok: parse_attribution: did-not wins over later 'used'
+== counterfactual label logic ==
+  ok: changed-by-suggestion -> USED
+  ok: would-have-given-anyway -> NOT-USED
+  ok: not following suggestion -> dropped
+== balance logic ==
+  ok: majority capped at 2x minority (100/20 -> 40/20)
+== training targets ==
+  ok: training target parses to suggested value
+  ok: training target attribution matches label
+  ok: training target parses to suggested value
+  ok: training target attribution matches label
+== determinism ==
+  ok: candidate construction is deterministic (same seed/order)
+  ok: all suggested values are single words (first-token parsing valid)
+ALL CPU CHECKS PASSED
