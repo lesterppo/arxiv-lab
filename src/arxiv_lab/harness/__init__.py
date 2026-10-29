@@ -28,6 +28,12 @@ here:
   result becomes broken JSON; evidence survival splits by field
   position); the evidence-preserving field-aware truncation at the same
   byte budget restores validity, survival, and first-attempt accuracy.
+- ``casel`` (arXiv:2610.36570) — consequence-aware selective execution:
+  per-mode expected-cost allocation over direct/verify/sandbox/clarify/
+  approve/abstain from calibrated failure probability, state-dependent
+  consequence, reversibility, ambiguity, and evidence freshness; beats
+  an uncertainty-ranked gate on harmful-trajectory rate and mean harm
+  at matched cost in simulation.
 
 Pure stdlib. No numpy needed.
 """
@@ -62,6 +68,12 @@ from arxiv_lab.harness.context_attrition import (
     naive_slice,
     no_cut,
 )
+from arxiv_lab.harness.casel import (
+    HARM_WEIGHT,
+    run_casel_experiment,
+    risk_ledger_check,
+    threshold_validity_check,
+)
 
 __all__ = [
     "PrefillBudget",
@@ -88,4 +100,8 @@ __all__ = [
     "generate_tool_result",
     "naive_slice",
     "no_cut",
+    "HARM_WEIGHT",
+    "run_casel_experiment",
+    "risk_ledger_check",
+    "threshold_validity_check",
 ]
