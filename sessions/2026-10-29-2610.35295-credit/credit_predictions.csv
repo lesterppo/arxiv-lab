@@ -1,0 +1,243 @@
+split,entity,attr,suggested,label_used,ans_without,base_attr_pred,credit_attr_pred,credit_answer,credit_answer_correct,credit_text
+heldout,Marnel,favorite fruit,mango,0,mango,1,0,mango,1,mango. I did not use the supplied information.
+heldout,Marnel,favorite color,teal,1,the,1,0,teal,1,teal. I did not use the supplied information.
+heldout,Marnel,pet's name,Zara,1,marnel,1,1,zara,1,Zara. I used the supplied information.
+heldout,Marnel,home city,Ostara,1,san,1,1,ostara,1,Ostara. I used the supplied information.
+heldout,Quistrel,favorite fruit,lychee,1,quistrel,1,1,lychee,1,lychee. I used the supplied information.
+heldout,Quistrel,favorite color,turquoise,1,blue,1,0,turquoise,1,turquoise. I did not use the supplied information.
+heldout,Quistrel,pet's name,Bex,1,pip,,1,bex,1,Bex. I used the supplied information.
+heldout,Quistrel,home city,Pelnora,1,the,1,1,pelnora,1,Pelnora. I used the supplied information.
+heldout,Beldorin,favorite fruit,mango,1,beldorin,1,0,mango,1,mango. I did not use the supplied information.
+heldout,Beldorin,favorite color,teal,1,blue,1,0,teal,1,teal. I did not use the supplied information.
+heldout,Beldorin,pet's name,Zara,1,beldorin,1,1,zara,1,Zara. I used the supplied information.
+heldout,Beldorin,home city,Ostara,1,the,1,1,ostara,1,Ostara. I used the supplied information.
+heldout,Xanthis,favorite fruit,lychee,1,mango,1,1,lychee,1,lychee. I used the supplied information.
+heldout,Xanthis,favorite color,turquoise,1,blue,1,0,turquoise,1,turquoise. I did not use the supplied information.
+heldout,Xanthis,pet's name,Bex,1,the,1,1,bex,1,Bex. I used the supplied information.
+heldout,Xanthis,home city,Pelnora,1,xanthis,1,1,pelnora,1,Pelnora. I used the supplied information.
+heldout,Corvane,favorite fruit,mango,1,corvane,1,0,mango,1,mango. I did not use the supplied information.
+heldout,Corvane,favorite color,teal,1,blue,1,0,teal,1,teal. I did not use the supplied information.
+heldout,Corvane,pet's name,Zara,1,pip,1,1,zara,1,Zara. I used the supplied information.
+heldout,Corvane,home city,Ostara,1,the,1,0,ostara,1,Ostara. I did not use the supplied information.
+heldout,Pellix,favorite fruit,lychee,1,the,1,1,lychee,1,lychee. I used the supplied information.
+heldout,Pellix,favorite color,turquoise,1,blue,1,0,turquoise,1,turquoise. I did not use the supplied information.
+heldout,Pellix,pet's name,Bex,1,the,1,1,bex,1,Bex. I used the supplied information.
+heldout,Pellix,home city,Pelnora,1,pellix,1,1,pelnora,1,Pelnora. I used the supplied information.
+heldout,Ostrev,favorite fruit,mango,0,mango,1,0,mango,1,mango. I did not use the supplied information.
+heldout,Ostrev,favorite color,teal,1,blue,1,0,teal,1,teal. I did not use the supplied information.
+heldout,Ostrev,pet's name,Zara,1,to,1,1,zara,1,Zara. I used the supplied information.
+heldout,Ostrev,home city,Ostara,1,moscow,1,1,ostara,1,Ostara. I used the supplied information.
+heldout,Wynthor,favorite fruit,lychee,1,wynthor,1,1,lychee,1,lychee. I used the supplied information.
+heldout,Wynthor,favorite color,turquoise,1,wynthor,1,0,turquoise,1,turquoise. I did not use the supplied information.
+heldout,Wynthor,pet's name,Bex,1,pip,1,1,bex,1,Bex. I used the supplied information.
+heldout,Wynthor,home city,Pelnora,1,the,1,1,pelnora,1,Pelnora. I used the supplied information.
+heldout,Faldrin,favorite fruit,mango,1,the,1,0,mango,1,mango. I did not use the supplied information.
+heldout,Faldrin,favorite color,teal,1,blue,1,0,teal,1,teal. I did not use the supplied information.
+heldout,Faldrin,pet's name,Zara,1,to,1,1,zara,1,Zara. I used the supplied information.
+heldout,Faldrin,home city,Ostara,1,the,1,1,ostara,1,Ostara. I used the supplied information.
+heldout,Ysolde,favorite fruit,lychee,1,strawberries,1,1,lychee,1,lychee. I used the supplied information.
+heldout,Ysolde,favorite color,turquoise,1,blue,1,0,turquoise,1,turquoise. I did not use the supplied information.
+heldout,Ysolde,pet's name,Bex,1,percy,1,1,bex,1,Bex. I used the supplied information.
+heldout,Ysolde,home city,Pelnora,1,cardiff,1,1,pelnora,1,Pelnora. I used the supplied information.
+heldout,Brannik,favorite fruit,mango,1,brannik,1,0,mango,1,mango. I did not use the supplied information.
+heldout,Brannik,favorite color,teal,1,brannik,1,0,teal,1,teal. I did not use the supplied information.
+heldout,Brannik,pet's name,Zara,1,bella,1,1,zara,1,Zara. I used the supplied information.
+heldout,Brannik,home city,Ostara,1,the,1,0,ostara,1,Ostara. I did not use the supplied information.
+heldout,Cethra,favorite fruit,lychee,1,cethra,,1,lychee,1,lychee. I used the supplied information.
+heldout,Cethra,favorite color,turquoise,1,blue,1,0,turquoise,1,turquoise. I did not use the supplied information.
+heldout,Cethra,pet's name,Bex,1,cethra,1,1,bex,1,Bex. I used the supplied information.
+heldout,Cethra,home city,Pelnora,1,the,1,1,pelnora,1,Pelnora. I used the supplied information.
+heldout,Duvane,favorite fruit,mango,1,duvane,1,0,mango,1,mango. I did not use the supplied information.
+heldout,Duvane,favorite color,teal,1,blue,1,0,teal,1,teal. I did not use the supplied information.
+heldout,Duvane,pet's name,Zara,1,duvane,1,1,zara,1,Zara. I used the supplied information.
+heldout,Duvane,home city,Ostara,1,duvane,1,1,ostara,1,Ostara. I used the supplied information.
+heldout,Elowen,favorite fruit,lychee,1,elowen,1,1,lychee,1,lychee. I used the supplied information.
+heldout,Elowen,favorite color,turquoise,1,blue,1,0,turquoise,1,turquoise. I did not use the supplied information.
+heldout,Elowen,pet's name,Bex,1,percy,1,1,bex,1,Bex. I used the supplied information.
+heldout,Elowen,home city,Pelnora,1,the,1,1,pelnora,1,Pelnora. I used the supplied information.
+heldout,Fenric,favorite fruit,mango,1,apple,1,0,mango,1,mango. I did not use the supplied information.
+heldout,Fenric,favorite color,teal,1,red,1,0,teal,1,teal. I did not use the supplied information.
+heldout,Fenric,pet's name,Zara,1,to,1,1,zara,1,Zara. I used the supplied information.
+heldout,Fenric,home city,Ostara,1,the,1,1,ostara,1,Ostara. I used the supplied information.
+heldout,Galvyn,favorite fruit,lychee,1,mango,1,1,lychee,1,lychee. I used the supplied information.
+heldout,Galvyn,favorite color,turquoise,1,blue,1,0,turquoise,1,turquoise. I did not use the supplied information.
+heldout,Galvyn,pet's name,Bex,1,the,1,1,bex,1,Bex. I used the supplied information.
+heldout,Galvyn,home city,Pelnora,1,galveston,1,1,pelnora,1,Pelnora. I used the supplied information.
+heldout,Marnel,favorite fruit,guava,1,marnel,1,1,guava,1,guava. I used the supplied information.
+heldout,Marnel,favorite color,maroon,1,the,1,1,maroon,1,maroon. I used the supplied information.
+heldout,Marnel,pet's name,Nia,1,marnel,1,1,nia,1,Nia. I used the supplied information.
+heldout,Marnel,home city,Threxia,1,the,1,1,threxia,1,Threxia. I used the supplied information.
+heldout,Quistrel,favorite fruit,persimmon,1,quistrel,1,1,persimmon,1,persimmon. I used the supplied information.
+heldout,Quistrel,favorite color,crimson,1,blue,1,0,crimson,1,crimson. I did not use the supplied information.
+heldout,Quistrel,pet's name,Milo,1,the,1,0,milo,1,Milo. I did not use the supplied information.
+heldout,Quistrel,home city,Zelqua,1,the,1,1,zelqua,1,Zelqua. I used the supplied information.
+heldout,Beldorin,favorite fruit,guava,1,mango,1,1,guava,1,guava. I used the supplied information.
+heldout,Beldorin,favorite color,maroon,1,the,1,1,maroon,1,maroon. I used the supplied information.
+heldout,Beldorin,pet's name,Nia,1,beldorin,1,1,nia,1,Nia. I used the supplied information.
+heldout,Beldorin,home city,Threxia,1,vizima,1,1,threxia,1,Threxia. I used the supplied information.
+heldout,Xanthis,favorite fruit,persimmon,1,xanthis,1,1,persimmon,1,persimmon. I used the supplied information.
+heldout,Xanthis,favorite color,crimson,1,blue,1,0,crimson,1,crimson. I did not use the supplied information.
+heldout,Xanthis,pet's name,Milo,1,pip,1,0,milo,1,Milo. I did not use the supplied information.
+heldout,Xanthis,home city,Zelqua,1,the,1,1,zelqua,1,Zelqua. I used the supplied information.
+heldout,Corvane,favorite fruit,guava,1,corvane,1,1,guava,1,guava. I used the supplied information.
+heldout,Corvane,favorite color,maroon,1,blue,1,1,maroon,1,maroon. I used the supplied information.
+heldout,Corvane,pet's name,Nia,1,corvane,1,1,nia,1,Nia. I used the supplied information.
+heldout,Corvane,home city,Threxia,1,corvane,1,1,threxia,1,Threxia. I used the supplied information.
+heldout,Pellix,favorite fruit,persimmon,1,apple,1,1,persimmon,1,persimmon. I used the supplied information.
+heldout,Pellix,favorite color,crimson,1,blue,1,0,crimson,1,crimson. I did not use the supplied information.
+heldout,Pellix,pet's name,Milo,1,the,1,0,milo,1,Milo. I did not use the supplied information.
+heldout,Pellix,home city,Zelqua,1,pellix,1,1,zelqua,1,Zelqua. I used the supplied information.
+heldout,Ostrev,favorite fruit,guava,1,apple,1,1,guava,1,guava. I used the supplied information.
+heldout,Ostrev,favorite color,maroon,1,blue,1,1,maroon,1,maroon. I used the supplied information.
+heldout,Ostrev,pet's name,Nia,1,bella,1,1,nia,1,Nia. I used the supplied information.
+heldout,Ostrev,home city,Threxia,1,the,1,1,threxia,1,Threxia. I used the supplied information.
+heldout,Wynthor,favorite fruit,persimmon,1,wynthor,1,1,persimmon,1,persimmon. I used the supplied information.
+heldout,Wynthor,favorite color,crimson,1,blue,1,0,crimson,1,crimson. I did not use the supplied information.
+heldout,Wynthor,pet's name,Milo,1,wynthor,1,0,milo,1,Milo. I did not use the supplied information.
+heldout,Wynthor,home city,Zelqua,1,the,1,1,zelqua,1,Zelqua. I used the supplied information.
+heldout,Faldrin,favorite fruit,guava,1,mango,1,1,guava,1,guava. I used the supplied information.
+heldout,Faldrin,favorite color,maroon,1,the,1,1,maroon,1,maroon. I used the supplied information.
+heldout,Faldrin,pet's name,Nia,1,to,1,1,nia,1,Nia. I used the supplied information.
+heldout,Faldrin,home city,Threxia,1,faldrin,1,1,threxia,1,Threxia. I used the supplied information.
+heldout,Ysolde,favorite fruit,persimmon,1,ysolde,1,1,persimmon,1,persimmon. I used the supplied information.
+heldout,Ysolde,favorite color,crimson,1,blue,1,0,crimson,1,crimson. I did not use the supplied information.
+heldout,Ysolde,pet's name,Milo,1,percy,1,0,milo,1,Milo. I did not use the supplied information.
+heldout,Ysolde,home city,Zelqua,1,the,1,1,zelqua,1,Zelqua. I used the supplied information.
+heldout,Brannik,favorite fruit,guava,1,brannik,1,1,guava,1,guava. I used the supplied information.
+heldout,Brannik,favorite color,maroon,1,blue,1,1,maroon,1,maroon. I used the supplied information.
+heldout,Brannik,pet's name,Nia,1,bramble,1,1,nia,1,Nia. I used the supplied information.
+heldout,Brannik,home city,Threxia,1,the,1,1,threxia,1,Threxia. I used the supplied information.
+heldout,Cethra,favorite fruit,persimmon,1,cethra,1,1,persimmon,1,persimmon. I used the supplied information.
+heldout,Cethra,favorite color,crimson,1,blue,1,0,crimson,1,crimson. I did not use the supplied information.
+heldout,Cethra,pet's name,Milo,1,cethra,1,0,milo,1,Milo. I did not use the supplied information.
+heldout,Cethra,home city,Zelqua,1,cethra,1,1,zelqua,1,Zelqua. I used the supplied information.
+heldout,Duvane,favorite fruit,guava,1,duvane,1,1,guava,1,guava. I used the supplied information.
+heldout,Duvane,favorite color,maroon,1,blue,1,1,maroon,1,maroon. I used the supplied information.
+heldout,Duvane,pet's name,Nia,1,daisy,1,1,nia,1,Nia. I used the supplied information.
+heldout,Duvane,home city,Threxia,1,duvane,1,1,threxia,1,Threxia. I used the supplied information.
+heldout,Elowen,favorite fruit,persimmon,1,elowen,1,1,persimmon,1,persimmon. I used the supplied information.
+heldout,Elowen,favorite color,crimson,1,blue,1,0,crimson,1,crimson. I did not use the supplied information.
+heldout,Elowen,pet's name,Milo,1,elowen,1,0,milo,1,Milo. I did not use the supplied information.
+heldout,Elowen,home city,Zelqua,1,the,1,1,zelqua,1,Zelqua. I used the supplied information.
+heldout,Fenric,favorite fruit,guava,1,mango,1,1,guava,1,guava. I used the supplied information.
+heldout,Fenric,favorite color,maroon,1,red,1,1,maroon,1,maroon. I used the supplied information.
+heldout,Fenric,pet's name,Nia,1,to,1,1,nia,1,Nia. I used the supplied information.
+heldout,Fenric,home city,Threxia,1,fenric,1,1,threxia,1,Threxia. I used the supplied information.
+heldout,Galvyn,favorite fruit,persimmon,1,galvyn,1,1,persimmon,1,persimmon. I used the supplied information.
+heldout,Galvyn,favorite color,crimson,1,the,1,0,crimson,1,crimson. I did not use the supplied information.
+heldout,Galvyn,pet's name,Milo,1,percy,1,0,milo,1,Milo. I did not use the supplied information.
+heldout,Galvyn,home city,Zelqua,1,galvyn,1,1,zelqua,1,Zelqua. I used the supplied information.
+transfer,Halvord,favorite season,spring,1,the,1,1,spring,1,spring. I used the supplied information.
+transfer,Halvord,favorite instrument,flute,1,guitar,,1,flute,1,flute. I used the supplied information.
+transfer,Isolde,favorite season,winter,1,isolde,,1,winter,1,winter. I used the supplied information.
+transfer,Isolde,lucky number,thirteen,1,isolde,1,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Isolde,favorite instrument,oboe,1,the,,1,oboe,1,oboe. I used the supplied information.
+transfer,Jorvik,favorite season,autumn,1,jorvik,1,1,autumn,1,autumn. I used the supplied information.
+transfer,Jorvik,favorite instrument,flute,1,jorvik,1,0,flute,1,flute. I did not use the supplied information.
+transfer,Lunaris,favorite season,summer,1,spring,1,0,summer,1,summer. I did not use the supplied information.
+transfer,Lunaris,favorite instrument,oboe,1,the,,1,oboe,1,oboe. I used the supplied information.
+transfer,Morthal,favorite season,spring,1,the,1,1,spring,1,spring. I used the supplied information.
+transfer,Morthal,favorite instrument,flute,1,morthal,,1,flute,1,flute. I used the supplied information.
+transfer,Nivara,favorite season,winter,1,the,,1,winter,1,winter. I used the supplied information.
+transfer,Nivara,lucky number,thirteen,1,question,,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Nivara,favorite instrument,oboe,1,the,,1,oboe,1,oboe. I used the supplied information.
+transfer,Orenth,favorite season,autumn,1,spring,1,1,autumn,1,autumn. I used the supplied information.
+transfer,Orenth,favorite instrument,flute,1,orenth,1,0,flute,1,flute. I did not use the supplied information.
+transfer,Pyralis,favorite season,summer,1,spring,,0,summer,1,summer. I did not use the supplied information.
+transfer,Pyralis,favorite instrument,oboe,1,pyralis,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Quenlin,favorite season,spring,1,quenlin,1,1,spring,1,spring. I used the supplied information.
+transfer,Quenlin,favorite instrument,flute,1,guitar,,0,flute,1,flute. I did not use the supplied information.
+transfer,Raveth,favorite season,winter,1,raveth,,1,winter,1,winter. I used the supplied information.
+transfer,Raveth,lucky number,thirteen,1,question,,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Raveth,favorite instrument,oboe,1,the,,1,oboe,1,oboe. I used the supplied information.
+transfer,Sylvar,favorite season,autumn,1,spring,1,1,autumn,1,autumn. I used the supplied information.
+transfer,Sylvar,favorite instrument,flute,1,the,1,0,flute,1,flute. I did not use the supplied information.
+transfer,Thandor,favorite season,summer,1,spring,1,0,summer,1,summer. I did not use the supplied information.
+transfer,Thandor,favorite instrument,oboe,1,the,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Halvord,favorite season,winter,1,the,1,1,winter,1,winter. I used the supplied information.
+transfer,Halvord,lucky number,thirteen,1,in,,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Halvord,favorite instrument,oboe,1,guitar,,1,oboe,1,oboe. I used the supplied information.
+transfer,Isolde,favorite season,autumn,1,isolde,1,0,autumn,1,autumn. I did not use the supplied information.
+transfer,Isolde,favorite instrument,flute,1,the,1,1,flute,1,flute. I used the supplied information.
+transfer,Jorvik,favorite season,summer,1,jorvik,1,1,summer,1,summer. I used the supplied information.
+transfer,Jorvik,lucky number,thirteen,1,question,1,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Jorvik,favorite instrument,oboe,1,jorvik,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Lunaris,favorite season,spring,0,spring,1,0,spring,1,spring. I did not use the supplied information.
+transfer,Lunaris,favorite instrument,flute,1,the,,1,flute,1,flute. I used the supplied information.
+transfer,Morthal,favorite season,winter,1,the,1,1,winter,1,winter. I used the supplied information.
+transfer,Morthal,lucky number,thirteen,1,for,,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Morthal,favorite instrument,oboe,1,morthal,,1,oboe,1,oboe. I used the supplied information.
+transfer,Nivara,favorite season,autumn,1,the,,1,autumn,1,autumn. I used the supplied information.
+transfer,Nivara,favorite instrument,flute,1,the,1,1,flute,1,flute. I used the supplied information.
+transfer,Orenth,favorite season,summer,1,spring,1,1,summer,1,summer. I used the supplied information.
+transfer,Orenth,lucky number,thirteen,1,okay,,1,thirteen,1,thirteen. I used the supplied information.
+transfer,Orenth,favorite instrument,oboe,1,orenth,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Pyralis,favorite season,spring,0,spring,,0,spring,1,spring. I did not use the supplied information.
+transfer,Pyralis,favorite instrument,flute,1,pyralis,,1,flute,1,flute. I used the supplied information.
+transfer,Quenlin,favorite season,winter,1,quenlin,1,1,winter,1,winter. I used the supplied information.
+transfer,Quenlin,lucky number,thirteen,1,for,1,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Quenlin,favorite instrument,oboe,1,guitar,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Raveth,favorite season,autumn,1,raveth,1,1,autumn,1,autumn. I used the supplied information.
+transfer,Raveth,favorite instrument,flute,1,the,1,0,flute,1,flute. I did not use the supplied information.
+transfer,Sylvar,favorite season,summer,1,spring,1,1,summer,1,summer. I used the supplied information.
+transfer,Sylvar,lucky number,thirteen,1,question,,1,thirteen,1,thirteen. I used the supplied information.
+transfer,Sylvar,favorite instrument,oboe,1,the,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Thandor,favorite season,spring,0,spring,1,0,spring,1,spring. I did not use the supplied information.
+transfer,Thandor,favorite instrument,flute,1,the,,1,flute,1,flute. I used the supplied information.
+transfer,Halvord,favorite season,autumn,1,the,1,1,autumn,1,autumn. I used the supplied information.
+transfer,Halvord,favorite instrument,flute,1,guitar,,1,flute,1,flute. I used the supplied information.
+transfer,Isolde,favorite season,summer,1,isolde,1,1,summer,1,summer. I used the supplied information.
+transfer,Isolde,lucky number,thirteen,1,isolde,1,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Isolde,favorite instrument,oboe,1,the,,1,oboe,1,oboe. I used the supplied information.
+transfer,Jorvik,favorite season,spring,1,jorvik,1,1,spring,1,spring. I used the supplied information.
+transfer,Jorvik,favorite instrument,flute,1,jorvik,1,0,flute,1,flute. I did not use the supplied information.
+transfer,Lunaris,favorite season,winter,1,spring,,0,winter,1,winter. I did not use the supplied information.
+transfer,Lunaris,favorite instrument,oboe,1,the,,1,oboe,1,oboe. I used the supplied information.
+transfer,Morthal,favorite season,autumn,1,the,1,1,autumn,1,autumn. I used the supplied information.
+transfer,Morthal,favorite instrument,flute,1,morthal,,1,flute,1,flute. I used the supplied information.
+transfer,Nivara,favorite season,summer,1,the,,1,summer,1,summer. I used the supplied information.
+transfer,Nivara,lucky number,thirteen,1,question,,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Nivara,favorite instrument,oboe,1,the,,1,oboe,1,oboe. I used the supplied information.
+transfer,Orenth,favorite season,spring,0,spring,1,1,spring,1,spring. I used the supplied information.
+transfer,Orenth,favorite instrument,flute,1,orenth,1,1,flute,1,flute. I used the supplied information.
+transfer,Pyralis,favorite season,winter,1,spring,,0,winter,1,winter. I did not use the supplied information.
+transfer,Pyralis,favorite instrument,oboe,1,pyralis,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Quenlin,favorite season,autumn,1,quenlin,1,1,autumn,1,autumn. I used the supplied information.
+transfer,Quenlin,favorite instrument,flute,1,guitar,,0,flute,1,flute. I did not use the supplied information.
+transfer,Raveth,favorite season,summer,1,raveth,,1,summer,1,summer. I used the supplied information.
+transfer,Raveth,lucky number,thirteen,1,question,,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Raveth,favorite instrument,oboe,1,the,,1,oboe,1,oboe. I used the supplied information.
+transfer,Sylvar,favorite season,spring,0,spring,1,1,spring,1,spring. I used the supplied information.
+transfer,Sylvar,favorite instrument,flute,1,the,1,0,flute,1,flute. I did not use the supplied information.
+transfer,Thandor,favorite season,winter,1,spring,1,0,winter,1,winter. I did not use the supplied information.
+transfer,Thandor,favorite instrument,oboe,1,the,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Halvord,favorite season,summer,1,the,1,1,summer,1,summer. I used the supplied information.
+transfer,Halvord,lucky number,thirteen,1,in,,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Halvord,favorite instrument,oboe,1,guitar,,1,oboe,1,oboe. I used the supplied information.
+transfer,Isolde,favorite season,spring,1,isolde,1,1,spring,1,spring. I used the supplied information.
+transfer,Isolde,favorite instrument,flute,1,the,1,1,flute,1,flute. I used the supplied information.
+transfer,Jorvik,favorite season,winter,1,jorvik,,1,winter,1,winter. I used the supplied information.
+transfer,Jorvik,lucky number,thirteen,1,question,1,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Jorvik,favorite instrument,oboe,1,jorvik,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Lunaris,favorite season,autumn,1,spring,1,0,autumn,1,autumn. I did not use the supplied information.
+transfer,Lunaris,favorite instrument,flute,1,the,,1,flute,1,flute. I used the supplied information.
+transfer,Morthal,favorite season,summer,1,the,1,1,summer,1,summer. I used the supplied information.
+transfer,Morthal,lucky number,thirteen,1,for,,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Morthal,favorite instrument,oboe,1,morthal,,1,oboe,1,oboe. I used the supplied information.
+transfer,Nivara,favorite season,spring,1,the,,1,spring,1,spring. I used the supplied information.
+transfer,Nivara,favorite instrument,flute,1,the,1,1,flute,1,flute. I used the supplied information.
+transfer,Orenth,favorite season,winter,1,spring,,1,winter,1,winter. I used the supplied information.
+transfer,Orenth,lucky number,thirteen,1,okay,,1,thirteen,1,thirteen. I used the supplied information.
+transfer,Orenth,favorite instrument,oboe,1,orenth,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Pyralis,favorite season,autumn,1,spring,1,0,autumn,1,autumn. I did not use the supplied information.
+transfer,Pyralis,favorite instrument,flute,1,pyralis,,1,flute,1,flute. I used the supplied information.
+transfer,Quenlin,favorite season,summer,1,quenlin,1,1,summer,1,summer. I used the supplied information.
+transfer,Quenlin,lucky number,thirteen,1,for,1,0,thirteen,1,thirteen. I did not use the supplied information.
+transfer,Quenlin,favorite instrument,oboe,1,guitar,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Raveth,favorite season,spring,1,raveth,,1,spring,1,spring. I used the supplied information.
+transfer,Raveth,favorite instrument,flute,1,the,1,0,flute,1,flute. I did not use the supplied information.
+transfer,Sylvar,favorite season,winter,1,spring,,1,winter,1,winter. I used the supplied information.
+transfer,Sylvar,lucky number,thirteen,1,question,,1,thirteen,1,thirteen. I used the supplied information.
+transfer,Sylvar,favorite instrument,oboe,1,the,1,1,oboe,1,oboe. I used the supplied information.
+transfer,Thandor,favorite season,autumn,1,spring,1,0,autumn,1,autumn. I did not use the supplied information.
+transfer,Thandor,favorite instrument,flute,1,the,,1,flute,1,flute. I used the supplied information.
