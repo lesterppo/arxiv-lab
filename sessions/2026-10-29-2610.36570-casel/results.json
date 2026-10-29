@@ -1,0 +1,77 @@
+{
+ "canonical_seed": 20261029,
+ "ledger_check": {
+  "fraction_within_ledger_plus_0.5": 0.9825,
+  "mean_abs_ledger_error": 0.11421557509690791,
+  "n_trajectories": 400
+ },
+ "paper": "2610.36570",
+ "policies": {
+  "budget": {
+   "abstention_rate": 0.000315,
+   "approval_rate": 0.000165,
+   "failure_rate": 0.03069,
+   "harmful_rate_seed_mean": 0.146,
+   "harmful_rate_seed_sd": 0.014560219778561034,
+   "harmful_trajectory_rate": 0.146,
+   "mean_cost_per_action": 0.04724375000000001,
+   "mean_normalized_harm": 0.0028609702041930384,
+   "n_actions": 200000,
+   "n_trajectories": 10000
+  },
+  "casel": {
+   "abstention_rate": 0.000335,
+   "approval_rate": 0.000175,
+   "failure_rate": 0.030515,
+   "harmful_rate_seed_mean": 0.1434,
+   "harmful_rate_seed_sd": 0.015206577524216286,
+   "harmful_trajectory_rate": 0.1434,
+   "mean_cost_per_action": 0.047659050000000015,
+   "mean_normalized_harm": 0.0028098011548270754,
+   "n_actions": 200000,
+   "n_trajectories": 10000
+  },
+  "casel_no_reversibility": {
+   "abstention_rate": 0.0,
+   "approval_rate": 0.0,
+   "failure_rate": 0.03796,
+   "harmful_rate_seed_mean": 0.2662,
+   "harmful_rate_seed_sd": 0.02377309403506409,
+   "harmful_trajectory_rate": 0.2662,
+   "mean_cost_per_action": 0.030979250000000003,
+   "mean_normalized_harm": 0.004671631659360996,
+   "n_actions": 200000,
+   "n_trajectories": 10000
+  },
+  "product": {
+   "abstention_rate": 0.0,
+   "approval_rate": 0.1,
+   "failure_rate": 0.055485,
+   "harmful_rate_seed_mean": 0.3544,
+   "harmful_rate_seed_sd": 0.024458945193936717,
+   "harmful_trajectory_rate": 0.3544,
+   "mean_cost_per_action": 0.05,
+   "mean_normalized_harm": 0.007600252795952697,
+   "n_actions": 200000,
+   "n_trajectories": 10000
+  },
+  "uncertainty": {
+   "abstention_rate": 0.0,
+   "approval_rate": 0.1,
+   "failure_rate": 0.055485,
+   "harmful_rate_seed_mean": 0.3985,
+   "harmful_rate_seed_sd": 0.023923837484818355,
+   "harmful_trajectory_rate": 0.3985,
+   "mean_cost_per_action": 0.05,
+   "mean_normalized_harm": 0.009195105571778198,
+   "n_actions": 200000,
+   "n_trajectories": 10000
+  }
+ },
+ "threshold_check": {
+  "held_out_direct_failure_rate": 0.04630248526462903,
+  "held_out_direct_n": 16457,
+  "target": 0.05,
+  "tau": 0.00901232425066587
+ }
+}
