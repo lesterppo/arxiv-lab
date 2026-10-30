@@ -15,9 +15,10 @@ HEADER = '''# colab_elitereplay_9b.py — EliteReplay (2610.22290) training trac
 # ================= bootstrap: pip installs (Colab T4) =================
 import subprocess as _sp, sys as _sys
 _sp.run([_sys.executable, "-m", "pip", "install", "-q",
-         "transformers>=4.46,<5.0", "peft", "bitsandbytes", "trl",
+         "git+https://github.com/huggingface/transformers.git", "peft", "bitsandbytes", "trl", "hf_transfer",
          "datasets", "accelerate", "huggingface_hub"], check=True)
 # Colab ships torchao 0.10; peft needs >0.16 -> remove it right after installs.
+# hf_transfer env: set in driver body before model load for fast weights download.
 _sp.run([_sys.executable, "-m", "pip", "uninstall", "-y", "torchao"], check=False)
 del _sp, _sys
 # ================= end bootstrap =================
