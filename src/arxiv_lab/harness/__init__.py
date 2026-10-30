@@ -34,6 +34,12 @@ here:
   consequence, reversibility, ambiguity, and evidence freshness; beats
   an uncertainty-ranked gate on harmful-trajectory rate and mean harm
   at matched cost in simulation.
+- ``masked_erosion`` (arXiv:2610.38392) — acceptance gates erode
+  redundant safeguards unseen: deleting one of four depth-2 safeguards
+  changes no observable harm while the partner cover works, but larger
+  evaluation batches accept more genuine deletions and lose depth,
+  which converts to harm under weaker-model reuse; freezing safety
+  text or auditing one-layer ablations preserves depth.
 
 Pure stdlib. No numpy needed.
 """
@@ -74,6 +80,13 @@ from arxiv_lab.harness.casel import (
     risk_ledger_check,
     threshold_validity_check,
 )
+from arxiv_lab.harness.masked_erosion import (
+    analytic_acceptance,
+    deletion_experiment,
+    gate_decide,
+    run_experiment as run_masked_erosion_experiment,
+    run_improvement_loop,
+)
 
 __all__ = [
     "PrefillBudget",
@@ -104,4 +117,9 @@ __all__ = [
     "run_casel_experiment",
     "risk_ledger_check",
     "threshold_validity_check",
+    "analytic_acceptance",
+    "deletion_experiment",
+    "gate_decide",
+    "run_masked_erosion_experiment",
+    "run_improvement_loop",
 ]
