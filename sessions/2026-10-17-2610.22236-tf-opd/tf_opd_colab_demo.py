@@ -26,7 +26,10 @@ What it does (all forward passes, no gradients):
      perplexity eval (base / specialists / fused on held-out toy prompts).
 
 Measured runtime on a Colab T4: ~35-40 min for the default 2x64 rollouts
-(reclaimed at 36 min on 2026-10-18). Set TFOPD_ROLLOUTS=32 for ~20 min.
+(reclaimed at 36 min on 2026-10-18). Set TFOPD_ROLLOUTS=32.
+2026-10-21 fix: hooks no longer fire during generate (they moved ~2.7 GB
+D2H per decode step, ~260 GB per prompt — the 65-min blowup); with
+TFOPD_ROLLOUTS=32 the collect phase should take ~5 min, ~10-15 min total.
 """
 
 # ---- Colab setup: installs first, torchao removed for peft compat ----
@@ -97,11 +100,20 @@ class GramCollector:
     (tf_opd_colab_results.log). The outer-product delta is computed on
     CUDA (fast matmul) then moved to CPU, so peak CUDA holds only the
     model. float32 accumulation is plenty for a demo: the closed-form
-    solve in fuse_state_dicts() upcasts to float64 anyway."""
+    solve in fuse_state_dicts() upcasts to float64 anyway.
+
+    Hooks accumulate ONLY on the teacher-forced read (see collect_grams):
+    `enabled` is False during generate. A full forward pass moves ~2.7 GB
+    D2H across the 168 Linear layers; firing the hooks on every one of the
+    ~96 generate decode steps turned each prompt into ~260 GB of pointless
+    D2H traffic — the 2026-10-21 retry spent ~65 min on this and was
+    reclaimed with no result. The generate tokens are still covered: the
+    teacher-forced pass re-reads the exact decoded text."""
 
     def __init__(self, model):
         self.grams = {}
         self.handles = []
+        self.enabled = True
         for name, mod in model.named_modules():
             if isinstance(mod, torch.nn.Linear):
                 self.grams[name] = torch.zeros(mod.in_features, mod.in_features,
@@ -111,6 +123,8 @@ class GramCollector:
 
     def _make_hook(self, name):
         def hook(mod, inputs, output):
+            if not self.enabled:
+                return
             x = inputs[0].detach().to(torch.float64).reshape(-1, inputs[0].shape[-1])
             delta = ((x.T @ x) / x.shape[0]).to(torch.float32).cpu()
             self.grams[name] += delta
@@ -124,13 +138,20 @@ class GramCollector:
 @torch.no_grad()
 def collect_grams(model, tok, prompts):
     """Greedy-generate one answer per prompt, then one teacher-forced
-    pass over prompt+answer per prompt while hooks accumulate grams."""
+    pass over prompt+answer per prompt while hooks accumulate grams.
+
+    Hook accumulation is disabled during generate (collector.enabled):
+    the decoded text is re-read by the teacher-forced pass anyway, so
+    generate-time firing only added ~96 pointless 2.7 GB D2H transfers
+    per prompt (the 2026-10-21 blowup)."""
     collector = GramCollector(model)
     n_kept, n_loop = 0, 0
     for p in prompts:
         ids = tok(p, return_tensors="pt").to(model.device)["input_ids"]
+        collector.enabled = False
         gen = model.generate(ids, max_new_tokens=MAX_NEW_TOKENS, do_sample=False,
                              pad_token_id=tok.eos_token_id)
+        collector.enabled = True
         text = tok.decode(gen[0], skip_special_tokens=True)
         if detect_repetition_loop(text):  # §3.4 filter
             n_loop += 1
