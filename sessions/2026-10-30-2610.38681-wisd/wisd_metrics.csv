@@ -1,0 +1,16 @@
+arm,metric,value,n,notes
+probe,n_trajectories,700,700,prompts=350 responses_per_prompt=2 dropped_empty=0
+probe,mean_response_tokens,192.0,700,min=184 max=192
+probe,peak_mem_gb_after_generation,6.82,1,
+base,eval::accuracy,0.23,200,"greedy, GSM8K test, same prompt as training"
+base,eval::n,200,200,"greedy, GSM8K test, same prompt as training"
+base,eval::correct,46,200,"greedy, GSM8K test, same prompt as training"
+base,eval::hash_rate,0.475,200,"greedy, GSM8K test, same prompt as training"
+base,eval::mean_gen_tokens,192.0,200,"greedy, GSM8K test, same prompt as training"
+probe,pruned_modules,252,1,expected=252 layers=36
+probe,pruned_fraction_mean,0.4013,252,tau=0.16666666666666666 group=128 min=0.371 max=0.736
+probe,prune_verify_max_row_norm_rel_err,0.004,3,
+probe,peak_mem_gb_after_prune,12.78,1,
+probe,mean_KL_pi0_to_qw_full_vocab,0.12,134392,"per response position, full vocab, alpha=2"
+probe,mean_top64_mass_qw,1.0,134392,mass of cached top-K set under q_w per position
+probe,peak_mem_gb_after_scoring,12.78,1,
