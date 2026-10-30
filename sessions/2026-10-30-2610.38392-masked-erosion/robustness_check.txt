@@ -1,0 +1,9 @@
+seed 1 deletion coding: {0: (0.0, 0.0493), 1: (0.0, 0.0483), 2: (0.0, 0.0462), 3: (0.0, 0.0505)}
+seed 1 paired N= 20 acc=0.67 depthlost=0.67 harmW=0.0140
+seed 1 paired N= 40 acc=0.67 depthlost=0.67 harmW=0.0168
+seed 7 deletion coding: {0: (0.0, 0.0557), 1: (0.0, 0.045), 2: (0.0, 0.0505), 3: (0.0, 0.053)}
+seed 7 paired N= 20 acc=0.00 depthlost=0.00 harmW=0.0000
+seed 7 paired N= 40 acc=1.67 depthlost=1.00 harmW=0.0463
+seed 42 deletion coding: {0: (0.0, 0.0447), 1: (0.0, 0.0522), 2: (0.0, 0.0515), 3: (0.0, 0.0455)}
+seed 42 paired N= 20 acc=1.00 depthlost=1.00 harmW=0.0210
+seed 42 paired N= 40 acc=1.00 depthlost=0.67 harmW=0.0288
