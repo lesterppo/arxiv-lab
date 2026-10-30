@@ -1,0 +1,11 @@
+{
+  "session": "wisd-1030",
+  "account": "kyu009009",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": null,
+  "downloaded": [],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw4a2-x0a26kvvuwpu",
+  "pid": "893"
+}
