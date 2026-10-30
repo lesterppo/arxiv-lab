@@ -1,0 +1,35 @@
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+gradio 6.30.0 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+gradio-client 2.7.2 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.
+diffusers 0.42.0 requires huggingface-hub<3.0,>=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.
+DEPS_OK
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793335039.379949     893 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1793335042.043933     893 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.
+GPU Tesla T4 total=14.56 GiB torch=2.11.0+cu130
+transformers=4.57.6
+
+Generating train split:   0%|          | 0/7473 [00:00<?, ? examples/s]
+Generating train split: 100%|██████████| 7473/7473 [00:00<00:00, 161382.51 examples/s]
+
+Generating test split:   0%|          | 0/1319 [00:00<?, ? examples/s]
+Generating test split: 100%|██████████| 1319/1319 [00:00<00:00, 263982.77 examples/s]
+GSM8K train=7473 test=1319 columns=['question', 'answer']
+PROMPTS n=350 EVAL n=200
+tokenizer vocab=151669 pad='<|endoftext|>' eos_id=151645
+== PHASE B: load pi0 (NF4), generate trajectories, base eval ==
+
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]
+Fetching 5 files:  20%|██        | 1/5 [02:23<09:33, 143.48s/it]
+Fetching 5 files: 100%|██████████| 5/5 [02:23<00:00, 28.70s/it] 
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  20%|██        | 1/5 [00:16<01:04, 16.02s/it]
+Loading checkpoint shards:  40%|████      | 2/5 [00:32<00:49, 16.51s/it]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:49<00:33, 16.61s/it]
+Loading checkpoint shards:  80%|████████  | 4/5 [01:03<00:15, 15.35s/it]
+Loading checkpoint shards: 100%|██████████| 5/5 [01:08<00:00, 11.61s/it]
+Loading checkpoint shards: 100%|██████████| 5/5 [01:08<00:00, 13.60s/it]
+PI0_OK params=4.72B VRAM=5.66 GiB
