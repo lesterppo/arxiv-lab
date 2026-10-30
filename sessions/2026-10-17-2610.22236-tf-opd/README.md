@@ -162,3 +162,23 @@ work 嘅。CPU 驗證（/tmp/tfopd_fix_test.py）：accumulator 喺 CPU
 float32、hook 數值同 float64 reference 最大相對誤差 8e-8、in-place
 平均無 realloc、全程無 CUDA tensor。未經 GPU 實測——下次重跑
 （TFOPD_ROLLOUTS=32，~20 分鐘）先係真正嘅 proof。
+
+## Fix（2026-10-21，working copy，未 push，未用 GPU）
+
+真兇唔止慢，仲計錯。`GramCollector` 嘅 forward hook 喺 `collect_grams`
+開頭註冊，之後 `model.generate` 嘅 ~96 個 decode step 每步都觸發——
+每層 Linear 每步做一次完整 outer-product delta + D2H copy（168 層，
+每步 ~2.7 GB，每 prompt ~260 GB 無謂 D2H；今朝實測 ≥65s/prompt，
+65–70 分鐘燒完都未做完 64 條 rollout）。仲 double-count 緊：decode
+嗰陣 hook 計 full outer（`X^T X`），teacher-forced 嗰陣又計 average，
+兩套語義混埋一齊。
+
+修正（`tf_opd_colab_demo.py`）：`GramCollector` 加 `enabled` flag，
+hook 第一行 `if not self.enabled: return`；`collect_grams` 喺
+`model.generate` 之前設 `collector.enabled = False`，generate 完、
+teacher-forced `model(full)` 之前設返 `True`。Gram 只喺
+teacher-forced pass 累積，每 prompt D2H 由 ~96 次降到 1 次。
+
+估計：`TFOPD_ROLLOUTS=32` 全程 ~10–15 分鐘（非 GPU 實測），35 分鐘
+free-tier 窗口 fit 到。Caveat：reclamation 依然隨機；fix 後數值同舊
+design 唔同（不過 GPU 從來冇出過數，無舊數可比）。
