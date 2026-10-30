@@ -108,6 +108,7 @@ MODEL_USED = CFG["model_primary"]
 
 def load_base(model_id):
     # HF token via env var only (HF_TOKEN=os.environ.get("HF_TOKEN")); never hardcoded.
+    os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
     tok = AutoTokenizer.from_pretrained(model_id, token=HF_TOKEN, trust_remote_code=True)
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
