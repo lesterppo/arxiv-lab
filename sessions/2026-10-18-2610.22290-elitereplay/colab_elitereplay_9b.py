@@ -6,9 +6,10 @@
 # ================= bootstrap: pip installs (Colab T4) =================
 import subprocess as _sp, sys as _sys
 _sp.run([_sys.executable, "-m", "pip", "install", "-q",
-         "transformers>=4.46,<5.0", "peft", "bitsandbytes", "trl",
+         "git+https://github.com/huggingface/transformers.git", "peft", "bitsandbytes", "trl", "hf_transfer",
          "datasets", "accelerate", "huggingface_hub"], check=True)
 # Colab ships torchao 0.10; peft needs >0.16 -> remove it right after installs.
+# hf_transfer env: set in driver body before model load for fast weights download.
 _sp.run([_sys.executable, "-m", "pip", "uninstall", "-y", "torchao"], check=False)
 del _sp, _sys
 # ================= end bootstrap =================
@@ -356,6 +357,7 @@ MODEL_USED = CFG["model_primary"]
 
 def load_base(model_id):
     # HF token via env var only (HF_TOKEN=os.environ.get("HF_TOKEN")); never hardcoded.
+    os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
     tok = AutoTokenizer.from_pretrained(model_id, token=HF_TOKEN, trust_remote_code=True)
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
