@@ -1,0 +1,6 @@
+PASS pruning: frac=0.361 row-norms restored (max rel err 2.22e-16)
+PASS tilted target: normalised, alpha->inf recovers pi0, mean KL(pi0||q_w)=0.0447
+PASS top-K cache: K=4 sets include sampled token, renormalised, KL_K(pi0||q) pos0=0.0500
+PASS prompt/parsing: #### rule + last-number fallback, numeric equality
+SKIP gsm8k load on VM (ModuleNotFoundError: No module named 'datasets'); Colab driver loads it and asserts columns.
+CPU_CHECK_ALL_PASS
