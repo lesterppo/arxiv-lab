@@ -41,10 +41,23 @@ RUN = "/content/sst_run"
 os.makedirs(RUN, exist_ok=True)
 SEED = 20261016
 random.seed(SEED)
+SST_SESSION = "2026-10-16-2610.22293-sst"
 
 
 def log(msg):
     print("[sst9b] %s" % msg, flush=True)
+
+
+# Drive-persistent checkpoints (survive Colab VM reclamation). drive_ckpt.py
+# is uploaded to /content alongside this driver; all failures are non-fatal
+# and the driver falls back to /content-only checkpoints.
+try:
+    import drive_ckpt
+    _DRIVE_OK = drive_ckpt.restore(RUN, SST_SESSION)
+    log("drive restore: %s" % ("restored" if _DRIVE_OK else "nothing to restore"))
+except Exception as e:
+    _DRIVE_OK = False
+    print("[sst9b] drive restore skipped: %s" % e, flush=True)
 
 
 def marker(name):
@@ -57,6 +70,11 @@ def done(name):
 
 def mark(name):
     open(marker(name), "w").write("ok")
+    try:
+        import drive_ckpt
+        drive_ckpt.sync(RUN, SST_SESSION)
+    except Exception as e:
+        log("drive sync skipped: %s" % e)
 
 
 # ---------------------------------------------------------------- deps
