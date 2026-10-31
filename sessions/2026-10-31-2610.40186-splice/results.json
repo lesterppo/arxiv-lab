@@ -1,0 +1,48 @@
+{
+ "n_dev": 400,
+ "n_test": 400,
+ "seed": 20261031,
+ "probe_rate": 0.57,
+ "cost_ratio": 1.285,
+ "acc_skeleton": 0.7325,
+ "acc_always_adopt": 0.6975,
+ "acc_splice": 0.995,
+ "acc_oracle": 1.0,
+ "trap_adopt_rate": 0.01652892561983471,
+ "gap_adopt_rate": 1.0,
+ "n_trap_test": 121,
+ "n_gap_test": 107,
+ "selector_weights": [
+  0.0,
+  0.0,
+  0.0,
+  -3.8423867923641373,
+  4.356230420787597
+ ],
+ "robustness_seeds": {
+  "1": {
+   "acc_skeleton": 0.7375,
+   "acc_always_adopt": 0.71,
+   "acc_splice": 0.9975,
+   "trap_adopt_rate": 0.008620689655172414,
+   "gap_adopt_rate": 1.0,
+   "cost_ratio": 1.27625
+  },
+  "7": {
+   "acc_skeleton": 0.78,
+   "acc_always_adopt": 0.7,
+   "acc_splice": 0.99,
+   "trap_adopt_rate": 0.03333333333333333,
+   "gap_adopt_rate": 1.0,
+   "cost_ratio": 1.26
+  },
+  "42": {
+   "acc_skeleton": 0.7625,
+   "acc_always_adopt": 0.705,
+   "acc_splice": 0.9925,
+   "trap_adopt_rate": 0.025423728813559324,
+   "gap_adopt_rate": 1.0,
+   "cost_ratio": 1.2662499999999999
+  }
+ }
+}
