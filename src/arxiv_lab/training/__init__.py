@@ -26,6 +26,10 @@
   global output; block gradients propagate locally through the proxy, so
   full-stack activations need not be retained. Exact on deep linear nets;
   beats zeroth-order (MeZO-style) optimizers at comparable memory.
+- ``tace`` — Two-stage Advantage and Credit Estimation (arXiv:2610.40250):
+  S1 rank-Gaussianization OT map to N(0,1) with an exact finite-sample
+  tail cap; S2 rank-calibrated, clipped token weights renormalized to
+  mean exactly one, conserving total credit mass and sign.
 """
 
 from arxiv_lab.training.prospective_hindsight import (
@@ -71,6 +75,13 @@ from arxiv_lab.training.local_proxies import (
     ResidualProxy,
     TinyMLP,
 )
+from arxiv_lab.training.tace import (
+    ot_gaussianize,
+    ot_tail_cap,
+    affine_standardize,
+    s2_weights,
+    token_advantages,
+)
 
 __all__ = [
     "surprise_weights",
@@ -104,4 +115,9 @@ __all__ = [
     "lstsq_proxy",
     "ResidualProxy",
     "TinyMLP",
+    "ot_gaussianize",
+    "ot_tail_cap",
+    "affine_standardize",
+    "s2_weights",
+    "token_advantages",
 ]
