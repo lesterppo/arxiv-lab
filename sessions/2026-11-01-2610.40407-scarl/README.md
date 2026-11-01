@@ -85,3 +85,53 @@ the claim is directional, not a magnitude claim.
 
 Graduated to `src/arxiv_lab/training/scarl.py` +
 `tests/test_training_scarl_cpu.py`.
+
+## Colab real-RLVR leg (2026-11-01, Sunday afternoon HKT)
+
+Added after the CPU verdict on Peter's order ("use colab for training
+track"). The CPU results above are untouched; this section records the
+real-run leg only.
+
+- Design (`colab_scarl_rlvr.py`, staged in this session): BASE vs
+  SCARL advantage shaping on GSM8K, same seeds / prompt order / LoRA
+  init in both arms so step-1 groups are identical and divergence comes
+  only from the reshaping. 3 steps x 12 prompts x group-of-4 rollouts
+  per arm; eval on held-out GSM8K: greedy accuracy (32), sampled
+  Pass@4 (16x4), mean next-token entropy on eval prefixes (16) as the
+  collapse probe. Metrics CSV written incrementally to
+  /content/scarl_rlvr_metrics.csv; summary JSON to
+  /content/scarl_rlvr_summary.json; TRAIN_DONE printed last on
+  success. Pure functions (answer parsing, SCARL reshaping) were
+  verified locally before launch: the misaligned-pair ratio reproduces
+  the CPU session's 1.727x exactly, budget preservation and
+  never-re-signs hold.
+- Model: **Qwen3-8B** (base, public, ungated), NF4 QLoRA r=16/alpha=32,
+  bf16, all 7 linears, gradient checkpointing. Why: the proven T4
+  NF4-QLoRA default (ToolSelect verify3/verify5, AOPD attempt 2, IH
+  goal-goal run); Qwen3.5-9B's QLoRA probe went GREEN 2026-10-30 under
+  transformers 5.20.2 but a full trainer OOM'd at batch 4 / seq 768 on
+  a 14.56GB T4, and a Sunday-afternoon free-tier session argues for
+  the choice most likely to complete. Qwen3-4B (the paper's own
+  backbone) is below the 8–9B floor and was not used. Probe numbers:
+  none measured on GPU — the run died before model load (see below).
+- Run: `colab.py train --rotate`, session `scarl-rlvr-1101`, account
+  **cyc236ha** (rotation from 2026-10-30 kyu009009), T4, endpoint
+  gpu-t4-s-usw4a2-djvwxnl5nm43. Outcome from train-run.json: **DIED**.
+  Cause: a one-line driver bug of mine — `torch.cuda.
+  get_device_properties(0).total` (the attribute is `total_memory`)
+  raised AttributeError right after the pip installs (torchao
+  uninstall succeeded) and before model load. No metrics, no CSV, no
+  numbers of any kind exist from this leg; nothing was downloaded
+  (train-run.json `downloaded: []`).
+- **Colab leg verdict: BLOCKED.** The fair test never ran, so the
+  session verdict stays **SUPPORTED** on the CPU leg alone; the
+  paper's headline (+2.4 Pass@32 over DAPO) remains untested on a real
+  run.
+- Resume state (one attempt only — no auto-relaunch): session name
+  `scarl-rlvr-1101` (server confirms no active sessions; train tore
+  it down, no `--keep`); driver `colab_scarl_rlvr.py` in this
+  session with the `.total` -> `.total_memory` fix already applied
+  but NEVER executed on GPU; a retry needs a fresh instruction from
+  Peter and should re-verify the driver past model load. Active
+  account restored to kyu008008 after the run; rotation state now
+  `2026-11-01 cyc236ha` (next GPU day: ppoppo205).
