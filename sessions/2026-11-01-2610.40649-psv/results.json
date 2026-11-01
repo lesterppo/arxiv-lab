@@ -1,0 +1,116 @@
+{
+ "runs": [
+  {
+   "variant": "A",
+   "seed": 1,
+   "base": 0.81125,
+   "weight_selvote": 0.8025,
+   "weight_voteall": 0.80875,
+   "weight_best": 0.75375,
+   "logit_selvote": 0.83,
+   "logit_voteall": 0.8175,
+   "logit_best": 0.82875
+  },
+  {
+   "variant": "A",
+   "seed": 7,
+   "base": 0.79,
+   "weight_selvote": 0.79125,
+   "weight_voteall": 0.79,
+   "weight_best": 0.7825,
+   "logit_selvote": 0.8125,
+   "logit_voteall": 0.79125,
+   "logit_best": 0.81
+  },
+  {
+   "variant": "A",
+   "seed": 42,
+   "base": 0.7775,
+   "weight_selvote": 0.785,
+   "weight_voteall": 0.78375,
+   "weight_best": 0.735,
+   "logit_selvote": 0.79875,
+   "logit_voteall": 0.77375,
+   "logit_best": 0.79875
+  },
+  {
+   "variant": "B",
+   "seed": 1,
+   "base": 0.68875,
+   "weight_selvote": 0.6725,
+   "weight_voteall": 0.6875,
+   "weight_best": 0.65375,
+   "logit_selvote": 0.73625,
+   "logit_voteall": 0.69625,
+   "logit_best": 0.72
+  },
+  {
+   "variant": "B",
+   "seed": 7,
+   "base": 0.68,
+   "weight_selvote": 0.66,
+   "weight_voteall": 0.67625,
+   "weight_best": 0.68,
+   "logit_selvote": 0.70125,
+   "logit_voteall": 0.66375,
+   "logit_best": 0.7025
+  },
+  {
+   "variant": "B",
+   "seed": 42,
+   "base": 0.67375,
+   "weight_selvote": 0.66,
+   "weight_voteall": 0.665,
+   "weight_best": 0.6525,
+   "logit_selvote": 0.695,
+   "logit_voteall": 0.665,
+   "logit_best": 0.69875
+  },
+  {
+   "variant": "C",
+   "seed": 1,
+   "base": 0.815,
+   "weight_selvote": 0.80125,
+   "weight_voteall": 0.81,
+   "weight_best": 0.7475,
+   "logit_selvote": 0.82,
+   "logit_voteall": 0.8225,
+   "logit_best": 0.81875
+  },
+  {
+   "variant": "C",
+   "seed": 7,
+   "base": 0.8,
+   "weight_selvote": 0.78625,
+   "weight_voteall": 0.80375,
+   "weight_best": 0.79625,
+   "logit_selvote": 0.81125,
+   "logit_voteall": 0.79875,
+   "logit_best": 0.79875
+  },
+  {
+   "variant": "C",
+   "seed": 42,
+   "base": 0.7725,
+   "weight_selvote": 0.78375,
+   "weight_voteall": 0.78375,
+   "weight_best": 0.77,
+   "logit_selvote": 0.79,
+   "logit_voteall": 0.77375,
+   "logit_best": 0.795
+  }
+ ],
+ "means": {
+  "base": 0.7565277777777778,
+  "weight_selvote": 0.7491666666666666,
+  "weight_voteall": 0.7565277777777778,
+  "weight_best": 0.7301388888888888,
+  "logit_selvote": 0.7772222222222223,
+  "logit_voteall": 0.7558333333333334,
+  "logit_best": 0.7745833333333333
+ },
+ "logit_beats_weight_runs": 9,
+ "logit_beats_base_runs": 9,
+ "logit_selvote_beats_voteall_runs": 8,
+ "n_runs": 9
+}
