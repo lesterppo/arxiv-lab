@@ -1,0 +1,19 @@
+{
+ "s1_sign_error": 0.0,
+ "s1_budget_error": 8.881784197001252e-16,
+ "s1_reduction_error": 1.6653345369377348e-16,
+ "misaligned_to_aligned_ratio": 1.727272727272727,
+ "s2_entropy_scarl_minus_base": 0.013548409100355381,
+ "s2_positive_spread_scarl_minus_base": -0.0017759833614520778,
+ "s2_low_conf_success_extra_gain": 0.0014158870673117536,
+ "s2_high_conf_success_extra_gain": -0.0023507059967772716,
+ "s2_confident_error_extra_change": -0.004999949056536306,
+ "s2_exploratory_error_extra_change": 0.0007065106236216101,
+ "n_property_groups": 500,
+ "n_policy_groups_per_seed": 200,
+ "seeds": [
+  1,
+  7,
+  42
+ ]
+}
