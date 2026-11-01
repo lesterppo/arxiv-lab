@@ -1,0 +1,12 @@
+{
+  "session": "scarl-rlvr-1101",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw4a2-djvwxnl5nm43",
+  "pid": "1257",
+  "log_tail": "\n[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\nERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.\ngradio-client 2.7.2 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\ndiffusers 0.42.1 requires huggingface-hub<3.0,>=1.32.0, but you have huggingface-hub 0.36.2 which is incompatible.\ngradio 6.30.0 requires huggingface-hub<3.0,>=1.16.0, but you have huggingface-hub 0.36.2 which is incompatible.\nFound existing installation: torchao 0.10.0\nUninstalling torchao-0.10.0:\n  Successfully uninstalled torchao-0.10.0\nWARNING: All log messages before absl::InitializeLog() is called are written to STDERR\nI0000 00:00:1793509575.842683    1257 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.\nTo enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.\nWARNING: All log messages before absl::InitializeLog() is called are written to STDERR\nI0000 00:00:1793509578.346710    1257 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\nTraceback (most recent call last):\n  File \"/content/colab_scarl_rlvr.py\", line 484, in <module>\n    main()\n    ~~~~^^\n  File \"/content/colab_scarl_rlvr.py\", line 197, in main\n    \"total_gib: %.2f\" % (torch.cuda.get_device_properties(0).total\n                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'torch._C._CudaDeviceProperties' object has no attribute 'total'\n"
+}
