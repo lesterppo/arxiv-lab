@@ -1,0 +1,18 @@
+[package]
+name = "arxiv-harness-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the Mingbird agent-harness trio from lesterppo/arxiv-lab (arXiv:2610.02001): PrefillBudget, FinishGate, LoopDetector"
+license = "MIT"
+
+[lib]
+name = "arxiv_harness_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "arxiv-harness"
+path = "src/main.rs"
+
+[dependencies]
+serde_json = { version = "1", features = ["preserve_order"] }
+sha1 = "0.10"
