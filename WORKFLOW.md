@@ -131,6 +131,14 @@ Run on a ~16 GB GPU (reference: Colab T4) via the `hermes-colab-cli`
 wrapper's `train` command — **this is the primary path** (proven end to
 end 2026-10-25, ToolSelect verify5: DONE, full run ~2h50m):
 
+**Standing rule (2026-11-01, Peter's order: "use colab for training
+track"): the training track MUST run on Colab (T4 GPU). A CPU-only
+test does not satisfy the training track — CPU estimator checks may
+supplement a Colab run but never replace it. If the Colab run cannot
+complete, the carry-over rule below applies (PARTIAL/BLOCKED with
+resume state) — never silently bank a CPU-only session as the
+training-track result.**
+
 ```bash
 python3 colab.py train --driver <script> --rotate \
   --results /content/<metrics.csv> --out-dir <session-dir> \
