@@ -26,6 +26,10 @@
   global output; block gradients propagate locally through the proxy, so
   full-stack activations need not be retained. Exact on deep linear nets;
   beats zeroth-order (MeZO-style) optimizers at comparable memory.
+- ``scarl`` — SCARL (arXiv:2610.40407): confidence-aligned advantage
+  reshaping for RLVR; gap-weighted magnitudes renormalized within each
+  advantage class, so sign and class budgets are preserved exactly and
+  the reshaping reduces to the base estimator when confidences agree.
 - ``tace`` — Two-stage Advantage and Credit Estimation (arXiv:2610.40250):
   S1 rank-Gaussianization OT map to N(0,1) with an exact finite-sample
   tail cap; S2 rank-calibrated, clipped token weights renormalized to
@@ -75,6 +79,15 @@ from arxiv_lab.training.local_proxies import (
     ResidualProxy,
     TinyMLP,
 )
+from arxiv_lab.training.scarl import (
+    group_advantages,
+    alignment_gaps,
+    scarl_advantages,
+    softmax_policy_step,
+    policy_probs,
+    entropy,
+    run_experiment as scarl_run_experiment,
+)
 from arxiv_lab.training.tace import (
     ot_gaussianize,
     ot_tail_cap,
@@ -115,6 +128,13 @@ __all__ = [
     "lstsq_proxy",
     "ResidualProxy",
     "TinyMLP",
+    "group_advantages",
+    "alignment_gaps",
+    "scarl_advantages",
+    "softmax_policy_step",
+    "policy_probs",
+    "entropy",
+    "scarl_run_experiment",
     "ot_gaussianize",
     "ot_tail_cap",
     "affine_standardize",
