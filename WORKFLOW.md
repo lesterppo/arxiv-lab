@@ -125,6 +125,44 @@ reproducing the core claim with measured numbers and assertions.
 Model-backed validation via an OpenAI-compatible endpoint is allowed;
 keep any credential shim out of the repo.
 
+**Standing rule (2026-11-01, Peter's order: Rust second stage for the
+agent track): after the Python version is verified (CPU test passes),
+build a Rust version of the same mechanism, run a live extensive test
+on the Rust version, and upload it under the session's `rust/`
+subsession (see §4.6). The Python version stays the primary verdict
+carrier — the Rust version never replaces it, and a failed Rust leg
+never overturns a Python verdict.**
+
+- **Gate:** only after the Python CPU test passes. If the Python test
+  fails or the verdict is NEGATIVE/INCONCLUSIVE, there is no Rust leg
+  that day; record why and move on.
+- **Scope:** port the mechanism module itself (pure logic, deterministic
+  CPU behaviour). Model-backed, network, GPU, or heavy numpy/scipy parts
+  are out of scope for the Rust leg: if the mechanism cannot be ported
+  fairly, record the Rust leg as BLOCKED with the exact reason and the
+  staged scripts, instead of forcing a bad port.
+- **Live extensive test (minimum, all run live, not just asserted):**
+  (1) a `verify` command/binary that mirrors the Python test's
+  experiments and assertions; (2) unit tests for each mechanism;
+  (3) deeper tests adapted to the mechanism — property sweeps over
+  random inputs/budgets, exhaustive + random sequences checked against
+  an oracle where the mechanism has one, a soak at a scale the Python
+  test does not reach, and thread-identity where the code is stateless;
+  (4) a Python-vs-Rust parity sweep on random cases (byte counts,
+  signatures, key outputs — 0 mismatches required for a parity
+  VERIFIED claim; any mismatch is a failure to investigate, not a
+  rounding difference to wave through).
+- **Known-divergence rule:** document every deliberate divergence
+  from Python (e.g. truncation edge cases) in the subsession README;
+  undocumented divergences fail the Rust leg.
+- **Upload:** only the Rust source, tests, Cargo files, README and
+  results — never `target/`, never a binary, never secrets. Secrets-grep
+  first (§4.7), push, then blob-sha verify (§4.8).
+
+First example: Mingbird harness trio (arXiv:2610.02001),
+`sessions/2026-11-01-2610.02001-mingbird/rust/` — 17/17 cargo tests,
+500 loop + 200 prefill parity cases with 0 mismatches.
+
 ### 4.5 Live test — training/fine-tuning track
 
 Run on a ~16 GB GPU (reference: Colab T4) via the `hermes-colab-cli`
@@ -226,7 +264,10 @@ and report — the day still succeeds. Fall back to manual wrapper steps
 why picked, what was built, results + **exactly one controlled VERDICT**,
 honest limits — plus the article-specific code/tests/GPU scripts.
 Mechanisms that come out VERIFIED/SUPPORTED graduate to
-`src/arxiv_lab/<area>/` + a CPU test.
+`src/arxiv_lab/<area>/` + a CPU test. For agent-track articles, the
+Rust second stage (§4.4) lives in a `rust/` subsession under the same
+session folder: `rust/Cargo.toml`, `rust/src/`, `rust/tests/`,
+`rust/README.md`, `rust/results.json` — no `target/`, no binaries.
 
 Also keep a **per-day run log** (see `workflow/runlog_template.md`): screen
 summary, picks, near-misses, per-track verdicts + key numbers, push
