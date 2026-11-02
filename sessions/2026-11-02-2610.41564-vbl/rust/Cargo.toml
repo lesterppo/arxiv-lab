@@ -1,0 +1,16 @@
+[package]
+name = "vbl-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the VBL Verify--Backtrack Loop (arXiv:2610.41564) from lesterppo/arxiv-lab"
+license = "MIT"
+
+[lib]
+name = "vbl_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "vbl"
+path = "src/main.rs"
+
+[dependencies]
