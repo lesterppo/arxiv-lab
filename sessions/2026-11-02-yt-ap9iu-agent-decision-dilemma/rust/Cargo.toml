@@ -1,0 +1,10 @@
+[package]
+name = "yt-ap9iu-rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12", features = ["blocking", "rustls-tls-native-roots"] }
