@@ -1,0 +1,15 @@
+{
+  "session": "cros-1102",
+  "account": "ppoppo205",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-02-2610.42054-cros/cros_metrics.csv",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-02-2610.42054-cros/cros_summary.json"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw4b1-34ymtwegecmzj",
+  "pid": "885",
+  "log_tail": "ROW {'problem': 'chain-5', 'kind': 'chained', 'condition': 'scrambled', 'lp_answer': -4.2571, 'peak_vram_gib': 7.32}\nROW {'problem': 'chain-5', 'kind': 'chained', 'condition': 'nocot', 'lp_answer': -7.9446, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-0', 'kind': 'independent', 'condition': 'orig', 'lp_answer': -0.3972, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-0', 'kind': 'independent', 'condition': 'scrambled', 'lp_answer': -0.2426, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-0', 'kind': 'independent', 'condition': 'nocot', 'lp_answer': -5.0242, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-1', 'kind': 'independent', 'condition': 'orig', 'lp_answer': -0.3146, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-1', 'kind': 'independent', 'condition': 'scrambled', 'lp_answer': -0.2619, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-1', 'kind': 'independent', 'condition': 'nocot', 'lp_answer': -5.0242, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-2', 'kind': 'independent', 'condition': 'orig', 'lp_answer': -0.2874, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-2', 'kind': 'independent', 'condition': 'scrambled', 'lp_answer': -0.2302, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-2', 'kind': 'independent', 'condition': 'nocot', 'lp_answer': -5.2742, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-3', 'kind': 'independent', 'condition': 'orig', 'lp_answer': -0.2705, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-3', 'kind': 'independent', 'condition': 'scrambled', 'lp_answer': -0.2429, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-3', 'kind': 'independent', 'condition': 'nocot', 'lp_answer': -5.0242, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-4', 'kind': 'independent', 'condition': 'orig', 'lp_answer': -0.3217, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-4', 'kind': 'independent', 'condition': 'scrambled', 'lp_answer': -0.2484, 'peak_vram_gib': 7.32}\nROW {'problem': 'indep-4', 'kind': 'independent', 'condition': 'nocot', 'lp_answer': -6.2742, 'peak_vram_gib': 7.32}\n"
+}
