@@ -30,6 +30,10 @@
   reshaping for RLVR; gap-weighted magnitudes renormalized within each
   advantage class, so sign and class budgets are preserved exactly and
   the reshaping reduces to the base estimator when confidences agree.
+- ``cros`` — CRoS (arXiv:2610.42054): causality reward on scrambled
+  CoTs; scrambling preserves step content exactly (multiset equality)
+  while breaking causal order, so chained CoTs lose answer score under
+  scrambling and order-independent CoTs do not.
 - ``tace`` — Two-stage Advantage and Credit Estimation (arXiv:2610.40250):
   S1 rank-Gaussianization OT map to N(0,1) with an exact finite-sample
   tail cap; S2 rank-calibrated, clipped token weights renormalized to
@@ -88,6 +92,17 @@ from arxiv_lab.training.scarl import (
     entropy,
     run_experiment as scarl_run_experiment,
 )
+from arxiv_lab.training.cros import (
+    scramble_steps,
+    content_preserved,
+    deletion_changes_content,
+    causality_score,
+    eval_sequential,
+    eval_independent_sum,
+    chained_problems,
+    independent_problems,
+    run_experiment as cros_run_experiment,
+)
 from arxiv_lab.training.tace import (
     ot_gaussianize,
     ot_tail_cap,
@@ -135,6 +150,15 @@ __all__ = [
     "policy_probs",
     "entropy",
     "scarl_run_experiment",
+    "scramble_steps",
+    "content_preserved",
+    "deletion_changes_content",
+    "causality_score",
+    "eval_sequential",
+    "eval_independent_sum",
+    "chained_problems",
+    "independent_problems",
+    "cros_run_experiment",
     "ot_gaussianize",
     "ot_tail_cap",
     "affine_standardize",
