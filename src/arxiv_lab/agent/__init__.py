@@ -17,6 +17,14 @@ from arxiv_lab.agent.competence import (
     TASK_TYPES,
 )
 
+from arxiv_lab.agent.vbl import (
+    GoalSpec,
+    GoalState,
+    VBL,
+    MAX_RETRIES,
+    react_baseline,
+)
+
 from arxiv_lab.agent.spec_agent import (
     SpecAgent,
     Step,
@@ -44,6 +52,12 @@ __all__ = [
     "DELIBERATE",
     "MODE_TOKENS",
     "TASK_TYPES",
+    # vbl (arXiv:2610.41564)
+    "GoalSpec",
+    "GoalState",
+    "VBL",
+    "MAX_RETRIES",
+    "react_baseline",
     # spec_agent (arXiv:2610.21463)
     "SpecAgent",
     "Step",
