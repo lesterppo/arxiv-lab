@@ -1,0 +1,15 @@
+{
+  "model": "Qwen/Qwen3.5-9B",
+  "n_problems": 12,
+  "chain_lp_orig": -0.2625,
+  "chain_lp_scrambled": -3.4026,
+  "chain_lp_nocot": -7.515533333333334,
+  "chain_delta": 3.1401,
+  "indep_lp_orig": -0.3163833333333333,
+  "indep_lp_scrambled": -0.24771666666666667,
+  "indep_lp_nocot": -5.503366666666667,
+  "indep_delta": -0.06866666666666663,
+  "peak_vram_gib": 7.32,
+  "delta_gap": 3.2087666666666665,
+  "cros_prediction_holds": true
+}
