@@ -1,0 +1,53 @@
+{
+  "model": "Qwen/Qwen3.5-9B",
+  "memo_pairs": 60,
+  "holdout_pairs": 30,
+  "arms": [
+    {
+      "arm": "base",
+      "set": "memo",
+      "model": "Qwen/Qwen3.5-9B",
+      "n": 60,
+      "orig_acc": 1.0,
+      "cf_acc": 1.0,
+      "bypass": 0.0
+    },
+    {
+      "arm": "single",
+      "set": "memo",
+      "model": "Qwen/Qwen3.5-9B",
+      "n": 60,
+      "orig_acc": 1.0,
+      "cf_acc": 1.0,
+      "bypass": 0.0
+    },
+    {
+      "arm": "single",
+      "set": "holdout",
+      "model": "Qwen/Qwen3.5-9B",
+      "n": 30,
+      "orig_acc": 1.0,
+      "cf_acc": 1.0,
+      "bypass": 0.0
+    },
+    {
+      "arm": "paired",
+      "set": "memo",
+      "model": "Qwen/Qwen3.5-9B",
+      "n": 60,
+      "orig_acc": 1.0,
+      "cf_acc": 1.0,
+      "bypass": 0.0
+    },
+    {
+      "arm": "paired",
+      "set": "holdout",
+      "model": "Qwen/Qwen3.5-9B",
+      "n": 30,
+      "orig_acc": 1.0,
+      "cf_acc": 1.0,
+      "bypass": 0.0
+    }
+  ],
+  "peak_vram_gb": 9.17086976
+}
