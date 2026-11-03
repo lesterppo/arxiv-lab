@@ -1,0 +1,32 @@
+{
+  "model": "Qwen/Qwen3.5-9B",
+  "train_pairs": 160,
+  "eval_pairs": 60,
+  "arms": [
+    {
+      "arm": "base",
+      "model": "Qwen/Qwen3.5-9B",
+      "n": 60,
+      "orig_acc": 1.0,
+      "cf_acc": 1.0,
+      "bypass": 0.0
+    },
+    {
+      "arm": "single",
+      "model": "Qwen/Qwen3.5-9B",
+      "n": 60,
+      "orig_acc": 1.0,
+      "cf_acc": 1.0,
+      "bypass": 0.0
+    },
+    {
+      "arm": "paired",
+      "model": "Qwen/Qwen3.5-9B",
+      "n": 60,
+      "orig_acc": 1.0,
+      "cf_acc": 1.0,
+      "bypass": 0.0
+    }
+  ],
+  "peak_vram_gb": 9.172291072
+}
