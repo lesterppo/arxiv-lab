@@ -1,0 +1,4 @@
+arm,model,n,orig_acc,cf_acc,bypass
+base,Qwen/Qwen3.5-9B,60,1.0,1.0,0.0
+single,Qwen/Qwen3.5-9B,60,1.0,1.0,0.0
+paired,Qwen/Qwen3.5-9B,60,1.0,1.0,0.0
