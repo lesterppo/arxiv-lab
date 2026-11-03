@@ -25,6 +25,15 @@ from arxiv_lab.agent.vbl import (
     react_baseline,
 )
 
+from arxiv_lab.agent.receipt import (
+    RunResult,
+    extract_waiting_prompt,
+    run_closed,
+    run_open_unattended,
+    run_receipt,
+    simulate_outcome,
+)
+
 from arxiv_lab.agent.spec_agent import (
     SpecAgent,
     Step,
@@ -58,6 +67,13 @@ __all__ = [
     "VBL",
     "MAX_RETRIES",
     "react_baseline",
+    # receipt (arXiv:2611.01930)
+    "RunResult",
+    "extract_waiting_prompt",
+    "run_closed",
+    "run_open_unattended",
+    "run_receipt",
+    "simulate_outcome",
     # spec_agent (arXiv:2610.21463)
     "SpecAgent",
     "Step",
