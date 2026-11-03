@@ -1,0 +1,13 @@
+[package]
+name = "receipt"
+version = "0.1.0"
+edition = "2021"
+description = "RECEIPT harness-mode outcome model and waiting-prompt detector (arXiv 2611.01930) -- std only, no crates"
+
+[lib]
+name = "receipt"
+path = "src/lib.rs"
+
+[[bin]]
+name = "receipt"
+path = "src/main.rs"
