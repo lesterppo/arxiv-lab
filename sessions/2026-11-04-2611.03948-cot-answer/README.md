@@ -10,10 +10,10 @@
   domain) and the training-method library; the paper's own finding
   is that general-purpose models benefit most on MCQ, which is what
   a Qwen general-purpose arm tests.
-- Verdict: **BLOCKED** (no fair test of the paper's comparison was
-  possible in this run; see the failure and the resume state below).
-  The base arm did complete on Colab and its numbers are banked
-  here; they are a reference point, not a verdict on the paper.
+- Verdict: **SUPPORTED** (directional reproduction at bounded scale;
+  see the retry section below for the completed three-arm comparison).
+  The original run and first rerun were BLOCKED; the retry on Peter's
+  fresh "Re try" instruction completed all three arms on Colab.
 
 ## What was built
 
@@ -127,8 +127,9 @@ session was torn down (server: no active sessions).
   eval prompt ending in `Reasoning:` with no format instruction;
   it measures format compliance under this prompt, not medical
   knowledge (parsed accuracy 0.7273 is the knowledge signal).
-- Nothing graduates to `src/arxiv_lab/training/` (graduation needs
-  VERIFIED/SUPPORTED).
+- The result now meets the SUPPORTED bar for graduation; no module
+  was graduated in this retry (graduation decision left to the
+  parent run).
 
 ## Rerun 2026-11-04 (Peter's fresh instruction: "Re run today training track")
 
@@ -184,3 +185,70 @@ One attempt only, per the one-attempt rule — no further relaunch.
   watch_only, endpoint gpu-t4-s-usw4a0-2axkyqmvt7tfe). A retry
   should reuse the same skip logic and expect ~20 min UaS
   training + ~38 min per SFT eval at base speed.
+
+## Retry 2026-11-04 (Peter's fresh instruction: "Re try")
+
+Third attempt overall, one attempt only, per the one-attempt rule.
+
+- Session `cotans-1104c`, account `kyu008008` (`--account`, NOT
+  `--rotate`: rotation file untouched, still `2026-11-04 kyu008008`;
+  next day picks kyu009009 as planned), Tesla T4, isolated
+  registry. Active account was kyu008008 before the run and is
+  still kyu008008 after it (no restore needed).
+- Driver: `colab_cot_answer_driver_retry.py` — the rerun driver
+  plus two survival changes, nothing else: (1) `evaluate()` now
+  flushes each per-item details row AND rewrites a running
+  partial-metrics JSON (`cot_answer_partial.json`) to /content as
+  each item completes — the rerun lost everything because the old
+  `evaluate()` wrote both CSVs only after the full 100-item eval;
+  (2) after UaS training, the adapter is saved to /content and
+  zipped for download. The banked-base-row skip is unchanged:
+  model loaded first try **Qwen/Qwen3.5-9B, peak 10.65 GB**, log
+  records `SKIP base eval: reusing banked base row`. Driver
+  verified before launch: py_compile + CPU test PASSED.
+- Mid-run protection that was NOT needed in the end: a host-side
+  poll loop (`cotans-1104-retry/midrun_download.py`, 120 s
+  interval) downloaded the partial files to
+  `cotans-1104-retry/midrun/` throughout the run (last mid-run
+  snapshot 08:16, final downloads 08:17–08:18) — the mechanism
+  works, but the run completed, so the final downloads are the
+  record of authority.
+- Outcome: **DONE** (TRAIN_DONE, endpoint
+  gpu-t4-s-usw4a3-olbk86zx3ayb). All three arms completed on the
+  same model, same items, same order (paired comparison). Per-arm
+  numbers, verified from the downloaded details CSV (200 rows:
+  100 UaS + 100 SwS) against the summary JSON:
+
+| arm | accuracy (n=100) | accuracy over parsed | parse fail |
+|---|---|---|---|
+| base (reused banked row) | 0.32 | 0.7273 (32/44) | 0.56 |
+| UaS | 0.66 | 0.8148 (66/81) | 0.19 |
+| SwS | 0.77 | 0.8021 (77/96) | 0.04 |
+
+- Reading: SFT fixes the format first (parse fail 0.56 -> 0.19 ->
+  0.04) and then the weighting gap becomes measurable: SwS beats
+  UaS by +0.11 accuracy (0.77 vs 0.66) with a lower parse-fail
+  rate, while accuracy over parsed items is essentially tied
+  (0.8021 vs 0.8148) — i.e. the SwS advantage in this run comes
+  mostly from format compliance, not from knowledge over parsed
+  items. That matches the paper's directional claim (segment
+  weighting beats uniform weighting on MCQ for a general-purpose
+  model) at bounded scale, hence the SUPPORTED verdict above.
+- UaS adapter: saved + downloaded — `cotans-uas-adapter.zip`
+  (160,437,226 bytes; adapter_model.safetensors 173,181,072
+  bytes + adapter_config.json, zip integrity verified). It is
+  NOT pushed to arxiv-lab: at ~153 MB it exceeds the 100 MB
+  GitHub blob API limit. Local copy:
+  `~/workspace/goals/arxiv-daily-read-and-test/hidden_files/
+  cotans-1104-retry/cotans-uas-adapter.zip` (mid-run copy in
+  `cotans-1104-retry/midrun/`). A future retry — if ever
+  authorized — can start from this adapter instead of retraining
+  UaS.
+- Verdict: **SUPPORTED** (directional, bounded scale). Limits from
+  the original section still apply (MedMCQA substitute, SwS
+  weights operationalization, 240 train / 100 eval, single seed,
+  no Med-O1 free-text arm).
+- Train-run record:
+  `~/workspace/goals/arxiv-daily-read-and-test/hidden_files/
+  cotans-1104-retry/train-run.json` (outcome DONE, 5 files
+  downloaded). Session torn down (server: no active sessions).
