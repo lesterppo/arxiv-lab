@@ -1,0 +1,1 @@
+{"arm": "sws", "model": "Qwen/Qwen3.5-9B", "completed": 100, "n": 100, "accuracy_so_far": 0.77, "accuracy_parsed_so_far": 0.8020833333333334, "parse_fail_so_far": 0.040000000000000036}
