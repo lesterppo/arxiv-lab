@@ -1,0 +1,32 @@
+{
+  "model": "Qwen/Qwen3.5-9B",
+  "n_train": 240,
+  "n_eval": 100,
+  "arms": [
+    {
+      "arm": "base",
+      "model": "Qwen/Qwen3.5-9B",
+      "n": 100,
+      "accuracy": 0.32,
+      "accuracy_parsed": 0.7272727272727273,
+      "parse_fail": 0.56
+    },
+    {
+      "arm": "uas",
+      "model": "Qwen/Qwen3.5-9B",
+      "n": 100,
+      "accuracy": 0.66,
+      "accuracy_parsed": 0.8148148148148148,
+      "parse_fail": 0.18999999999999995
+    },
+    {
+      "arm": "sws",
+      "model": "Qwen/Qwen3.5-9B",
+      "n": 100,
+      "accuracy": 0.77,
+      "accuracy_parsed": 0.8020833333333334,
+      "parse_fail": 0.040000000000000036
+    }
+  ],
+  "peak_vram_gb": 10.6465024
+}
