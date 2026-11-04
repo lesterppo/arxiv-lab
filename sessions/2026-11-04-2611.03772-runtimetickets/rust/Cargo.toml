@@ -1,0 +1,14 @@
+[package]
+name = "runtimetickets"
+version = "0.1.0"
+edition = "2021"
+description = "RuntimeTickets (arXiv 2611.03772): source-grounded security obligations for agent skills — gate + deterministic decoder"
+license = "MIT"
+
+[[bin]]
+name = "runtimetickets"
+path = "src/main.rs"
+
+[lib]
+name = "runtimetickets"
+path = "src/lib.rs"
