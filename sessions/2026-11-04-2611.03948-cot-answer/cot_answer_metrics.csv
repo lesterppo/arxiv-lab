@@ -1,0 +1,2 @@
+arm,model,n,accuracy,accuracy_parsed,parse_fail
+base,Qwen/Qwen3.5-9B,100,0.32,0.7272727272727273,0.56
