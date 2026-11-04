@@ -34,6 +34,19 @@ from arxiv_lab.agent.receipt import (
     simulate_outcome,
 )
 
+from arxiv_lab.agent.runtime_tickets import (
+    Obligation,
+    Send,
+    Ticket,
+    coarse_allowlist_allows,
+    decode,
+    decode_gate_trace,
+    gate_decision,
+    oracle_allows,
+    run_trace,
+    scanner_flags,
+)
+
 from arxiv_lab.agent.spec_agent import (
     SpecAgent,
     Step,
@@ -74,6 +87,17 @@ __all__ = [
     "run_open_unattended",
     "run_receipt",
     "simulate_outcome",
+    # runtime_tickets (arXiv:2611.03772)
+    "Obligation",
+    "Send",
+    "Ticket",
+    "coarse_allowlist_allows",
+    "decode",
+    "decode_gate_trace",
+    "gate_decision",
+    "oracle_allows",
+    "run_trace",
+    "scanner_flags",
     # spec_agent (arXiv:2610.21463)
     "SpecAgent",
     "Step",
