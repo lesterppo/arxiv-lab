@@ -129,3 +129,58 @@ session was torn down (server: no active sessions).
   knowledge (parsed accuracy 0.7273 is the knowledge signal).
 - Nothing graduates to `src/arxiv_lab/training/` (graduation needs
   VERIFIED/SUPPORTED).
+
+## Rerun 2026-11-04 (Peter's fresh instruction: "Re run today training track")
+
+One attempt only, per the one-attempt rule — no further relaunch.
+
+- Session `cotans-1104b`, account `kyu008008` (`--account`, NOT
+  `--rotate`: rotation file untouched, still `2026-11-04 kyu008008`;
+  next day picks kyu009009 as planned), Tesla T4, isolated
+  registry. Active account restored to ppoppo205 after the run
+  (the account active before it).
+- Driver: `colab_cot_answer_driver_rerun.py` — the fixed driver
+  plus a base-eval skip: base eval runs only if the loaded model
+  differs from the banked base row's model. Model loaded first
+  try: **Qwen/Qwen3.5-9B, peak 8.03 GB** (same as the first run),
+  so the log records `SKIP base eval: reusing banked base row`
+  and the banked base row (accuracy 0.32, parse-fail 0.56) was
+  reused, saving ~38 min of reclamation exposure. All other
+  logic identical to the fixed driver.
+- Monitor history: the original `train` monitor died ~19 min in
+  (runtime restart, SIGTERM) with the VM driver alive; re-attached
+  via `train --watch-only --pid 3133`. Note for future runs:
+  `--driver` is required by the parser even in watch-only mode —
+  the first re-attach attempt failed with exit 2 on the missing
+  `--driver` argument; the second attempt (with `--driver`
+  supplied) attached cleanly.
+- Outcome: **RECLAIMED**. UaS training completed **30/30 steps**
+  (~19:40, ~39 s/it) — the `remove_unused_columns=False` fix is
+  proven past step 0 (the original KeyError: 'weights' is fixed).
+  The session was then reclaimed during/just after UaS training,
+  at the start of the UaS eval (log tail ends at the generate
+  fallback warnings). Metrics CSVs are written only after a full
+  100-item eval, so no eval ever completed: `downloaded: []`,
+  mid-run snapshots empty, no new numbers of any kind.
+
+| arm | accuracy (n=100) | accuracy over parsed | parse fail |
+|---|---|---|---|
+| base (reused banked row) | 0.32 | 0.7273 (32/44) | 0.56 |
+| UaS | trained 30/30, eval never ran | — | — |
+| SwS | — not run | — | — |
+
+- Verdict unchanged: **BLOCKED**. The paper's UaS-vs-SwS
+  comparison still has no fair test; the UaS adapter was not
+  saved (`save_strategy="no"`), so a future retry must retrain
+  UaS from scratch.
+- Resume state for a future authorized retry: session
+  `cotans-1104b` is gone (reclaimed, registry entry removed,
+  server lists no such session). Staged in this session:
+  `colab_cot_answer_driver.py` (fixed) and
+  `colab_cot_answer_driver_rerun.py` (fixed + base-eval skip).
+  Train-run record:
+  `~/workspace/goals/arxiv-daily-read-and-test/hidden_files/
+  cotans-1104-rerun/train-run.json` (outcome RECLAIMED,
+  watch_only, endpoint gpu-t4-s-usw4a0-2axkyqmvt7tfe). A retry
+  should reuse the same skip logic and expect ~20 min UaS
+  training + ~38 min per SFT eval at base speed.
