@@ -1,0 +1,14 @@
+{
+  "session": "train-1105-0423",
+  "account": "kyu009009",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-05-2611.06486-mergeranks/merge_metrics.csv"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw4a3-2as09moicasw1",
+  "pid": "979",
+  "log_tail": ".py\", line 875, in forward\n    hidden_states = self.linear_attn(\n        hidden_states=hidden_states,\n    ...<2 lines>...\n        **kwargs,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/integrations/accelerate.py\", line 1010, in wrapped\n    output = forward_func(self, *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/qwen3_5/modeling_qwen3_5.py\", line 625, in forward\n    core_attn_out, last_recurrent_state = torch_chunk_gated_delta_rule(\n                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        query,\n        ^^^^^^\n    ...<8 lines>...\n        **kwargs,\n        ^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/integrations/hub_kernels.py\", line 1051, in wrapped\n    return implementation(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/qwen3_5/modeling_qwen3_5.py\", line 396, in torch_chunk_gated_delta_rule\n    core_attn_out = torch.zeros_like(new_values)\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 12.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 11.81 MiB is free. Including non-PyTorch memory, this process has 14.55 GiB memory in use. Of the allocated memory 14.22 GiB is allocated by PyTorch, and 210.29 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)\n\n  0%|          | 0/15 [00:03<?, ?it/s]\n"
+}
