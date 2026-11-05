@@ -68,3 +68,70 @@ verdict is about this run's configuration, not about the paper: the
 paper's 36-expert, 3-domain, 3-scale study was never within a one-day
 T4 budget, and the bounded 4-expert version above remains untested
 until the fixed driver runs.
+
+## Fallback rerun (2026-11-05, automatic model fallback)
+
+Run under Peter's 2026-11-05 standing rule: a BLOCKED training run gets
+one automatic fallback attempt with a different agent-picked model plus
+the shrink fixes for the failure cause. Colab session `merge-1105-fb`,
+account `kyu009009` (`--account`, not `--rotate`; rotation untouched,
+still `2026-11-05 kyu009009`), T4, isolated registry
+`hidden_files/mergeranks-1105-rerun-registry.json`. Monitor outcome:
+**RECLAIMED**. One attempt only — no further relaunch under the rule.
+
+- Driver: `colab_merge_ranks_driver_fallback.py` — Qwen/Qwen3-8B (the
+  9B OOM was in Qwen3.5's hybrid gated-delta layers, so a different
+  proven architecture was the pick), training sequences capped at 256
+  tokens, batch 1 with gradient accumulation 8, gradient checkpointing
+  (+ `enable_input_require_grads`), `PYTORCH_CUDA_ALLOC_CONF=
+  expandable_segments:True`. Everything else identical to the original
+  driver. py_compile + import smoke test passed before launch.
+- Progress before reclamation (far further than the first attempt):
+  all 4 experts trained to completion — the shrink fixes + 8B switch
+  PROVED past step 0 (qa_r32: 19/19 optimizer steps, ~20 s/it,
+  train_loss 0.0359). Delta norms (the paper's mechanism diagnostic):
+  math_r8 1.59, math_r32 2.85, qa_r8 1.78, qa_r32 2.94 — the r=32
+  experts carry ~1.7x the delta magnitude of the r=8 experts on both
+  domains, consistent with the paper's warning that magnitude-based
+  selection drops the small expert. Base evals (Qwen3-8B, n=60 each):
+  math 0.0167 (1/60), qa 0.10 (6/60).
+- The session was reclaimed during the single-expert evals, after the
+  base evals and before any expert-eval row. No expert evals, no merge
+  evals, no uniform-vs-nonuniform comparison — C1 and C2 remain
+  untested. **Verdict stays BLOCKED.**
+- Data loss note: the wrapper downloaded nothing (`downloaded: []`) and
+  produced no mid-run snapshots, so `/content/merge_metrics.csv` and
+  `/content/merge_details.csv` died with the VM. The numbers above are
+  recovered from the monitor's log tail in `train-run-fallback.json`
+  (the only surviving record) and preserved as
+  `merge_metrics_fallback_recovered.csv` (7 verifiable rows only: the
+  qa_r32 train row, 4 delta-norm rows, 2 base-eval rows). Train losses
+  for math_r8 / math_r32 / qa_r8 scrolled out of the log tail and are
+  NOT recoverable. The 4 trained adapters (`/content/adapters/`) were
+  never downloaded and are lost with the VM.
+- Monitor note: the host-side monitor was killed by SIGTERM ~22 min in
+  (runtime restart); the driver kept running detached on the VM and was
+  re-attached with `train --watch-only --pid 673 --driver
+  <fallback-driver>` (same session/registry/results/out-dir/
+  done-marker) — no progress lost to the re-attach.
+
+## Resume state (exact, updated)
+
+- Session `merge-1105-fb` reclaimed; server reports no active sessions.
+  Rotation state stands at `2026-11-05 kyu009009`, so the next training
+  day picks `cyc236ha`.
+- The fallback driver is PROVEN past training: all 4 experts complete
+  in ~25 min of training; a future run needs ~1.5–2 h total including
+  evals. Rerun with `colab.py train --driver
+  colab_merge_ranks_driver_fallback.py --rotate --results
+  /content/merge_metrics.csv /content/merge_details.csv --done-marker
+  MERGE_DONE`. A future run must retrain all 4 experts from scratch
+  (adapters lost) and should download adapters + metrics mid-run — this
+  run produced no mid-run snapshots, so do not rely on the downloader
+  alone; the incremental CSV writes only help if they are downloaded
+  before reclamation.
+- Active account note: kyu009009 was active at launch; by the end of
+  the run the global active account read ppoppo205 (changed by another
+  agent's live work while this run was in flight, not by this run —
+  this run never switched accounts). Left as-is; do not treat
+  ppoppo205 as this run's account.
