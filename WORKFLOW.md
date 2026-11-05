@@ -258,6 +258,18 @@ and report — the day still succeeds. Fall back to manual wrapper steps
 (`new` + health check + upload + detached launch + poll) only if
 `train` itself fails.
 
+**Automatic model fallback (standing rule, set 2026-11-05, Peter's
+order): if a training-track Colab run ends BLOCKED (OOM, provision
+failure, reclamation before completion, or any other no-fair-test
+outcome), automatically make ONE fallback attempt with a different
+model picked by the agent — normally the next smaller proven model
+(e.g. Qwen3-8B when Qwen3.5-9B blocks) — plus the experiment-shrink
+fixes for the failure cause, in the same run, without waiting for
+Peter's fresh instruction. This supersedes the earlier one-attempt
+rule for BLOCKED training sessions. If the fallback attempt also
+blocks, record BLOCKED with exact resume state and stop — no further
+automatic attempts that day.
+
 ### 4.6 Record — one session per tested article
 
 `sessions/YYYY-MM-DD-<arxivid>-<slug>/README.md` containing: article link,
