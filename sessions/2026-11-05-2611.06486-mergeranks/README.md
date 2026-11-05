@@ -135,3 +135,56 @@ still `2026-11-05 kyu009009`), T4, isolated registry
   agent's live work while this run was in flight, not by this run —
   this run never switched accounts). Left as-is; do not treat
   ppoppo205 as this run's account.
+
+## 4B rerun (2026-11-05 evening, Peter's order: "Re run on smaller model")
+
+One-off exception to the standing floor ("never shrink the model",
+2026-10-27): Peter's explicit instruction overrides the floor for
+this rerun only. Colab session `merge-1105-4b`, T4, isolated registry
+`hidden_files/mergeranks-1105-4b-registry.json`. Monitor outcome:
+**RECLAIMED** — ~3 minutes after creation, during the Qwen3-4B weight
+download (log tail ends at `Fetching 3 files: 33%`). One attempt only —
+no relaunch.
+
+- Driver: `colab_merge_ranks_driver_4b.py` — Qwen/Qwen3-4B (same Qwen3
+  family as the proven Qwen3-8B, one class down, current generation,
+  NF4 QLoRA; retired 1.5B/0.5B classes NOT used), shrink fixes kept
+  (seq 256, batch 1 + accum 8, gradient checkpointing +
+  `enable_input_require_grads`, `expandable_segments:True`), plus
+  per-expert adapter zips (`/content/adapters/<tag>.zip`, merged
+  adapters likewise) for mid-run download. py_compile + import smoke
+  test passed before launch; the diff vs the fallback driver was
+  exactly the intended changes.
+- Account path (wrapper cross-account retry on gpu-unavailable):
+  kyu009009 gpu-unavailable → ppoppo205 gpu-unavailable → created on
+  **cyc236es** (rotation pool, legitimate fallback; cyc236de/cyc236hk
+  never touched). The run therefore did NOT run on kyu009009 despite
+  `--account kyu009009`. Rotation state untouched (`2026-11-05
+  kyu009009`), so the next training day still picks cyc236ha.
+- Mid-run downloader: a host-side loop
+  (`hidden_files/mergeranks-1105-4b/midrun_download.sh`, 10-min polls)
+  was running — it polled once at 10:50 UTC and downloaded nothing,
+  because no result file existed yet when the session vanished. The
+  wrapper's `train` downloads `--results` only on DONE/DIED/TIMEOUT,
+  never on RECLAIMED, so `downloaded: []` again. The 4B driver itself
+  is unproven past pip install: no probe row, no expert trained, no
+  eval numbers, no adapters. Nothing here supports or refutes the
+  paper's claim. **Verdict stays BLOCKED.**
+- Teardown: session reclaimed by the server; isolated registry file
+  is empty (`{}`); the one `[?]` session in the global list is another
+  agent's live session on ppoppo205 (different endpoint), not touched.
+  Active account restored to ppoppo205 (the pre-run value).
+
+## Resume state (exact, updated again)
+
+- All three 2026-11-05 attempts are recorded above. The 4B driver
+  (`colab_merge_ranks_driver_4b.py`) is staged and verified
+  (py_compile + import smoke test) but has never run past install —
+  a future run retrains all 4 experts from scratch on Qwen3-4B
+  (~1–1.5 h expected, shorter than the 8B run) with the adapter-zip +
+  mid-run downloader protection already in place. The 8B fallback
+  driver remains the proven-through-training option.
+- Rotation state stands at `2026-11-05 kyu009009`, so the next
+  training day picks `cyc236ha`. Any further retry needs Peter's
+  fresh instruction — the one-attempt authorization for this rerun
+  is spent.
