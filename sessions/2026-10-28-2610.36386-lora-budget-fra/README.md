@@ -15,13 +15,16 @@
 
 ## Verdict: BLOCKED
 
-No fair test was possible in this run: the driver died with a CUDA
-out-of-memory error inside the *base-model* eval, before any training
-ran. Zero measurements were produced — no base accuracy, no trained
-adapter, no sensitivity table, no allocation comparison. The claim is
-untested, not refuted. Scripts are staged below with the exact resume
-state; the failure is a fixable eval-batching bug, not a Colab or model
-problem (see "What happened" and "Resume state").
+No fair test was possible in either run: the Oct 28 driver died with a
+CUDA out-of-memory error inside the *base-model* eval, before any
+training ran; the Nov 5 retry (below) completed training and the full
+35-module sensitivity sweep, but the session was reclaimed before the
+three allocation comparisons ran, so the paper's core claim (FRA beats
+uniform and spectral-only allocation at a fixed rank budget) is still
+untested, not refuted. The retry did prove the eval fix and produced
+one real finding: the full r=16 adapter learned the synthetic task
+perfectly (see Rerun section), and every directly observed single-module
+truncation to rank 4 left held-out accuracy unchanged.
 
 ## What was built
 
@@ -115,6 +118,59 @@ died before the first measurement. Any number here would be invented.
   truncation factors.
 - One run only, per the run rules: no retry was started after DIED.
 
+## Rerun 2026-11-05 — RECLAIMED (session fra-1105, ppoppo205)
+
+Peter ordered an early retry on 2026-11-05 15:37 HKT (tapped
+"提早重試，唔等 12:20" on the Oct 29 options widget), not waiting for
+the next day's 12:20 daily run. One attempt only, fixed driver only
+(`colab_fra_driver_FIXED_2026-10-28.py`: eval batch 32→8 +
+completion-position logit slicing; training/allocation untouched).
+Account ppoppo205 was used because the day's rotation account
+kyu009009 was busy with a live merge-ranks rerun; rotation file left
+at `2026-11-05 kyu009009`, active account restored to kyu009009 at
+teardown. Out-dir `train-out-1105/`, isolated registry
+`registry-1105.json`.
+
+- **Launch 15:39 HKT:** session created (endpoint
+  `gpu-t4-s-use1c0-3c24zwwjw70d5`), driver PID 1029.
+- **Host reboot 17:01 HKT (09:01 UTC):** the host VM rebooted and
+  killed the original `train` host monitor (its background exec session
+  vanished, SIGTERM). The VM-side driver survived; monitoring was
+  recovered with `train --watch-only --pid 1029` (host PID 1896) plus
+  a supervisor daemon. No numbers were lost to the reboot itself.
+- **Progress (verified firsthand from the VM, not the log alone):**
+  base eval completed — `/content/fra_metrics.csv` existed on the VM
+  (34 KB), so the eval fix worked and the Oct 28 OOM is closed.
+  Training ran 320 steps; spectral energies for all modules computed;
+  sensitivity sweep reached the last sampled layer (35). The session
+  was **reclaimed at ~18:49 HKT (10:49 UTC)**, detected by the
+  watch-only monitor; outcome `RECLAIMED` in
+  `train-out-1105/train-run.json`. Death window: last live check with
+  the driver computing was ~17:05 HKT; reclaim detected 18:49 HKT.
+- **Measured (28 of 35 sensitivity rows directly observed):** every
+  observed single-module truncation to rank 4 left held-out accuracy
+  at **1.0 (n=192) with drop 0.0000** — layer 0 (6 rows), layer 9
+  (5 rows), layer 18 (3 rows), layer 27 (7 rows), layer 35 (7 rows);
+  spectral_energy4 across observed rows 0.53–0.9986. The remaining 7
+  rows were never directly observed (log-tail windows only), so they
+  are not claimed. Since drop is measured against the full adapter,
+  the observed rows jointly imply the full r=16 adapter's held-out
+  accuracy is 1.0 on the 192 held-out items — an inference from the
+  recorded rows, not a directly read `RESULT full` line.
+- **NOT measured / lost with the VM:** base held-out accuracy (the
+  `RESULT base` line and `fra_metrics.csv` were never downloaded —
+  the wrapper downloads nothing on RECLAIMED, and post-reclaim
+  downloads of `/content/fra_metrics.csv` and `/content/train_run.log`
+  both failed `not-found`; the registry entry is gone). The three
+  allocation comparisons (FRA vs uniform vs spectral at 25% rank
+  budget) never ran, and no `fra_summary.json` / `TRAIN_DONE` exists.
+  The 7 unobserved sensitivity rows are also unrecorded.
+- **Files:** `train-out-1105/train-run.json` (outcome RECLAIMED,
+  `log_tail` with 22 sensitivity rows), `train-out-1105/log-tail-1105.txt`
+  (55-line log-tail snapshot downloaded 17:03 HKT, layer-0 rows),
+  `train-out-1105/watch-1105.log`, `train-out-1105/supervise-1105.log`.
+  The Oct 28 `train-out/` DIED record is preserved untouched.
+
 ## Resume state (for a future run — do not re-run the driver as-is)
 
 - Session name: `fra-1028` (torn down). Account that ran: ppoppo205.
@@ -142,6 +198,14 @@ died before the first measurement. Any number here would be invented.
   `RESULT base heldout_acc=...`, 320 training steps with falling loss,
   `RESULT full heldout_acc=...`, 35 `sensitivity` rows, three allocation
   `heldout_acc` rows, then `TRAIN_DONE` as the last line.
+- **2026-11-05 update:** the one authorised retry is spent (RECLAIMED).
+  The fixed driver is now proven past base eval, 320 training steps, and
+  the sensitivity sweep on a real T4; a future run still retrains from
+  scratch (the adapter was never saved off the VM) and needs a fresh
+  instruction. A mid-run metrics download (as used on the cotans retry)
+  would protect the base/full/sensitivity numbers against a second
+  reclamation — the FRA driver writes `fra_metrics.csv` incrementally,
+  but nothing downloaded it while the run lived.
 
 ## Files
 
@@ -154,3 +218,8 @@ died before the first measurement. Any number here would be invented.
   session fra-1028, PID 801, OOM log tail). Copy also at
   `train-run.json` in this directory.
 - `registry.json` — isolated Colab session registry used by the run.
+- `train-out-1105/` — Nov 5 retry record: `train-run.json` (RECLAIMED,
+  ppoppo205, session fra-1105, PID 1029), `log-tail-1105.txt`,
+  `watch-1105.log`, `supervise-1105.log`, `supervise-1105.sh`.
+  `registry-1105.json` — isolated registry used by the retry (entry
+  gone after reclamation).
