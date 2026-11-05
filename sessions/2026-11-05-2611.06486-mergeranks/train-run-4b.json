@@ -1,0 +1,21 @@
+{
+  "session": "merge-1105-4b",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "RECLAIMED",
+  "downloaded": [],
+  "create_attempts": [
+    {
+      "account": "kyu009009",
+      "error": "gpu-unavailable"
+    },
+    {
+      "account": "ppoppo205",
+      "error": "gpu-unavailable"
+    }
+  ],
+  "endpoint": "gpu-t4-s-usw1b3-19g2u3qhua2ne",
+  "pid": "633",
+  "log_tail": "\n[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\ntransformers=5.20.2\nGPU: Tesla T4 total=15.6 GB torch=2.11.0+cu130\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n[transformers] `torch_dtype` is deprecated! Use `dtype` instead!\n\nFetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]\nFetching 3 files:  33%|\u2588\u2588\u2588\u258e      | 1/3 [00:03<00:07,  3.55s/it]"
+}
