@@ -188,3 +188,66 @@ no relaunch.
   training day picks `cyc236ha`. Any further retry needs Peter's
   fresh instruction — the one-attempt authorization for this rerun
   is spent.
+
+## Account-switch attempt (2026-11-05 evening, Peter's order: "Figure out reason of being blocked. Then try to switch accounts")
+
+Diagnosis (verified live before launching): the blocker is no longer
+the model or the driver — it is free-tier capacity in the evening.
+Attempt 1 (Qwen3.5-9B) died of a deterministic CUDA OOM at step 0
+— a model/config problem, fixed by the 8B switch + shrink fixes.
+Attempt 2 (Qwen3-8B) trained all 4 experts, then was RECLAIMED in
+evals — free-tier preemption, not a driver problem. Attempt 3
+(Qwen3-4B) was RECLAIMED ~3 min after creation during weight
+download, after kyu009009 AND ppoppo205 both went gpu-unavailable
+at creation. Switching accounts addresses the quota part only; it
+cannot guarantee survival.
+
+Account check (live, `colab.py sessions` per account, active account
+restored after each check):
+- ppoppo205: another agent's live session (weight-space) + gpu-
+  unavailable at creation 18:46 — not usable.
+- kyu009009: no live session listed, but gpu-unavailable at creation
+  18:46 after two sessions today — daily GPU quota spent, not a
+  live-session conflict.
+- cyc236es: server list showed a `[?]` T4 record whose endpoint
+  matches merge-1105-4b exactly — a stale record of the reclaimed 4B
+  session (`status -s merge-1105-4b` says "not found").
+- cyc236ha: server list showed a `[?]` T4 record whose endpoint
+  matches the FRA session fra-1105 (created on ppoppo205, RECLAIMED
+  ~18:49 HKT today) — the same record also appears under ppoppo205's
+  own listing, so the list is not strictly per-account and the record
+  is most likely stale, minutes after reclamation. kyu009009's list
+  is empty although it had two reclaimed sessions today (records
+  expire from the list within hours). This was treated as "not
+  verified free", and the creation attempt itself was the definitive
+  GPU-availability test.
+- kyu008008: excluded by the rotation rule (used 2026-11-04; using
+  it today would be two days in a row).
+
+Launch: session `merge-1105-acct`, account `cyc236ha` (`--account`,
+`--max-accounts 1` so creation could NOT spill onto any other
+account), driver `colab_merge_ranks_driver_8b_adapters.py` — Qwen3-8B
+UNCHANGED (the variable tested is the account, not the model) plus
+the per-expert adapter-save+zip code ported from the 4B driver.
+py_compile + import smoke test passed; diff vs the fallback driver
+is exactly the intended changes. Monitor outcome:
+**PROVISION_FAILED** — cyc236ha gpu-unavailable at creation, the
+only candidate tried. No session created, no driver uploaded, no
+numbers, no adapters. The `[?]` record on cyc236ha is therefore
+either a live runtime after all or the account's GPU quota is spent
+— either way, no GPU was available on cyc236ha tonight. One attempt
+only — no relaunch.
+
+Rotation state: deliberately UNCHANGED at `2026-11-05 kyu009009`.
+The verify5 rule writes the state to the account that actually ran;
+nothing ran here, so cyc236ha never consumed its turn and tomorrow's
+daily run still picks cyc236ha. Active account restored to ppoppo205
+(the pre-run value). Mid-run downloader was started and then killed
+after the fast PROVISION_FAILED — it downloaded nothing.
+
+**Verdict stays BLOCKED.** Resume state: the 8B-adapters driver
+(`colab_merge_ranks_driver_8b_adapters.py`) is staged and verified
+(py_compile + import smoke test) but has never run — a future run
+retrains all 4 experts from scratch on Qwen3-8B with the adapter-zip
++ mid-run downloader protection already in place. Any further retry
+needs Peter's fresh instruction.
