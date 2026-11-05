@@ -1,0 +1,8 @@
+phase,model,adapter,domain,train_loss,delta_frobenius,acc,n
+train,Qwen/Qwen3-8B,qa_r32,,0.03593441843986511,,,
+delta_norm,Qwen/Qwen3-8B,math_r8,,,1.59,,
+delta_norm,Qwen/Qwen3-8B,math_r32,,,2.85,,
+delta_norm,Qwen/Qwen3-8B,qa_r8,,,1.78,,
+delta_norm,Qwen/Qwen3-8B,qa_r32,,,2.94,,
+eval,Qwen/Qwen3-8B,base,math,,,0.0167,60
+eval,Qwen/Qwen3-8B,base,qa,,,0.1,60
