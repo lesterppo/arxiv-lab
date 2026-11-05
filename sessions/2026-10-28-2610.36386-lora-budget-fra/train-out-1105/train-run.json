@@ -1,0 +1,12 @@
+{
+  "session": "fra-1105",
+  "account": "ppoppo205",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "RECLAIMED",
+  "downloaded": [],
+  "pid": "1029",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-use1c0-3c24zwwjw70d5",
+  "log_tail": "=1.0 n=192 drop=0.0000; spectral_energy4=0.8870\nRESULT sensitivity trunc4_acc::18/o_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9748\nRESULT sensitivity trunc4_acc::18/q_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.8633\nRESULT sensitivity trunc4_acc::18/v_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9386\nRESULT sensitivity trunc4_acc::27/down_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9699\nRESULT sensitivity trunc4_acc::27/gate_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9113\nRESULT sensitivity trunc4_acc::27/up_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9230\nRESULT sensitivity trunc4_acc::27/k_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.8341\nRESULT sensitivity trunc4_acc::27/o_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9362\nRESULT sensitivity trunc4_acc::27/q_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.8992\nRESULT sensitivity trunc4_acc::27/v_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9635\nRESULT sensitivity trunc4_acc::35/down_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9986\nRESULT sensitivity trunc4_acc::35/gate_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9721\nRESULT sensitivity trunc4_acc::35/up_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9735\nRESULT sensitivity trunc4_acc::35/k_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9458\nRESULT sensitivity trunc4_acc::35/o_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9879\nRESULT sensitivity trunc4_acc::35/q_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9680\nRESULT sensitivity trunc4_acc::35/v_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.9792\nRESULT sensitivity trunc4_acc::9/down_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.8435\nRESULT sensitivity trunc4_acc::9/gate_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.7175\nRESULT sensitivity trunc4_acc::9/up_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.6500\nRESULT sensitivity trunc4_acc::9/k_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.7831\nRESULT sensitivity trunc4_acc::9/o_proj=1.0 n=192 drop=0.0000; spectral_energy4=0.6964\n"
+}
