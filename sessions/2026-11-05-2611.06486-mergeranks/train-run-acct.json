@@ -1,0 +1,14 @@
+{
+  "session": "merge-1105-acct",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "PROVISION_FAILED",
+  "downloaded": [],
+  "create_attempts": [
+    {
+      "account": "cyc236ha",
+      "error": "gpu-unavailable"
+    }
+  ]
+}
