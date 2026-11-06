@@ -1,0 +1,13 @@
+[package]
+name = "signed_manifest"
+version = "0.1.0"
+edition = "2021"
+description = "Signed requirement manifests for multi-agent handoffs (arXiv 2611.07483) -- std only, no crates"
+
+[lib]
+name = "signed_manifest"
+path = "src/lib.rs"
+
+[[bin]]
+name = "signed_manifest"
+path = "src/main.rs"
