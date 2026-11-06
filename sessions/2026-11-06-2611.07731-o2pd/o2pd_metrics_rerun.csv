@@ -1,0 +1,12 @@
+phase,model,peak_gb,acc,n
+probe,Qwen/Qwen3-8B,6.16,,
+probe,Qwen/Qwen3.5-9B,7.72,,
+teacher_diag,Qwen/Qwen3.5-9B,0.1566,0.3628,248069,,200
+vocab_filter,Qwen/Qwen3-8B,56.4341,2513,,200
+train,Qwen/Qwen3-8B,sft,0.4323,,,,200
+train,Qwen/Qwen3-8B,opd_full,0.6839,,,,200
+train,Qwen/Qwen3-8B,o2pd,1.2638,0.6253,0.3746,,200
+eval,Qwen/Qwen3-8B,base,0.0,100
+eval,Qwen/Qwen3-8B,sft,0.05,100
+eval,Qwen/Qwen3-8B,opd_full,0.14,100
+eval,Qwen/Qwen3-8B,o2pd,0.01,100
