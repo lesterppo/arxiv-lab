@@ -1,0 +1,5 @@
+phase,model,peak_gb,acc,n
+probe,Qwen/Qwen3-8B,6.16,,
+probe,Qwen/Qwen3.5-9B,7.72,,
+teacher_diag,Qwen/Qwen3.5-9B,0.1566,0.3628,,200
+train,Qwen/Qwen3-8B,sft,0.433,,,,200
