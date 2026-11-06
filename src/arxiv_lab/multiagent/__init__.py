@@ -27,6 +27,21 @@ from arxiv_lab.multiagent.splice import (
     selector_predict,
     run_experiment,
 )
+from arxiv_lab.multiagent.signed_manifest import (
+    build_handoff,
+    check_requirement,
+    deterministic_verifier,
+    extract_requirements,
+    make_task,
+    merge,
+    noisy_surface_checker,
+    run_case_explicit,
+    run_experiment as signed_manifest_run_experiment,
+    run_trajectory,
+    sign_manifest,
+    unsafe_under_attack,
+    verify_manifest,
+)
 
 __all__ = [
     "generate_prior_shift_data",
@@ -50,4 +65,17 @@ __all__ = [
     "train_selector",
     "selector_predict",
     "run_experiment",
+    "build_handoff",
+    "check_requirement",
+    "deterministic_verifier",
+    "extract_requirements",
+    "make_task",
+    "merge",
+    "noisy_surface_checker",
+    "run_case_explicit",
+    "signed_manifest_run_experiment",
+    "run_trajectory",
+    "sign_manifest",
+    "unsafe_under_attack",
+    "verify_manifest",
 ]
