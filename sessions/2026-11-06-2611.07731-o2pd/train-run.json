@@ -1,0 +1,17 @@
+{
+  "session": "o2pd-1106b",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-06-2611.07731-o2pd/o2pd_metrics.csv",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-06-2611.07731-o2pd/o2pd_rollouts.jsonl",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-06-2611.07731-o2pd/o2pd_teacher.jsonl",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-06-2611.07731-o2pd/sft.zip"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw4b1-5u186c766eg8",
+  "pid": "1281",
+  "log_tail": "ATen/native/cuda/ScatterGatherKernel.cu:163: operator(): block: [0,0,0], thread: [83,0,0] Assertion `idx_dim >= 0 && idx_dim < index_size && \"scatter gather kernel index out of bounds\"` failed.\nTraceback (most recent call last):\n  File \"/content/colab_o2pd_driver.py\", line 480, in <module>\n    main()\n    ~~~~^^\n  File \"/content/colab_o2pd_driver.py\", line 420, in main\n    student = train_arm(\"opd_full\", \"opd_full\")\n  File \"/content/colab_o2pd_driver.py\", line 391, in train_arm\n    (loss / accum).backward()\n    ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/_tensor.py\", line 631, in backward\n    torch.autograd.backward(\n    ~~~~~~~~~~~~~~~~~~~~~~~^\n        self, gradient, retain_graph, create_graph, inputs=inputs\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/autograd/__init__.py\", line 381, in backward\n    _engine_run_backward(\n    ~~~~~~~~~~~~~~~~~~~~^\n        tensors,\n        ^^^^^^^^\n    ...<5 lines>...\n        accumulate_grad=True,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py\", line 869, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        t_outputs, *args, **kwargs\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )  # Calls into the C++ engine to run the backward pass\n    ^\ntorch.AcceleratorError: CUDA error: device-side assert triggered\nSearch for `cudaErrorAssert' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nCUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.\nFor debugging consider passing CUDA_LAUNCH_BLOCKING=1\nCompile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.\n\n"
+}
