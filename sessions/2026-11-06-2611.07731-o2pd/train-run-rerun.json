@@ -1,0 +1,18 @@
+{
+  "session": "o2pd-1106d",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/o2pd-1106-rerun2/o2pd_metrics.csv",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/o2pd-1106-rerun2/o2pd_details.csv",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/o2pd-1106-rerun2/sft.zip",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/o2pd-1106-rerun2/opd_full.zip",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/o2pd-1106-rerun2/o2pd.zip"
+  ],
+  "pid": "1333",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-usw4a3-dbx5av5ch751",
+  "log_tail": "2513, \"acc\": \"\", \"n\": 200}\nSEQS sft=200 opd=200 dropped_mass=56.4341\n/content/colab_o2pd_driver.py:424: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.\nConsider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)\n  tot_loss += float(loss)\nARM sft step 50 loss=0.6413\nARM sft step 100 loss=0.4945\nARM sft step 150 loss=0.4609\nARM sft step 200 loss=0.4323\nADAPTER_ZIP /content/adapters/sft.zip\nMETRIC {\"phase\": \"train\", \"model\": \"Qwen/Qwen3-8B\", \"adapter\": \"sft\", \"train_loss\": 0.4323, \"mean_overlap\": \"\", \"mean_alpha\": \"\", \"acc\": \"\", \"n\": 200}\nARM opd_full step 50 loss=0.9385\nARM opd_full step 100 loss=0.7928\nARM opd_full step 150 loss=0.7301\nARM opd_full step 200 loss=0.6839\nADAPTER_ZIP /content/adapters/opd_full.zip\nMETRIC {\"phase\": \"train\", \"model\": \"Qwen/Qwen3-8B\", \"adapter\": \"opd_full\", \"train_loss\": 0.6839, \"mean_overlap\": \"\", \"mean_alpha\": \"\", \"acc\": \"\", \"n\": 200}\nARM o2pd step 50 loss=2.4092\nARM o2pd step 100 loss=1.7615\nARM o2pd step 150 loss=1.4437\nARM o2pd step 200 loss=1.2638\nADAPTER_ZIP /content/adapters/o2pd.zip\nMETRIC {\"phase\": \"train\", \"model\": \"Qwen/Qwen3-8B\", \"adapter\": \"o2pd\", \"train_loss\": 1.2638, \"mean_overlap\": 0.6253, \"mean_alpha\": 0.3746, \"acc\": \"\", \"n\": 200}\n[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.\n[transformers] Caching is incompatible with gradient checkpointing in Qwen3DecoderLayer. Setting `past_key_values=None`.\nMETRIC {\"phase\": \"eval\", \"model\": \"Qwen/Qwen3-8B\", \"adapter\": \"base\", \"acc\": 0.0, \"n\": 100}\nMETRIC {\"phase\": \"eval\", \"model\": \"Qwen/Qwen3-8B\", \"adapter\": \"sft\", \"acc\": 0.05, \"n\": 100}\nMETRIC {\"phase\": \"eval\", \"model\": \"Qwen/Qwen3-8B\", \"adapter\": \"opd_full\", \"acc\": 0.14, \"n\": 100}\nMETRIC {\"phase\": \"eval\", \"model\": \"Qwen/Qwen3-8B\", \"adapter\": \"o2pd\", \"acc\": 0.01, \"n\": 100}\nRESULTS {\"base\": 0.0, \"sft\": 0.05, \"opd_full\": 0.14, \"o2pd\": 0.01}\nO2PD_DONE\n"
+}
