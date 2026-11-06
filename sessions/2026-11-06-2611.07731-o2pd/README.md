@@ -100,21 +100,60 @@ is kept at low overlap; prefix gate keeps the first 20%; top-k RKL is
 
 ## Verdict
 
-**BLOCKED** — no fair test of the O²PD comparison was possible: the OPD
-arms never trained and no eval ran, so no accuracy numbers exist for any
-arm. The vocab-mismatch diagnosis is a real finding (cross-generation
-Qwen distillation needs the reset-atom filter, now staged), and the
-banked artifacts (teacher scores, SFT adapter + loss, agreement
-diagnostic) are partial, not a verdict on the method.
+**NEGATIVE** — the paper's headline claim did not reproduce at this
+bounded scale: O²PD scored **0.01 (1/100)** on GSM8K test, below both
+the full-context OPD baseline **0.14 (14/100)** and the SFT control
+**0.05 (5/100)**; base 0.00 (0/100). All arms trained from the same
+cached teacher supervision on the same 200 problems, same steps, same
+eval — and the setup discriminates (opd_full clearly beats sft and
+base), so this is a fair negative, not a broken test. The o2pd
+generations are degenerate (blank/newline-only outputs, repetitive
+doubling loops), while opd_full generations are coherent math text:
+prefix-only (20%) training with the overlap-gated alpha-divergence
+leaves the model's continuation behavior unconstrained, and at this
+scale it collapses generation instead of improving it. Train losses:
+sft 0.4323, opd_full 0.6839, o2pd 1.2638 (mean overlap 0.6253, mean
+alpha 0.3746). Limits: single seed, 200 train / 100 eval, 1 epoch,
+GSM8K only; cross-generation teacher with the vocab filter (0.30% of
+teacher top-k mass dropped into the reset atom); base 0.00 reflects the
+base model generating gibberish in this 2-shot format, so absolute
+levels are low and the comparison is what carries weight. The
+vocab-mismatch diagnosis from the BLOCKED attempts stands as a real
+finding (cross-generation Qwen distillation needs the reset-atom
+filter).
 
-## Verdict
+## Rerun — fixed driver (2026-11-06, Peter's order)
 
-**BLOCKED** — no fair test of the O²PD comparison was possible: the OPD
-arms never trained and no eval ran, so no accuracy numbers exist for any
-arm. The vocab-mismatch diagnosis is a real finding (cross-generation
-Qwen distillation needs the reset-atom filter, now staged), and the
-banked artifacts (teacher scores, SFT adapter + loss, agreement
-diagnostic) are partial, not a verdict on the method.
+- Fix verified in `colab_o2pd_driver.py` before launch (py_compile OK,
+  CPU test 12/12): OOV teacher (id, prob) pairs replaced by dummy id 0
+  at prob 0 without renormalizing; dropped mass recorded
+  (dropped_teacher_mass 56.4341 over 2,513 positions, 0.30% of top-k
+  mass); teacher_max_topk_id 248,069 recorded. The fix held: opd_full
+  completed 200 backward passes (attempt 2 died on the first one).
+- Launch incident (aborted, no training lost): the first launch
+  (session `o2pd-1106c`) silently failed to upload
+  `o2pd_rollouts.jsonl` — the train wrapper's `--upload` uses
+  `nargs="*"` with store action, so repeating `--upload` twice keeps
+  only the LAST file (teacher landed, rollouts did not). The driver
+  then regenerated rollouts fresh, which would have mismatched the
+  cached teacher scores (conditioned on the original rollout tokens).
+  Caught at ROLLOUTS 16/200, session stopped, relaunched as
+  `o2pd-1106d` with both files in a single `--upload` flag; verified
+  200/200 lines on the VM before training. Root cause is a wrapper
+  arg-parsing quirk — worth a wrapper fix, not a driver fix.
+- Session `o2pd-1106d`, account **cyc236es** (cyc236ha and ppoppo205
+  gpu-unavailable at creation; wrapper cross-account retry). Rotation
+  state deliberately left at `2026-11-06 cyc236ha`; tomorrow still
+  picks ppoppo205. Active account restored to cyc236ha.
+- Monitor died mid-eval (host-side); driver kept running detached;
+  re-attached with `train --watch-only --pid 1333`. Outcome **DONE**.
+  All 5 result files downloaded (metrics, details, 3 adapter zips).
+  Mid-run snapshots + adapter zips were downloaded during the run as
+  reclamation protection.
+- Results (GSM8K test, first 100, 2-shot, greedy, exact-match):
+  base 0.00, sft 0.05, opd_full 0.14, o2pd 0.01.
+- Adapters (local-only, ~161 MB each, NOT pushed):
+  `hidden_files/o2pd-1106-rerun2/{sft,opd_full,o2pd}.zip`.
 
 ## Files
 
@@ -128,3 +167,7 @@ diagnostic) are partial, not a verdict on the method.
   GitHub's 100 MB file limit, same precedent as the 2026-11-04 UaS
   adapter); the SFT adapter weights live only on this VM.
 - `train-run.json` — `colab.py train` outcome record (attempt 2, DIED).
+- Rerun (2026-11-06): `o2pd_metrics_rerun.csv`,
+  `o2pd_details_rerun.csv` (400 per-item rows), `train-run-rerun.json`
+  (session `o2pd-1106d`, DONE). Rerun adapter zips are local-only in
+  `hidden_files/o2pd-1106-rerun2/` (see rerun section).
