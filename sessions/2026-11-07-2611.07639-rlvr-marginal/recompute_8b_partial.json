@@ -1,0 +1,20 @@
+{
+ "in/base": {
+  "n": 100,
+  "first_match_acc": 0.9,
+  "driver_last_match_acc": 0.0,
+  "first_parse_fail": 0
+ },
+ "in/sft": {
+  "n": 96,
+  "first_match_acc": 1.0,
+  "driver_last_match_acc": 1.0,
+  "first_parse_fail": 0
+ },
+ "ood/base": {
+  "n": 100,
+  "first_match_acc": 0.82,
+  "driver_last_match_acc": 0.43,
+  "first_parse_fail": 3
+ }
+}
