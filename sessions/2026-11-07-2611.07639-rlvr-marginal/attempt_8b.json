@@ -1,0 +1,22 @@
+{
+  "attempt": 2,
+  "role": "automatic fallback per 2026-11-05 standing rule (attempt 1 blocked: CUDA OOM)",
+  "model": "Qwen/Qwen3-8B",
+  "account": "ppoppo205",
+  "session": "rlvr-1107b",
+  "endpoint": "gpu-t4-s-usw4a2-wv9ipu9s5o8x",
+  "driver": "colab_rlvr_driver.py",
+  "driver_pid": 568,
+  "outcome": "RECLAIMED",
+  "reclaimed_at_utc": "~2026-11-07 07:10-07:14",
+  "completed": {
+    "probe": {"peak_gb": 6.16},
+    "base_eval": {"n_in": 100, "n_ood": 100, "peak_gb": 7.72},
+    "sft_train": {"mean_loss": 0.0172, "n": 400, "peak_gb": 8.22, "micro_steps": 200},
+    "sft_eval_in_partial": {"n": 96, "of": 200}
+  },
+  "never_ran": ["sft_eval_in_last_4", "sft_eval_ood", "grpo_32_steps", "grpo_eval", "adapter_zips_download"],
+  "first_match_recompute": "recompute_8b_partial.json",
+  "partial_details": "rlvr_details_8b_partial.csv (downloaded 07:05 UTC, before reclamation; header + 200 base + 96 sft rows)",
+  "monitor": "train --watch-only re-attached after first monitor died; outcome RECLAIMED, downloaded []"
+}
