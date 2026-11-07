@@ -1,0 +1,16 @@
+{
+ "session": "rlvr-1107",
+ "account": "ppoppo205",
+ "model": "Qwen/Qwen3.5-9B",
+ "outcome": "DIED",
+ "cause": "CUDA OOM in torch_chunk_gated_delta_rule (Qwen3.5 hybrid linear attention) during first training backward",
+ "probe_peak_gb": 7.72,
+ "eval_base": {
+  "acc_in": 0.0,
+  "acc_ood": 0.0,
+  "n": 100,
+  "peak_gb": 10.29,
+  "note": "0.00 is a measurement artifact: 2-shot prompt made the base model analyse the examples and ramble past the 192-token cap, never reaching Final:"
+ },
+ "driver": "colab_rlvr_driver_9b.py"
+}
