@@ -1,0 +1,60 @@
+{
+  "paper": "arXiv 2611.07859 CORE: Coarse-to-Fine Search with Context Management for Deep Research",
+  "config": {
+    "k": 5,
+    "snippet_width_sentences": 2,
+    "jaccard_threshold": 0.8,
+    "n_entities": 120,
+    "retriever": "BM25 (CPU proxy for dense retriever)",
+    "snippet_scorer": "TF-IDF cosine (CPU proxy for late-interaction reranker token sims)"
+  },
+  "E1_two_hop": {
+    "FULL": {
+      "recall_both": 1.0,
+      "accuracy": 1.0,
+      "mean_tokens": 381.18333333333334
+    },
+    "CORE": {
+      "recall_both": 1.0,
+      "accuracy": 1.0,
+      "mean_tokens": 115.7
+    },
+    "NAIVE": {
+      "recall_both": 0.0,
+      "accuracy": 0.7,
+      "mean_tokens": 60.083333333333336
+    },
+    "n": 60
+  },
+  "E1b_single_hop_control": {
+    "FULL": {
+      "accuracy": 1.0,
+      "mean_tokens": 378.96666666666664
+    },
+    "CORE": {
+      "accuracy": 1.0,
+      "mean_tokens": 117.13333333333334
+    },
+    "n": 30
+  },
+  "E2_multi_turn": {
+    "n": 30,
+    "FULL_cum_tokens": 763.0666666666667,
+    "CORE_noCM_cum_tokens": 235.4,
+    "CORE_CM_cum_tokens": 180.46666666666667,
+    "CM_token_ratio_vs_FULL": 0.2365018347020793,
+    "suppression_rate": 0.9714285714285714,
+    "n_seen_slots": 70,
+    "n_suppressed": 68,
+    "n_expanded": 2,
+    "turn2_evidence_coverage_CORE_noCM": 1.0,
+    "turn2_evidence_coverage_CORE_CM": 1.0
+  },
+  "E3_snippet_ablation": {
+    "token_sim": 1.0,
+    "first_sentence": 0.0,
+    "random_window": 0.23333333333333334,
+    "n": 60
+  },
+  "verdict": "SUPPORTED"
+}
