@@ -1,0 +1,17 @@
+[package]
+name = "core-rust"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the CORE (arXiv 2611.07859) coarse-to-fine search with context management mechanism"
+
+[lib]
+name = "core_rust"
+path = "src/lib.rs"
+
+[[bin]]
+name = "verify"
+path = "src/bin/verify.rs"
+
+[[bin]]
+name = "parity"
+path = "src/bin/parity.rs"
