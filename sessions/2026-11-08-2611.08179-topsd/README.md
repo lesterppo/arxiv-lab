@@ -161,3 +161,46 @@ python3 ~/workspace/hermes-colab-cli/colab.py train \
   --out-dir . \
   --registry-file ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/train-1108-registry.json
 ```
+
+## Rerun — 2026-11-08, session topsd-1108c (Peter's fresh instruction)
+
+- **Model:** Qwen/Qwen3-8B via `--env MODEL_ID=Qwen/Qwen3-8B` (the
+  README reproduce choice; the 9B died silently and the 8B base eval is
+  banked and proven to run). CPU logic test re-run 22/22 before launch.
+  The driver has no base-eval skip option, so the full driver ran as
+  designed and the base eval was re-measured.
+- **Account path:** `--account cyc236es`, but cyc236es was
+  gpu-unavailable at creation; the wrapper's cross-account retry
+  created the session on **ppoppo205**
+  (endpoint gpu-t4-s-usw4b1-300bhxj591548). Rotation state deliberately
+  left at `2026-11-08 cyc236es`; active account restored to cyc236es
+  after the run.
+- **Outcome: RECLAIMED ~3.5h in, during phase 2 (student-trace
+  generation)** — the same phase that killed the 8B fallback at ~2h.
+  The driver was confirmed alive three times by direct checks (GPU
+  99–100%, PID 836, 2:04 CPU time at the last check); the monitor's
+  per-poll PID-liveness check never flagged a silent death. The session
+  vanished from the server; the wrapper downloaded nothing
+  (`downloaded: []` on RECLAIMED) and removed the stale registry entry;
+  no teardown was needed.
+- **What ran:** probe GREEN (Qwen3-8B, 6.16 GB); base eval re-measured
+  and reproduced the banked 8B calibration exactly — en 0.1167, zh
+  0.2333, sw 0.0333 (parse_fail 3 on sw), peak 6.91 GB. No drift
+  measurement, no SFT arms, no adapters: phase 2 never wrote metrics
+  (it writes at phase boundaries), so no drift/training data survived.
+- **What survived:** the host-side mid-run downloader (10-min polls)
+  captured `topsd_metrics_rerun.csv` (probe + eval_base rows) and
+  `topsd_details_rerun.csv` (180 base-eval detail rows) before the
+  reclamation — the only new artifacts of this rerun. No adapter zips
+  exist (no arm trained).
+- **Verdict stays BLOCKED.** The full design needs several hours of
+  uninterrupted GPU; evening free-tier sessions have now been reclaimed
+  in phase 2 twice (attempt 3 at ~2h, this rerun at ~3.5h). A future
+  retry should run in a morning window and consider the split design
+  (drift measurement in one session, SFT arms in a second) so each leg
+  fits a free-tier lifetime; phase 2 should also flush partial
+  trace/drift state incrementally so a reclamation mid-phase does not
+  lose everything.
+- **Files:** `topsd_metrics_rerun.csv`, `topsd_details_rerun.csv`,
+  `train-run-rerun.json`. Run log: `run-2026-11-08.md` (rerun note
+  appended).
