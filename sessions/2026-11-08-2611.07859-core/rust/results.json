@@ -1,0 +1,49 @@
+{
+  "paper": "arXiv 2611.07859 CORE: Coarse-to-Fine Search with Context Management for Deep Research",
+  "implementation": "Rust port (stdlib only) of the Python CPU proxy in the parent session directory",
+  "config": {
+    "k": 5,
+    "snippet_width_sentences": 2,
+    "jaccard_threshold": 0.8,
+    "n_entities": 120,
+    "retriever": "BM25 (CPU proxy for dense retriever)",
+    "snippet_scorer": "TF-IDF cosine (CPU proxy for late-interaction reranker token sims)"
+  },
+  "E1_two_hop": {
+    "FULL": {"recall_both": 1.0, "accuracy": 1.0, "mean_tokens": 381.31666666666666},
+    "CORE": {"recall_both": 1.0, "accuracy": 1.0, "mean_tokens": 115.5},
+    "NAIVE": {"recall_both": 0.0, "accuracy": 0.7333333333333333, "mean_tokens": 60.45},
+    "n": 60
+  },
+  "E1b_single_hop_control": {
+    "FULL": {"accuracy": 1.0, "mean_tokens": 380.6333333333333},
+    "CORE": {"accuracy": 1.0, "mean_tokens": 118.03333333333333},
+    "n": 30
+  },
+  "E2_multi_turn": {
+    "n": 30,
+    "FULL_cum_tokens": 760.0,
+    "CORE_noCM_cum_tokens": 233.33333333333334,
+    "CORE_CM_cum_tokens": 183.26666666666668,
+    "CM_token_ratio_vs_FULL": 0.241140350877193,
+    "suppression_rate": 0.9242424242424242,
+    "n_seen_slots": 66,
+    "n_suppressed": 61,
+    "n_expanded": 5,
+    "turn2_evidence_coverage_CORE_noCM": 1.0,
+    "turn2_evidence_coverage_CORE_CM": 1.0
+  },
+  "E3_snippet_ablation": {
+    "token_sim": 1.0,
+    "first_sentence": 0.0,
+    "random_window": 0.11666666666666667,
+    "n": 60
+  },
+  "assertions": {
+    "A1 CORE recall within 5pp of FULL": true,
+    "A2 CORE mean tokens <= 50% of FULL": true,
+    "A3 CORE recall beats NAIVE by >= 10pp": true,
+    "A4 CORE+CM cum tokens < CORE no-CM (E2)": true
+  },
+  "verdict": "SUPPORTED"
+}
