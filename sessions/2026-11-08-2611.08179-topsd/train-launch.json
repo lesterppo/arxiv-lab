@@ -1,0 +1,12 @@
+{
+  "session": "topsd-1108",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw4b0-35vxzst7woe3f",
+  "pid": "416",
+  "log_tail": "\n[colab] A new version of Colab CLI is available: 0.7.5 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\ntransformers=5.20.2\nGPU: Tesla T4 total=15.6 GB torch=2.14.1+cu130\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nGenerating train split:   0%|          | 0/8 [00:00<?, ? examples/s]\nGenerating train split: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 8/8 [00:00<00:00, 260.37 examples/s]\n\nGenerating test split:   0%|          | 0/250 [00:00<?, ? examples/s]\nGenerating test split: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 250/250 [00:00<00:00, 85333.33 examples/s]\nTraceback (most recent call last):\n  File \"/content/colab_topsd_driver.py\", line 506, in <module>\n    main()\n    ~~~~^^\n  File \"/content/colab_topsd_driver.py\", line 199, in main\n    assert len(recs) == 250, \"MGSM %s has %d rows, expected 250\" % (\n           ^^^^^^^^^^^^^^^^\nAssertionError: MGSM en has 8 rows, expected 250\n"
+}
