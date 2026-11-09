@@ -1,0 +1,23 @@
+[package]
+name = "waac-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of WAAC (arXiv:2611.08865) trajectory compression: capability-set policies, Trace-to-DAG, online backward dependency analysis, verified-history matching, conservative fusion, context projection"
+license = "MIT"
+
+[lib]
+name = "waac_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "waac-verify"
+path = "src/main.rs"
+
+[[bin]]
+name = "waac-parity"
+path = "src/bin/parity.rs"
+
+# Std-only: no external crates. SHA-256 and the CPython-compatible
+# Mersenne Twister are implemented in-tree (src/sha256.rs, src/mt19937.rs)
+# so `cargo build --offline` works with no network.
+[dependencies]
