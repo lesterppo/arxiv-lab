@@ -128,7 +128,51 @@ this scale: 0.03–0.27) but say nothing about the paper's claims.
 
 - Driver: `colab_topsd_driver.py` in this session (MGSM-split fix
   included; `MODEL_ID` env overrides the model). CPU logic test:
-  `python3 test_topsd_logic_cpu.py` (22/22).
+  `python3 test_topsd_logic_cpu.py` (33/33).
+- **Split design staged 2026-11-09 (not yet run on Colab):** env
+  `TOPSD_PHASES` selects the leg — `drift` (base eval skipped, banked
+  8B row written; student traces generated in chunks of 24, each
+  flushed to `/content/topsd_student_traces.jsonl`; drift rows to
+  `/content/topsd_drift.jsonl`; ends `TOPSD_DRIFT_DONE`) or `sft`
+  (reloads those two files, rebuilds SFT data reusing stored onsets,
+  trains both arms, ends `TOPSD_DONE`). `full` (default) is the
+  original one-session design, now also with chunked trace
+  persistence. `TOPSD_SKIP_BASE_EVAL=1` skips phase 1 in any leg.
+  Leg commands (Qwen3-8B, rotation untouched — `--account cyc236es`
+  with the wrapper's cross-account retry, as the 2026-11-08 rerun):
+  ```bash
+  cd sessions/2026-11-08-2611.08179-topsd
+  # Leg A — drift only (morning window):
+  python3 ~/workspace/hermes-colab-cli/colab.py train \
+    --driver colab_topsd_driver.py --account cyc236es \
+    --session topsd-1109-drift --gpu T4 --monitor-timeout 14400 \
+    --done-marker TOPSD_DRIFT_DONE \
+    --env MODEL_ID=Qwen/Qwen3-8B --env TOPSD_PHASES=drift \
+    --results /content/topsd_metrics.csv /content/topsd_details.csv \
+    /content/topsd_student_traces.jsonl /content/topsd_drift.jsonl \
+    --out-dir . \
+    --registry-file ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/train-1109-registry.json
+  # Leg B — SFT arms (after leg A's two jsonl files are downloaded):
+  python3 ~/workspace/hermes-colab-cli/colab.py train \
+    --driver colab_topsd_driver.py --account cyc236es \
+    --session topsd-1109-sft --gpu T4 --monitor-timeout 14400 \
+    --done-marker TOPSD_DONE \
+    --env MODEL_ID=Qwen/Qwen3-8B --env TOPSD_PHASES=sft \
+    --upload topsd_student_traces.jsonl:/content/topsd_student_traces.jsonl \
+    --upload topsd_drift.jsonl:/content/topsd_drift.jsonl \
+    --results /content/topsd_metrics.csv /content/topsd_details.csv \
+    /content/topsd_sft_data.jsonl \
+    /content/adapters/opsd.zip /content/adapters/topsd.zip \
+    --out-dir . \
+    --registry-file ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/train-1109-registry.json
+  ```
+  Note: leg B runs in a fresh VM, so its metrics CSV holds only the
+  SFT/eval rows — combine with leg A's CSV for the full record. The
+  mid-run downloader should also fetch `topsd_student_traces.jsonl`
+  during leg A. Leg A needs Peter's tap to launch; the point of the
+  split is the morning window, so launch as soon as he taps. The
+  12:20 HKT daily arXiv run picks kyu008008 — a morning leg on a
+  fixed account leaves that untouched.
 - Design: MGSM en/zh/sw, train idx 0–119 / test idx 150–209 per
   language (same index split in all languages — no problem appears in
   both train and test in any language).
@@ -204,3 +248,56 @@ python3 ~/workspace/hermes-colab-cli/colab.py train \
 - **Files:** `topsd_metrics_rerun.csv`, `topsd_details_rerun.csv`,
   `train-run-rerun.json`. Run log: `run-2026-11-08.md` (rerun note
   appended).
+
+## Leg A — drift only (2026-11-09 morning window)
+
+- **Outcome: DIED** — session `topsd-1109-drift`, Qwen3-8B, account
+  **ppoppo205** (cyc236es gpu-unavailable at creation; the wrapper's
+  cross-account retry landed on ppoppo205 — same as topsd-1108c; the
+  launch message said cyc236es, corrected in
+  `hidden_files/topsd-1109-drift/ACCOUNT_CORRECTION.md`). NOT a
+  reclamation: the driver itself crashed with a traceback. Verdict
+  stays BLOCKED. One attempt only — no relaunch, no Leg B.
+- **What ran:** probe GREEN (6.16 GB); base eval skipped, banked 8B row
+  written (en 0.1167 / zh 0.2333 / sw 0.0333). All **360/360 student
+  traces** generated and flushed in 15 chunks of 24 (en 120 / zh 120 /
+  sw 120), downloaded in full. Drift pool en: 86 wrong of 120 — then
+  the driver crashed at the first drift-pool item.
+- **Crash (driver bug, diagnosed from the downloaded artifacts + a
+  live Hub check):** `AttributeError: 'NoneType' object has no
+  attribute 'strip'` at `colab_topsd_driver.py:459` —
+  `r["cot"].strip()` where `r["cot"]` is the MGSM record's `answer`
+  field. Verified 2026-11-09 via the datasets-server API: in the
+  current `juletxara/mgsm`, `answer` AND `equation_solution` are null
+  for every row in all three languages (en/zh/sw) — only `question`
+  and `answer_number` are populated. All 360 downloaded trace records
+  have `"cot": null` (gold/q/trace all populated). The base eval and
+  trace generation never touch `cot`, which is why they ran fine; the
+  drift phase is the first place the reference-solution text is needed
+  (teacher context `"Reference solution:\n" + cot`, and the teacher
+  completion prompt), and the SFT leg needs it too (lines 526/533/552).
+- **Fix options (for the next attempt):** (a) source the reference
+  solutions from a MGSM mirror that carries them (verify non-null
+  before launching); or (b) guard `r["cot"]` (skip/empty-string the
+  reference solution in the drift context) — a design change, weaker
+  than the paper's method. Either way the 360 downloaded traces are
+  reusable ONLY if the driver gains a resume-from-traces path (the
+  drift leg currently regenerates traces; `TOPSD_PHASES=sft` requires
+  the drift JSONL). The traces file is banked in this session for
+  that purpose.
+- **Monitor note:** the host-side monitor was SIGTERM'd by the runtime
+  ~04:14 UTC (same wrinkle as before); re-attached with
+  `train --watch-only --pid 3226` and the driver was unaffected
+  (288/360 at re-attach). The mid-run downloader died in the same
+  sweep and was restarted — it had grabbed 264 traces before dying
+  and 312 after restart; the wrapper's final download on DIED captured
+  the full 360-line file, so nothing was lost.
+- **Files:** `topsd_metrics_drift.csv` (probe + eval_base rows),
+  `topsd_student_traces.jsonl` (360 rows, 505 KB — pushed; small
+  enough), `train-run-drift.json`. No `topsd_drift.jsonl` exists (no
+  drift rows were written before the crash). No adapter zips (no arm
+  trained).
+- **Leg B status: STILL WAITING.** Leg B needs `topsd_drift.jsonl`
+  from a completed drift leg plus the reference-solution fix above. A
+  drift-leg retry (fixed driver) is a fresh instruction; Leg B needs
+  its own authorization after that.
