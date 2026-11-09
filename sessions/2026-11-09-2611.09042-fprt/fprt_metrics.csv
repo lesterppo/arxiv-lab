@@ -1,0 +1,4 @@
+phase,n,n_errors,modes,peak_gb,n_usable,mean_margin
+profile,160,48,"{""inconsistent"": 20, ""sporadic"": 23, ""stubborn"": 5}",0.0,,
+teacher,,48,,9.04,1,
+bpr,1,,,9.04,,0.0191
