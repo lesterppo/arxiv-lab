@@ -1,0 +1,15 @@
+{
+  "session": "topsd-1109-drift",
+  "account": "ppoppo205",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/topsd-1109-drift/topsd_metrics.csv",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/topsd-1109-drift/topsd_student_traces.jsonl"
+  ],
+  "pid": "3226",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-ass1c1-bjli0mtmrllh",
+  "log_tail": ":03<00:02,  8.46it/s]\nLoading weights:  95%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 378/399 [01:03<00:02,  7.86it/s]\nLoading weights:  95%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 380/399 [01:04<00:03,  5.17it/s]\nLoading weights:  96%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 384/399 [01:04<00:01,  7.56it/s]\nLoading weights:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 386/399 [01:04<00:01,  8.45it/s]\nLoading weights:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 389/399 [01:05<00:01,  7.82it/s]\nLoading weights:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 391/399 [01:06<00:01,  5.16it/s]\nLoading weights:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 395/399 [01:06<00:00,  7.54it/s]\nLoading weights:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 397/399 [01:06<00:00,  8.48it/s]\nLoading weights: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 399/399 [01:06<00:00,  6.00it/s]\nLOADED Qwen/Qwen3-8B peak=6.16 GB\nMETRIC {\"phase\": \"probe\", \"model\": \"Qwen/Qwen3-8B\", \"peak_gb\": 6.16, \"acc\": \"\", \"n\": \"\"}\nMETRIC {\"phase\": \"eval_base\", \"model\": \"Qwen/Qwen3-8B\", \"acc_en\": 0.1167, \"acc_zh\": 0.2333, \"acc_sw\": 0.0333, \"n\": 60, \"peak_gb\": 6.91}\nBASE eval skipped: banked 8B row {'en': 0.1167, 'zh': 0.2333, 'sw': 0.0333}\nstudent traces: 24/360 (chunk 0-23 flushed)\nstudent traces: 48/360 (chunk 24-47 flushed)\nstudent traces: 72/360 (chunk 48-71 flushed)\nstudent traces: 96/360 (chunk 72-95 flushed)\nstudent traces: 120/360 (chunk 96-119 flushed)\nstudent traces: 144/360 (chunk 120-143 flushed)\nstudent traces: 168/360 (chunk 144-167 flushed)\nstudent traces: 192/360 (chunk 168-191 flushed)\nstudent traces: 216/360 (chunk 192-215 flushed)\nstudent traces: 240/360 (chunk 216-239 flushed)\nstudent traces: 264/360 (chunk 240-263 flushed)\nstudent traces: 288/360 (chunk 264-287 flushed)\nstudent traces: 312/360 (chunk 288-311 flushed)\nstudent traces: 336/360 (chunk 312-335 flushed)\nstudent traces: 360/360 (chunk 336-359 flushed)\nstudent traces: 360\ndrift pool en: 86 wrong of 120\nTraceback (most recent call last):\n  File \"/content/colab_topsd_driver.py\", line 667, in <module>\n    main()\n    ~~~~^^\n  File \"/content/colab_topsd_driver.py\", line 459, in main\n    + r[\"cot\"].strip())\n      ^^^^^^^^^^^^^^\nAttributeError: 'NoneType' object has no attribute 'strip'\n"
+}
