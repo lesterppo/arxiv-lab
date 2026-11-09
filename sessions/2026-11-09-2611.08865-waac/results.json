@@ -1,0 +1,138 @@
+{
+  "paper": "arXiv 2611.08865 WAAC: Rethinking Agent Trajectory Compression: A Workflow-Aware Perspective",
+  "config": {
+    "n_workflows": 60,
+    "n_dev_workflows": 20,
+    "ops_per_workflow": "7-13 (observed; generator aims 6-14)",
+    "summary_stub_tokens": 25,
+    "history_match_threshold": 0.5,
+    "history_window_ops": 4,
+    "matched_budget": "per-(workflow, step) WAAC-full tokens",
+    "semantic_similarity": "TF-IDF cosine over op/field/domain tokens (CPU proxy for embeddings)",
+    "summary": "stub: first 25 tokens of long text; short scalars retained whole"
+  },
+  "history": {
+    "library_entries": 25,
+    "dev_workflows_verified": 20,
+    "dev_workflows_failed": 0,
+    "lookups": {
+      "exact": 523,
+      "coarse": 0,
+      "none": 24
+    },
+    "match_rate": 0.9561243144424132
+  },
+  "methods": {
+    "no_compression": {
+      "n": 60,
+      "success_rate": 1.0,
+      "steps_completed_frac": 1.0,
+      "critical_retention": 1.0,
+      "min_step_retention": 1.0,
+      "mean_tokens_per_step": 573.4332784184514,
+      "n_fallbacks": 0
+    },
+    "waac_full": {
+      "n": 60,
+      "success_rate": 1.0,
+      "steps_completed_frac": 1.0,
+      "critical_retention": 1.0,
+      "min_step_retention": 1.0,
+      "mean_tokens_per_step": 119.76276771004942,
+      "n_fallbacks": 0
+    },
+    "waac_online": {
+      "n": 60,
+      "success_rate": 1.0,
+      "steps_completed_frac": 1.0,
+      "critical_retention": 1.0,
+      "min_step_retention": 1.0,
+      "mean_tokens_per_step": 66.31795716639209,
+      "n_fallbacks": 0
+    },
+    "keep_last_n": {
+      "n": 60,
+      "success_rate": 0.0,
+      "steps_completed_frac": 0.5038705738705739,
+      "critical_retention": 0.7840770388615217,
+      "min_step_retention": 0.0,
+      "mean_tokens_per_step": 124.00588235294117,
+      "n_fallbacks": 0
+    },
+    "keep_last_5": {
+      "n": 60,
+      "success_rate": 0.2833333333333333,
+      "steps_completed_frac": 0.8271293058793058,
+      "critical_retention": 0.9725129736592227,
+      "min_step_retention": 0.4,
+      "mean_tokens_per_step": 404.4426559356137,
+      "n_fallbacks": 0
+    },
+    "text_importance": {
+      "n": 60,
+      "success_rate": 0.0,
+      "steps_completed_frac": 0.4958681596181596,
+      "critical_retention": 0.6454234462855152,
+      "min_step_retention": 0.0,
+      "mean_tokens_per_step": 122.80722891566265,
+      "n_fallbacks": 0
+    },
+    "summary_all": {
+      "n": 60,
+      "success_rate": 0.016666666666666666,
+      "steps_completed_frac": 0.6526139138639138,
+      "critical_retention": 0.7745190950630927,
+      "min_step_retention": 0.0,
+      "mean_tokens_per_step": 147.32367149758454,
+      "n_fallbacks": 0
+    }
+  },
+  "token_reduction_vs_no_compression": 0.7911478593632388,
+  "per_baseline_a3": {
+    "keep_last_n": true,
+    "keep_last_5": true,
+    "text_importance": true,
+    "summary_all": true
+  },
+  "fusion_property_check": {
+    "ok": true,
+    "n_pairs": 16,
+    "n_random_triples": 200,
+    "summary_pointer_join": "EXACT"
+  },
+  "history_coarse_match_check": {
+    "ok": true,
+    "coarse_match_kind": "coarse",
+    "coarse_match_score": 1.0,
+    "different_op_sequence_matches": false
+  },
+  "history_admission_check": {
+    "ok": true,
+    "unverified_rejected": true,
+    "verified_admitted": true,
+    "failed_run_rejected": true,
+    "library_size_before": 25,
+    "library_size_after": 25,
+    "sabotaged_workflow_failed": true
+  },
+  "pointer_fallback_check": {
+    "ok": true,
+    "valid_pointer_renders": "<ptr:art_missing>",
+    "invalid_pointer_falls_back_to_exact": true,
+    "invalid_pointer_caps": [
+      "literal",
+      "recoverable",
+      "semantic"
+    ]
+  },
+  "assertions": {
+    "A1 WAAC retains 100% of gold-required fields at every step": true,
+    "A2 WAAC success == no-compression (within 1 workflow) with strictly fewer tokens": true,
+    "A3 WAAC beats each baseline at matched budget (or fewest tokens at no-compression success)": true,
+    "A4 fusion never relaxes an online requirement (SUMMARY+POINTER -> EXACT)": true,
+    "A5 history admits only verified-successful trajectories": true,
+    "A6 invalid pointer falls back to EXACT": true,
+    "A7 coarse historical match works (same structure, different wiring -> coarse; different ops -> none)": true
+  },
+  "verdict": "SUPPORTED"
+}
