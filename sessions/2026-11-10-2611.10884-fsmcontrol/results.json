@@ -1,0 +1,95 @@
+{
+  "paper": "2611.10884",
+  "n_accounts": 200,
+  "seed": 20261110,
+  "drift": {
+    "p0": 0.05,
+    "drift_rate": 0.35,
+    "drift_scale": 1000,
+    "max_retries": 3,
+    "restate_every": 20
+  },
+  "arms": {
+    "plain": {
+      "arm": "plain",
+      "n": 200,
+      "correct_and_by_procedure": 86,
+      "rate": 0.43,
+      "correct_decision_only": 0.905,
+      "complete_rate": 1.0,
+      "quartile_rates": [
+        0.78,
+        0.44,
+        0.36,
+        0.14
+      ],
+      "total_violations": 226,
+      "total_invalid_attempts": 0,
+      "total_retries": 0,
+      "final_p_deviate": 0.4
+    },
+    "restate": {
+      "arm": "restate",
+      "n": 200,
+      "correct_and_by_procedure": 84,
+      "rate": 0.42,
+      "correct_decision_only": 0.875,
+      "complete_rate": 1.0,
+      "quartile_rates": [
+        0.8,
+        0.42,
+        0.24,
+        0.22
+      ],
+      "total_violations": 245,
+      "total_invalid_attempts": 0,
+      "total_retries": 0,
+      "final_p_deviate": 0.4
+    },
+    "fsm": {
+      "arm": "fsm",
+      "n": 200,
+      "correct_and_by_procedure": 197,
+      "rate": 0.985,
+      "correct_decision_only": 0.985,
+      "complete_rate": 0.985,
+      "quartile_rates": [
+        1.0,
+        1.0,
+        0.98,
+        0.96
+      ],
+      "total_violations": 0,
+      "total_invalid_attempts": 237,
+      "total_retries": 234,
+      "final_p_deviate": 0.4
+    }
+  },
+  "sensitivity": {
+    "0.5": {
+      "plain": 110,
+      "fsm": 200,
+      "gap": 90
+    },
+    "1.0": {
+      "plain": 86,
+      "fsm": 197,
+      "gap": 111
+    },
+    "1.5": {
+      "plain": 63,
+      "fsm": 184,
+      "gap": 121
+    }
+  },
+  "paper_reference": {
+    "fsm": 139,
+    "baseline": 48,
+    "n": 200,
+    "ci_diff": [
+      46,
+      130
+    ]
+  },
+  "assertions_passed": true
+}
