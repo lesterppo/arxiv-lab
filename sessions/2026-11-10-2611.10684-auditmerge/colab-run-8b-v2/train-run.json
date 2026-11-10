@@ -1,0 +1,12 @@
+{
+  "session": "auditmerge-1110e",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "RECLAIMED",
+  "downloaded": [],
+  "pid": "691",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-ass1c2-uumkhvmzyq5u",
+  "log_tail": " ~/.config/colab-cli/settings.json\n\n[09:03:51]   gen 24/40\n[09:06:17]   gen 32/40\n[09:08:43]   gen 40/40\n[09:08:43] EVAL math_only math: acc=0.6250 (25/40) 95% CI [0.475, 0.775] peak=9.29 GB\n[09:08:43] METRIC {\"phase\": \"eval_math_only_gsm8k\", \"acc\": 0.625, \"n\": 40, \"ci_lo\": 0.475, \"ci_hi\": 0.775, \"peak_gb\": 9.29}\n[09:08:43] EVAL code_only code: 30 problems, greedy\n[09:09:10]   gen 4/30\n[09:09:24]   gen 8/30\n[09:09:37]   gen 12/30\n[09:09:56]   gen 16/30\n[09:10:16]   gen 20/30\n[09:10:43]   gen 24/30\n[09:11:19]   gen 28/30\n[09:11:35]   gen 30/30\n[09:11:38] EVAL code_only code: acc=0.0667 (2/30) 95% CI [0.000, 0.156] peak=9.29 GB\n[09:11:38] METRIC {\"phase\": \"eval_code_only_mbpp\", \"acc\": 0.0667, \"n\": 30, \"ci_lo\": 0, \"ci_hi\": 0.1559, \"peak_gb\": 9.29}\n[09:11:39] EVAL ta05 math: 40 problems, greedy\n[09:13:27]   gen 8/40\n[09:15:56]   gen 16/40\n[09:17:40]   gen 24/40\n[09:19:52]   gen 32/40\n[09:22:19]   gen 40/40\n[09:22:19] EVAL ta05 math: acc=0.7750 (31/40) 95% CI [0.646, 0.904] peak=9.29 GB\n[09:22:19] METRIC {\"phase\": \"eval_ta05_gsm8k\", \"acc\": 0.775, \"n\": 40, \"ci_lo\": 0.6456, \"ci_hi\": 0.9044, \"peak_gb\": 9.29}\n[09:22:19] EVAL ta05 code: 30 problems, greedy\n[09:22:52]   gen 4/30\n[09:23:15]   gen 8/30\n[09:23:26]   gen 12/30\n[09:23:44]   gen 16/30\n[09:23:59]   gen 20/30\n[09:24:19]   gen 24/30\n[09:24:35]   gen 28/30\n[09:24:44]   gen 30/30\n[09:24:45] EVAL ta05 code: acc=0.0667 (2/30) 95% CI [0.000, 0.156] peak=9.29 GB\n[09:24:45] METRIC {\"phase\": \"eval_ta05_mbpp\", \"acc\": 0.0667, \"n\": 30, \"ci_lo\": 0, \"ci_hi\": 0.1559, \"peak_gb\": 9.29}\n[09:24:45] METRIC {\"phase\": \"mcnemar_ta05_vs_base_gsm8k\", \"b_only_a\": 6, \"c_only_b\": 3, \"chi2\": 0.444, \"p\": 0.505}\n[09:24:45] METRIC {\"phase\": \"mcnemar_ta05_vs_base_mbpp\", \"b_only_a\": 0, \"c_only_b\": 2, \"chi2\": 0.5, \"p\": 0.4795}\n/usr/local/lib/python3.13/dist-packages/peft/tuners/tuners_utils.py:2119: UserWarning: Adapter ta05 was active which is now deleted. Setting active adapter to code.\n  warnings.warn(\n[09:24:47] EVAL ta10 math: 40 problems, greedy\n"
+}
