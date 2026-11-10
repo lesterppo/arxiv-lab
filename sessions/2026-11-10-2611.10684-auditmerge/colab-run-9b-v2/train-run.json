@@ -1,0 +1,12 @@
+{
+  "session": "auditmerge-1110b",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw1b2-228b2zkrhoqiv",
+  "pid": "450",
+  "log_tail": "ackages/datasets/load.py\", line 1688, in load_dataset\n    builder_instance = load_dataset_builder(\n        path=path,\n    ...<10 lines>...\n        **config_kwargs,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/datasets/load.py\", line 1315, in load_dataset_builder\n    dataset_module = dataset_module_factory(\n        path,\n    ...<5 lines>...\n        cache_dir=cache_dir,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/datasets/load.py\", line 1207, in dataset_module_factory\n    raise e1 from None\n  File \"/usr/local/lib/python3.13/dist-packages/datasets/load.py\", line 1182, in dataset_module_factory\n    ).get_module()\n      ~~~~~~~~~~^^\n  File \"/usr/local/lib/python3.13/dist-packages/datasets/load.py\", line 598, in get_module\n    standalone_yaml_path = cached_path(\n        hf_dataset_url(self.name, config.REPOYAML_FILENAME, revision=self.commit_hash),\n        download_config=download_config,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/datasets/utils/file_utils.py\", line 180, in cached_path\n    ).resolve_path(url_or_filename)\n      ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/hf_file_system.py\", line 307, in resolve_path\n    parsed = parse_hf_uri(f\"{constants.HF_PROTOCOL}{path}\")\n  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_hf_uris.py\", line 319, in parse_hf_uri\n    return _parse_repo_body(location, type_, raw=raw)\n  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_hf_uris.py\", line 617, in _parse_repo_body\n    raise HfUriError(uri=raw, msg=f\"Repository id must be 'namespace/name', got '{repo_id}'.\")\nhuggingface_hub.errors.HfUriError: Invalid HF URI 'hf://datasets/mbpp@4bb6404fdc6cacfda99d4ac4205087b89d32030c/.huggingface.yaml'. Repository id must be 'namespace/name', got 'mbpp'.\nAUDITMERGE_FAILED:HfUriError:Invalid HF URI 'hf://datasets/mbpp@4bb6404fdc6cacfda99d4ac4205087b89d32030c/.huggingface.yaml'. Repository id must be 'namespace/name', got 'mbpp'.\n"
+}
