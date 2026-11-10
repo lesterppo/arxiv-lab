@@ -1,0 +1,12 @@
+{
+  "session": "auditmerge-1110",
+  "account": "kyu009009",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-ass1b0-2c8csjzpm34i7",
+  "pid": "510",
+  "log_tail": "_variables#hfxethighperformance for more details.\n  warnings.warn(\n[04:32:01] transformers 5.20.2 model=Qwen/Qwen3.5-9B\n[04:32:15] torch 2.14.1+cu130 cuda=True\n[04:32:15] gpu: Tesla T4 15.6 GB\n[04:32:16] PHASE 1: data\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nGenerating train split:   0%|          | 0/7473 [00:00<?, ? examples/s]\nGenerating train split: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 7473/7473 [00:00<00:00, 139937.47 examples/s]\n\nGenerating test split:   0%|          | 0/1319 [00:00<?, ? examples/s]\nGenerating test split: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 1319/1319 [00:00<00:00, 273672.37 examples/s]\nTraceback (most recent call last):\n  File \"/content/colab_auditmerge_driver.py\", line 514, in main\n    math_train, math_test, code_train, code_test = load_data()\n                                                   ~~~~~~~~~^^\n  File \"/content/colab_auditmerge_driver.py\", line 192, in load_data\n    mbpp = load_dataset(\"google/mbpp\", \"full\")\n  File \"/usr/local/lib/python3.13/dist-packages/datasets/load.py\", line 1688, in load_dataset\n    builder_instance = load_dataset_builder(\n        path=path,\n    ...<10 lines>...\n        **config_kwargs,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/datasets/load.py\", line 1315, in load_dataset_builder\n    dataset_module = dataset_module_factory(\n        path,\n    ...<5 lines>...\n        cache_dir=cache_dir,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/datasets/load.py\", line 1201, in dataset_module_factory\n    raise e1 from None\n  File \"/usr/local/lib/python3.13/dist-packages/datasets/load.py\", line 1158, in dataset_module_factory\n    raise DatasetNotFoundError(f\"Dataset '{path}' doesn't exist on the Hub or cannot be accessed.\") from e\ndatasets.exceptions.DatasetNotFoundError: Dataset 'google/mbpp' doesn't exist on the Hub or cannot be accessed.\nAUDITMERGE_FAILED:DatasetNotFoundError:Dataset 'google/mbpp' doesn't exist on the Hub or cannot be accessed.\n"
+}
