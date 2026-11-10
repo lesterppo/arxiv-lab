@@ -1,0 +1,15 @@
+{
+  "paper": "2611.10884",
+  "lang": "rust",
+  "n_accounts": 200,
+  "seed": 20261110,
+  "plain_correct": 86,
+  "restate_correct": 84,
+  "fsm_correct": 197,
+  "plain_quartiles": [0.78, 0.44, 0.36, 0.14],
+  "restate_quartiles": [0.8, 0.42, 0.24, 0.22],
+  "fsm_quartiles": [1.0, 1.0, 0.98, 0.96],
+  "fsm_violations": 0,
+  "fsm_invalid_attempts": 237,
+  "assertions_passed": true
+}
