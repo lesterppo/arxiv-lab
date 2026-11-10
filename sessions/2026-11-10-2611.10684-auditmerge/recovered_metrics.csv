@@ -1,0 +1,27 @@
+# Recovered metrics — 2026-11-10 audit-merge, fallback 2 (Qwen3-8B, cyc236es)
+# WARNING: reconstructed from the monitor's captured log tail after the VM
+# was reclaimed (~09:25 UTC during the TA-1.0 eval). The original
+# /content/auditmerge_metrics.csv and /content/auditmerge_eval.jsonl died
+# with the VM and were never downloaded. Base accuracies are DERIVED from
+# the TA-0.5 McNemar contingencies (see README): base = merged + b_only_a
+# - c_only_b. Audit exact delta norms are lost (assert-pass only).
+phase,acc,n,ci_lo,ci_hi,note
+data,,,,,math_train=400 math_test=40 code_train=374 code_test=30 (survived from fallback launch 1)
+sft_math,,,,,400 examples 100 steps mean_loss=0.4246 peak_gb=9.29
+sft_code,,,,,completed (phase 5 ran); loss line not captured
+audit_math,,,,,PASS (assert; exact delta norm lost)
+audit_code,,,,,PASS (assert; exact delta norm lost)
+audit_bad_base,,,,,REJECTED as designed (assert; detail lost)
+audit_bad_zero,,,,,REJECTED as designed (assert; detail lost)
+eval_base_gsm8k,0.85,40,,,DERIVED: ta05 31/40 + b_only_a 6 - c_only_b 3 = 34/40
+eval_math_only_gsm8k,0.625,40,0.475,0.775,logged 25/40
+eval_ta05_gsm8k,0.775,40,0.6456,0.9044,logged 31/40
+eval_base_mbpp,0.0,30,,,DERIVED: ta05 2/30 + b_only_a 0 - c_only_b 2 = 0/30
+eval_code_only_mbpp,0.0667,30,0,0.1559,logged 2/30
+eval_ta05_mbpp,0.0667,30,0,0.1559,logged 2/30
+mcnemar_ta05_vs_base_gsm8k,,,,,b_only_a=6 c_only_b=3 chi2=0.444 p=0.505
+mcnemar_ta05_vs_base_mbpp,,,,,b_only_a=0 c_only_b=2 chi2=0.5 p=0.4795
+eval_ta10_gsm8k,,,,,NOT RUN (reclaimed during eval)
+eval_ta10_mbpp,,,,,NOT RUN (reclaimed during eval)
+eval_mathneg_gsm8k,,,,,NOT RUN (reclaimed before arm)
+eval_mathneg_mbpp,,,,,NOT RUN (reclaimed before arm)
