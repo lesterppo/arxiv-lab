@@ -1,0 +1,23 @@
+{
+  "session": "auditmerge-1110d",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-10-2611.10684-auditmerge/colab-run-8b/auditmerge_metrics.csv"
+  ],
+  "create_attempts": [
+    {
+      "account": "cyc236ha",
+      "error": "gpu-unavailable"
+    },
+    {
+      "account": "ppoppo205",
+      "error": "gpu-unavailable"
+    }
+  ],
+  "endpoint": "gpu-t4-s-usw1b2-2do2jwo4oao26",
+  "pid": "782",
+  "log_tail": "s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:11<00:00, 12.01s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:11<00:00, 14.22s/it]\n[06:55:22] LOADED Qwen/Qwen3-8B peak=7.12 GB\n[06:55:22] PHASE 2: train math LoRA\n/usr/local/lib/python3.13/dist-packages/torch/utils/checkpoint.py:242: UserWarning: None of the inputs have requires_grad=True. Gradients will be None\n  check_backward_validity(args)\nTraceback (most recent call last):\n  File \"/content/colab_auditmerge_driver.py\", line 538, in main\n    peft_math = sft_train(tok, base, math_ex, \"math\", epochs=1)\n  File \"/content/colab_auditmerge_driver.py\", line 322, in sft_train\n    (out.loss / 2).backward()\n    ~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/_tensor.py\", line 623, in backward\n    torch.autograd.backward(\n    ~~~~~~~~~~~~~~~~~~~~~~~^\n        self, gradient, retain_graph, create_graph, inputs=inputs\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/autograd/__init__.py\", line 395, in backward\n    _engine_run_backward(\n    ~~~~~~~~~~~~~~~~~~~~^\n        tensors,\n        ^^^^^^^^\n    ...<5 lines>...\n        accumulate_grad=True,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py\", line 1072, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        t_outputs, *args, **kwargs\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )  # Calls into the C++ engine to run the backward pass\n    ^\nRuntimeError: element 0 of tensors does not require grad and does not have a grad_fn\ntrainable params: 43,646,976 || all params: 8,234,382,336 || trainable%: 0.5301\nAUDITMERGE_FAILED:RuntimeError:element 0 of tensors does not require grad and does not have a grad_fn\n"
+}
