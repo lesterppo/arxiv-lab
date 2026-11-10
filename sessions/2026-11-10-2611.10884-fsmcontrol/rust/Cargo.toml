@@ -1,0 +1,17 @@
+[package]
+name = "fsmcontrol"
+version = "0.1.0"
+edition = "2021"
+description = "Executable finite-state control for LLM agents on procedure (arXiv:2611.10884) — Rust port of the Python mechanism"
+license = "MIT"
+
+[[bin]]
+name = "verify"
+path = "src/main.rs"
+
+[lib]
+name = "fsmcontrol"
+path = "src/lib.rs"
+
+[profile.release]
+debug = false
