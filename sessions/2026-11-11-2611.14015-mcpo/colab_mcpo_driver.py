@@ -344,7 +344,7 @@ def train_arm(model, arm_name, mcpo):
                 p_ids = tok(prompts[k], truncation=True, max_length=MAX_PROMPT_TOKENS)["input_ids"]
                 c_ids = gen_ids[idx]
                 seqs.append((p_ids, c_ids, advs[idx]))
-        micro = 6
+        micro = 4  # was 6: match the proven 4B config (chunked-loss port, 2026-11-11)
         for mb in range(0, len(seqs), micro):
             chunk = seqs[mb:mb + micro]
             maxlen = max(len(p) + len(c) for p, c, _ in chunk)
@@ -360,15 +360,30 @@ def train_arm(model, arm_name, mcpo):
             ll = torch.tensor(labels, device=DEVICE)
             att = (ii != tok.pad_token_id).long()
             out = model(input_ids=ii, attention_mask=att)
-            logits = out.logits[:, :-1, :]
+            logits = out.logits[:, :-1, :]  # [B, T-1, V] bf16
             tgt = ll[:, 1:]
             mask = (tgt != -100)
-            logp = torch.log_softmax(logits.float(), dim=-1)
-            tok_logp = torch.gather(logp, 2, tgt.clamp(min=0).unsqueeze(-1)).squeeze(-1)
-            if mcpo:
-                probs = torch.softmax(logits.float(), dim=-1)
-                top2 = torch.topk(probs, 2, dim=-1).values
-                margin = (top2[:, :, 0] - top2[:, :, 1])  # [B, T-1]
+            # Chunked logprobs/margins: the 8B run OOM'd materializing
+            # log_softmax over the full [B, T, V] fp32 logits (V=151,936).
+            # Process 64 positions at a time; margins come from the same
+            # log_softmax block (top-2 in prob space = exp of top-2 logp).
+            # Ported from colab_mcpo_driver_4b.py (proven on Colab 2026-11-11,
+            # peak 7.06 GiB, 22/24 GRPO steps before reclamation).
+            B_, Tm1, V_ = logits.shape
+            tok_logp = torch.zeros((B_, Tm1), device=DEVICE, dtype=torch.float32)
+            margin = torch.zeros((B_, Tm1), device=DEVICE, dtype=torch.float32) if mcpo else None
+            CH = 64
+            for ps in range(0, Tm1, CH):
+                pe = min(ps + CH, Tm1)
+                lp = torch.log_softmax(logits[:, ps:pe, :].float(), dim=-1)
+                tb = tgt[:, ps:pe]
+                tok_logp[:, ps:pe] = torch.gather(
+                    lp, 2, tb.clamp(min=0).unsqueeze(-1)).squeeze(-1)
+                if mcpo:
+                    top2 = torch.topk(lp, 2, dim=-1).values
+                    margin[:, ps:pe] = (torch.exp(top2[:, :, 0])
+                                         - torch.exp(top2[:, :, 1]))
+                del lp
             loss = 0.0
             for b, (adv, clen) in enumerate(adv_tok):
                 pos = torch.nonzero(mask[b]).squeeze(-1)  # positions of completion tokens in tgt
