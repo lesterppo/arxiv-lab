@@ -53,6 +53,109 @@ Full per-step rows: `recovered_metrics.csv` (steps 20–22 reconstructed from th
   3. Morning window (free-tier sessions live longest then).
 - No adapters exist (no arm finished). Rotation state file stays `2026-11-11 ppoppo205`; tomorrow `--rotate` picks cyc236es.
 
+## Redesigned retry (staged 2026-11-11, NOT launched — launch timing is Peter's call)
+
+**Decision: easier problems only — GSM8K train/test, no SFT warmup.**
+Measured evidence (all numbers below were measured, not guessed):
+
+- **DAPO has no signal to recover.** Qwen3-8B base 1/80, Qwen3-4B base 0/80
+  on held-out DAPO; the 4B GRPO run produced 6 correct rollouts in 528, so
+  the group-relative advantage was exactly 0 on 18/22 steps — only ~4/88
+  training groups carried any signal. A same-design rerun cannot
+  discriminate MCPO from GRPO at any step count.
+- **Within-DAPO difficulty filtering is not possible.** The parquet's
+  `extra_info` carries only an `index` UUID (checked live via the
+  datasets-server rows API, 2026-11-11); `ability` is just "MATH". There
+  is no difficulty/level field to filter on, so any filter would need an
+  unvalidated proxy (e.g. prompt length).
+- **GSM8K restores signal.** Qwen3-8B base scores 0.83–0.90 on GSM8K
+  (Qwen3 Technical Report Table 7: 89.84 few-shot; AgentArk: 88.17;
+  independent paper: 0.83). At group=6 the mixed-group fraction is 0.88
+  at p=0.7, 0.74 at p=0.8, 0.47 at p=0.9 — i.e. roughly half to
+  three-quarters of training groups carry non-zero advantage, ~10–19x
+  denser signal than DAPO's 0.045. Ceiling risk is bounded: even at
+  p=0.9, ~45 of 96 training groups still discriminate, and the base eval
+  (greedy zero-shot, not few-shot) will land below the published
+  few-shot figures.
+- **GSM8K parses cleanly.** Measured on the real files 2026-11-11:
+  gold (`#### N`) parses 7,473/7,473 train + 1,319/1,319 test, all
+  numeric; questions mean 45 words (max 183), solutions mean 52 words
+  (p95 102, max 216) — comfortably inside MAX_PROMPT_TOKENS=512 and
+  MAX_NEW=320.
+- **No SFT warmup.** GSM8K alone restores signal; a warmup phase would
+  add a full training stage, ~1–2 h, and new failure modes with no
+  evidence it is needed. It is added only if the redesigned run's base
+  eval comes back <0.05 or per-step frac_solved stays ~0 (i.e. GSM8K
+  also yields no signal — contrary to the published numbers).
+
+**What changed vs the original drivers:**
+- New files `colab_mcpo_driver_gsm8k_grpo.py` / `colab_mcpo_driver_gsm8k_mcpo.py`
+  (one arm each; `diff` between them shows ONLY arm name, MCPO flag, done
+  marker, output paths, docstring labels). Everything else is identical:
+  same model (Qwen3-8B NF4 QLoRA r=16/a=32, bf16), same seed, same
+  hyperparameters, same chunked-loss fix (micro 4, CH=64,
+  expandable_segments), same margin thresholds/weights. The only
+  difference between arms is the token-credit weighting, as in the paper.
+- Data: GSM8K train pool 512 / GSM8K **test** eval 80 (true held-out,
+  unlike the original driver whose eval came from the same sampled pool);
+  paired prompts are train_pool[:96], selected deterministically so both
+  arms train on the same prompts in the same order and evaluate on the
+  same 80 problems. Prompt is one fixed instruction + the raw question,
+  final answer as `Answer: $N`; gold is the `#### N` number.
+- Loss/leak fixes from the 4B run carried over; new: mid-run adapter
+  checkpoint + zip at step 12 (a reclamation at step 22 must not lose
+  the whole arm), results.json rewritten after every phase, metrics CSV
+  flushed per row, and a `SIGNAL_CHECK` line after the base eval (flags
+  it if base acc is <0.05 or >0.98).
+- `test_mcpo_redesign_cpu.py`: **71/71 checks pass** — helper identity
+  across arms, config identity except arm-identity keys, margin/advantage
+  helpers, answer extraction, GSM8K gold parsing on the real files
+  (7,473/7,473 + 1,319/1,319), pool determinism (identical paired
+  prompts/eval sets across arms, no train/eval overlap), signal math,
+  and the driver-pitfall checklist in both files. `py_compile` clean on
+  both drivers.
+- Verdict stays **BLOCKED** — nothing about the claim has been tested
+  under the redesign yet.
+
+**Launch plan (for Peter's timing pick; do NOT launch without it):**
+- Arm order: GRPO first (`mcpo-1111-grpo`), then MCPO (`mcpo-1111-mcpo`).
+  Each arm is its own Colab session; the two arms must NOT share a
+  session (a single 4.5 h session is what reclamation killed last time).
+- Account: **ppoppo205** (today's rotation account; tomorrow's 12:20
+  daily run picks cyc236es, so no collision). Cross-account retry stays on.
+- Wall time: ~300 s/step × 24 steps ≈ 2 h/arm + base eval + model load
+  ≈ 2.2–2.5 h per arm, ~4.5–5 h total across the two sessions.
+  Morning window (free-tier sessions live longest then). Stage a host-side
+  mid-run downloader per arm (TOPSD pattern) polling the metrics CSV and
+  the step-12 adapter zip — the wrapper's `--results` only downloads at
+  completion.
+- Exact commands (run from this session dir; registry/out-dir under
+  `~/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/`):
+
+```bash
+# Arm 1 — GRPO
+python3 ~/workspace/hermes-colab-cli/colab.py train \
+  --driver colab_mcpo_driver_gsm8k_grpo.py --account ppoppo205 \
+  --session mcpo-1111-grpo --gpu T4 --monitor-timeout 14400 \
+  --done-marker MCPO_GRPO_DONE \
+  --results /content/mcpo_gsm8k_metrics_grpo.csv /content/mcpo_gsm8k_results_grpo.json \
+            /content/mcpo_gsm8k_adapter_grpo.zip /content/mcpo_gsm8k_adapter_grpo_mid.zip \
+  --out-dir ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/grpo \
+  --registry-file ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/registry.json \
+  --json
+
+# Arm 2 — MCPO (only after arm 1 completes; same paired prompts by construction)
+python3 ~/workspace/hermes-colab-cli/colab.py train \
+  --driver colab_mcpo_driver_gsm8k_mcpo.py --account ppoppo205 \
+  --session mcpo-1111-mcpo --gpu T4 --monitor-timeout 14400 \
+  --done-marker MCPO_MCPO_DONE \
+  --results /content/mcpo_gsm8k_metrics_mcpo.csv /content/mcpo_gsm8k_results_mcpo.json \
+            /content/mcpo_gsm8k_adapter_mcpo.zip /content/mcpo_gsm8k_adapter_mcpo_mid.zip \
+  --out-dir ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/mcpo \
+  --registry-file ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/registry.json \
+  --json
+```
+
 ## Limits
 
 - The MCPO margin thresholds (0.10, 0.50) and weights (1.0, 0.5, 0.1) instantiate the abstract's "two fixed thresholds" — the paper does not publish the exact values, so a retry tests the mechanism family, not the exact paper configuration.
