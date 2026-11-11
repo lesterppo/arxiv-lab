@@ -1,0 +1,187 @@
+{
+ "seed": 20261111,
+ "n_dev": 120,
+ "n_test": 200,
+ "arms": {
+  "untaught_A": 0.4,
+  "untaught_B": 0.52,
+  "sat_A": 0.955,
+  "profile_free_A": 0.715,
+  "profile_only_A": 0.78,
+  "sat_B": 0.98,
+  "A_with_B_library": 0.4,
+  "B_with_A_library": 0.52
+ },
+ "sat_A": {
+  "library": [
+   "L1",
+   "L3",
+   "L5"
+  ],
+  "report": {
+   "profile_rates": {
+    "L1": 0.23333333333333334,
+    "L2": 0.03333333333333333,
+    "L3": 0.425,
+    "L4": 0.041666666666666664,
+    "L5": 0.5083333333333333
+   },
+   "hypotheses": [
+    "L1",
+    "L3",
+    "L5"
+   ],
+   "probes": {
+    "L1": {
+     "confirmed": true,
+     "fail_rate": 1.0
+    },
+    "L3": {
+     "confirmed": true,
+     "fail_rate": 1.0
+    },
+    "L5": {
+     "confirmed": true,
+     "fail_rate": 1.0
+    }
+   },
+   "admissions": {
+    "L1": {
+     "admitted": true,
+     "delta": 0.16666666666666666,
+     "base_ok": 5,
+     "skilled_ok": 7,
+     "n": 12
+    },
+    "L3": {
+     "admitted": true,
+     "delta": 0.5833333333333334,
+     "base_ok": 2,
+     "skilled_ok": 9,
+     "n": 12
+    },
+    "L5": {
+     "admitted": true,
+     "delta": 0.3333333333333333,
+     "base_ok": 3,
+     "skilled_ok": 7,
+     "n": 12
+    }
+   }
+  }
+ },
+ "profile_free_A": {
+  "library": [
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5"
+  ]
+ },
+ "profile_only_A": {
+  "library": [
+   "L5",
+   "L3"
+  ],
+  "report": {
+   "top": [
+    "L5",
+    "L3"
+   ],
+   "rates": {
+    "L1": 0.23333333333333334,
+    "L2": 0.03333333333333333,
+    "L3": 0.425,
+    "L4": 0.041666666666666664,
+    "L5": 0.5083333333333333
+   }
+  }
+ },
+ "misleading_A": {
+  "candidate_skills": [
+   "L2",
+   "L4"
+  ],
+  "admitted": [],
+  "report": {
+   "L2": {
+    "admitted": false,
+    "delta": 0.0,
+    "base_ok": 2,
+    "skilled_ok": 2,
+    "n": 12
+   },
+   "L4": {
+    "admitted": false,
+    "delta": 0.0,
+    "base_ok": 3,
+    "skilled_ok": 3,
+    "n": 12
+   }
+  }
+ },
+ "sat_B": {
+  "library": [
+   "L2",
+   "L4"
+  ],
+  "report": {
+   "profile_rates": {
+    "L1": 0.041666666666666664,
+    "L2": 0.35833333333333334,
+    "L3": 0.016666666666666666,
+    "L4": 0.18333333333333332,
+    "L5": 0.008333333333333333
+   },
+   "hypotheses": [
+    "L2",
+    "L4"
+   ],
+   "probes": {
+    "L2": {
+     "confirmed": true,
+     "fail_rate": 1.0
+    },
+    "L4": {
+     "confirmed": true,
+     "fail_rate": 1.0
+    }
+   },
+   "admissions": {
+    "L2": {
+     "admitted": true,
+     "delta": 0.5,
+     "base_ok": 3,
+     "skilled_ok": 9,
+     "n": 12
+    },
+    "L4": {
+     "admitted": true,
+     "delta": 0.25,
+     "base_ok": 6,
+     "skilled_ok": 9,
+     "n": 12
+    }
+   }
+  }
+ },
+ "probe_accuracy_A": 1.0,
+ "probe_detail_A": {
+  "correct": 3,
+  "total": 3
+ },
+ "admission_deltas_A": {
+  "L1": 0.16666666666666666,
+  "L3": 0.5833333333333334,
+  "L5": 0.3333333333333333
+ },
+ "determinism": {
+  "library_rerun": [
+   "L1",
+   "L3",
+   "L5"
+  ],
+  "sat_A_rerun": 0.955
+ }
+}
