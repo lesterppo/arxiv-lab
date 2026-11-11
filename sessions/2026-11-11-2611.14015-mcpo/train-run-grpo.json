@@ -1,0 +1,12 @@
+{
+  "session": "mcpo-1111-grpo",
+  "account": "kyu008008",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "RECLAIMED",
+  "downloaded": [],
+  "pid": "718",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-ass1c3-2jjj8bbywef3z",
+  "log_tail": "n', 'grpo', 10, 0.375, 199.1, 0.75, 24)\n[grpo] step 11/24 reward=0.250 solved=0.75 len=209 loss=-0.000 532s peak=9.46GiB\nMETRIC ('train', 'grpo', 11, 0.25, 209.2, 0.75, 24)\n[grpo] step 12/24 reward=0.333 solved=0.75 len=229 loss=-0.105 510s peak=9.46GiB\nMETRIC ('train', 'grpo', 12, 0.3333, 228.5, 0.75, 24)\nmid-run adapter checkpoint saved at step 12: /content/mcpo_gsm8k_adapter_grpo_mid.zip\n[grpo] step 13/24 reward=0.458 solved=1.00 len=210 loss=0.019 510s peak=9.46GiB\nMETRIC ('train', 'grpo', 13, 0.4583, 209.8, 1.0, 24)\n[grpo] step 14/24 reward=0.292 solved=0.50 len=209 loss=-0.097 512s peak=9.46GiB\nMETRIC ('train', 'grpo', 14, 0.2917, 209.2, 0.5, 24)\n[grpo] step 15/24 reward=0.458 solved=1.00 len=220 loss=-0.216 527s peak=9.46GiB\nMETRIC ('train', 'grpo', 15, 0.4583, 219.7, 1.0, 24)\n[grpo] step 16/24 reward=0.083 solved=0.25 len=227 loss=0.023 556s peak=9.46GiB\nMETRIC ('train', 'grpo', 16, 0.0833, 227.0, 0.25, 24)\n[grpo] step 17/24 reward=0.333 solved=0.75 len=222 loss=-0.040 506s peak=9.46GiB\nMETRIC ('train', 'grpo', 17, 0.3333, 222.4, 0.75, 24)\n[grpo] step 18/24 reward=0.458 solved=1.00 len=203 loss=0.071 506s peak=9.46GiB\nMETRIC ('train', 'grpo', 18, 0.4583, 203.1, 1.0, 24)\n[grpo] step 19/24 reward=0.333 solved=0.50 len=207 loss=-0.009 561s peak=9.52GiB\nMETRIC ('train', 'grpo', 19, 0.3333, 207.0, 0.5, 24)\n[grpo] step 20/24 reward=0.250 solved=0.75 len=222 loss=-0.134 536s peak=9.52GiB\nMETRIC ('train', 'grpo', 20, 0.25, 221.8, 0.75, 24)\n[grpo] step 21/24 reward=0.042 solved=0.25 len=209 loss=0.017 502s peak=9.52GiB\nMETRIC ('train', 'grpo', 21, 0.0417, 208.9, 0.25, 24)\n[grpo] step 22/24 reward=0.333 solved=0.75 len=208 loss=-0.180 501s peak=9.52GiB\nMETRIC ('train', 'grpo', 22, 0.3333, 208.0, 0.75, 24)\n[grpo] step 23/24 reward=0.125 solved=0.75 len=219 loss=0.069 553s peak=9.52GiB\nMETRIC ('train', 'grpo', 23, 0.125, 219.5, 0.75, 24)\n[grpo] step 24/24 reward=0.458 solved=1.00 len=212 loss=-0.056 514s peak=9.52GiB\nMETRIC ('train', 'grpo', 24, 0.4583, 212.3, 1.0, 24)\n"
+}
