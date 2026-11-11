@@ -171,3 +171,67 @@ python3 ~/workspace/hermes-colab-cli/colab.py train \
 - **What was lost:** the final GRPO eval (no post-training accuracy exists), the final adapter zip, and the done marker. What survived: the metrics CSV (base + 24 train rows), `mcpo_gsm8k_results_grpo.json` (base eval only), and the step-12 adapter checkpoint `mcpo_gsm8k_adapter_grpo_mid.zip` (161,310,709 bytes — **local-only**, at `~/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/grpo/midrun_mcpo_gsm8k_adapter_grpo_mid.zip`, NOT pushed: over the GitHub blob limit). Train-run record: `train-run-grpo.json` (outcome RECLAIMED, watch-only).
 - **Arm 2 — MCPO: NOT launched.** Per the launch brief, arm 2 runs only after arm 1 completes DONE; arm 1 ended RECLAIMED, so arm 2 waits for Peter's fresh instruction. No third attempt was made.
 - **Verdict: BLOCKED (unchanged).** The redesigned training itself ran cleanly with real signal, but the paper's claim — MCPO vs GRPO — was never tested: there is no post-training eval for either arm and the MCPO arm never ran. A future retry needs Peter's fresh instruction; resume state: GRPO arm needs only a final eval + adapter save from its step-12 checkpoint (or a fresh 24-step run), MCPO arm is fully staged (`colab_mcpo_driver_gsm8k_mcpo.py`, same paired prompts by construction). A morning window is strongly recommended — this evening run was reclaimed at ~21:30 HKT, minutes after training finished.
+
+## Morning close-out (staged 2026-11-12, NOT launched — needs Peter's tap)
+
+The cheap resume is now staged, so a tap launches straight away:
+
+- **Eval-only driver** `colab_mcpo_driver_gsm8k_grpo_evalonly.py`: loads the
+  banked step-12 LoRA checkpoint (PeftModel, r=16/a=32 asserted at load)
+  and runs the SAME seeded 80-item GSM8K eval as the GRPO arm driver —
+  same helpers, same constants, same pool selection. It never trains and
+  never overwrites the banked metrics/results (outputs carry `_evalonly` /
+  `_step12` suffixes). It FAILS LOUDLY (exit 4) if the adapter zip/dir is
+  missing or the config mismatches — it must never silently eval the base
+  model as step-12. It also re-saves the loaded adapter as
+  `mcpo_gsm8k_adapter_grpo_step12.zip` so the wrapper can download a
+  clean final artifact. Done marker: `MCPO_GRPO_EVAL_DONE`.
+- **`test_mcpo_evalonly_cpu.py`: 50/50 checks pass** — helper/config
+  identity vs the GRPO driver, pool-selection identity (same 80 eval
+  problems), banked adapter zip present (161,310,709 bytes, valid zip,
+  config r=16/a=32, base Qwen/Qwen3-8B), banked metrics (header + base
+  0.2375 + 24 rows), and the fail-loud / no-training / no-overwrite
+  safety checks. `py_compile` clean.
+- **Honest limit (already accepted):** a step-12 eval gives step-12
+  post-training accuracy, NOT the lost step-24 final. It slightly
+  understates the fully trained model — the price of not re-running
+  24 steps.
+
+**Two options offered to Peter (morning 2026-11-12):**
+- **(A) Morning close-out:** GRPO final eval from step-12, then the MCPO
+  arm straight after — the full GRPO-vs-MCPO comparison today.
+- **(B) GRPO eval only:** bank the post-training number, decide MCPO later.
+
+**Launch (only on his tap; account picked at launch, NOT cyc236es — the
+12:20 daily run picks cyc236es today; rotation file untouched):**
+
+```bash
+# GRPO eval-only resume (~15 min: model load + 80 greedy evals)
+python3 ~/workspace/hermes-colab-cli/colab.py train \
+  --driver colab_mcpo_driver_gsm8k_grpo_evalonly.py --account <pick at launch, NOT cyc236es> \
+  --session mcpo-1111-grpo-eval --gpu T4 --monitor-timeout 3600 \
+  --done-marker MCPO_GRPO_EVAL_DONE \
+  --upload ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/grpo/midrun_mcpo_gsm8k_adapter_grpo_mid.zip:/content/mcpo_gsm8k_adapter_grpo_mid.zip \
+  --results /content/mcpo_gsm8k_metrics_grpo_evalonly.csv /content/mcpo_gsm8k_results_grpo_step12.json \
+            /content/mcpo_gsm8k_adapter_grpo_step12.zip \
+  --out-dir ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/grpo-evalonly \
+  --registry-file ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/registry.json \
+  --json
+
+# MCPO arm (option A only, straight after the eval; same command as staged
+# 2026-11-11, account re-picked at launch, NOT cyc236es)
+python3 ~/workspace/hermes-colab-cli/colab.py train \
+  --driver colab_mcpo_driver_gsm8k_mcpo.py --account <pick at launch, NOT cyc236es> \
+  --session mcpo-1111-mcpo --gpu T4 --monitor-timeout 14400 \
+  --done-marker MCPO_MCPO_DONE \
+  --results /content/mcpo_gsm8k_metrics_mcpo.csv /content/mcpo_gsm8k_results_mcpo.json \
+            /content/mcpo_gsm8k_adapter_mcpo.zip /content/mcpo_gsm8k_adapter_mcpo_mid.zip \
+  --out-dir ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/mcpo \
+  --registry-file ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/registry.json \
+  --json
+```
+
+**Timing:** eval ~15 min; MCPO arm ~2.2–2.5 h. Starting the MCPO arm
+after the eval (~07:30 HKT) finishes ~10:00–10:30, before the 12:20
+daily run. Starting after ~09:30 HKT risks colliding with that run —
+that is the deadline on the offer, not on the work itself.
