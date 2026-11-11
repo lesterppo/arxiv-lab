@@ -1,0 +1,11 @@
+{
+  "seed": 20261111,
+  "n_dev": 120,
+  "n_test": 200,
+  "arms": {"untaught_A": 0.4, "untaught_B": 0.52, "sat_A": 0.955, "sat_B": 0.98, "profile_free_A": 0.715, "profile_only_A": 0.78, "A_with_B_library": 0.4, "B_with_A_library": 0.52},
+  "sat_A_library": ["L1", "L3", "L5"],
+  "sat_B_library": ["L2", "L4"],
+  "misleading_A_admitted": [],
+  "probe_accuracy_A": 1,
+  "assertions_passed": true
+}
