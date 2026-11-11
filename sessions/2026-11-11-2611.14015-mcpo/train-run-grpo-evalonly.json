@@ -1,0 +1,30 @@
+{
+  "session": "mcpo-1111-grpo-eval",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "PROVISION_FAILED",
+  "downloaded": [],
+  "create_attempts": [
+    {
+      "account": "ppoppo205",
+      "error": "gpu-unavailable"
+    },
+    {
+      "account": "cyc236es",
+      "error": "capacity"
+    },
+    {
+      "account": "kyu008008",
+      "error": "gpu-unavailable"
+    },
+    {
+      "account": "kyu009009",
+      "error": "capacity"
+    },
+    {
+      "account": "cyc236ha",
+      "error": "gpu-unavailable"
+    }
+  ]
+}
