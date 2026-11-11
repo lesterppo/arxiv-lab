@@ -235,3 +235,28 @@ python3 ~/workspace/hermes-colab-cli/colab.py train \
 after the eval (~07:30 HKT) finishes ~10:00–10:30, before the 12:20
 daily run. Starting after ~09:30 HKT risks colliding with that run —
 that is the deadline on the offer, not on the work itself.
+
+## Morning close-out — outcome (2026-11-12 ~07:30 HKT, Peter's "今朝開 (A)")
+
+- **Leg 1 — GRPO eval-only: PROVISION_FAILED.** No session was created:
+  the wrapper tried all five pool accounts and every one refused —
+  ppoppo205 gpu-unavailable, cyc236es capacity, kyu008008
+  gpu-unavailable, kyu009009 capacity, cyc236ha gpu-unavailable.
+  A first launch attempt minutes earlier also failed with a wrapper
+  `{"ok": false, "err": "network"}` before reaching creation. No
+  driver ran, no eval number exists, no adapter was touched. Train-run
+  record: `train-run-grpo-evalonly.json` (outcome PROVISION_FAILED).
+- **Leg 2 — MCPO arm: NOT launched.** Per the launch brief, leg 2 runs
+  only if leg 1 ends DONE; leg 1 never created a session, so leg 2
+  waits for Peter's fresh instruction. No retry was attempted after
+  the provision failure (per the brief's stop condition).
+- **Verdict: BLOCKED (unchanged).** The paper's claim is still untested:
+  there is no post-training eval for GRPO and the MCPO arm never ran.
+- **State after:** active account restored to cyc236es (was cyc236es
+  before launch); rotation file untouched (`2026-11-11 ppoppo205`);
+  today's 12:20 daily run still picks cyc236es — unaffected, since no
+  session was created. All five pool accounts were unusable at
+  ~07:30 HKT — a morning capacity crunch, not a driver or model
+  failure. Resume state is unchanged from the 2026-11-11 section: the
+  eval-only driver and the MCPO arm driver remain staged and
+  push-verified; the step-12 adapter zip is still banked locally.
