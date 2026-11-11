@@ -1,0 +1,12 @@
+{
+  "session": "mcpo-1111d",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "RECLAIMED",
+  "downloaded": [],
+  "pid": "723",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-euw4c0-qh17yzp3trlc",
+  "log_tail": "reward=0.042 solved=0.25 len=198 loss=-0.019 288s peak=6.36GiB\nMETRIC ('train', 'grpo', 9, 0.0417, 198.0, 0.25, 24)\n[grpo] step 10/24 reward=0.000 solved=0.00 len=201 loss=0.000 294s peak=6.36GiB\nMETRIC ('train', 'grpo', 10, 0.0, 200.8, 0.0, 24)\n[grpo] step 11/24 reward=0.000 solved=0.00 len=218 loss=0.000 308s peak=6.36GiB\nMETRIC ('train', 'grpo', 11, 0.0, 218.0, 0.0, 24)\n[grpo] step 12/24 reward=0.042 solved=0.25 len=158 loss=0.026 329s peak=6.65GiB\nMETRIC ('train', 'grpo', 12, 0.0417, 157.7, 0.25, 24)\n[grpo] step 13/24 reward=0.125 solved=0.50 len=189 loss=-0.004 277s peak=6.65GiB\nMETRIC ('train', 'grpo', 13, 0.125, 189.0, 0.5, 24)\n[grpo] step 14/24 reward=0.000 solved=0.00 len=163 loss=0.000 300s peak=6.65GiB\nMETRIC ('train', 'grpo', 14, 0.0, 162.7, 0.0, 24)\n[grpo] step 15/24 reward=0.000 solved=0.00 len=181 loss=0.000 314s peak=6.65GiB\nMETRIC ('train', 'grpo', 15, 0.0, 181.2, 0.0, 24)\n[grpo] step 16/24 reward=0.000 solved=0.00 len=162 loss=0.000 288s peak=6.65GiB\nMETRIC ('train', 'grpo', 16, 0.0, 161.6, 0.0, 24)\n[W1111 07:17:20.216653422 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 752877568 bytes (free: 175964160, total: 15637086208).\n[grpo] step 17/24 reward=0.000 solved=0.00 len=211 loss=0.000 338s peak=6.77GiB\nMETRIC ('train', 'grpo', 17, 0.0, 211.1, 0.0, 24)\n[grpo] step 18/24 reward=0.000 solved=0.00 len=201 loss=0.000 293s peak=6.77GiB\nMETRIC ('train', 'grpo', 18, 0.0, 201.5, 0.0, 24)\n[grpo] step 19/24 reward=0.000 solved=0.00 len=206 loss=0.000 289s peak=6.77GiB\nMETRIC ('train', 'grpo', 19, 0.0, 205.8, 0.0, 24)\n[grpo] step 20/24 reward=0.000 solved=0.00 len=196 loss=0.000 287s peak=6.77GiB\nMETRIC ('train', 'grpo', 20, 0.0, 196.4, 0.0, 24)\n[grpo] step 21/24 reward=0.042 solved=0.25 len=220 loss=0.061 301s peak=6.77GiB\nMETRIC ('train', 'grpo', 21, 0.0417, 219.7, 0.25, 24)\n[grpo] step 22/24 reward=0.000 solved=0.00 len=183 loss=0.000 342s peak=7.06GiB\nMETRIC ('train', 'grpo', 22, 0.0, 183.4, 0.0, 24)\n"
+}
