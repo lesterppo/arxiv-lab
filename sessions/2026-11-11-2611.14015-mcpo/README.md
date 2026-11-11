@@ -45,7 +45,7 @@ Full per-step rows: `recovered_metrics.csv` (steps 20–22 reconstructed from th
 
 ## Resume state / retry fixes (for a future run on Peter's say-so)
 
-- Drivers are staged and proven to launch: `colab_mcpo_driver_4b.py` (chunked loss — port the chunked-loss fix back to the 8B driver before any 8B retry; the 8B driver as written still OOMs at line 366).
+- Drivers are staged and proven to launch: `colab_mcpo_driver_4b.py` (chunked loss) and `colab_mcpo_driver.py` (8B — chunked-loss fix ported back 2026-11-11 after the run, micro 6 → 4 to match the proven 4B config; CPU equivalence check vs the full-vocab computation: tok_logp exact, margin max diff 2.8e-09, backward grad finite; `py_compile` clean on both drivers. The ported 8B driver has not yet run on Colab — the fix removes the step-1 OOM, it does not guarantee a full run survives reclamation).
 - Data loading is validated against the real parquet (schema, prompt parsing, ground-truth extraction, `Answer:`-line parsing, fraction comparison).
 - Retry design changes needed (the reclamation alone does not explain the lack of signal):
   1. **Easier problems or a stronger starting point** — GSM8K-style problems, an instruct base, or an SFT warmup — so a meaningful fraction of groups has non-zero reward; otherwise MCPO vs GRPO cannot be discriminated at any step count.
