@@ -1,0 +1,32 @@
+{
+ "model": "Qwen/Qwen3-8B",
+ "seed": 20261111,
+ "arm": "grpo",
+ "mcpo": false,
+ "data": "gsm8k",
+ "steps": 24,
+ "prompts_per_step": 4,
+ "group": 6,
+ "max_new": 320,
+ "lr": 1e-05,
+ "lora": {
+  "r": 16,
+  "alpha": 32
+ },
+ "mcpo_thresholds": [
+  0.1,
+  0.5
+ ],
+ "mcpo_weights": [
+  1.0,
+  0.5,
+  0.1
+ ],
+ "train_pool": 512,
+ "eval_n": 80,
+ "arms": {
+  "base": {
+   "eval_acc": 0.2375
+  }
+ }
+}
