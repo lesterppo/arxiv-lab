@@ -1,0 +1,17 @@
+[package]
+name = "studentteaching"
+version = "0.1.0"
+edition = "2021"
+description = "Student-Aware Teaching for LLM agents (arXiv:2611.13144) — Rust port of the Python mechanism"
+license = "MIT"
+
+[[bin]]
+name = "verify"
+path = "src/main.rs"
+
+[lib]
+name = "studentteaching"
+path = "src/lib.rs"
+
+[profile.release]
+debug = false
