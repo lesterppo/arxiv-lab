@@ -246,4 +246,18 @@ Mid-run downloader polls metrics/results every 10 min.
 Wall time ~2h–2h15m like run f. ONE attempt: if it ends BLOCKED, no
 auto-fallback — record BLOCKED with resume state and stop.
 
-**Outcome:** _pending — to be filled when the run finishes._
+**Outcome: PROVISION_FAILED — no session was created, no numbers exist.**
+The wrapper's cross-account retry tried three accounts and every one
+refused: cyc236es gpu-unavailable, ppoppo205 gpu-unavailable, kyu008008
+auth-expired (its token refresh failed; the other two pool accounts,
+kyu009009 and cyc236ha, were never tried — the wrapper stops after an
+auth failure). No driver ran, no eval number exists, the naive C3' was
+never trained. Evening capacity crunch + a stale token, not a driver or
+model failure. Record: `train-run-naive.json` (outcome PROVISION_FAILED).
+One attempt only per the order — no fallback launched, no relaunch.
+**Verdict stays SUPPORTED** (run f's verdict is unaffected), with the
+attribution gap still open: how much of the +31.7/+20.0/+10.0 pp
+recovery HCN+LAD account for remains unmeasured. Resume state: control
+driver + test staged and push-verified (see above); any retry needs
+Peter's fresh instruction, and kyu008008's auth-expired token should be
+checked (token watchdog / re-auth) before retrying on that account.
