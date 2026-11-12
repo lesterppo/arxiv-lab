@@ -2,7 +2,20 @@
 
 - **Article:** [2611.12799](https://arxiv.org/abs/2611.12799) — "Agentic-OPD: Recovering Forgotten Agent Capabilities via On-Policy Distillation for Agentic Tasks"
 - **Scores:** AGENT 4 / TUNE 5
-- **Verdict: BLOCKED** — no fair test was possible; the paper's claim was never tested.
+- **Verdict: PENDING — run f is still alive (see "Attempt history").** No
+  final verdict can be recorded yet: attempts through e would be BLOCKED,
+  but the live retry (f) is in Stage A SFT as of 05:56 UTC 2026-11-12.
+  Update this line when f finishes (or blocks).
+
+> **Correction (05:56 UTC 2026-11-12):** an earlier version of this README
+> recorded attempt f as dead with an unknown cause, following a stale
+> brief. A live check just now proved that wrong: session
+> `agentic-opd-1112f` is alive (status IDLE, endpoint
+> `gpu-t4-s-usw4b0-jdlbh9y6cgqa`, driver PID 1903), its log tail shows the
+> base evals completing and Stage A starting at 05:55:37 UTC, and the
+> worker's "still running" report was correct. The `train-run.json`
+> `outcome: null` only means the wrapper's monitor never finalized — the
+> VM driver continues detached (the known monitor-SIGTERM pattern).
 
 ## Why picked
 
@@ -53,7 +66,7 @@ Metrics CSV + results JSON are flushed to `/content` after EVERY phase
 
 ## Results
 
-### Base evals (banked — the only numbers that exist)
+### Base evals — run e (banked files on disk)
 
 | split | n | correct | acc |
 |-------|---|---------|-----|
@@ -61,9 +74,23 @@ Metrics CSV + results JSON are flushed to `/content` after EVERY phase
 | A_test (GSM8K test 100–160) | 60 | 13 | 0.2167 |
 | B_test (SVAMP test 0–60) | 60 | 16 | 0.2667 |
 
-No SFT stage ran. No checkpoint pool exists. HCN, LAD, and Stage C never
-executed, so the paper's claim (checkpoint-pool OPD recovers forgotten
-capabilities) was never tested.
+### Base evals — run f (live, observed via the VM log tail at 05:55 UTC)
+
+| split | n | correct | acc |
+|-------|---|---------|-----|
+| A_val | 60 | 10 | 0.1667 |
+| A_test | 60 | 15 | 0.2500 |
+| B_test | 60 | 16 | 0.2667 |
+
+Same eval sets and greedy decoding; the one-case flips on A_val/A_test
+are bnb nondeterminism between runs, not a code change. These numbers
+are log-observed only — the files on disk are still run e's download (see
+"Resume state"); download f's files when f finishes.
+
+No SFT stage has completed in any attempt yet. No checkpoint pool exists.
+HCN, LAD, and Stage C have never executed, so the paper's claim
+(checkpoint-pool OPD recovers forgotten capabilities) has not been tested
+yet.
 
 ### Attempt history (reconstructed from the worker's exec logs + train-run.json)
 
@@ -72,7 +99,7 @@ capabilities) was never tested.
 | `agentic-opd-1112` | cyc236es | DIED | Died in PHASE 0 base eval: `ValueError: could not convert string to float: ''` in `extract_number` (driver bug; the current driver guards both `float()` branches with try/except, verified by `test_agentic_opd_fallback_cpu.py`). No files banked. |
 | `agentic-opd-1112b/c/d` | — | unknown | No records survive anywhere (no train-run files, nothing in the run log). Do not invent an attempt history for these. |
 | `agentic-opd-1112e` | cyc236es | DIED | Died after the base evals completed: `torch.OutOfMemoryError` in bitsandbytes' 4-bit matmul (`_dequant_linear_fallback`, `ops.py:914`) — tried to allocate 96.00 MiB; GPU 0 has 14.56 GiB total, 14.47 GiB in use (14.19 GiB allocated by PyTorch). Base evals downloaded (metrics CSV + results JSON). |
-| `agentic-opd-1112f` | ppoppo205 (cyc236es gpu-unavailable at creation) | unrecorded | `train-run.json` has `outcome: null` — the wrapper never recorded a final outcome. No active sessions remain; no further files were banked. The fixed driver (gradient checkpointing + micro-batch 2, "OOM fix (2026-11-12 run e)") was written 05:37 UTC, before f's last execution 05:41 UTC, so f presumably ran the fixed driver — but its fate (OOM again, reclamation, monitor loss) is unrecorded and unknown. |
+| `agentic-opd-1112f` | ppoppo205 (cyc236es gpu-unavailable at creation) | **ALIVE — still running** | `train-run.json` has `outcome: null` because the wrapper's monitor never finalized; the VM driver (PID 1903) continues detached. Live check 05:56 UTC: session status IDLE, log tail shows base evals done (A_val 10/60, A_test 15/60, B_test 16/60) and **PHASE A (Stage A SFT) started 05:55:37 UTC**. The fixed driver (gradient checkpointing + micro-batch 2) was in place before f launched. The worker's "still running" report was correct — an earlier brief that called f dead was wrong. |
 
 ### OOM cause (run e)
 
@@ -86,13 +113,14 @@ micro-batch 2 x accum 2); the 4B fallback below halves the model on top of it.
 
 ## Honest limits
 
-- The verdict is BLOCKED, not a negative: nothing about HCN, LAD, or the
-  recovery claim was measured.
+- The paper's claim has not been tested yet in any attempt: HCN, LAD, and
+  the recovery measurement have never run.
 - The base evals are zero-shot greedy on n=60 splits — a calibration
-  baseline only, not a model comparison.
+  baseline only, not a model comparison. Runs e and f disagree by one case
+  on A_val/A_test (bnb nondeterminism).
 - Attempts b–d are unrecorded; the sequence above is the complete surviving
-  record, recovered from the worker's exec logs and the session's
-  `train-run.json`.
+  record, recovered from the worker's exec logs, the session's
+  `train-run.json`, and a live log check at 05:56 UTC.
 - The `agentic-opd-1112` registry file in `hidden_files/` contains a live
   Colab session token and must never be pushed or copied anywhere.
 
@@ -100,18 +128,32 @@ micro-batch 2 x accum 2); the 4B fallback below halves the model on top of it.
 
 - **Driver (8B):** `colab_agentic_opd_driver.py` — carries both fixes
   (guarded `extract_number`, gradient checkpointing + micro-batch 2).
-- **Banked files:** `agentic_opd_metrics.csv` (base evals only),
-  `agentic_opd_results.json` (base evals only, `phases: ["base_eval"]`),
-  `train-run.json` (attempt f record, outcome null).
-- **A retry needs:** the automatic-fallback driver below (staged, not
-  launched) or the 8B driver re-run with the same fixes; either way a
-  morning window is recommended — the 8B run died in the early-afternoon
-  window after the base evals.
+- **Banked files (run e's download):** `agentic_opd_metrics.csv` (base
+  evals only), `agentic_opd_results.json` (base evals only,
+  `phases: ["base_eval"]`), `train-run.json` (attempt f record, outcome
+  null — monitor never finalized, not a death certificate).
+- **Live run f (the current attempt):** session `agentic-opd-1112f`,
+  account ppoppo205, endpoint `gpu-t4-s-usw4b0-jdlbh9y6cgqa`, driver PID
+  1903, in Stage A SFT as of 05:56 UTC. To follow it to an outcome,
+  re-attach the wrapper monitor (no new launch):
+  `python3 ~/workspace/hermes-colab-cli/colab.py train --watch-only
+  --pid 1903 --driver colab_agentic_opd_driver.py --session
+  agentic-opd-1112f --done-marker TRAIN_DONE --results
+  /content/agentic_opd_metrics.csv /content/agentic_opd_results.json
+  --out-dir <same out-dir> --registry-file
+  ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/agentic-opd-1112-registry.json`
+  (run from this session dir; `--driver` is required even in watch-only
+  mode). When f finishes, download its metrics/results (they will
+  overwrite the run-e files on disk — note the run in the README) and
+  record the final verdict then.
+- **A retry needs:** if f blocks, the automatic-fallback driver below
+  (staged, not launched); a morning window is recommended.
 
 ## Automatic fallback (staged, not launched)
 
-Under Peter's 2026-11-05 automatic-fallback rule, the fallback for a
-BLOCKED training run is staged here: `colab_agentic_opd_driver_4b.py` —
+Under Peter's 2026-11-05 automatic-fallback rule, the fallback is staged
+here for use **if the live run f blocks** (not launched; no action needed
+while f is running): `colab_agentic_opd_driver_4b.py` —
 Qwen/Qwen3-4B, same experiment (data, stages, evals, seeds, LoRA r=16/a=32)
 plus memory-shrink fixes for the run-e OOM cause:
 
