@@ -3,14 +3,13 @@
   "account": "ppoppo205",
   "gpu": "T4",
   "log": "/content/agentic_opd.log",
-  "outcome": null,
-  "downloaded": [],
-  "create_attempts": [
-    {
-      "account": "cyc236es",
-      "error": "gpu-unavailable"
-    }
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-12-2611.12799-agentic-opd/agentic_opd_metrics.csv",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-12-2611.12799-agentic-opd/agentic_opd_results.json"
   ],
+  "pid": "1903",
+  "watch_only": true,
   "endpoint": "gpu-t4-s-usw4b0-jdlbh9y6cgqa",
-  "pid": "1903"
+  "log_tail": "\n[colab] A new version of Colab CLI is available: 0.8.0 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[06:59:32] C2/B_test batch 5 done\n[06:59:32] C2/B_test: 46/60\n[06:59:32] METRIC C2 default B_test: 46/60 = 0.7667 \n[06:59:32] PHASE POOL: union coverage on A_val / A_test\n[06:59:32] POOL A_val: C1 43 C2 24 union 47 gap +23\n[06:59:32] POOL A_test: C1 42 C2 21 union 43 gap +22\n[06:59:32] PHASE HCN: teacher selection on A_val (weights w0=1)\n[06:59:59] HCN/base batch 1 done\n[07:00:24] HCN/base batch 2 done\n[07:00:36] HCN/base batch 5 done\n[07:00:36] HCN/base: 24/60\n[07:02:21] HCN/C1 batch 1 done\n[07:04:11] HCN/C1 batch 2 done\n[07:05:36] HCN/C1 batch 5 done\n[07:05:36] HCN/C1: 43/60\n[07:05:36] HCN gains {'base': 0, 'C1': 23} -> selected teacher C1\n[07:05:36] PHASE LAD: G=4 rollouts, student C2 vs teacher C1, pool n=100\n[07:34:42] METRIC LAD C2-vs-C1 pool: 65/100 = 0.6500 admitted 65/100 mean_s 0.280 mean_q 0.690\n[07:34:42] LAD: admitted 65/100 problems, 65 teacher traces, mean_s 0.280 mean_q 0.690\n[07:34:42] PHASE C: OPD distillation on 65 LAD-filtered teacher traces\n[07:39:34] stageC-OPD step 17/17 loss 0.5183 elapsed 292s VRAM 6.36 GiB\n[07:39:34] stageC-OPD done: 17 steps, 292s, peak VRAM 8.23 GiB\n[07:41:24] C3/A_val batch 1 done\n[07:43:13] C3/A_val batch 2 done\n[07:44:38] C3/A_val batch 5 done\n[07:44:38] C3/A_val: 43/60\n[07:44:38] METRIC C3 default A_val: 43/60 = 0.7167 \n[07:46:24] C3/A_test batch 1 done\n[07:47:53] C3/A_test batch 2 done\n[07:49:18] C3/A_test batch 5 done\n[07:49:19] C3/A_test: 33/60\n[07:49:19] METRIC C3 default A_test: 33/60 = 0.5500 \n[07:50:01] C3/B_test batch 1 done\n[07:50:43] C3/B_test batch 2 done\n[07:51:11] C3/B_test batch 5 done\n[07:51:11] C3/B_test: 52/60\n[07:51:11] METRIC C3 default B_test: 52/60 = 0.8667 \n[07:51:11] OPD: A_test 0.350 -> 0.550 (+0.200); B_test 0.767 -> 0.867 (+0.100)\n[07:51:11] ALL PHASES DONE\nTRAIN_DONE\n"
 }
