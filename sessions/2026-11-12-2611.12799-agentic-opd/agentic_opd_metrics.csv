@@ -1,0 +1,4 @@
+phase,model,split,n,correct,acc,notes
+base,base,A_val,60,11,0.1833,
+base,base,A_test,60,13,0.2167,
+base,base,B_test,60,16,0.2667,
