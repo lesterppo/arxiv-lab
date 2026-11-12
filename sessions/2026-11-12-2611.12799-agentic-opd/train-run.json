@@ -1,0 +1,16 @@
+{
+  "session": "agentic-opd-1112f",
+  "account": "ppoppo205",
+  "gpu": "T4",
+  "log": "/content/agentic_opd.log",
+  "outcome": null,
+  "downloaded": [],
+  "create_attempts": [
+    {
+      "account": "cyc236es",
+      "error": "gpu-unavailable"
+    }
+  ],
+  "endpoint": "gpu-t4-s-usw4b0-jdlbh9y6cgqa",
+  "pid": "1903"
+}
