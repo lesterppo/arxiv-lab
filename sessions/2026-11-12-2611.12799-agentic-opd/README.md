@@ -83,9 +83,11 @@ Metrics CSV + results JSON are flushed to `/content` after EVERY phase
 | B_test | 60 | 16 | 0.2667 |
 
 Same eval sets and greedy decoding; the one-case flips on A_val/A_test
-are bnb nondeterminism between runs, not a code change. These numbers
-are log-observed only — the files on disk are still run e's download (see
-"Resume state"); download f's files when f finishes.
+are bnb nondeterminism between runs, not a code change. The files on disk
+are now run f's numbers too — downloaded 05:58 UTC by the worker's
+mid-run downloader (host PID 1908), which is still active and re-downloads
+every 10 min, so the local files (and the remote copies) are a snapshot
+that will keep updating until f finishes; re-push at completion.
 
 No SFT stage has completed in any attempt yet. No checkpoint pool exists.
 HCN, LAD, and Stage C have never executed, so the paper's claim
@@ -128,24 +130,21 @@ micro-batch 2 x accum 2); the 4B fallback below halves the model on top of it.
 
 - **Driver (8B):** `colab_agentic_opd_driver.py` — carries both fixes
   (guarded `extract_number`, gradient checkpointing + micro-batch 2).
-- **Banked files (run e's download):** `agentic_opd_metrics.csv` (base
-  evals only), `agentic_opd_results.json` (base evals only,
+- **Banked files (run f's numbers, downloaded 05:58 UTC by the worker's
+  mid-run downloader):** `agentic_opd_metrics.csv`,
+  `agentic_opd_results.json` (base evals only so far,
   `phases: ["base_eval"]`), `train-run.json` (attempt f record, outcome
-  null — monitor never finalized, not a death certificate).
+  null — the run hasn't finished yet). Run e's numbers were 11/13/16.
 - **Live run f (the current attempt):** session `agentic-opd-1112f`,
   account ppoppo205, endpoint `gpu-t4-s-usw4b0-jdlbh9y6cgqa`, driver PID
-  1903, in Stage A SFT as of 05:56 UTC. To follow it to an outcome,
-  re-attach the wrapper monitor (no new launch):
-  `python3 ~/workspace/hermes-colab-cli/colab.py train --watch-only
-  --pid 1903 --driver colab_agentic_opd_driver.py --session
-  agentic-opd-1112f --done-marker TRAIN_DONE --results
-  /content/agentic_opd_metrics.csv /content/agentic_opd_results.json
-  --out-dir <same out-dir> --registry-file
-  ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/agentic-opd-1112-registry.json`
-  (run from this session dir; `--driver` is required even in watch-only
-  mode). When f finishes, download its metrics/results (they will
-  overwrite the run-e files on disk — note the run in the README) and
-  record the final verdict then.
+  1903, in Stage A SFT as of 05:56 UTC. The worker's host-side monitor
+  (PID 1898, `colab.py train ... --monitor-timeout 14400`) and its
+  mid-run downloader loop (PID 1908, every 10 min) are **still alive** —
+  the monitor will finalize `train-run.json` and the final download when
+  f finishes. **Do NOT attach a second monitor** and do not stop these
+  processes. When f finishes, re-push the final metrics/results (they
+  will have been overwritten in place by the downloader) and record the
+  final verdict then.
 - **A retry needs:** if f blocks, the automatic-fallback driver below
   (staged, not launched); a morning window is recommended.
 
