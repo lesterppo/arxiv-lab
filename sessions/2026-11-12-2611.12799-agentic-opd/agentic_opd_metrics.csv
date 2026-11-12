@@ -2,3 +2,13 @@ phase,model,split,n,correct,acc,notes
 base,base,A_val,60,10,0.1667,
 base,base,A_test,60,15,0.2500,
 base,base,B_test,60,16,0.2667,
+C1,default,A_val,60,43,0.7167,
+C1,default,A_test,60,42,0.7000,
+C1,default,B_test,60,52,0.8667,
+C2,default,A_val,60,24,0.4000,
+C2,default,A_test,60,21,0.3500,
+C2,default,B_test,60,46,0.7667,
+LAD,C2-vs-C1,pool,100,65,0.6500,admitted 65/100 mean_s 0.280 mean_q 0.690
+C3,default,A_val,60,43,0.7167,
+C3,default,A_test,60,33,0.5500,
+C3,default,B_test,60,52,0.8667,
