@@ -1,0 +1,3115 @@
+rng 0 16294208416658607535 7960286522194355700 487617019471545679 17909611376780542444 1961750202426094747 6038094601263162090 3207296026000306913 14232521865600346940
+randbelow 0 0 0 1 0 2 2 13 5009149828745571132
+random 0 0.8833108082136427 0.43152799704851 0.026433771592597816 0.9708819781538285
+rng 1 10451216379200822465 13757245211066428519 17911839290282890590 8196980753821780235 8195237237126968761 14072917602864530048 16184226688143867045 9648886400068060533
+randbelow 1 0 1 0 3 1 2 45 425514363213284725
+random 1 0.566561575172281 0.7457817572627012 0.9710027535867963 0.4443592170557721
+rng 20261112 1049095683001091839 2901343246710161558 4068396439025931088 18401376878894613872 7199368500981904300 5472753310247400052 476443444721587946 2913769880479557746
+randbelow 20261112 0 0 1 0 0 1 46 2913769880479557746
+random 20261112 0.05687159093274739 0.1572821325604652 0.22054821288621024 0.9975406394411036
+rng 18446744073709551615 16490336266968443936 16834447057089888969 4048727598324417001 7862637804313477842 13015481187462834606 15212506146343009075 17388166129998380965 4638043754431676516
+randbelow 18446744073709551615 0 1 1 2 1 5 65 4638043754431676516
+random 18446744073709551615 0.8939429202831846 0.9125972035944532 0.21948196289526758 0.4262344494451665
+rng 123456789 2466975172287755897 8832083440362974766 3534771765162737125 9592110948284743397 1881757512419323243 12920672458450473694 15403818807231698370 14226210461905535836
+randbelow 123456789 0 0 1 1 3 5 70 5002838425050760028
+random 123456789 0.13373499206310932 0.4787882026807393 0.19162036135149305 0.5199893764426156
+task 20261112 0 3
+choices 20261112 0 0 1 0
+task 20261112 1 2
+choices 20261112 1 0 1 2
+task 20261112 2 0
+choices 20261112 2 2 1 0
+task 20261112 3 0
+choices 20261112 3 0 1 2
+task 20261112 4 0
+choices 20261112 4 0 0 0
+task 20261112 5 0
+choices 20261112 5 1 1 2
+task 20261112 6 2
+choices 20261112 6 0 1 2
+task 20261112 7 2
+choices 20261112 7 0 2 1
+task 20261112 8 0
+choices 20261112 8 0 0 2
+task 20261112 9 3
+choices 20261112 9 0 0 1
+task 20261112 10 0
+choices 20261112 10 1 0 1
+task 20261112 11 1
+choices 20261112 11 0 1 1
+task 20261112 12 3
+choices 20261112 12 0 2 2
+task 20261112 13 3
+choices 20261112 13 0 2 0
+task 20261112 14 0
+choices 20261112 14 2 0 2
+task 20261112 15 1
+choices 20261112 15 0 1 2
+task 20261112 16 1
+choices 20261112 16 0 1 1
+task 20261112 17 1
+choices 20261112 17 1 2 0
+task 20261112 18 3
+choices 20261112 18 1 1 0
+task 20261112 19 1
+choices 20261112 19 0 1 0
+step 20261112 0 0 0 1 1
+step 20261112 0 1 1 1 1
+step 20261112 0 2 0 1 0
+run 20261112 0 1
+step 20261112 1 0 0 1 1
+step 20261112 1 1 1 1 1
+step 20261112 1 2 2 1 1
+run 20261112 1 1
+step 20261112 2 0 2 0 1
+step 20261112 2 1 1 1 1
+step 20261112 2 2 0 1 1
+run 20261112 2 0
+step 20261112 3 0 0 1 1
+step 20261112 3 1 1 1 1
+step 20261112 3 2 2 0 1
+run 20261112 3 0
+step 20261112 4 0 0 1 1
+step 20261112 4 1 0 0 1
+step 20261112 4 2 0 1 0
+run 20261112 4 0
+step 20261112 5 0 1 0 0
+step 20261112 5 1 1 1 1
+step 20261112 5 2 2 0 1
+run 20261112 5 0
+step 20261112 6 0 0 1 1
+step 20261112 6 1 1 1 0
+step 20261112 6 2 2 1 1
+run 20261112 6 1
+step 20261112 7 0 0 1 0
+step 20261112 7 1 2 0 0
+step 20261112 7 2 1 0 1
+run 20261112 7 0
+step 20261112 8 0 0 1 1
+step 20261112 8 1 0 0 0
+step 20261112 8 2 2 0 1
+run 20261112 8 0
+step 20261112 9 0 0 1 1
+step 20261112 9 1 0 0 1
+step 20261112 9 2 1 0 0
+run 20261112 9 0
+step 20261112 10 0 1 0 1
+step 20261112 10 1 0 0 1
+step 20261112 10 2 1 0 0
+run 20261112 10 0
+step 20261112 11 0 0 1 1
+step 20261112 11 1 1 1 0
+step 20261112 11 2 1 1 1
+run 20261112 11 1
+step 20261112 12 0 0 1 1
+step 20261112 12 1 2 0 1
+step 20261112 12 2 2 0 0
+run 20261112 12 0
+step 20261112 13 0 0 1 1
+step 20261112 13 1 2 0 1
+step 20261112 13 2 0 1 1
+run 20261112 13 0
+step 20261112 14 0 2 0 1
+step 20261112 14 1 0 0 1
+step 20261112 14 2 2 0 1
+run 20261112 14 0
+step 20261112 15 0 0 1 1
+step 20261112 15 1 1 1 1
+step 20261112 15 2 2 0 0
+run 20261112 15 0
+step 20261112 16 0 0 1 1
+step 20261112 16 1 1 1 1
+step 20261112 16 2 1 1 1
+run 20261112 16 1
+step 20261112 17 0 1 0 1
+step 20261112 17 1 2 0 1
+step 20261112 17 2 0 0 1
+run 20261112 17 0
+step 20261112 18 0 1 0 1
+step 20261112 18 1 1 1 0
+step 20261112 18 2 0 1 1
+run 20261112 18 0
+step 20261112 19 0 0 1 1
+step 20261112 19 1 1 1 1
+step 20261112 19 2 0 0 1
+run 20261112 19 0
+insight 20261112 I-0000 0 0 attr:3 0 1 0
+insight 20261112 I-0001 1 1 attr:3 0 1 0
+insight 20261112 I-0002 2 0 any 0 1 0
+insight 20261112 I-0003 0 0 any 1 1 0
+insight 20261112 I-0004 1 1 any 1 1 0
+insight 20261112 I-0005 2 2 attr:2 1 1 0
+insight 20261112 I-0006 0 2 attr:0 2 0 0
+insight 20261112 I-0007 1 2 any 2 0 1
+insight 20261112 I-0008 2 1 any 2 0 1
+insight 20261112 I-0009 0 0 any 3 0 0
+insight 20261112 I-0010 1 1 attr:0 3 0 0
+insight 20261112 I-0011 2 0 attr:0 3 0 1
+insight 20261112 I-0012 0 2 attr:0 4 0 1
+insight 20261112 I-0013 1 0 attr:0 4 0 0
+insight 20261112 I-0014 2 0 attr:0 4 0 0
+insight 20261112 I-0015 0 1 attr:0 5 0 0
+insight 20261112 I-0016 1 1 any 5 0 0
+insight 20261112 I-0017 2 2 any 5 0 0
+insight 20261112 I-0018 0 0 attr:2 6 1 0
+insight 20261112 I-0019 1 1 any 6 1 0
+insight 20261112 I-0020 2 2 any 6 1 0
+insight 20261112 I-0021 0 0 any 7 0 0
+insight 20261112 I-0022 1 2 any 7 0 0
+insight 20261112 I-0023 2 1 attr:2 7 0 0
+insight 20261112 I-0024 0 0 any 8 0 0
+insight 20261112 I-0025 1 0 any 8 0 0
+insight 20261112 I-0026 2 2 attr:0 8 0 0
+insight 20261112 I-0027 0 0 attr:3 9 0 0
+insight 20261112 I-0028 1 0 attr:3 9 0 0
+insight 20261112 I-0029 2 1 any 9 0 0
+insight 20261112 I-0030 0 1 any 10 0 0
+insight 20261112 I-0031 1 0 attr:0 10 0 0
+insight 20261112 I-0032 2 1 any 10 0 0
+insight 20261112 I-0033 0 0 any 11 1 0
+insight 20261112 I-0034 1 1 any 11 1 0
+insight 20261112 I-0035 2 1 attr:1 11 1 0
+insight 20261112 I-0036 0 0 attr:3 12 0 0
+insight 20261112 I-0037 1 2 attr:3 12 0 0
+insight 20261112 I-0038 2 2 any 12 0 0
+insight 20261112 I-0039 0 0 any 13 0 0
+insight 20261112 I-0040 1 0 attr:3 13 0 1
+insight 20261112 I-0041 2 0 any 13 0 0
+insight 20261112 I-0042 0 2 attr:0 14 0 0
+insight 20261112 I-0043 1 0 any 14 0 0
+insight 20261112 I-0044 2 2 attr:0 14 0 0
+insight 20261112 I-0045 0 0 attr:1 15 0 0
+insight 20261112 I-0046 1 0 attr:1 15 0 1
+insight 20261112 I-0047 2 2 attr:1 15 0 0
+insight 20261112 I-0048 0 0 any 16 1 0
+insight 20261112 I-0049 1 1 any 16 1 0
+insight 20261112 I-0050 2 1 attr:1 16 1 0
+insight 20261112 I-0051 0 1 any 17 0 0
+insight 20261112 I-0052 1 2 any 17 0 0
+insight 20261112 I-0053 2 0 any 17 0 0
+insight 20261112 I-0054 0 1 attr:3 18 0 0
+insight 20261112 I-0055 1 1 attr:3 18 0 0
+insight 20261112 I-0056 2 0 attr:3 18 0 0
+insight 20261112 I-0057 0 0 attr:1 19 0 0
+insight 20261112 I-0058 1 1 any 19 0 0
+insight 20261112 I-0059 2 0 any 19 0 0
+verify 20261112 I-0000 0 supported 2
+verify 20261112 I-0000 1 supported 2
+verify 20261112 I-0000 2 supported 2
+verify 20261112 I-0000 3 supported 2
+verify 20261112 I-0001 0 supported 2
+verify 20261112 I-0001 1 supported 2
+verify 20261112 I-0001 2 supported 2
+verify 20261112 I-0001 3 supported 2
+verify 20261112 I-0002 0 unknown 2
+verify 20261112 I-0002 1 unknown 2
+verify 20261112 I-0002 2 unknown 2
+verify 20261112 I-0002 3 unknown 2
+verify 20261112 I-0003 0 unsupported 2
+verify 20261112 I-0003 1 unsupported 2
+verify 20261112 I-0003 2 supported 2
+verify 20261112 I-0003 3 unsupported 2
+verify 20261112 I-0004 0 unsupported 2
+verify 20261112 I-0004 1 unsupported 2
+verify 20261112 I-0004 2 supported 2
+verify 20261112 I-0004 3 unsupported 2
+verify 20261112 I-0005 0 supported 2
+verify 20261112 I-0005 1 supported 2
+verify 20261112 I-0005 2 supported 2
+verify 20261112 I-0005 3 supported 2
+verify 20261112 I-0006 0 contradicted 2
+verify 20261112 I-0006 1 contradicted 2
+verify 20261112 I-0006 2 contradicted 2
+verify 20261112 I-0006 3 contradicted 2
+verify 20261112 I-0007 0 contradicted 2
+verify 20261112 I-0007 1 contradicted 2
+verify 20261112 I-0007 2 contradicted 2
+verify 20261112 I-0007 3 contradicted 2
+verify 20261112 I-0008 0 contradicted 2
+verify 20261112 I-0008 1 contradicted 2
+verify 20261112 I-0008 2 contradicted 2
+verify 20261112 I-0008 3 contradicted 2
+verify 20261112 I-0009 0 supported 2
+verify 20261112 I-0009 1 unsupported 2
+verify 20261112 I-0009 2 unsupported 2
+verify 20261112 I-0009 3 unsupported 2
+verify 20261112 I-0010 0 supported 2
+verify 20261112 I-0010 1 supported 2
+verify 20261112 I-0010 2 supported 2
+verify 20261112 I-0010 3 supported 2
+verify 20261112 I-0011 0 contradicted 2
+verify 20261112 I-0011 1 contradicted 2
+verify 20261112 I-0011 2 contradicted 2
+verify 20261112 I-0011 3 contradicted 2
+verify 20261112 I-0012 0 contradicted 2
+verify 20261112 I-0012 1 contradicted 2
+verify 20261112 I-0012 2 contradicted 2
+verify 20261112 I-0012 3 contradicted 2
+verify 20261112 I-0013 0 contradicted 2
+verify 20261112 I-0013 1 contradicted 2
+verify 20261112 I-0013 2 contradicted 2
+verify 20261112 I-0013 3 contradicted 2
+verify 20261112 I-0014 0 unknown 2
+verify 20261112 I-0014 1 unknown 2
+verify 20261112 I-0014 2 unknown 2
+verify 20261112 I-0014 3 unknown 2
+verify 20261112 I-0015 0 unknown 2
+verify 20261112 I-0015 1 unknown 2
+verify 20261112 I-0015 2 unknown 2
+verify 20261112 I-0015 3 unknown 2
+verify 20261112 I-0016 0 supported 2
+verify 20261112 I-0016 1 unsupported 2
+verify 20261112 I-0016 2 unsupported 2
+verify 20261112 I-0016 3 unsupported 2
+verify 20261112 I-0017 0 contradicted 2
+verify 20261112 I-0017 1 contradicted 2
+verify 20261112 I-0017 2 contradicted 2
+verify 20261112 I-0017 3 contradicted 2
+verify 20261112 I-0018 0 supported 2
+verify 20261112 I-0018 1 supported 2
+verify 20261112 I-0018 2 supported 2
+verify 20261112 I-0018 3 supported 2
+verify 20261112 I-0019 0 unknown 2
+verify 20261112 I-0019 1 unknown 2
+verify 20261112 I-0019 2 unknown 2
+verify 20261112 I-0019 3 unknown 2
+verify 20261112 I-0020 0 unsupported 2
+verify 20261112 I-0020 1 unsupported 2
+verify 20261112 I-0020 2 supported 2
+verify 20261112 I-0020 3 unsupported 2
+verify 20261112 I-0021 0 unknown 2
+verify 20261112 I-0021 1 unknown 2
+verify 20261112 I-0021 2 unknown 2
+verify 20261112 I-0021 3 unknown 2
+verify 20261112 I-0022 0 unknown 2
+verify 20261112 I-0022 1 unknown 2
+verify 20261112 I-0022 2 unknown 2
+verify 20261112 I-0022 3 unknown 2
+verify 20261112 I-0023 0 contradicted 2
+verify 20261112 I-0023 1 contradicted 2
+verify 20261112 I-0023 2 contradicted 2
+verify 20261112 I-0023 3 contradicted 2
+verify 20261112 I-0024 0 supported 2
+verify 20261112 I-0024 1 unsupported 2
+verify 20261112 I-0024 2 unsupported 2
+verify 20261112 I-0024 3 unsupported 2
+verify 20261112 I-0025 0 unknown 2
+verify 20261112 I-0025 1 unknown 2
+verify 20261112 I-0025 2 unknown 2
+verify 20261112 I-0025 3 unknown 2
+verify 20261112 I-0026 0 contradicted 2
+verify 20261112 I-0026 1 contradicted 2
+verify 20261112 I-0026 2 contradicted 2
+verify 20261112 I-0026 3 contradicted 2
+verify 20261112 I-0027 0 supported 2
+verify 20261112 I-0027 1 supported 2
+verify 20261112 I-0027 2 supported 2
+verify 20261112 I-0027 3 supported 2
+verify 20261112 I-0028 0 contradicted 2
+verify 20261112 I-0028 1 contradicted 2
+verify 20261112 I-0028 2 contradicted 2
+verify 20261112 I-0028 3 contradicted 2
+verify 20261112 I-0029 0 unknown 2
+verify 20261112 I-0029 1 unknown 2
+verify 20261112 I-0029 2 unknown 2
+verify 20261112 I-0029 3 unknown 2
+verify 20261112 I-0030 0 contradicted 2
+verify 20261112 I-0030 1 contradicted 2
+verify 20261112 I-0030 2 contradicted 2
+verify 20261112 I-0030 3 contradicted 2
+verify 20261112 I-0031 0 contradicted 2
+verify 20261112 I-0031 1 contradicted 2
+verify 20261112 I-0031 2 contradicted 2
+verify 20261112 I-0031 3 contradicted 2
+verify 20261112 I-0032 0 unknown 2
+verify 20261112 I-0032 1 unknown 2
+verify 20261112 I-0032 2 unknown 2
+verify 20261112 I-0032 3 unknown 2
+verify 20261112 I-0033 0 unsupported 2
+verify 20261112 I-0033 1 supported 2
+verify 20261112 I-0033 2 unsupported 2
+verify 20261112 I-0033 3 unsupported 2
+verify 20261112 I-0034 0 unknown 2
+verify 20261112 I-0034 1 unknown 2
+verify 20261112 I-0034 2 unknown 2
+verify 20261112 I-0034 3 unknown 2
+verify 20261112 I-0035 0 supported 2
+verify 20261112 I-0035 1 supported 2
+verify 20261112 I-0035 2 supported 2
+verify 20261112 I-0035 3 supported 2
+verify 20261112 I-0036 0 supported 2
+verify 20261112 I-0036 1 supported 2
+verify 20261112 I-0036 2 supported 2
+verify 20261112 I-0036 3 supported 2
+verify 20261112 I-0037 0 contradicted 2
+verify 20261112 I-0037 1 contradicted 2
+verify 20261112 I-0037 2 contradicted 2
+verify 20261112 I-0037 3 contradicted 2
+verify 20261112 I-0038 0 unknown 2
+verify 20261112 I-0038 1 unknown 2
+verify 20261112 I-0038 2 unknown 2
+verify 20261112 I-0038 3 unknown 2
+verify 20261112 I-0039 0 unsupported 2
+verify 20261112 I-0039 1 unsupported 2
+verify 20261112 I-0039 2 unsupported 2
+verify 20261112 I-0039 3 supported 2
+verify 20261112 I-0040 0 contradicted 2
+verify 20261112 I-0040 1 contradicted 2
+verify 20261112 I-0040 2 contradicted 2
+verify 20261112 I-0040 3 contradicted 2
+verify 20261112 I-0041 0 unsupported 2
+verify 20261112 I-0041 1 unsupported 2
+verify 20261112 I-0041 2 unsupported 2
+verify 20261112 I-0041 3 supported 2
+verify 20261112 I-0042 0 contradicted 2
+verify 20261112 I-0042 1 contradicted 2
+verify 20261112 I-0042 2 contradicted 2
+verify 20261112 I-0042 3 contradicted 2
+verify 20261112 I-0043 0 contradicted 2
+verify 20261112 I-0043 1 contradicted 2
+verify 20261112 I-0043 2 contradicted 2
+verify 20261112 I-0043 3 contradicted 2
+verify 20261112 I-0044 0 contradicted 2
+verify 20261112 I-0044 1 contradicted 2
+verify 20261112 I-0044 2 contradicted 2
+verify 20261112 I-0044 3 contradicted 2
+verify 20261112 I-0045 0 supported 2
+verify 20261112 I-0045 1 supported 2
+verify 20261112 I-0045 2 supported 2
+verify 20261112 I-0045 3 supported 2
+verify 20261112 I-0046 0 contradicted 2
+verify 20261112 I-0046 1 contradicted 2
+verify 20261112 I-0046 2 contradicted 2
+verify 20261112 I-0046 3 contradicted 2
+verify 20261112 I-0047 0 unknown 2
+verify 20261112 I-0047 1 unknown 2
+verify 20261112 I-0047 2 unknown 2
+verify 20261112 I-0047 3 unknown 2
+verify 20261112 I-0048 0 unsupported 2
+verify 20261112 I-0048 1 supported 2
+verify 20261112 I-0048 2 unsupported 2
+verify 20261112 I-0048 3 unsupported 2
+verify 20261112 I-0049 0 unsupported 2
+verify 20261112 I-0049 1 supported 2
+verify 20261112 I-0049 2 unsupported 2
+verify 20261112 I-0049 3 unsupported 2
+verify 20261112 I-0050 0 supported 2
+verify 20261112 I-0050 1 supported 2
+verify 20261112 I-0050 2 supported 2
+verify 20261112 I-0050 3 supported 2
+verify 20261112 I-0051 0 contradicted 2
+verify 20261112 I-0051 1 contradicted 2
+verify 20261112 I-0051 2 contradicted 2
+verify 20261112 I-0051 3 contradicted 2
+verify 20261112 I-0052 0 contradicted 2
+verify 20261112 I-0052 1 contradicted 2
+verify 20261112 I-0052 2 contradicted 2
+verify 20261112 I-0052 3 contradicted 2
+verify 20261112 I-0053 0 contradicted 2
+verify 20261112 I-0053 1 contradicted 2
+verify 20261112 I-0053 2 contradicted 2
+verify 20261112 I-0053 3 contradicted 2
+verify 20261112 I-0054 0 contradicted 2
+verify 20261112 I-0054 1 contradicted 2
+verify 20261112 I-0054 2 contradicted 2
+verify 20261112 I-0054 3 contradicted 2
+verify 20261112 I-0055 0 unknown 2
+verify 20261112 I-0055 1 unknown 2
+verify 20261112 I-0055 2 unknown 2
+verify 20261112 I-0055 3 unknown 2
+verify 20261112 I-0056 0 supported 2
+verify 20261112 I-0056 1 supported 2
+verify 20261112 I-0056 2 supported 2
+verify 20261112 I-0056 3 supported 2
+verify 20261112 I-0057 0 supported 2
+verify 20261112 I-0057 1 supported 2
+verify 20261112 I-0057 2 supported 2
+verify 20261112 I-0057 3 supported 2
+verify 20261112 I-0058 0 unsupported 2
+verify 20261112 I-0058 1 supported 2
+verify 20261112 I-0058 2 unsupported 2
+verify 20261112 I-0058 3 unsupported 2
+verify 20261112 I-0059 0 contradicted 2
+verify 20261112 I-0059 1 contradicted 2
+verify 20261112 I-0059 2 contradicted 2
+verify 20261112 I-0059 3 contradicted 2
+solve 20261112 0 2 none 1 0 0 0 0
+solve 20261112 0 2 plain 0 0 0 0 3
+solve 20261112 0 2 wikitrace 1 3 1 8 3
+solve 20261112 1 3 none 1 0 0 0 0
+solve 20261112 1 3 plain 1 0 0 0 3
+solve 20261112 1 3 wikitrace 1 3 0 20 3
+solve 20261112 2 2 none 0 0 0 0 0
+solve 20261112 2 2 plain 0 0 0 0 3
+solve 20261112 2 2 wikitrace 1 3 1 8 3
+solve 20261112 3 2 none 0 0 0 0 0
+solve 20261112 3 2 plain 0 0 0 0 3
+solve 20261112 3 2 wikitrace 1 3 1 8 3
+solve 20261112 4 2 none 0 0 0 0 0
+solve 20261112 4 2 plain 0 0 0 0 3
+solve 20261112 4 2 wikitrace 1 3 1 8 3
+solve 20261112 5 0 none 0 0 0 0 0
+solve 20261112 5 0 plain 1 0 0 0 3
+solve 20261112 5 0 wikitrace 0 3 1 40 2
+solve 20261112 6 1 none 1 0 0 0 0
+solve 20261112 6 1 plain 0 0 0 0 3
+solve 20261112 6 1 wikitrace 1 3 1 46 3
+solve 20261112 7 3 none 0 0 0 0 0
+solve 20261112 7 3 plain 1 0 0 0 3
+solve 20261112 7 3 wikitrace 1 3 0 20 3
+solve 20261112 8 2 none 0 0 0 0 0
+solve 20261112 8 2 plain 0 0 0 0 3
+solve 20261112 8 2 wikitrace 1 3 1 8 3
+solve 20261112 9 0 none 0 0 0 0 0
+solve 20261112 9 0 plain 1 0 0 0 3
+solve 20261112 9 0 wikitrace 0 3 1 40 2
+solve 20261112 10 0 none 0 0 0 0 0
+solve 20261112 10 0 plain 1 0 0 0 3
+solve 20261112 10 0 wikitrace 0 3 1 40 2
+solve 20261112 11 2 none 1 0 0 0 0
+solve 20261112 11 2 plain 0 0 0 0 3
+solve 20261112 11 2 wikitrace 1 3 1 8 3
+solve 20261112 12 0 none 0 0 0 0 0
+solve 20261112 12 0 plain 1 0 0 0 3
+solve 20261112 12 0 wikitrace 0 3 1 40 2
+solve 20261112 13 1 none 0 0 0 0 0
+solve 20261112 13 1 plain 0 0 0 0 3
+solve 20261112 13 1 wikitrace 1 3 1 46 3
+solve 20261112 14 0 none 0 0 0 0 0
+solve 20261112 14 0 plain 1 0 0 0 3
+solve 20261112 14 0 wikitrace 0 3 1 40 2
+solve 20261112 15 2 none 0 0 0 0 0
+solve 20261112 15 2 plain 0 0 0 0 3
+solve 20261112 15 2 wikitrace 1 3 1 8 3
+solve 20261112 16 3 none 1 0 0 0 0
+solve 20261112 16 3 plain 1 0 0 0 3
+solve 20261112 16 3 wikitrace 1 3 0 20 3
+solve 20261112 17 0 none 0 0 0 0 0
+solve 20261112 17 0 plain 1 0 0 0 3
+solve 20261112 17 0 wikitrace 0 3 1 40 2
+solve 20261112 18 2 none 0 0 0 0 0
+solve 20261112 18 2 plain 0 0 0 0 3
+solve 20261112 18 2 wikitrace 1 3 1 8 3
+solve 20261112 19 1 none 0 0 0 0 0
+solve 20261112 19 1 plain 0 0 0 0 3
+solve 20261112 19 1 wikitrace 1 3 1 46 3
+solve 20261112 20 1 none 1 0 0 0 0
+solve 20261112 20 1 plain 0 0 0 0 3
+solve 20261112 20 1 wikitrace 1 3 1 46 3
+solve 20261112 21 0 none 0 0 0 0 0
+solve 20261112 21 0 plain 1 0 0 0 3
+solve 20261112 21 0 wikitrace 0 3 1 40 2
+solve 20261112 22 3 none 0 0 0 0 0
+solve 20261112 22 3 plain 1 0 0 0 3
+solve 20261112 22 3 wikitrace 1 3 0 20 3
+solve 20261112 23 0 none 0 0 0 0 0
+solve 20261112 23 0 plain 1 0 0 0 3
+solve 20261112 23 0 wikitrace 0 3 1 40 2
+solve 20261112 24 3 none 0 0 0 0 0
+solve 20261112 24 3 plain 1 0 0 0 3
+solve 20261112 24 3 wikitrace 1 3 0 20 3
+solve 20261112 25 1 none 0 0 0 0 0
+solve 20261112 25 1 plain 0 0 0 0 3
+solve 20261112 25 1 wikitrace 1 3 1 46 3
+solve 20261112 26 2 none 0 0 0 0 0
+solve 20261112 26 2 plain 0 0 0 0 3
+solve 20261112 26 2 wikitrace 1 3 1 8 3
+solve 20261112 27 3 none 1 0 0 0 0
+solve 20261112 27 3 plain 1 0 0 0 3
+solve 20261112 27 3 wikitrace 1 3 0 20 3
+solve 20261112 28 2 none 0 0 0 0 0
+solve 20261112 28 2 plain 0 0 0 0 3
+solve 20261112 28 2 wikitrace 1 3 1 8 3
+solve 20261112 29 1 none 0 0 0 0 0
+solve 20261112 29 1 plain 0 0 0 0 3
+solve 20261112 29 1 wikitrace 1 3 1 46 3
+solve 20261112 30 3 none 0 0 0 0 0
+solve 20261112 30 3 plain 1 0 0 0 3
+solve 20261112 30 3 wikitrace 1 3 0 20 3
+solve 20261112 31 1 none 0 0 0 0 0
+solve 20261112 31 1 plain 0 0 0 0 3
+solve 20261112 31 1 wikitrace 1 3 1 46 3
+solve 20261112 32 3 none 0 0 0 0 0
+solve 20261112 32 3 plain 1 0 0 0 3
+solve 20261112 32 3 wikitrace 1 3 0 20 3
+solve 20261112 33 0 none 0 0 0 0 0
+solve 20261112 33 0 plain 1 0 0 0 3
+solve 20261112 33 0 wikitrace 0 3 1 40 2
+solve 20261112 34 2 none 0 0 0 0 0
+solve 20261112 34 2 plain 0 0 0 0 3
+solve 20261112 34 2 wikitrace 1 3 1 8 3
+solve 20261112 35 0 none 0 0 0 0 0
+solve 20261112 35 0 plain 1 0 0 0 3
+solve 20261112 35 0 wikitrace 1 3 0 40 2
+solve 20261112 36 0 none 0 0 0 0 0
+solve 20261112 36 0 plain 1 0 0 0 3
+solve 20261112 36 0 wikitrace 1 3 0 40 2
+solve 20261112 37 0 none 1 0 0 0 0
+solve 20261112 37 0 plain 1 0 0 0 3
+solve 20261112 37 0 wikitrace 1 3 0 40 2
+solve 20261112 38 2 none 0 0 0 0 0
+solve 20261112 38 2 plain 0 0 0 0 3
+solve 20261112 38 2 wikitrace 1 3 1 8 3
+solve 20261112 39 0 none 0 0 0 0 0
+solve 20261112 39 0 plain 1 0 0 0 3
+solve 20261112 39 0 wikitrace 1 3 0 40 2
+solve_succ 20261112 0 2 1 3 1 8 3
+solve_succ 20261112 1 3 1 3 0 8 2
+solve_succ 20261112 2 2 1 3 1 8 3
+solve_succ 20261112 3 2 1 3 1 8 3
+solve_succ 20261112 4 2 1 3 1 8 3
+solve_succ 20261112 5 0 0 3 2 18 0
+solve_succ 20261112 6 1 1 3 1 18 3
+solve_succ 20261112 7 3 0 3 1 8 2
+solve_succ 20261112 8 2 1 3 1 8 3
+solve_succ 20261112 9 0 0 3 2 18 0
+solve_succ 20261112 10 0 0 3 3 18 0
+solve_succ 20261112 11 2 1 3 1 8 3
+solve_succ 20261112 12 0 0 3 2 18 0
+solve_succ 20261112 13 1 1 3 1 18 3
+solve_succ 20261112 14 0 0 3 3 18 0
+solve_succ 20261112 15 2 1 3 1 8 3
+solve_succ 20261112 16 3 1 3 0 8 2
+solve_succ 20261112 17 0 0 3 3 18 0
+solve_succ 20261112 18 2 1 3 1 8 3
+solve_succ 20261112 19 1 1 3 1 18 3
+solve_succ 20261112 20 1 1 3 1 18 3
+solve_succ 20261112 21 0 0 3 2 18 0
+solve_succ 20261112 22 3 0 3 1 8 2
+solve_succ 20261112 23 0 0 3 3 18 0
+solve_succ 20261112 24 3 1 3 0 8 2
+solve_succ 20261112 25 1 1 3 1 18 3
+solve_succ 20261112 26 2 1 3 1 8 3
+solve_succ 20261112 27 3 1 3 0 8 2
+solve_succ 20261112 28 2 1 3 1 8 3
+solve_succ 20261112 29 1 1 3 1 18 3
+solve_succ 20261112 30 3 1 3 0 8 2
+solve_succ 20261112 31 1 1 3 1 18 3
+solve_succ 20261112 32 3 1 3 0 8 2
+solve_succ 20261112 33 0 0 3 1 18 0
+solve_succ 20261112 34 2 1 3 1 8 3
+solve_succ 20261112 35 0 0 3 1 18 0
+solve_succ 20261112 36 0 0 3 1 18 0
+solve_succ 20261112 37 0 1 3 0 18 0
+solve_succ 20261112 38 2 1 3 1 8 3
+solve_succ 20261112 39 0 0 3 2 18 0
+solve_fail 20261112 0 2 1 3 2 44 0
+solve_fail 20261112 1 3 1 3 2 42 2
+solve_fail 20261112 2 2 0 3 3 44 0
+solve_fail 20261112 3 2 0 3 1 44 0
+solve_fail 20261112 4 2 0 3 2 44 0
+solve_fail 20261112 5 0 0 3 3 32 2
+solve_fail 20261112 6 1 1 3 1 46 2
+solve_fail 20261112 7 3 0 3 1 42 2
+solve_fail 20261112 8 2 0 3 1 44 0
+solve_fail 20261112 9 0 0 3 2 32 2
+solve_fail 20261112 10 0 0 3 2 32 2
+solve_fail 20261112 11 2 1 3 2 44 0
+solve_fail 20261112 12 0 0 3 3 32 2
+solve_fail 20261112 13 1 1 3 1 46 2
+solve_fail 20261112 14 0 0 3 3 32 2
+solve_fail 20261112 15 2 0 3 1 44 0
+solve_fail 20261112 16 3 1 3 2 42 2
+solve_fail 20261112 17 0 0 3 2 32 2
+solve_fail 20261112 18 2 0 3 3 44 0
+solve_fail 20261112 19 1 0 3 2 46 2
+solve_fail 20261112 20 1 1 3 1 46 2
+solve_fail 20261112 21 0 0 3 2 32 2
+solve_fail 20261112 22 3 1 3 2 42 2
+solve_fail 20261112 23 0 0 3 2 32 2
+solve_fail 20261112 24 3 0 3 2 42 2
+solve_fail 20261112 25 1 1 3 1 46 2
+solve_fail 20261112 26 2 0 3 3 44 0
+solve_fail 20261112 27 3 1 3 2 42 2
+solve_fail 20261112 28 2 0 3 3 44 0
+solve_fail 20261112 29 1 1 3 1 46 2
+solve_fail 20261112 30 3 0 3 1 42 2
+solve_fail 20261112 31 1 1 3 1 46 2
+solve_fail 20261112 32 3 0 3 1 42 2
+solve_fail 20261112 33 0 0 3 2 32 2
+solve_fail 20261112 34 2 0 3 3 44 0
+solve_fail 20261112 35 0 1 3 3 32 2
+solve_fail 20261112 36 0 1 3 3 32 2
+solve_fail 20261112 37 0 1 3 3 32 2
+solve_fail 20261112 38 2 0 3 2 44 0
+solve_fail 20261112 39 0 1 3 3 32 2
+task 7 0 3
+choices 7 0 2 0 1
+task 7 1 0
+choices 7 1 0 1 2
+task 7 2 2
+choices 7 2 0 1 2
+task 7 3 3
+choices 7 3 0 0 0
+task 7 4 2
+choices 7 4 0 1 1
+task 7 5 1
+choices 7 5 1 1 0
+task 7 6 2
+choices 7 6 1 2 2
+task 7 7 2
+choices 7 7 1 1 2
+task 7 8 1
+choices 7 8 0 1 2
+task 7 9 1
+choices 7 9 0 1 1
+task 7 10 3
+choices 7 10 0 0 0
+task 7 11 0
+choices 7 11 2 0 0
+task 7 12 2
+choices 7 12 1 2 1
+task 7 13 0
+choices 7 13 2 2 0
+task 7 14 2
+choices 7 14 0 1 2
+task 7 15 0
+choices 7 15 2 2 0
+task 7 16 3
+choices 7 16 1 1 0
+task 7 17 3
+choices 7 17 0 2 0
+task 7 18 1
+choices 7 18 0 1 2
+task 7 19 0
+choices 7 19 0 2 2
+step 7 0 0 2 0 0
+step 7 0 1 0 0 1
+step 7 0 2 1 0 1
+run 7 0 0
+step 7 1 0 0 1 1
+step 7 1 1 1 1 1
+step 7 1 2 2 0 1
+run 7 1 0
+step 7 2 0 0 1 1
+step 7 2 1 1 1 1
+step 7 2 2 2 1 0
+run 7 2 1
+step 7 3 0 0 1 1
+step 7 3 1 0 0 0
+step 7 3 2 0 1 1
+run 7 3 0
+step 7 4 0 0 1 1
+step 7 4 1 1 1 1
+step 7 4 2 1 0 0
+run 7 4 0
+step 7 5 0 1 0 1
+step 7 5 1 1 1 1
+step 7 5 2 0 0 1
+run 7 5 0
+step 7 6 0 1 0 1
+step 7 6 1 2 0 1
+step 7 6 2 2 1 1
+run 7 6 0
+step 7 7 0 1 0 1
+step 7 7 1 1 1 1
+step 7 7 2 2 1 1
+run 7 7 0
+step 7 8 0 0 1 0
+step 7 8 1 1 1 1
+step 7 8 2 2 0 0
+run 7 8 0
+step 7 9 0 0 1 1
+step 7 9 1 1 1 1
+step 7 9 2 1 1 0
+run 7 9 1
+step 7 10 0 0 1 1
+step 7 10 1 0 0 1
+step 7 10 2 0 1 1
+run 7 10 0
+step 7 11 0 2 0 1
+step 7 11 1 0 0 1
+step 7 11 2 0 1 1
+run 7 11 0
+step 7 12 0 1 0 1
+step 7 12 1 2 0 1
+step 7 12 2 1 0 1
+run 7 12 0
+step 7 13 0 2 0 1
+step 7 13 1 2 0 1
+step 7 13 2 0 1 1
+run 7 13 0
+step 7 14 0 0 1 1
+step 7 14 1 1 1 1
+step 7 14 2 2 1 0
+run 7 14 1
+step 7 15 0 2 0 1
+step 7 15 1 2 0 1
+step 7 15 2 0 1 1
+run 7 15 0
+step 7 16 0 1 0 1
+step 7 16 1 1 1 1
+step 7 16 2 0 1 1
+run 7 16 0
+step 7 17 0 0 1 1
+step 7 17 1 2 0 0
+step 7 17 2 0 1 1
+run 7 17 0
+step 7 18 0 0 1 1
+step 7 18 1 1 1 1
+step 7 18 2 2 0 1
+run 7 18 0
+step 7 19 0 0 1 0
+step 7 19 1 2 0 1
+step 7 19 2 2 0 0
+run 7 19 0
+insight 7 I-0000 0 0 any 0 0 1
+insight 7 I-0001 1 0 any 0 0 0
+insight 7 I-0002 2 1 attr:3 0 0 0
+insight 7 I-0003 0 1 attr:0 1 0 1
+insight 7 I-0004 1 1 attr:0 1 0 0
+insight 7 I-0005 2 2 any 1 0 0
+insight 7 I-0006 0 0 attr:2 2 1 0
+insight 7 I-0007 1 1 any 2 1 0
+insight 7 I-0008 2 2 any 2 1 0
+insight 7 I-0009 0 1 any 3 0 1
+insight 7 I-0010 1 0 attr:3 3 0 0
+insight 7 I-0011 2 0 attr:3 3 0 0
+insight 7 I-0012 0 1 any 4 0 1
+insight 7 I-0013 1 1 any 4 0 0
+insight 7 I-0014 2 1 attr:2 4 0 0
+insight 7 I-0015 0 2 any 5 0 1
+insight 7 I-0016 1 1 attr:1 5 0 0
+insight 7 I-0017 2 0 any 5 0 0
+insight 7 I-0018 0 1 any 6 0 0
+insight 7 I-0019 1 2 attr:2 6 0 0
+insight 7 I-0020 2 1 any 6 0 1
+insight 7 I-0021 0 0 any 7 0 1
+insight 7 I-0022 1 2 attr:2 7 0 1
+insight 7 I-0023 2 1 any 7 0 1
+insight 7 I-0024 0 0 attr:1 8 0 0
+insight 7 I-0025 1 1 any 8 0 0
+insight 7 I-0026 2 2 attr:1 8 0 0
+insight 7 I-0027 0 0 any 9 1 0
+insight 7 I-0028 1 1 any 9 1 0
+insight 7 I-0029 2 1 attr:1 9 1 0
+insight 7 I-0030 0 1 any 10 0 1
+insight 7 I-0031 1 1 any 10 0 1
+insight 7 I-0032 2 0 any 10 0 0
+insight 7 I-0033 0 0 any 11 0 1
+insight 7 I-0034 1 0 attr:0 11 0 0
+insight 7 I-0035 2 0 any 11 0 0
+insight 7 I-0036 0 1 any 12 0 0
+insight 7 I-0037 1 2 attr:2 12 0 0
+insight 7 I-0038 2 1 attr:2 12 0 0
+insight 7 I-0039 0 1 any 13 0 1
+insight 7 I-0040 1 2 attr:0 13 0 0
+insight 7 I-0041 2 0 any 13 0 0
+insight 7 I-0042 0 0 attr:2 14 1 0
+insight 7 I-0043 1 1 any 14 1 0
+insight 7 I-0044 2 2 any 14 1 0
+insight 7 I-0045 0 2 any 15 0 0
+insight 7 I-0046 1 2 any 15 0 0
+insight 7 I-0047 2 0 any 15 0 0
+insight 7 I-0048 0 2 attr:3 16 0 1
+insight 7 I-0049 1 1 attr:3 16 0 0
+insight 7 I-0050 2 0 attr:3 16 0 0
+insight 7 I-0051 0 0 any 17 0 0
+insight 7 I-0052 1 2 any 17 0 0
+insight 7 I-0053 2 0 any 17 0 0
+insight 7 I-0054 0 0 attr:1 18 0 0
+insight 7 I-0055 1 1 attr:1 18 0 0
+insight 7 I-0056 2 2 attr:1 18 0 0
+insight 7 I-0057 0 0 attr:0 19 0 0
+insight 7 I-0058 1 2 any 19 0 0
+insight 7 I-0059 2 2 attr:0 19 0 0
+verify 7 I-0000 0 unknown 2
+verify 7 I-0000 1 unknown 2
+verify 7 I-0000 2 unknown 2
+verify 7 I-0000 3 unknown 2
+verify 7 I-0001 0 contradicted 2
+verify 7 I-0001 1 contradicted 2
+verify 7 I-0001 2 contradicted 2
+verify 7 I-0001 3 contradicted 2
+verify 7 I-0002 0 contradicted 2
+verify 7 I-0002 1 contradicted 2
+verify 7 I-0002 2 contradicted 2
+verify 7 I-0002 3 contradicted 2
+verify 7 I-0003 0 contradicted 2
+verify 7 I-0003 1 contradicted 2
+verify 7 I-0003 2 contradicted 2
+verify 7 I-0003 3 contradicted 2
+verify 7 I-0004 0 supported 2
+verify 7 I-0004 1 supported 2
+verify 7 I-0004 2 supported 2
+verify 7 I-0004 3 supported 2
+verify 7 I-0005 0 contradicted 2
+verify 7 I-0005 1 contradicted 2
+verify 7 I-0005 2 contradicted 2
+verify 7 I-0005 3 contradicted 2
+verify 7 I-0006 0 supported 2
+verify 7 I-0006 1 supported 2
+verify 7 I-0006 2 supported 2
+verify 7 I-0006 3 supported 2
+verify 7 I-0007 0 unsupported 2
+verify 7 I-0007 1 unsupported 2
+verify 7 I-0007 2 supported 2
+verify 7 I-0007 3 unsupported 2
+verify 7 I-0008 0 unknown 2
+verify 7 I-0008 1 unknown 2
+verify 7 I-0008 2 unknown 2
+verify 7 I-0008 3 unknown 2
+verify 7 I-0009 0 contradicted 2
+verify 7 I-0009 1 contradicted 2
+verify 7 I-0009 2 contradicted 2
+verify 7 I-0009 3 contradicted 2
+verify 7 I-0010 0 unknown 2
+verify 7 I-0010 1 unknown 2
+verify 7 I-0010 2 unknown 2
+verify 7 I-0010 3 unknown 2
+verify 7 I-0011 0 supported 2
+verify 7 I-0011 1 supported 2
+verify 7 I-0011 2 supported 2
+verify 7 I-0011 3 supported 2
+verify 7 I-0012 0 contradicted 2
+verify 7 I-0012 1 contradicted 2
+verify 7 I-0012 2 contradicted 2
+verify 7 I-0012 3 contradicted 2
+verify 7 I-0013 0 unsupported 2
+verify 7 I-0013 1 unsupported 2
+verify 7 I-0013 2 supported 2
+verify 7 I-0013 3 unsupported 2
+verify 7 I-0014 0 unknown 2
+verify 7 I-0014 1 unknown 2
+verify 7 I-0014 2 unknown 2
+verify 7 I-0014 3 unknown 2
+verify 7 I-0015 0 contradicted 2
+verify 7 I-0015 1 contradicted 2
+verify 7 I-0015 2 contradicted 2
+verify 7 I-0015 3 contradicted 2
+verify 7 I-0016 0 supported 2
+verify 7 I-0016 1 supported 2
+verify 7 I-0016 2 supported 2
+verify 7 I-0016 3 supported 2
+verify 7 I-0017 0 contradicted 2
+verify 7 I-0017 1 contradicted 2
+verify 7 I-0017 2 contradicted 2
+verify 7 I-0017 3 contradicted 2
+verify 7 I-0018 0 contradicted 2
+verify 7 I-0018 1 contradicted 2
+verify 7 I-0018 2 contradicted 2
+verify 7 I-0018 3 contradicted 2
+verify 7 I-0019 0 contradicted 2
+verify 7 I-0019 1 contradicted 2
+verify 7 I-0019 2 contradicted 2
+verify 7 I-0019 3 contradicted 2
+verify 7 I-0020 0 contradicted 2
+verify 7 I-0020 1 contradicted 2
+verify 7 I-0020 2 contradicted 2
+verify 7 I-0020 3 contradicted 2
+verify 7 I-0021 0 contradicted 2
+verify 7 I-0021 1 contradicted 2
+verify 7 I-0021 2 contradicted 2
+verify 7 I-0021 3 contradicted 2
+verify 7 I-0022 0 contradicted 2
+verify 7 I-0022 1 contradicted 2
+verify 7 I-0022 2 contradicted 2
+verify 7 I-0022 3 contradicted 2
+verify 7 I-0023 0 contradicted 2
+verify 7 I-0023 1 contradicted 2
+verify 7 I-0023 2 contradicted 2
+verify 7 I-0023 3 contradicted 2
+verify 7 I-0024 0 unknown 2
+verify 7 I-0024 1 unknown 2
+verify 7 I-0024 2 unknown 2
+verify 7 I-0024 3 unknown 2
+verify 7 I-0025 0 unsupported 2
+verify 7 I-0025 1 supported 2
+verify 7 I-0025 2 unsupported 2
+verify 7 I-0025 3 unsupported 2
+verify 7 I-0026 0 unknown 2
+verify 7 I-0026 1 unknown 2
+verify 7 I-0026 2 unknown 2
+verify 7 I-0026 3 unknown 2
+verify 7 I-0027 0 unsupported 2
+verify 7 I-0027 1 supported 2
+verify 7 I-0027 2 unsupported 2
+verify 7 I-0027 3 unsupported 2
+verify 7 I-0028 0 unsupported 2
+verify 7 I-0028 1 supported 2
+verify 7 I-0028 2 unsupported 2
+verify 7 I-0028 3 unsupported 2
+verify 7 I-0029 0 unknown 2
+verify 7 I-0029 1 unknown 2
+verify 7 I-0029 2 unknown 2
+verify 7 I-0029 3 unknown 2
+verify 7 I-0030 0 contradicted 2
+verify 7 I-0030 1 contradicted 2
+verify 7 I-0030 2 contradicted 2
+verify 7 I-0030 3 contradicted 2
+verify 7 I-0031 0 contradicted 2
+verify 7 I-0031 1 contradicted 2
+verify 7 I-0031 2 contradicted 2
+verify 7 I-0031 3 contradicted 2
+verify 7 I-0032 0 unsupported 2
+verify 7 I-0032 1 unsupported 2
+verify 7 I-0032 2 unsupported 2
+verify 7 I-0032 3 supported 2
+verify 7 I-0033 0 contradicted 2
+verify 7 I-0033 1 contradicted 2
+verify 7 I-0033 2 contradicted 2
+verify 7 I-0033 3 contradicted 2
+verify 7 I-0034 0 contradicted 2
+verify 7 I-0034 1 contradicted 2
+verify 7 I-0034 2 contradicted 2
+verify 7 I-0034 3 contradicted 2
+verify 7 I-0035 0 supported 2
+verify 7 I-0035 1 unsupported 2
+verify 7 I-0035 2 unsupported 2
+verify 7 I-0035 3 unsupported 2
+verify 7 I-0036 0 contradicted 2
+verify 7 I-0036 1 contradicted 2
+verify 7 I-0036 2 contradicted 2
+verify 7 I-0036 3 contradicted 2
+verify 7 I-0037 0 contradicted 2
+verify 7 I-0037 1 contradicted 2
+verify 7 I-0037 2 contradicted 2
+verify 7 I-0037 3 contradicted 2
+verify 7 I-0038 0 contradicted 2
+verify 7 I-0038 1 contradicted 2
+verify 7 I-0038 2 contradicted 2
+verify 7 I-0038 3 contradicted 2
+verify 7 I-0039 0 contradicted 2
+verify 7 I-0039 1 contradicted 2
+verify 7 I-0039 2 contradicted 2
+verify 7 I-0039 3 contradicted 2
+verify 7 I-0040 0 contradicted 2
+verify 7 I-0040 1 contradicted 2
+verify 7 I-0040 2 contradicted 2
+verify 7 I-0040 3 contradicted 2
+verify 7 I-0041 0 supported 2
+verify 7 I-0041 1 unsupported 2
+verify 7 I-0041 2 unsupported 2
+verify 7 I-0041 3 unsupported 2
+verify 7 I-0042 0 supported 2
+verify 7 I-0042 1 supported 2
+verify 7 I-0042 2 supported 2
+verify 7 I-0042 3 supported 2
+verify 7 I-0043 0 unsupported 2
+verify 7 I-0043 1 unsupported 2
+verify 7 I-0043 2 supported 2
+verify 7 I-0043 3 unsupported 2
+verify 7 I-0044 0 unknown 2
+verify 7 I-0044 1 unknown 2
+verify 7 I-0044 2 unknown 2
+verify 7 I-0044 3 unknown 2
+verify 7 I-0045 0 contradicted 2
+verify 7 I-0045 1 contradicted 2
+verify 7 I-0045 2 contradicted 2
+verify 7 I-0045 3 contradicted 2
+verify 7 I-0046 0 contradicted 2
+verify 7 I-0046 1 contradicted 2
+verify 7 I-0046 2 contradicted 2
+verify 7 I-0046 3 contradicted 2
+verify 7 I-0047 0 supported 2
+verify 7 I-0047 1 unsupported 2
+verify 7 I-0047 2 unsupported 2
+verify 7 I-0047 3 unsupported 2
+verify 7 I-0048 0 contradicted 2
+verify 7 I-0048 1 contradicted 2
+verify 7 I-0048 2 contradicted 2
+verify 7 I-0048 3 contradicted 2
+verify 7 I-0049 0 supported 2
+verify 7 I-0049 1 supported 2
+verify 7 I-0049 2 supported 2
+verify 7 I-0049 3 supported 2
+verify 7 I-0050 0 supported 2
+verify 7 I-0050 1 supported 2
+verify 7 I-0050 2 supported 2
+verify 7 I-0050 3 supported 2
+verify 7 I-0051 0 unsupported 2
+verify 7 I-0051 1 unsupported 2
+verify 7 I-0051 2 unsupported 2
+verify 7 I-0051 3 supported 2
+verify 7 I-0052 0 unknown 2
+verify 7 I-0052 1 unknown 2
+verify 7 I-0052 2 unknown 2
+verify 7 I-0052 3 unknown 2
+verify 7 I-0053 0 unsupported 2
+verify 7 I-0053 1 unsupported 2
+verify 7 I-0053 2 unsupported 2
+verify 7 I-0053 3 supported 2
+verify 7 I-0054 0 supported 2
+verify 7 I-0054 1 supported 2
+verify 7 I-0054 2 supported 2
+verify 7 I-0054 3 supported 2
+verify 7 I-0055 0 supported 2
+verify 7 I-0055 1 supported 2
+verify 7 I-0055 2 supported 2
+verify 7 I-0055 3 supported 2
+verify 7 I-0056 0 contradicted 2
+verify 7 I-0056 1 contradicted 2
+verify 7 I-0056 2 contradicted 2
+verify 7 I-0056 3 contradicted 2
+verify 7 I-0057 0 unknown 2
+verify 7 I-0057 1 unknown 2
+verify 7 I-0057 2 unknown 2
+verify 7 I-0057 3 unknown 2
+verify 7 I-0058 0 contradicted 2
+verify 7 I-0058 1 contradicted 2
+verify 7 I-0058 2 contradicted 2
+verify 7 I-0058 3 contradicted 2
+verify 7 I-0059 0 unknown 2
+verify 7 I-0059 1 unknown 2
+verify 7 I-0059 2 unknown 2
+verify 7 I-0059 3 unknown 2
+solve 7 0 0 none 0 0 0 0 0
+solve 7 0 0 plain 0 0 0 0 3
+solve 7 0 0 wikitrace 0 3 3 48 2
+solve 7 1 1 none 0 0 0 0 0
+solve 7 1 1 plain 0 0 0 0 3
+solve 7 1 1 wikitrace 0 3 1 52 2
+solve 7 2 0 none 1 0 0 0 0
+solve 7 2 0 plain 0 0 0 0 3
+solve 7 2 0 wikitrace 1 3 2 48 2
+solve 7 3 1 none 0 0 0 0 0
+solve 7 3 1 plain 0 0 0 0 3
+solve 7 3 1 wikitrace 1 3 2 52 2
+solve 7 4 2 none 0 0 0 0 0
+solve 7 4 2 plain 0 0 0 0 3
+solve 7 4 2 wikitrace 0 3 2 34 2
+solve 7 5 3 none 0 0 0 0 0
+solve 7 5 3 plain 0 0 0 0 3
+solve 7 5 3 wikitrace 1 3 2 56 3
+solve 7 6 1 none 0 0 0 0 0
+solve 7 6 1 plain 0 0 0 0 3
+solve 7 6 1 wikitrace 1 3 2 52 2
+solve 7 7 3 none 0 0 0 0 0
+solve 7 7 3 plain 0 0 0 0 3
+solve 7 7 3 wikitrace 1 3 2 56 3
+solve 7 8 0 none 0 0 0 0 0
+solve 7 8 0 plain 0 0 0 0 3
+solve 7 8 0 wikitrace 1 3 2 48 2
+solve 7 9 1 none 1 0 0 0 0
+solve 7 9 1 plain 0 0 0 0 3
+solve 7 9 1 wikitrace 1 3 2 52 2
+solve 7 10 0 none 0 0 0 0 0
+solve 7 10 0 plain 0 0 0 0 3
+solve 7 10 0 wikitrace 1 3 2 48 2
+solve 7 11 1 none 0 0 0 0 0
+solve 7 11 1 plain 0 0 0 0 3
+solve 7 11 1 wikitrace 1 3 2 52 2
+solve 7 12 1 none 0 0 0 0 0
+solve 7 12 1 plain 0 0 0 0 3
+solve 7 12 1 wikitrace 0 3 1 52 2
+solve 7 13 2 none 0 0 0 0 0
+solve 7 13 2 plain 0 0 0 0 3
+solve 7 13 2 wikitrace 1 3 1 34 2
+solve 7 14 0 none 1 0 0 0 0
+solve 7 14 0 plain 0 0 0 0 3
+solve 7 14 0 wikitrace 1 3 2 48 2
+solve 7 15 0 none 0 0 0 0 0
+solve 7 15 0 plain 0 0 0 0 3
+solve 7 15 0 wikitrace 0 3 3 48 2
+solve 7 16 2 none 0 0 0 0 0
+solve 7 16 2 plain 0 0 0 0 3
+solve 7 16 2 wikitrace 1 3 1 34 2
+solve 7 17 3 none 0 0 0 0 0
+solve 7 17 3 plain 0 0 0 0 3
+solve 7 17 3 wikitrace 1 3 2 56 3
+solve 7 18 2 none 0 0 0 0 0
+solve 7 18 2 plain 0 0 0 0 3
+solve 7 18 2 wikitrace 0 3 2 34 2
+solve 7 19 0 none 0 0 0 0 0
+solve 7 19 0 plain 0 0 0 0 3
+solve 7 19 0 wikitrace 1 3 2 48 2
+solve 7 20 0 none 0 0 0 0 0
+solve 7 20 0 plain 0 0 0 0 3
+solve 7 20 0 wikitrace 0 3 3 48 2
+solve 7 21 2 none 0 0 0 0 0
+solve 7 21 2 plain 0 0 0 0 3
+solve 7 21 2 wikitrace 1 3 1 34 2
+solve 7 22 0 none 0 0 0 0 0
+solve 7 22 0 plain 0 0 0 0 3
+solve 7 22 0 wikitrace 1 3 2 48 2
+solve 7 23 0 none 0 0 0 0 0
+solve 7 23 0 plain 0 0 0 0 3
+solve 7 23 0 wikitrace 1 3 2 48 2
+solve 7 24 3 none 0 0 0 0 0
+solve 7 24 3 plain 0 0 0 0 3
+solve 7 24 3 wikitrace 1 3 2 56 3
+solve 7 25 0 none 1 0 0 0 0
+solve 7 25 0 plain 0 0 0 0 3
+solve 7 25 0 wikitrace 1 3 2 48 2
+solve 7 26 3 none 0 0 0 0 0
+solve 7 26 3 plain 0 0 0 0 3
+solve 7 26 3 wikitrace 1 3 2 56 3
+solve 7 27 3 none 0 0 0 0 0
+solve 7 27 3 plain 0 0 0 0 3
+solve 7 27 3 wikitrace 1 3 2 56 3
+solve 7 28 1 none 0 0 0 0 0
+solve 7 28 1 plain 0 0 0 0 3
+solve 7 28 1 wikitrace 0 3 2 52 2
+solve 7 29 1 none 0 0 0 0 0
+solve 7 29 1 plain 0 0 0 0 3
+solve 7 29 1 wikitrace 0 3 1 52 2
+solve 7 30 2 none 0 0 0 0 0
+solve 7 30 2 plain 0 0 0 0 3
+solve 7 30 2 wikitrace 1 3 1 34 2
+solve 7 31 2 none 0 0 0 0 0
+solve 7 31 2 plain 0 0 0 0 3
+solve 7 31 2 wikitrace 1 3 1 34 2
+solve 7 32 2 none 0 0 0 0 0
+solve 7 32 2 plain 0 0 0 0 3
+solve 7 32 2 wikitrace 0 3 2 34 2
+solve 7 33 0 none 0 0 0 0 0
+solve 7 33 0 plain 0 0 0 0 3
+solve 7 33 0 wikitrace 0 3 3 48 2
+solve 7 34 0 none 1 0 0 0 0
+solve 7 34 0 plain 0 0 0 0 3
+solve 7 34 0 wikitrace 1 3 2 48 2
+solve 7 35 0 none 1 0 0 0 0
+solve 7 35 0 plain 0 0 0 0 3
+solve 7 35 0 wikitrace 1 3 2 48 2
+solve 7 36 0 none 1 0 0 0 0
+solve 7 36 0 plain 0 0 0 0 3
+solve 7 36 0 wikitrace 1 3 2 48 2
+solve 7 37 2 none 1 0 0 0 0
+solve 7 37 2 plain 0 0 0 0 3
+solve 7 37 2 wikitrace 1 3 1 34 2
+solve 7 38 3 none 0 0 0 0 0
+solve 7 38 3 plain 0 0 0 0 3
+solve 7 38 3 wikitrace 1 3 2 56 3
+solve 7 39 0 none 1 0 0 0 0
+solve 7 39 0 plain 0 0 0 0 3
+solve 7 39 0 wikitrace 1 3 2 48 2
+solve_succ 7 0 0 0 3 3 12 0
+solve_succ 7 1 1 0 3 0 12 2
+solve_succ 7 2 0 1 3 1 12 0
+solve_succ 7 3 1 1 3 1 12 2
+solve_succ 7 4 2 0 3 1 8 2
+solve_succ 7 5 3 0 3 2 12 0
+solve_succ 7 6 1 1 3 1 12 2
+solve_succ 7 7 3 0 3 2 12 0
+solve_succ 7 8 0 0 3 0 12 0
+solve_succ 7 9 1 1 3 1 12 2
+solve_succ 7 10 0 0 3 2 12 0
+solve_succ 7 11 1 1 3 1 12 2
+solve_succ 7 12 1 0 3 0 12 2
+solve_succ 7 13 2 1 3 0 8 2
+solve_succ 7 14 0 1 3 1 12 0
+solve_succ 7 15 0 0 3 3 12 0
+solve_succ 7 16 2 1 3 0 8 2
+solve_succ 7 17 3 0 3 2 12 0
+solve_succ 7 18 2 0 3 1 8 2
+solve_succ 7 19 0 0 3 1 12 0
+solve_succ 7 20 0 0 3 2 12 0
+solve_succ 7 21 2 1 3 0 8 2
+solve_succ 7 22 0 0 3 2 12 0
+solve_succ 7 23 0 0 3 0 12 0
+solve_succ 7 24 3 0 3 2 12 0
+solve_succ 7 25 0 1 3 1 12 0
+solve_succ 7 26 3 0 3 1 12 0
+solve_succ 7 27 3 0 3 1 12 0
+solve_succ 7 28 1 0 3 1 12 2
+solve_succ 7 29 1 0 3 0 12 2
+solve_succ 7 30 2 1 3 0 8 2
+solve_succ 7 31 2 1 3 0 8 2
+solve_succ 7 32 2 0 3 1 8 2
+solve_succ 7 33 0 0 3 3 12 0
+solve_succ 7 34 0 1 3 1 12 0
+solve_succ 7 35 0 1 3 1 12 0
+solve_succ 7 36 0 1 3 1 12 0
+solve_succ 7 37 2 1 3 0 8 2
+solve_succ 7 38 3 0 3 3 12 0
+solve_succ 7 39 0 1 3 1 12 0
+solve_fail 7 0 0 0 3 3 44 2
+solve_fail 7 1 1 0 3 1 56 2
+solve_fail 7 2 0 1 3 2 44 2
+solve_fail 7 3 1 1 3 2 56 2
+solve_fail 7 4 2 0 3 2 50 1
+solve_fail 7 5 3 1 3 2 46 3
+solve_fail 7 6 1 1 3 2 56 2
+solve_fail 7 7 3 1 3 2 46 3
+solve_fail 7 8 0 1 3 2 44 2
+solve_fail 7 9 1 1 3 2 56 2
+solve_fail 7 10 0 1 3 2 44 2
+solve_fail 7 11 1 1 3 2 56 2
+solve_fail 7 12 1 0 3 1 56 2
+solve_fail 7 13 2 0 3 2 50 1
+solve_fail 7 14 0 1 3 2 44 2
+solve_fail 7 15 0 0 3 3 44 2
+solve_fail 7 16 2 0 3 2 50 1
+solve_fail 7 17 3 1 3 2 46 3
+solve_fail 7 18 2 0 3 2 50 1
+solve_fail 7 19 0 1 3 2 44 2
+solve_fail 7 20 0 0 3 3 44 2
+solve_fail 7 21 2 1 3 1 50 1
+solve_fail 7 22 0 1 3 2 44 2
+solve_fail 7 23 0 1 3 2 44 2
+solve_fail 7 24 3 1 3 2 46 3
+solve_fail 7 25 0 1 3 2 44 2
+solve_fail 7 26 3 1 3 2 46 3
+solve_fail 7 27 3 1 3 2 46 3
+solve_fail 7 28 1 0 3 2 56 2
+solve_fail 7 29 1 0 3 1 56 2
+solve_fail 7 30 2 1 3 1 50 1
+solve_fail 7 31 2 0 3 2 50 1
+solve_fail 7 32 2 0 3 3 50 1
+solve_fail 7 33 0 0 3 3 44 2
+solve_fail 7 34 0 1 3 2 44 2
+solve_fail 7 35 0 1 3 2 44 2
+solve_fail 7 36 0 1 3 2 44 2
+solve_fail 7 37 2 1 3 1 50 1
+solve_fail 7 38 3 1 3 2 46 3
+solve_fail 7 39 0 1 3 2 44 2
+task 42 0 1
+choices 42 0 2 0 1
+task 42 1 3
+choices 42 1 0 2 0
+task 42 2 2
+choices 42 2 2 1 0
+task 42 3 0
+choices 42 3 0 1 0
+task 42 4 2
+choices 42 4 0 0 1
+task 42 5 2
+choices 42 5 2 2 1
+task 42 6 1
+choices 42 6 2 1 0
+task 42 7 0
+choices 42 7 0 2 0
+task 42 8 1
+choices 42 8 0 0 1
+task 42 9 2
+choices 42 9 1 1 2
+task 42 10 3
+choices 42 10 1 0 2
+task 42 11 2
+choices 42 11 1 1 2
+task 42 12 2
+choices 42 12 0 1 0
+task 42 13 3
+choices 42 13 0 1 0
+task 42 14 0
+choices 42 14 0 2 1
+task 42 15 2
+choices 42 15 0 1 1
+task 42 16 1
+choices 42 16 2 0 1
+task 42 17 1
+choices 42 17 0 1 0
+task 42 18 3
+choices 42 18 0 1 1
+task 42 19 0
+choices 42 19 2 1 1
+step 42 0 0 2 0 0
+step 42 0 1 0 0 0
+step 42 0 2 1 1 0
+run 42 0 0
+step 42 1 0 0 1 1
+step 42 1 1 2 0 1
+step 42 1 2 0 1 1
+run 42 1 0
+step 42 2 0 2 0 1
+step 42 2 1 1 1 0
+step 42 2 2 0 0 0
+run 42 2 0
+step 42 3 0 0 1 0
+step 42 3 1 1 1 1
+step 42 3 2 0 1 1
+run 42 3 1
+step 42 4 0 0 1 1
+step 42 4 1 0 0 0
+step 42 4 2 1 0 1
+run 42 4 0
+step 42 5 0 2 0 1
+step 42 5 1 2 0 0
+step 42 5 2 1 0 1
+run 42 5 0
+step 42 6 0 2 0 1
+step 42 6 1 1 1 1
+step 42 6 2 0 0 1
+run 42 6 0
+step 42 7 0 0 1 1
+step 42 7 1 2 0 1
+step 42 7 2 0 1 1
+run 42 7 0
+step 42 8 0 0 1 0
+step 42 8 1 0 0 1
+step 42 8 2 1 1 0
+run 42 8 0
+step 42 9 0 1 0 1
+step 42 9 1 1 1 1
+step 42 9 2 2 1 1
+run 42 9 0
+step 42 10 0 1 0 1
+step 42 10 1 0 0 0
+step 42 10 2 2 0 1
+run 42 10 0
+step 42 11 0 1 0 1
+step 42 11 1 1 1 1
+step 42 11 2 2 1 0
+run 42 11 0
+step 42 12 0 0 1 1
+step 42 12 1 1 1 1
+step 42 12 2 0 0 1
+run 42 12 0
+step 42 13 0 0 1 1
+step 42 13 1 1 1 1
+step 42 13 2 0 1 0
+run 42 13 1
+step 42 14 0 0 1 1
+step 42 14 1 2 0 1
+step 42 14 2 1 0 1
+run 42 14 0
+step 42 15 0 0 1 0
+step 42 15 1 1 1 1
+step 42 15 2 1 0 0
+run 42 15 0
+step 42 16 0 2 0 0
+step 42 16 1 0 0 1
+step 42 16 2 1 1 0
+run 42 16 0
+step 42 17 0 0 1 1
+step 42 17 1 1 1 1
+step 42 17 2 0 0 1
+run 42 17 0
+step 42 18 0 0 1 1
+step 42 18 1 1 1 0
+step 42 18 2 1 0 1
+run 42 18 0
+step 42 19 0 2 0 1
+step 42 19 1 1 1 1
+step 42 19 2 1 0 1
+run 42 19 0
+insight 42 I-0000 0 2 any 0 0 0
+insight 42 I-0001 1 0 attr:1 0 0 0
+insight 42 I-0002 2 1 any 0 0 0
+insight 42 I-0003 0 0 any 1 0 0
+insight 42 I-0004 1 2 any 1 0 0
+insight 42 I-0005 2 0 any 1 0 0
+insight 42 I-0006 0 2 any 2 0 0
+insight 42 I-0007 1 1 any 2 0 0
+insight 42 I-0008 2 0 attr:2 2 0 0
+insight 42 I-0009 0 0 any 3 1 0
+insight 42 I-0010 1 1 attr:0 3 1 0
+insight 42 I-0011 2 0 any 3 1 0
+insight 42 I-0012 0 0 any 4 0 0
+insight 42 I-0013 1 0 attr:2 4 0 0
+insight 42 I-0014 2 1 any 4 0 0
+insight 42 I-0015 0 2 any 5 0 0
+insight 42 I-0016 1 0 any 5 0 1
+insight 42 I-0017 2 1 attr:2 5 0 0
+insight 42 I-0018 0 2 attr:1 6 0 0
+insight 42 I-0019 1 1 attr:1 6 0 0
+insight 42 I-0020 2 0 any 6 0 0
+insight 42 I-0021 0 0 attr:0 7 0 0
+insight 42 I-0022 1 2 attr:0 7 0 0
+insight 42 I-0023 2 0 any 7 0 0
+insight 42 I-0024 0 0 any 8 0 0
+insight 42 I-0025 1 0 attr:1 8 0 0
+insight 42 I-0026 2 1 any 8 0 0
+insight 42 I-0027 0 1 any 9 0 0
+insight 42 I-0028 1 1 any 9 0 0
+insight 42 I-0029 2 2 any 9 0 0
+insight 42 I-0030 0 1 attr:3 10 0 0
+insight 42 I-0031 1 0 attr:3 10 0 0
+insight 42 I-0032 2 2 any 10 0 0
+insight 42 I-0033 0 1 attr:2 11 0 0
+insight 42 I-0034 1 1 attr:2 11 0 0
+insight 42 I-0035 2 2 any 11 0 0
+insight 42 I-0036 0 0 any 12 0 0
+insight 42 I-0037 1 1 attr:2 12 0 0
+insight 42 I-0038 2 0 attr:2 12 0 0
+insight 42 I-0039 0 0 any 13 1 0
+insight 42 I-0040 1 1 attr:3 13 1 0
+insight 42 I-0041 2 0 attr:3 13 1 0
+insight 42 I-0042 0 0 any 14 0 0
+insight 42 I-0043 1 2 attr:0 14 0 0
+insight 42 I-0044 2 1 any 14 0 0
+insight 42 I-0045 0 0 attr:2 15 0 0
+insight 42 I-0046 1 2 attr:2 15 0 1
+insight 42 I-0047 2 1 attr:2 15 0 0
+insight 42 I-0048 0 2 any 16 0 0
+insight 42 I-0049 1 0 any 16 0 0
+insight 42 I-0050 2 1 any 16 0 0
+insight 42 I-0051 0 0 attr:1 17 0 0
+insight 42 I-0052 1 1 any 17 0 0
+insight 42 I-0053 2 0 attr:1 17 0 0
+insight 42 I-0054 0 0 any 18 0 0
+insight 42 I-0055 1 1 any 18 0 0
+insight 42 I-0056 2 1 any 18 0 0
+insight 42 I-0057 0 2 attr:0 19 0 0
+insight 42 I-0058 1 1 attr:0 19 0 0
+insight 42 I-0059 2 1 any 19 0 0
+verify 42 I-0000 0 unknown 2
+verify 42 I-0000 1 unknown 2
+verify 42 I-0000 2 unknown 2
+verify 42 I-0000 3 unknown 2
+verify 42 I-0001 0 unknown 2
+verify 42 I-0001 1 unknown 2
+verify 42 I-0001 2 unknown 2
+verify 42 I-0001 3 unknown 2
+verify 42 I-0002 0 unknown 2
+verify 42 I-0002 1 unknown 2
+verify 42 I-0002 2 unknown 2
+verify 42 I-0002 3 unknown 2
+verify 42 I-0003 0 unsupported 2
+verify 42 I-0003 1 unsupported 2
+verify 42 I-0003 2 unsupported 2
+verify 42 I-0003 3 supported 2
+verify 42 I-0004 0 contradicted 2
+verify 42 I-0004 1 contradicted 2
+verify 42 I-0004 2 contradicted 2
+verify 42 I-0004 3 contradicted 2
+verify 42 I-0005 0 unsupported 2
+verify 42 I-0005 1 unsupported 2
+verify 42 I-0005 2 unsupported 2
+verify 42 I-0005 3 supported 2
+verify 42 I-0006 0 contradicted 2
+verify 42 I-0006 1 contradicted 2
+verify 42 I-0006 2 contradicted 2
+verify 42 I-0006 3 contradicted 2
+verify 42 I-0007 0 unknown 2
+verify 42 I-0007 1 unknown 2
+verify 42 I-0007 2 unknown 2
+verify 42 I-0007 3 unknown 2
+verify 42 I-0008 0 unknown 2
+verify 42 I-0008 1 unknown 2
+verify 42 I-0008 2 unknown 2
+verify 42 I-0008 3 unknown 2
+verify 42 I-0009 0 unknown 2
+verify 42 I-0009 1 unknown 2
+verify 42 I-0009 2 unknown 2
+verify 42 I-0009 3 unknown 2
+verify 42 I-0010 0 supported 2
+verify 42 I-0010 1 supported 2
+verify 42 I-0010 2 supported 2
+verify 42 I-0010 3 supported 2
+verify 42 I-0011 0 supported 2
+verify 42 I-0011 1 unsupported 2
+verify 42 I-0011 2 unsupported 2
+verify 42 I-0011 3 unsupported 2
+verify 42 I-0012 0 unsupported 2
+verify 42 I-0012 1 unsupported 2
+verify 42 I-0012 2 supported 2
+verify 42 I-0012 3 unsupported 2
+verify 42 I-0013 0 unknown 2
+verify 42 I-0013 1 unknown 2
+verify 42 I-0013 2 unknown 2
+verify 42 I-0013 3 unknown 2
+verify 42 I-0014 0 contradicted 2
+verify 42 I-0014 1 contradicted 2
+verify 42 I-0014 2 contradicted 2
+verify 42 I-0014 3 contradicted 2
+verify 42 I-0015 0 contradicted 2
+verify 42 I-0015 1 contradicted 2
+verify 42 I-0015 2 contradicted 2
+verify 42 I-0015 3 contradicted 2
+verify 42 I-0016 0 unknown 2
+verify 42 I-0016 1 unknown 2
+verify 42 I-0016 2 unknown 2
+verify 42 I-0016 3 unknown 2
+verify 42 I-0017 0 contradicted 2
+verify 42 I-0017 1 contradicted 2
+verify 42 I-0017 2 contradicted 2
+verify 42 I-0017 3 contradicted 2
+verify 42 I-0018 0 contradicted 2
+verify 42 I-0018 1 contradicted 2
+verify 42 I-0018 2 contradicted 2
+verify 42 I-0018 3 contradicted 2
+verify 42 I-0019 0 supported 2
+verify 42 I-0019 1 supported 2
+verify 42 I-0019 2 supported 2
+verify 42 I-0019 3 supported 2
+verify 42 I-0020 0 contradicted 2
+verify 42 I-0020 1 contradicted 2
+verify 42 I-0020 2 contradicted 2
+verify 42 I-0020 3 contradicted 2
+verify 42 I-0021 0 supported 2
+verify 42 I-0021 1 supported 2
+verify 42 I-0021 2 supported 2
+verify 42 I-0021 3 supported 2
+verify 42 I-0022 0 contradicted 2
+verify 42 I-0022 1 contradicted 2
+verify 42 I-0022 2 contradicted 2
+verify 42 I-0022 3 contradicted 2
+verify 42 I-0023 0 supported 2
+verify 42 I-0023 1 unsupported 2
+verify 42 I-0023 2 unsupported 2
+verify 42 I-0023 3 unsupported 2
+verify 42 I-0024 0 unknown 2
+verify 42 I-0024 1 unknown 2
+verify 42 I-0024 2 unknown 2
+verify 42 I-0024 3 unknown 2
+verify 42 I-0025 0 contradicted 2
+verify 42 I-0025 1 contradicted 2
+verify 42 I-0025 2 contradicted 2
+verify 42 I-0025 3 contradicted 2
+verify 42 I-0026 0 unknown 2
+verify 42 I-0026 1 unknown 2
+verify 42 I-0026 2 unknown 2
+verify 42 I-0026 3 unknown 2
+verify 42 I-0027 0 contradicted 2
+verify 42 I-0027 1 contradicted 2
+verify 42 I-0027 2 contradicted 2
+verify 42 I-0027 3 contradicted 2
+verify 42 I-0028 0 unsupported 2
+verify 42 I-0028 1 unsupported 2
+verify 42 I-0028 2 supported 2
+verify 42 I-0028 3 unsupported 2
+verify 42 I-0029 0 unsupported 2
+verify 42 I-0029 1 unsupported 2
+verify 42 I-0029 2 supported 2
+verify 42 I-0029 3 unsupported 2
+verify 42 I-0030 0 contradicted 2
+verify 42 I-0030 1 contradicted 2
+verify 42 I-0030 2 contradicted 2
+verify 42 I-0030 3 contradicted 2
+verify 42 I-0031 0 unknown 2
+verify 42 I-0031 1 unknown 2
+verify 42 I-0031 2 unknown 2
+verify 42 I-0031 3 unknown 2
+verify 42 I-0032 0 contradicted 2
+verify 42 I-0032 1 contradicted 2
+verify 42 I-0032 2 contradicted 2
+verify 42 I-0032 3 contradicted 2
+verify 42 I-0033 0 contradicted 2
+verify 42 I-0033 1 contradicted 2
+verify 42 I-0033 2 contradicted 2
+verify 42 I-0033 3 contradicted 2
+verify 42 I-0034 0 supported 2
+verify 42 I-0034 1 supported 2
+verify 42 I-0034 2 supported 2
+verify 42 I-0034 3 supported 2
+verify 42 I-0035 0 unknown 2
+verify 42 I-0035 1 unknown 2
+verify 42 I-0035 2 unknown 2
+verify 42 I-0035 3 unknown 2
+verify 42 I-0036 0 unsupported 2
+verify 42 I-0036 1 unsupported 2
+verify 42 I-0036 2 supported 2
+verify 42 I-0036 3 unsupported 2
+verify 42 I-0037 0 supported 2
+verify 42 I-0037 1 supported 2
+verify 42 I-0037 2 supported 2
+verify 42 I-0037 3 supported 2
+verify 42 I-0038 0 contradicted 2
+verify 42 I-0038 1 contradicted 2
+verify 42 I-0038 2 contradicted 2
+verify 42 I-0038 3 contradicted 2
+verify 42 I-0039 0 unsupported 2
+verify 42 I-0039 1 unsupported 2
+verify 42 I-0039 2 unsupported 2
+verify 42 I-0039 3 supported 2
+verify 42 I-0040 0 supported 2
+verify 42 I-0040 1 supported 2
+verify 42 I-0040 2 supported 2
+verify 42 I-0040 3 supported 2
+verify 42 I-0041 0 unknown 2
+verify 42 I-0041 1 unknown 2
+verify 42 I-0041 2 unknown 2
+verify 42 I-0041 3 unknown 2
+verify 42 I-0042 0 supported 2
+verify 42 I-0042 1 unsupported 2
+verify 42 I-0042 2 unsupported 2
+verify 42 I-0042 3 unsupported 2
+verify 42 I-0043 0 contradicted 2
+verify 42 I-0043 1 contradicted 2
+verify 42 I-0043 2 contradicted 2
+verify 42 I-0043 3 contradicted 2
+verify 42 I-0044 0 contradicted 2
+verify 42 I-0044 1 contradicted 2
+verify 42 I-0044 2 contradicted 2
+verify 42 I-0044 3 contradicted 2
+verify 42 I-0045 0 unknown 2
+verify 42 I-0045 1 unknown 2
+verify 42 I-0045 2 unknown 2
+verify 42 I-0045 3 unknown 2
+verify 42 I-0046 0 contradicted 2
+verify 42 I-0046 1 contradicted 2
+verify 42 I-0046 2 contradicted 2
+verify 42 I-0046 3 contradicted 2
+verify 42 I-0047 0 unknown 2
+verify 42 I-0047 1 unknown 2
+verify 42 I-0047 2 unknown 2
+verify 42 I-0047 3 unknown 2
+verify 42 I-0048 0 unknown 2
+verify 42 I-0048 1 unknown 2
+verify 42 I-0048 2 unknown 2
+verify 42 I-0048 3 unknown 2
+verify 42 I-0049 0 contradicted 2
+verify 42 I-0049 1 contradicted 2
+verify 42 I-0049 2 contradicted 2
+verify 42 I-0049 3 contradicted 2
+verify 42 I-0050 0 unknown 2
+verify 42 I-0050 1 unknown 2
+verify 42 I-0050 2 unknown 2
+verify 42 I-0050 3 unknown 2
+verify 42 I-0051 0 supported 2
+verify 42 I-0051 1 supported 2
+verify 42 I-0051 2 supported 2
+verify 42 I-0051 3 supported 2
+verify 42 I-0052 0 unsupported 2
+verify 42 I-0052 1 supported 2
+verify 42 I-0052 2 unsupported 2
+verify 42 I-0052 3 unsupported 2
+verify 42 I-0053 0 contradicted 2
+verify 42 I-0053 1 contradicted 2
+verify 42 I-0053 2 contradicted 2
+verify 42 I-0053 3 contradicted 2
+verify 42 I-0054 0 unsupported 2
+verify 42 I-0054 1 unsupported 2
+verify 42 I-0054 2 unsupported 2
+verify 42 I-0054 3 supported 2
+verify 42 I-0055 0 unknown 2
+verify 42 I-0055 1 unknown 2
+verify 42 I-0055 2 unknown 2
+verify 42 I-0055 3 unknown 2
+verify 42 I-0056 0 contradicted 2
+verify 42 I-0056 1 contradicted 2
+verify 42 I-0056 2 contradicted 2
+verify 42 I-0056 3 contradicted 2
+verify 42 I-0057 0 contradicted 2
+verify 42 I-0057 1 contradicted 2
+verify 42 I-0057 2 contradicted 2
+verify 42 I-0057 3 contradicted 2
+verify 42 I-0058 0 supported 2
+verify 42 I-0058 1 supported 2
+verify 42 I-0058 2 supported 2
+verify 42 I-0058 3 supported 2
+verify 42 I-0059 0 contradicted 2
+verify 42 I-0059 1 contradicted 2
+verify 42 I-0059 2 contradicted 2
+verify 42 I-0059 3 contradicted 2
+solve 42 0 1 none 0 0 0 0 0
+solve 42 0 1 plain 0 0 0 0 3
+solve 42 0 1 wikitrace 1 3 2 68 2
+solve 42 1 1 none 0 0 0 0 0
+solve 42 1 1 plain 0 0 0 0 3
+solve 42 1 1 wikitrace 1 3 2 68 2
+solve 42 2 1 none 0 0 0 0 0
+solve 42 2 1 plain 0 0 0 0 3
+solve 42 2 1 wikitrace 0 3 3 68 2
+solve 42 3 0 none 1 0 0 0 0
+solve 42 3 0 plain 0 0 0 0 3
+solve 42 3 0 wikitrace 1 3 3 26 3
+solve 42 4 3 none 0 0 0 0 0
+solve 42 4 3 plain 0 0 0 0 3
+solve 42 4 3 wikitrace 1 3 3 20 3
+solve 42 5 0 none 0 0 0 0 0
+solve 42 5 0 plain 0 0 0 0 3
+solve 42 5 0 wikitrace 1 3 3 26 3
+solve 42 6 1 none 0 0 0 0 0
+solve 42 6 1 plain 0 0 0 0 3
+solve 42 6 1 wikitrace 0 3 3 68 2
+solve 42 7 3 none 0 0 0 0 0
+solve 42 7 3 plain 0 0 0 0 3
+solve 42 7 3 wikitrace 1 3 3 20 3
+solve 42 8 3 none 0 0 0 0 0
+solve 42 8 3 plain 0 0 0 0 3
+solve 42 8 3 wikitrace 1 3 3 20 3
+solve 42 9 1 none 0 0 0 0 0
+solve 42 9 1 plain 0 0 0 0 3
+solve 42 9 1 wikitrace 1 3 2 68 2
+solve 42 10 0 none 0 0 0 0 0
+solve 42 10 0 plain 0 0 0 0 3
+solve 42 10 0 wikitrace 1 3 3 26 3
+solve 42 11 0 none 0 0 0 0 0
+solve 42 11 0 plain 0 0 0 0 3
+solve 42 11 0 wikitrace 1 3 3 26 3
+solve 42 12 2 none 0 0 0 0 0
+solve 42 12 2 plain 0 0 0 0 3
+solve 42 12 2 wikitrace 1 3 3 40 3
+solve 42 13 3 none 1 0 0 0 0
+solve 42 13 3 plain 0 0 0 0 3
+solve 42 13 3 wikitrace 1 3 3 20 3
+solve 42 14 2 none 0 0 0 0 0
+solve 42 14 2 plain 0 0 0 0 3
+solve 42 14 2 wikitrace 1 3 3 40 3
+solve 42 15 2 none 0 0 0 0 0
+solve 42 15 2 plain 0 0 0 0 3
+solve 42 15 2 wikitrace 1 3 3 40 3
+solve 42 16 3 none 0 0 0 0 0
+solve 42 16 3 plain 0 0 0 0 3
+solve 42 16 3 wikitrace 1 3 3 20 3
+solve 42 17 3 none 0 0 0 0 0
+solve 42 17 3 plain 0 0 0 0 3
+solve 42 17 3 wikitrace 1 3 3 20 3
+solve 42 18 1 none 0 0 0 0 0
+solve 42 18 1 plain 0 0 0 0 3
+solve 42 18 1 wikitrace 0 3 3 68 2
+solve 42 19 3 none 0 0 0 0 0
+solve 42 19 3 plain 0 0 0 0 3
+solve 42 19 3 wikitrace 1 3 3 20 3
+solve 42 20 0 none 1 0 0 0 0
+solve 42 20 0 plain 0 0 0 0 3
+solve 42 20 0 wikitrace 1 3 3 26 3
+solve 42 21 2 none 0 0 0 0 0
+solve 42 21 2 plain 0 0 0 0 3
+solve 42 21 2 wikitrace 1 3 3 40 3
+solve 42 22 0 none 0 0 0 0 0
+solve 42 22 0 plain 0 0 0 0 3
+solve 42 22 0 wikitrace 1 3 3 26 3
+solve 42 23 3 none 1 0 0 0 0
+solve 42 23 3 plain 0 0 0 0 3
+solve 42 23 3 wikitrace 1 3 3 20 3
+solve 42 24 1 none 0 0 0 0 0
+solve 42 24 1 plain 0 0 0 0 3
+solve 42 24 1 wikitrace 1 3 2 68 2
+solve 42 25 1 none 0 0 0 0 0
+solve 42 25 1 plain 0 0 0 0 3
+solve 42 25 1 wikitrace 1 3 2 68 2
+solve 42 26 2 none 1 0 0 0 0
+solve 42 26 2 plain 0 0 0 0 3
+solve 42 26 2 wikitrace 1 3 3 40 3
+solve 42 27 1 none 0 0 0 0 0
+solve 42 27 1 plain 0 0 0 0 3
+solve 42 27 1 wikitrace 0 3 3 68 2
+solve 42 28 3 none 0 0 0 0 0
+solve 42 28 3 plain 0 0 0 0 3
+solve 42 28 3 wikitrace 1 3 3 20 3
+solve 42 29 1 none 0 0 0 0 0
+solve 42 29 1 plain 0 0 0 0 3
+solve 42 29 1 wikitrace 1 3 2 68 2
+solve 42 30 3 none 1 0 0 0 0
+solve 42 30 3 plain 0 0 0 0 3
+solve 42 30 3 wikitrace 1 3 3 20 3
+solve 42 31 2 none 0 0 0 0 0
+solve 42 31 2 plain 0 0 0 0 3
+solve 42 31 2 wikitrace 1 3 3 40 3
+solve 42 32 1 none 0 0 0 0 0
+solve 42 32 1 plain 0 0 0 0 3
+solve 42 32 1 wikitrace 0 3 3 68 2
+solve 42 33 0 none 0 0 0 0 0
+solve 42 33 0 plain 0 0 0 0 3
+solve 42 33 0 wikitrace 1 3 3 26 3
+solve 42 34 3 none 0 0 0 0 0
+solve 42 34 3 plain 0 0 0 0 3
+solve 42 34 3 wikitrace 1 3 3 20 3
+solve 42 35 2 none 0 0 0 0 0
+solve 42 35 2 plain 0 0 0 0 3
+solve 42 35 2 wikitrace 1 3 3 40 3
+solve 42 36 3 none 0 0 0 0 0
+solve 42 36 3 plain 0 0 0 0 3
+solve 42 36 3 wikitrace 1 3 3 20 3
+solve 42 37 2 none 1 0 0 0 0
+solve 42 37 2 plain 0 0 0 0 3
+solve 42 37 2 wikitrace 1 3 3 40 3
+solve 42 38 1 none 0 0 0 0 0
+solve 42 38 1 plain 0 0 0 0 3
+solve 42 38 1 wikitrace 1 3 2 68 2
+solve 42 39 1 none 0 0 0 0 0
+solve 42 39 1 plain 0 0 0 0 3
+solve 42 39 1 wikitrace 0 3 3 68 2
+solve_succ 42 0 1 0 2 2 6 0
+solve_succ 42 1 1 0 2 1 6 0
+solve_succ 42 2 1 0 2 1 6 0
+solve_succ 42 3 0 1 2 0 6 2
+solve_succ 42 4 3 0 2 1 8 2
+solve_succ 42 5 0 0 2 1 6 2
+solve_succ 42 6 1 0 2 1 6 0
+solve_succ 42 7 3 1 2 0 8 2
+solve_succ 42 8 3 1 2 0 8 2
+solve_succ 42 9 1 0 2 2 6 0
+solve_succ 42 10 0 0 2 1 6 2
+solve_succ 42 11 0 0 2 1 6 2
+solve_succ 42 12 2 0 2 0 6 0
+solve_succ 42 13 3 1 2 0 8 2
+solve_succ 42 14 2 0 2 0 6 0
+solve_succ 42 15 2 0 2 1 6 0
+solve_succ 42 16 3 1 2 0 8 2
+solve_succ 42 17 3 0 2 1 8 2
+solve_succ 42 18 1 0 2 0 6 0
+solve_succ 42 19 3 0 2 1 8 2
+solve_succ 42 20 0 1 2 0 6 2
+solve_succ 42 21 2 0 2 2 6 0
+solve_succ 42 22 0 1 2 0 6 2
+solve_succ 42 23 3 1 2 0 8 2
+solve_succ 42 24 1 0 2 1 6 0
+solve_succ 42 25 1 0 2 2 6 0
+solve_succ 42 26 2 1 2 1 6 0
+solve_succ 42 27 1 0 2 1 6 0
+solve_succ 42 28 3 1 2 0 8 2
+solve_succ 42 29 1 0 2 2 6 0
+solve_succ 42 30 3 1 2 0 8 2
+solve_succ 42 31 2 0 2 1 6 0
+solve_succ 42 32 1 0 2 2 6 0
+solve_succ 42 33 0 1 2 0 6 2
+solve_succ 42 34 3 0 2 1 8 2
+solve_succ 42 35 2 0 2 2 6 0
+solve_succ 42 36 3 0 2 1 8 2
+solve_succ 42 37 2 1 2 1 6 0
+solve_succ 42 38 1 0 2 1 6 0
+solve_succ 42 39 1 0 2 1 6 0
+solve_fail 42 0 1 1 3 2 62 2
+solve_fail 42 1 1 1 3 2 62 2
+solve_fail 42 2 1 0 3 3 62 2
+solve_fail 42 3 0 1 3 3 42 3
+solve_fail 42 4 3 0 3 3 24 2
+solve_fail 42 5 0 1 3 3 42 3
+solve_fail 42 6 1 0 3 3 62 2
+solve_fail 42 7 3 0 3 2 24 2
+solve_fail 42 8 3 0 3 3 24 2
+solve_fail 42 9 1 1 3 2 62 2
+solve_fail 42 10 0 1 3 3 42 3
+solve_fail 42 11 0 1 3 3 42 3
+solve_fail 42 12 2 1 3 3 36 3
+solve_fail 42 13 3 1 3 3 24 2
+solve_fail 42 14 2 1 3 3 36 3
+solve_fail 42 15 2 1 3 3 36 3
+solve_fail 42 16 3 0 3 3 24 2
+solve_fail 42 17 3 1 3 3 24 2
+solve_fail 42 18 1 0 3 3 62 2
+solve_fail 42 19 3 1 3 3 24 2
+solve_fail 42 20 0 1 3 3 42 3
+solve_fail 42 21 2 1 3 3 36 3
+solve_fail 42 22 0 1 3 3 42 3
+solve_fail 42 23 3 1 3 3 24 2
+solve_fail 42 24 1 1 3 2 62 2
+solve_fail 42 25 1 1 3 2 62 2
+solve_fail 42 26 2 1 3 3 36 3
+solve_fail 42 27 1 0 3 3 62 2
+solve_fail 42 28 3 0 3 2 24 2
+solve_fail 42 29 1 1 3 2 62 2
+solve_fail 42 30 3 1 3 3 24 2
+solve_fail 42 31 2 1 3 3 36 3
+solve_fail 42 32 1 0 3 3 62 2
+solve_fail 42 33 0 1 3 3 42 3
+solve_fail 42 34 3 1 3 3 24 2
+solve_fail 42 35 2 1 3 3 36 3
+solve_fail 42 36 3 0 3 2 24 2
+solve_fail 42 37 2 1 3 3 36 3
+solve_fail 42 38 1 1 3 2 62 2
+solve_fail 42 39 1 0 3 3 62 2
+task 12345 0 0
+choices 12345 0 2 2 0
+task 12345 1 1
+choices 12345 1 1 1 1
+task 12345 2 1
+choices 12345 2 0 1 1
+task 12345 3 2
+choices 12345 3 2 2 1
+task 12345 4 3
+choices 12345 4 0 1 1
+task 12345 5 2
+choices 12345 5 2 2 2
+task 12345 6 2
+choices 12345 6 0 1 0
+task 12345 7 0
+choices 12345 7 0 1 0
+task 12345 8 3
+choices 12345 8 0 0 0
+task 12345 9 3
+choices 12345 9 0 2 2
+task 12345 10 1
+choices 12345 10 0 1 1
+task 12345 11 2
+choices 12345 11 1 1 2
+task 12345 12 0
+choices 12345 12 0 0 0
+task 12345 13 1
+choices 12345 13 1 1 0
+task 12345 14 0
+choices 12345 14 1 2 0
+task 12345 15 2
+choices 12345 15 0 0 0
+task 12345 16 0
+choices 12345 16 0 1 2
+task 12345 17 2
+choices 12345 17 0 1 2
+task 12345 18 0
+choices 12345 18 0 1 0
+task 12345 19 3
+choices 12345 19 2 2 0
+step 12345 0 0 2 0 1
+step 12345 0 1 2 0 1
+step 12345 0 2 0 1 1
+run 12345 0 0
+step 12345 1 0 1 0 1
+step 12345 1 1 1 1 0
+step 12345 1 2 1 1 1
+run 12345 1 0
+step 12345 2 0 0 1 1
+step 12345 2 1 1 1 1
+step 12345 2 2 1 1 1
+run 12345 2 1
+step 12345 3 0 2 0 1
+step 12345 3 1 2 0 0
+step 12345 3 2 1 0 1
+run 12345 3 0
+step 12345 4 0 0 1 1
+step 12345 4 1 1 1 1
+step 12345 4 2 1 0 0
+run 12345 4 0
+step 12345 5 0 2 0 0
+step 12345 5 1 2 0 1
+step 12345 5 2 2 1 1
+run 12345 5 0
+step 12345 6 0 0 1 1
+step 12345 6 1 1 1 1
+step 12345 6 2 0 0 1
+run 12345 6 0
+step 12345 7 0 0 1 1
+step 12345 7 1 1 1 1
+step 12345 7 2 0 1 1
+run 12345 7 1
+step 12345 8 0 0 1 1
+step 12345 8 1 0 0 1
+step 12345 8 2 0 1 1
+run 12345 8 0
+step 12345 9 0 0 1 1
+step 12345 9 1 2 0 1
+step 12345 9 2 2 0 1
+run 12345 9 0
+step 12345 10 0 0 1 1
+step 12345 10 1 1 1 1
+step 12345 10 2 1 1 1
+run 12345 10 1
+step 12345 11 0 1 0 1
+step 12345 11 1 1 1 0
+step 12345 11 2 2 1 0
+run 12345 11 0
+step 12345 12 0 0 1 1
+step 12345 12 1 0 0 1
+step 12345 12 2 0 1 1
+run 12345 12 0
+step 12345 13 0 1 0 1
+step 12345 13 1 1 1 0
+step 12345 13 2 0 0 1
+run 12345 13 0
+step 12345 14 0 1 0 0
+step 12345 14 1 2 0 1
+step 12345 14 2 0 1 1
+run 12345 14 0
+step 12345 15 0 0 1 1
+step 12345 15 1 0 0 1
+step 12345 15 2 0 0 1
+run 12345 15 0
+step 12345 16 0 0 1 1
+step 12345 16 1 1 1 1
+step 12345 16 2 2 0 1
+run 12345 16 0
+step 12345 17 0 0 1 1
+step 12345 17 1 1 1 1
+step 12345 17 2 2 1 1
+run 12345 17 1
+step 12345 18 0 0 1 1
+step 12345 18 1 1 1 1
+step 12345 18 2 0 1 1
+run 12345 18 1
+step 12345 19 0 2 0 1
+step 12345 19 1 2 0 0
+step 12345 19 2 0 1 1
+run 12345 19 0
+insight 12345 I-0000 0 1 any 0 0 1
+insight 12345 I-0001 1 2 any 0 0 0
+insight 12345 I-0002 2 0 attr:0 0 0 0
+insight 12345 I-0003 0 2 attr:1 1 0 1
+insight 12345 I-0004 1 1 attr:1 1 0 0
+insight 12345 I-0005 2 0 any 1 0 1
+insight 12345 I-0006 0 0 attr:1 2 1 0
+insight 12345 I-0007 1 1 any 2 1 0
+insight 12345 I-0008 2 1 any 2 1 0
+insight 12345 I-0009 0 2 any 3 0 0
+insight 12345 I-0010 1 2 attr:2 3 0 0
+insight 12345 I-0011 2 1 attr:2 3 0 0
+insight 12345 I-0012 0 1 attr:3 4 0 1
+insight 12345 I-0013 1 1 attr:3 4 0 0
+insight 12345 I-0014 2 1 any 4 0 0
+insight 12345 I-0015 0 2 any 5 0 0
+insight 12345 I-0016 1 2 any 5 0 0
+insight 12345 I-0017 2 0 attr:2 5 0 1
+insight 12345 I-0018 0 0 attr:2 6 0 0
+insight 12345 I-0019 1 1 attr:2 6 0 0
+insight 12345 I-0020 2 0 any 6 0 0
+insight 12345 I-0021 0 0 attr:0 7 1 0
+insight 12345 I-0022 1 1 any 7 1 0
+insight 12345 I-0023 2 0 any 7 1 0
+insight 12345 I-0024 0 0 attr:3 8 0 0
+insight 12345 I-0025 1 0 attr:3 8 0 0
+insight 12345 I-0026 2 0 attr:3 8 0 0
+insight 12345 I-0027 0 0 attr:3 9 0 0
+insight 12345 I-0028 1 2 attr:3 9 0 0
+insight 12345 I-0029 2 2 any 9 0 0
+insight 12345 I-0030 0 0 any 10 1 0
+insight 12345 I-0031 1 1 any 10 1 0
+insight 12345 I-0032 2 1 attr:1 10 1 0
+insight 12345 I-0033 0 1 attr:2 11 0 0
+insight 12345 I-0034 1 1 any 11 0 0
+insight 12345 I-0035 2 2 any 11 0 0
+insight 12345 I-0036 0 0 attr:0 12 0 0
+insight 12345 I-0037 1 0 attr:0 12 0 0
+insight 12345 I-0038 2 0 attr:0 12 0 0
+insight 12345 I-0039 0 1 any 13 0 0
+insight 12345 I-0040 1 2 any 13 0 1
+insight 12345 I-0041 2 0 any 13 0 0
+insight 12345 I-0042 0 1 attr:0 14 0 0
+insight 12345 I-0043 1 2 attr:0 14 0 0
+insight 12345 I-0044 2 0 any 14 0 0
+insight 12345 I-0045 0 0 any 15 0 0
+insight 12345 I-0046 1 1 attr:2 15 0 1
+insight 12345 I-0047 2 0 attr:2 15 0 0
+insight 12345 I-0048 0 0 any 16 0 0
+insight 12345 I-0049 1 1 any 16 0 0
+insight 12345 I-0050 2 1 attr:0 16 0 1
+insight 12345 I-0051 0 0 any 17 1 0
+insight 12345 I-0052 1 1 attr:2 17 1 0
+insight 12345 I-0053 2 2 attr:2 17 1 0
+insight 12345 I-0054 0 0 attr:0 18 1 0
+insight 12345 I-0055 1 1 any 18 1 0
+insight 12345 I-0056 2 0 attr:0 18 1 0
+insight 12345 I-0057 0 2 attr:3 19 0 0
+insight 12345 I-0058 1 2 attr:3 19 0 0
+insight 12345 I-0059 2 0 attr:3 19 0 0
+verify 12345 I-0000 0 contradicted 2
+verify 12345 I-0000 1 contradicted 2
+verify 12345 I-0000 2 contradicted 2
+verify 12345 I-0000 3 contradicted 2
+verify 12345 I-0001 0 contradicted 2
+verify 12345 I-0001 1 contradicted 2
+verify 12345 I-0001 2 contradicted 2
+verify 12345 I-0001 3 contradicted 2
+verify 12345 I-0002 0 supported 2
+verify 12345 I-0002 1 supported 2
+verify 12345 I-0002 2 supported 2
+verify 12345 I-0002 3 supported 2
+verify 12345 I-0003 0 contradicted 2
+verify 12345 I-0003 1 contradicted 2
+verify 12345 I-0003 2 contradicted 2
+verify 12345 I-0003 3 contradicted 2
+verify 12345 I-0004 0 unknown 2
+verify 12345 I-0004 1 unknown 2
+verify 12345 I-0004 2 unknown 2
+verify 12345 I-0004 3 unknown 2
+verify 12345 I-0005 0 contradicted 2
+verify 12345 I-0005 1 contradicted 2
+verify 12345 I-0005 2 contradicted 2
+verify 12345 I-0005 3 contradicted 2
+verify 12345 I-0006 0 supported 2
+verify 12345 I-0006 1 supported 2
+verify 12345 I-0006 2 supported 2
+verify 12345 I-0006 3 supported 2
+verify 12345 I-0007 0 unsupported 2
+verify 12345 I-0007 1 supported 2
+verify 12345 I-0007 2 unsupported 2
+verify 12345 I-0007 3 unsupported 2
+verify 12345 I-0008 0 unsupported 2
+verify 12345 I-0008 1 supported 2
+verify 12345 I-0008 2 unsupported 2
+verify 12345 I-0008 3 unsupported 2
+verify 12345 I-0009 0 contradicted 2
+verify 12345 I-0009 1 contradicted 2
+verify 12345 I-0009 2 contradicted 2
+verify 12345 I-0009 3 contradicted 2
+verify 12345 I-0010 0 unknown 2
+verify 12345 I-0010 1 unknown 2
+verify 12345 I-0010 2 unknown 2
+verify 12345 I-0010 3 unknown 2
+verify 12345 I-0011 0 contradicted 2
+verify 12345 I-0011 1 contradicted 2
+verify 12345 I-0011 2 contradicted 2
+verify 12345 I-0011 3 contradicted 2
+verify 12345 I-0012 0 contradicted 2
+verify 12345 I-0012 1 contradicted 2
+verify 12345 I-0012 2 contradicted 2
+verify 12345 I-0012 3 contradicted 2
+verify 12345 I-0013 0 supported 2
+verify 12345 I-0013 1 supported 2
+verify 12345 I-0013 2 supported 2
+verify 12345 I-0013 3 supported 2
+verify 12345 I-0014 0 unknown 2
+verify 12345 I-0014 1 unknown 2
+verify 12345 I-0014 2 unknown 2
+verify 12345 I-0014 3 unknown 2
+verify 12345 I-0015 0 unknown 2
+verify 12345 I-0015 1 unknown 2
+verify 12345 I-0015 2 unknown 2
+verify 12345 I-0015 3 unknown 2
+verify 12345 I-0016 0 contradicted 2
+verify 12345 I-0016 1 contradicted 2
+verify 12345 I-0016 2 contradicted 2
+verify 12345 I-0016 3 contradicted 2
+verify 12345 I-0017 0 contradicted 2
+verify 12345 I-0017 1 contradicted 2
+verify 12345 I-0017 2 contradicted 2
+verify 12345 I-0017 3 contradicted 2
+verify 12345 I-0018 0 supported 2
+verify 12345 I-0018 1 supported 2
+verify 12345 I-0018 2 supported 2
+verify 12345 I-0018 3 supported 2
+verify 12345 I-0019 0 supported 2
+verify 12345 I-0019 1 supported 2
+verify 12345 I-0019 2 supported 2
+verify 12345 I-0019 3 supported 2
+verify 12345 I-0020 0 contradicted 2
+verify 12345 I-0020 1 contradicted 2
+verify 12345 I-0020 2 contradicted 2
+verify 12345 I-0020 3 contradicted 2
+verify 12345 I-0021 0 supported 2
+verify 12345 I-0021 1 supported 2
+verify 12345 I-0021 2 supported 2
+verify 12345 I-0021 3 supported 2
+verify 12345 I-0022 0 supported 2
+verify 12345 I-0022 1 unsupported 2
+verify 12345 I-0022 2 unsupported 2
+verify 12345 I-0022 3 unsupported 2
+verify 12345 I-0023 0 supported 2
+verify 12345 I-0023 1 unsupported 2
+verify 12345 I-0023 2 unsupported 2
+verify 12345 I-0023 3 unsupported 2
+verify 12345 I-0024 0 supported 2
+verify 12345 I-0024 1 supported 2
+verify 12345 I-0024 2 supported 2
+verify 12345 I-0024 3 supported 2
+verify 12345 I-0025 0 contradicted 2
+verify 12345 I-0025 1 contradicted 2
+verify 12345 I-0025 2 contradicted 2
+verify 12345 I-0025 3 contradicted 2
+verify 12345 I-0026 0 supported 2
+verify 12345 I-0026 1 supported 2
+verify 12345 I-0026 2 supported 2
+verify 12345 I-0026 3 supported 2
+verify 12345 I-0027 0 supported 2
+verify 12345 I-0027 1 supported 2
+verify 12345 I-0027 2 supported 2
+verify 12345 I-0027 3 supported 2
+verify 12345 I-0028 0 contradicted 2
+verify 12345 I-0028 1 contradicted 2
+verify 12345 I-0028 2 contradicted 2
+verify 12345 I-0028 3 contradicted 2
+verify 12345 I-0029 0 contradicted 2
+verify 12345 I-0029 1 contradicted 2
+verify 12345 I-0029 2 contradicted 2
+verify 12345 I-0029 3 contradicted 2
+verify 12345 I-0030 0 unsupported 2
+verify 12345 I-0030 1 supported 2
+verify 12345 I-0030 2 unsupported 2
+verify 12345 I-0030 3 unsupported 2
+verify 12345 I-0031 0 unsupported 2
+verify 12345 I-0031 1 supported 2
+verify 12345 I-0031 2 unsupported 2
+verify 12345 I-0031 3 unsupported 2
+verify 12345 I-0032 0 supported 2
+verify 12345 I-0032 1 supported 2
+verify 12345 I-0032 2 supported 2
+verify 12345 I-0032 3 supported 2
+verify 12345 I-0033 0 contradicted 2
+verify 12345 I-0033 1 contradicted 2
+verify 12345 I-0033 2 contradicted 2
+verify 12345 I-0033 3 contradicted 2
+verify 12345 I-0034 0 unknown 2
+verify 12345 I-0034 1 unknown 2
+verify 12345 I-0034 2 unknown 2
+verify 12345 I-0034 3 unknown 2
+verify 12345 I-0035 0 unknown 2
+verify 12345 I-0035 1 unknown 2
+verify 12345 I-0035 2 unknown 2
+verify 12345 I-0035 3 unknown 2
+verify 12345 I-0036 0 supported 2
+verify 12345 I-0036 1 supported 2
+verify 12345 I-0036 2 supported 2
+verify 12345 I-0036 3 supported 2
+verify 12345 I-0037 0 contradicted 2
+verify 12345 I-0037 1 contradicted 2
+verify 12345 I-0037 2 contradicted 2
+verify 12345 I-0037 3 contradicted 2
+verify 12345 I-0038 0 supported 2
+verify 12345 I-0038 1 supported 2
+verify 12345 I-0038 2 supported 2
+verify 12345 I-0038 3 supported 2
+verify 12345 I-0039 0 contradicted 2
+verify 12345 I-0039 1 contradicted 2
+verify 12345 I-0039 2 contradicted 2
+verify 12345 I-0039 3 contradicted 2
+verify 12345 I-0040 0 unknown 2
+verify 12345 I-0040 1 unknown 2
+verify 12345 I-0040 2 unknown 2
+verify 12345 I-0040 3 unknown 2
+verify 12345 I-0041 0 contradicted 2
+verify 12345 I-0041 1 contradicted 2
+verify 12345 I-0041 2 contradicted 2
+verify 12345 I-0041 3 contradicted 2
+verify 12345 I-0042 0 unknown 2
+verify 12345 I-0042 1 unknown 2
+verify 12345 I-0042 2 unknown 2
+verify 12345 I-0042 3 unknown 2
+verify 12345 I-0043 0 contradicted 2
+verify 12345 I-0043 1 contradicted 2
+verify 12345 I-0043 2 contradicted 2
+verify 12345 I-0043 3 contradicted 2
+verify 12345 I-0044 0 supported 2
+verify 12345 I-0044 1 unsupported 2
+verify 12345 I-0044 2 unsupported 2
+verify 12345 I-0044 3 unsupported 2
+verify 12345 I-0045 0 unsupported 2
+verify 12345 I-0045 1 unsupported 2
+verify 12345 I-0045 2 supported 2
+verify 12345 I-0045 3 unsupported 2
+verify 12345 I-0046 0 contradicted 2
+verify 12345 I-0046 1 contradicted 2
+verify 12345 I-0046 2 contradicted 2
+verify 12345 I-0046 3 contradicted 2
+verify 12345 I-0047 0 contradicted 2
+verify 12345 I-0047 1 contradicted 2
+verify 12345 I-0047 2 contradicted 2
+verify 12345 I-0047 3 contradicted 2
+verify 12345 I-0048 0 supported 2
+verify 12345 I-0048 1 unsupported 2
+verify 12345 I-0048 2 unsupported 2
+verify 12345 I-0048 3 unsupported 2
+verify 12345 I-0049 0 supported 2
+verify 12345 I-0049 1 unsupported 2
+verify 12345 I-0049 2 unsupported 2
+verify 12345 I-0049 3 unsupported 2
+verify 12345 I-0050 0 contradicted 2
+verify 12345 I-0050 1 contradicted 2
+verify 12345 I-0050 2 contradicted 2
+verify 12345 I-0050 3 contradicted 2
+verify 12345 I-0051 0 unsupported 2
+verify 12345 I-0051 1 unsupported 2
+verify 12345 I-0051 2 supported 2
+verify 12345 I-0051 3 unsupported 2
+verify 12345 I-0052 0 supported 2
+verify 12345 I-0052 1 supported 2
+verify 12345 I-0052 2 supported 2
+verify 12345 I-0052 3 supported 2
+verify 12345 I-0053 0 supported 2
+verify 12345 I-0053 1 supported 2
+verify 12345 I-0053 2 supported 2
+verify 12345 I-0053 3 supported 2
+verify 12345 I-0054 0 supported 2
+verify 12345 I-0054 1 supported 2
+verify 12345 I-0054 2 supported 2
+verify 12345 I-0054 3 supported 2
+verify 12345 I-0055 0 supported 2
+verify 12345 I-0055 1 unsupported 2
+verify 12345 I-0055 2 unsupported 2
+verify 12345 I-0055 3 unsupported 2
+verify 12345 I-0056 0 supported 2
+verify 12345 I-0056 1 supported 2
+verify 12345 I-0056 2 supported 2
+verify 12345 I-0056 3 supported 2
+verify 12345 I-0057 0 contradicted 2
+verify 12345 I-0057 1 contradicted 2
+verify 12345 I-0057 2 contradicted 2
+verify 12345 I-0057 3 contradicted 2
+verify 12345 I-0058 0 unknown 2
+verify 12345 I-0058 1 unknown 2
+verify 12345 I-0058 2 unknown 2
+verify 12345 I-0058 3 unknown 2
+verify 12345 I-0059 0 supported 2
+verify 12345 I-0059 1 supported 2
+verify 12345 I-0059 2 supported 2
+verify 12345 I-0059 3 supported 2
+solve 12345 0 1 none 0 0 0 0 0
+solve 12345 0 1 plain 0 0 0 0 3
+solve 12345 0 1 wikitrace 1 3 3 16 3
+solve 12345 1 1 none 0 0 0 0 0
+solve 12345 1 1 plain 0 0 0 0 3
+solve 12345 1 1 wikitrace 1 3 3 16 3
+solve 12345 2 0 none 1 0 0 0 0
+solve 12345 2 0 plain 0 0 0 0 3
+solve 12345 2 0 wikitrace 1 3 2 18 3
+solve 12345 3 3 none 0 0 0 0 0
+solve 12345 3 3 plain 0 0 0 0 3
+solve 12345 3 3 wikitrace 1 3 2 28 3
+solve 12345 4 3 none 0 0 0 0 0
+solve 12345 4 3 plain 0 0 0 0 3
+solve 12345 4 3 wikitrace 1 3 2 28 3
+solve 12345 5 1 none 0 0 0 0 0
+solve 12345 5 1 plain 0 0 0 0 3
+solve 12345 5 1 wikitrace 1 3 3 16 3
+solve 12345 6 1 none 0 0 0 0 0
+solve 12345 6 1 plain 0 0 0 0 3
+solve 12345 6 1 wikitrace 1 3 3 16 3
+solve 12345 7 2 none 1 0 0 0 0
+solve 12345 7 2 plain 0 0 0 0 3
+solve 12345 7 2 wikitrace 1 3 3 44 3
+solve 12345 8 3 none 0 0 0 0 0
+solve 12345 8 3 plain 0 0 0 0 3
+solve 12345 8 3 wikitrace 1 3 2 28 3
+solve 12345 9 1 none 0 0 0 0 0
+solve 12345 9 1 plain 0 0 0 0 3
+solve 12345 9 1 wikitrace 1 3 3 16 3
+solve 12345 10 0 none 1 0 0 0 0
+solve 12345 10 0 plain 0 0 0 0 3
+solve 12345 10 0 wikitrace 1 3 2 18 3
+solve 12345 11 0 none 0 0 0 0 0
+solve 12345 11 0 plain 0 0 0 0 3
+solve 12345 11 0 wikitrace 1 3 2 18 3
+solve 12345 12 2 none 0 0 0 0 0
+solve 12345 12 2 plain 0 0 0 0 3
+solve 12345 12 2 wikitrace 1 3 3 44 3
+solve 12345 13 0 none 0 0 0 0 0
+solve 12345 13 0 plain 0 0 0 0 3
+solve 12345 13 0 wikitrace 1 3 2 18 3
+solve 12345 14 1 none 0 0 0 0 0
+solve 12345 14 1 plain 0 0 0 0 3
+solve 12345 14 1 wikitrace 1 3 3 16 3
+solve 12345 15 0 none 0 0 0 0 0
+solve 12345 15 0 plain 0 0 0 0 3
+solve 12345 15 0 wikitrace 1 3 2 18 3
+solve 12345 16 2 none 0 0 0 0 0
+solve 12345 16 2 plain 0 0 0 0 3
+solve 12345 16 2 wikitrace 1 3 3 44 3
+solve 12345 17 0 none 1 0 0 0 0
+solve 12345 17 0 plain 0 0 0 0 3
+solve 12345 17 0 wikitrace 1 3 2 18 3
+solve 12345 18 3 none 1 0 0 0 0
+solve 12345 18 3 plain 0 0 0 0 3
+solve 12345 18 3 wikitrace 1 3 2 28 3
+solve 12345 19 2 none 0 0 0 0 0
+solve 12345 19 2 plain 0 0 0 0 3
+solve 12345 19 2 wikitrace 1 3 3 44 3
+solve 12345 20 3 none 0 0 0 0 0
+solve 12345 20 3 plain 0 0 0 0 3
+solve 12345 20 3 wikitrace 1 3 2 28 3
+solve 12345 21 3 none 0 0 0 0 0
+solve 12345 21 3 plain 0 0 0 0 3
+solve 12345 21 3 wikitrace 1 3 2 28 3
+solve 12345 22 1 none 1 0 0 0 0
+solve 12345 22 1 plain 0 0 0 0 3
+solve 12345 22 1 wikitrace 1 3 3 16 3
+solve 12345 23 1 none 0 0 0 0 0
+solve 12345 23 1 plain 0 0 0 0 3
+solve 12345 23 1 wikitrace 1 3 3 16 3
+solve 12345 24 0 none 0 0 0 0 0
+solve 12345 24 0 plain 0 0 0 0 3
+solve 12345 24 0 wikitrace 1 3 2 18 3
+solve 12345 25 3 none 1 0 0 0 0
+solve 12345 25 3 plain 0 0 0 0 3
+solve 12345 25 3 wikitrace 1 3 2 28 3
+solve 12345 26 2 none 0 0 0 0 0
+solve 12345 26 2 plain 0 0 0 0 3
+solve 12345 26 2 wikitrace 1 3 3 44 3
+solve 12345 27 2 none 1 0 0 0 0
+solve 12345 27 2 plain 0 0 0 0 3
+solve 12345 27 2 wikitrace 1 3 3 44 3
+solve 12345 28 2 none 0 0 0 0 0
+solve 12345 28 2 plain 0 0 0 0 3
+solve 12345 28 2 wikitrace 1 3 3 44 3
+solve 12345 29 2 none 0 0 0 0 0
+solve 12345 29 2 plain 0 0 0 0 3
+solve 12345 29 2 wikitrace 1 3 3 44 3
+solve 12345 30 0 none 0 0 0 0 0
+solve 12345 30 0 plain 0 0 0 0 3
+solve 12345 30 0 wikitrace 1 3 2 18 3
+solve 12345 31 0 none 0 0 0 0 0
+solve 12345 31 0 plain 0 0 0 0 3
+solve 12345 31 0 wikitrace 1 3 2 18 3
+solve 12345 32 1 none 0 0 0 0 0
+solve 12345 32 1 plain 0 0 0 0 3
+solve 12345 32 1 wikitrace 1 3 3 16 3
+solve 12345 33 2 none 1 0 0 0 0
+solve 12345 33 2 plain 0 0 0 0 3
+solve 12345 33 2 wikitrace 1 3 3 44 3
+solve 12345 34 1 none 1 0 0 0 0
+solve 12345 34 1 plain 0 0 0 0 3
+solve 12345 34 1 wikitrace 1 3 3 16 3
+solve 12345 35 0 none 0 0 0 0 0
+solve 12345 35 0 plain 0 0 0 0 3
+solve 12345 35 0 wikitrace 1 3 2 18 3
+solve 12345 36 1 none 0 0 0 0 0
+solve 12345 36 1 plain 0 0 0 0 3
+solve 12345 36 1 wikitrace 1 3 3 16 3
+solve 12345 37 1 none 0 0 0 0 0
+solve 12345 37 1 plain 0 0 0 0 3
+solve 12345 37 1 wikitrace 1 3 3 16 3
+solve 12345 38 3 none 0 0 0 0 0
+solve 12345 38 3 plain 0 0 0 0 3
+solve 12345 38 3 wikitrace 1 3 2 28 3
+solve 12345 39 1 none 0 0 0 0 0
+solve 12345 39 1 plain 0 0 0 0 3
+solve 12345 39 1 wikitrace 1 3 3 16 3
+solve_succ 12345 0 1 1 3 0 6 3
+solve_succ 12345 1 1 1 3 0 6 3
+solve_succ 12345 2 0 1 3 1 10 3
+solve_succ 12345 3 3 0 3 3 16 0
+solve_succ 12345 4 3 0 3 0 16 0
+solve_succ 12345 5 1 1 3 0 6 3
+solve_succ 12345 6 1 1 3 0 6 3
+solve_succ 12345 7 2 1 3 1 18 3
+solve_succ 12345 8 3 0 3 2 16 0
+solve_succ 12345 9 1 1 3 0 6 3
+solve_succ 12345 10 0 1 3 1 10 3
+solve_succ 12345 11 0 1 3 1 10 3
+solve_succ 12345 12 2 1 3 1 18 3
+solve_succ 12345 13 0 1 3 1 10 3
+solve_succ 12345 14 1 1 3 0 6 3
+solve_succ 12345 15 0 1 3 1 10 3
+solve_succ 12345 16 2 1 3 1 18 3
+solve_succ 12345 17 0 1 3 1 10 3
+solve_succ 12345 18 3 1 3 1 16 0
+solve_succ 12345 19 2 1 3 1 18 3
+solve_succ 12345 20 3 0 3 2 16 0
+solve_succ 12345 21 3 0 3 2 16 0
+solve_succ 12345 22 1 1 3 0 6 3
+solve_succ 12345 23 1 1 3 0 6 3
+solve_succ 12345 24 0 1 3 1 10 3
+solve_succ 12345 25 3 1 3 1 16 0
+solve_succ 12345 26 2 1 3 1 18 3
+solve_succ 12345 27 2 1 3 1 18 3
+solve_succ 12345 28 2 1 3 1 18 3
+solve_succ 12345 29 2 1 3 1 18 3
+solve_succ 12345 30 0 1 3 1 10 3
+solve_succ 12345 31 0 1 3 1 10 3
+solve_succ 12345 32 1 1 3 0 6 3
+solve_succ 12345 33 2 1 3 1 18 3
+solve_succ 12345 34 1 1 3 0 6 3
+solve_succ 12345 35 0 1 3 1 10 3
+solve_succ 12345 36 1 1 3 0 6 3
+solve_succ 12345 37 1 1 3 0 6 3
+solve_succ 12345 38 3 0 3 2 16 0
+solve_succ 12345 39 1 1 3 0 6 3
+solve_fail 12345 0 1 0 3 2 40 0
+solve_fail 12345 1 1 0 3 2 40 0
+solve_fail 12345 2 0 1 3 2 24 3
+solve_fail 12345 3 3 1 3 2 22 3
+solve_fail 12345 4 3 1 3 2 22 3
+solve_fail 12345 5 1 0 3 2 40 0
+solve_fail 12345 6 1 0 3 2 40 0
+solve_fail 12345 7 2 1 3 3 36 2
+solve_fail 12345 8 3 1 3 2 22 3
+solve_fail 12345 9 1 0 3 2 40 0
+solve_fail 12345 10 0 1 3 2 24 3
+solve_fail 12345 11 0 1 3 2 24 3
+solve_fail 12345 12 2 1 3 3 36 2
+solve_fail 12345 13 0 1 3 2 24 3
+solve_fail 12345 14 1 0 3 1 40 0
+solve_fail 12345 15 0 1 3 2 24 3
+solve_fail 12345 16 2 0 3 3 36 2
+solve_fail 12345 17 0 1 3 2 24 3
+solve_fail 12345 18 3 1 3 2 22 3
+solve_fail 12345 19 2 1 3 3 36 2
+solve_fail 12345 20 3 1 3 2 22 3
+solve_fail 12345 21 3 1 3 2 22 3
+solve_fail 12345 22 1 1 3 3 40 0
+solve_fail 12345 23 1 0 3 2 40 0
+solve_fail 12345 24 0 1 3 2 24 3
+solve_fail 12345 25 3 1 3 2 22 3
+solve_fail 12345 26 2 0 3 3 36 2
+solve_fail 12345 27 2 1 3 3 36 2
+solve_fail 12345 28 2 0 3 3 36 2
+solve_fail 12345 29 2 0 3 2 36 2
+solve_fail 12345 30 0 1 3 2 24 3
+solve_fail 12345 31 0 1 3 2 24 3
+solve_fail 12345 32 1 0 3 2 40 0
+solve_fail 12345 33 2 1 3 3 36 2
+solve_fail 12345 34 1 1 3 3 40 0
+solve_fail 12345 35 0 1 3 2 24 3
+solve_fail 12345 36 1 0 3 1 40 0
+solve_fail 12345 37 1 0 3 2 40 0
+solve_fail 12345 38 3 1 3 2 22 3
+solve_fail 12345 39 1 0 3 2 40 0
+task 999983 0 1
+choices 999983 0 0 1 1
+task 999983 1 1
+choices 999983 1 0 1 1
+task 999983 2 0
+choices 999983 2 0 2 0
+task 999983 3 3
+choices 999983 3 0 1 2
+task 999983 4 1
+choices 999983 4 1 0 2
+task 999983 5 1
+choices 999983 5 2 2 2
+task 999983 6 0
+choices 999983 6 0 1 1
+task 999983 7 3
+choices 999983 7 0 0 0
+task 999983 8 1
+choices 999983 8 0 1 1
+task 999983 9 0
+choices 999983 9 0 1 0
+task 999983 10 3
+choices 999983 10 0 1 0
+task 999983 11 0
+choices 999983 11 0 0 0
+task 999983 12 0
+choices 999983 12 2 1 0
+task 999983 13 0
+choices 999983 13 0 0 1
+task 999983 14 2
+choices 999983 14 0 1 1
+task 999983 15 1
+choices 999983 15 0 1 0
+task 999983 16 3
+choices 999983 16 0 0 1
+task 999983 17 2
+choices 999983 17 0 1 0
+task 999983 18 3
+choices 999983 18 2 1 0
+task 999983 19 1
+choices 999983 19 2 1 1
+step 999983 0 0 0 1 1
+step 999983 0 1 1 1 1
+step 999983 0 2 1 1 0
+run 999983 0 1
+step 999983 1 0 0 1 1
+step 999983 1 1 1 1 1
+step 999983 1 2 1 1 1
+run 999983 1 1
+step 999983 2 0 0 1 1
+step 999983 2 1 2 0 1
+step 999983 2 2 0 1 1
+run 999983 2 0
+step 999983 3 0 0 1 1
+step 999983 3 1 1 1 1
+step 999983 3 2 2 0 0
+run 999983 3 0
+step 999983 4 0 1 0 0
+step 999983 4 1 0 0 1
+step 999983 4 2 2 0 1
+run 999983 4 0
+step 999983 5 0 2 0 0
+step 999983 5 1 2 0 0
+step 999983 5 2 2 0 1
+run 999983 5 0
+step 999983 6 0 0 1 1
+step 999983 6 1 1 1 1
+step 999983 6 2 1 0 1
+run 999983 6 0
+step 999983 7 0 0 1 1
+step 999983 7 1 0 0 1
+step 999983 7 2 0 1 1
+run 999983 7 0
+step 999983 8 0 0 1 1
+step 999983 8 1 1 1 1
+step 999983 8 2 1 1 1
+run 999983 8 1
+step 999983 9 0 0 1 1
+step 999983 9 1 1 1 1
+step 999983 9 2 0 1 0
+run 999983 9 1
+step 999983 10 0 0 1 1
+step 999983 10 1 1 1 1
+step 999983 10 2 0 1 1
+run 999983 10 1
+step 999983 11 0 0 1 1
+step 999983 11 1 0 0 1
+step 999983 11 2 0 1 1
+run 999983 11 0
+step 999983 12 0 2 0 1
+step 999983 12 1 1 1 1
+step 999983 12 2 0 1 1
+run 999983 12 0
+step 999983 13 0 0 1 0
+step 999983 13 1 0 0 1
+step 999983 13 2 1 0 1
+run 999983 13 0
+step 999983 14 0 0 1 1
+step 999983 14 1 1 1 1
+step 999983 14 2 1 0 1
+run 999983 14 0
+step 999983 15 0 0 1 1
+step 999983 15 1 1 1 1
+step 999983 15 2 0 0 1
+run 999983 15 0
+step 999983 16 0 0 1 1
+step 999983 16 1 0 0 1
+step 999983 16 2 1 0 1
+run 999983 16 0
+step 999983 17 0 0 1 1
+step 999983 17 1 1 1 1
+step 999983 17 2 0 0 1
+run 999983 17 0
+step 999983 18 0 2 0 1
+step 999983 18 1 1 1 1
+step 999983 18 2 0 1 1
+run 999983 18 0
+step 999983 19 0 2 0 0
+step 999983 19 1 1 1 0
+step 999983 19 2 1 1 0
+run 999983 19 0
+insight 999983 I-0000 0 0 attr:1 0 1 0
+insight 999983 I-0001 1 1 any 0 1 0
+insight 999983 I-0002 2 1 attr:1 0 1 0
+insight 999983 I-0003 0 0 attr:1 1 1 0
+insight 999983 I-0004 1 1 any 1 1 0
+insight 999983 I-0005 2 1 attr:1 1 1 0
+insight 999983 I-0006 0 0 attr:0 2 0 0
+insight 999983 I-0007 1 0 any 2 0 1
+insight 999983 I-0008 2 0 attr:0 2 0 0
+insight 999983 I-0009 0 0 any 3 0 0
+insight 999983 I-0010 1 1 any 3 0 0
+insight 999983 I-0011 2 2 attr:3 3 0 0
+insight 999983 I-0012 0 0 any 4 0 1
+insight 999983 I-0013 1 1 attr:1 4 0 1
+insight 999983 I-0014 2 2 any 4 0 0
+insight 999983 I-0015 0 0 any 5 0 1
+insight 999983 I-0016 1 2 any 5 0 0
+insight 999983 I-0017 2 2 any 5 0 0
+insight 999983 I-0018 0 2 attr:0 6 0 1
+insight 999983 I-0019 1 1 attr:0 6 0 0
+insight 999983 I-0020 2 1 attr:0 6 0 0
+insight 999983 I-0021 0 0 any 7 0 0
+insight 999983 I-0022 1 1 any 7 0 1
+insight 999983 I-0023 2 0 attr:3 7 0 0
+insight 999983 I-0024 0 0 any 8 1 0
+insight 999983 I-0025 1 1 any 8 1 0
+insight 999983 I-0026 2 1 attr:1 8 1 0
+insight 999983 I-0027 0 0 attr:0 9 1 0
+insight 999983 I-0028 1 1 attr:0 9 1 0
+insight 999983 I-0029 2 0 any 9 1 0
+insight 999983 I-0030 0 0 any 10 1 0
+insight 999983 I-0031 1 1 attr:3 10 1 0
+insight 999983 I-0032 2 0 any 10 1 0
+insight 999983 I-0033 0 0 any 11 0 0
+insight 999983 I-0034 1 1 attr:0 11 0 1
+insight 999983 I-0035 2 0 any 11 0 0
+insight 999983 I-0036 0 2 any 12 0 0
+insight 999983 I-0037 1 0 any 12 0 1
+insight 999983 I-0038 2 0 any 12 0 0
+insight 999983 I-0039 0 2 any 13 0 1
+insight 999983 I-0040 1 0 any 13 0 0
+insight 999983 I-0041 2 2 any 13 0 1
+insight 999983 I-0042 0 0 any 14 0 0
+insight 999983 I-0043 1 1 attr:2 14 0 0
+insight 999983 I-0044 2 1 any 14 0 0
+insight 999983 I-0045 0 0 any 15 0 0
+insight 999983 I-0046 1 1 any 15 0 0
+insight 999983 I-0047 2 0 any 15 0 0
+insight 999983 I-0048 0 0 attr:3 16 0 0
+insight 999983 I-0049 1 0 attr:3 16 0 0
+insight 999983 I-0050 2 1 attr:3 16 0 0
+insight 999983 I-0051 0 0 attr:2 17 0 0
+insight 999983 I-0052 1 1 any 17 0 0
+insight 999983 I-0053 2 0 any 17 0 0
+insight 999983 I-0054 0 2 any 18 0 0
+insight 999983 I-0055 1 1 any 18 0 0
+insight 999983 I-0056 2 0 any 18 0 0
+insight 999983 I-0057 0 2 any 19 0 0
+insight 999983 I-0058 1 1 any 19 0 0
+insight 999983 I-0059 2 0 any 19 0 1
+verify 999983 I-0000 0 supported 2
+verify 999983 I-0000 1 supported 2
+verify 999983 I-0000 2 supported 2
+verify 999983 I-0000 3 supported 2
+verify 999983 I-0001 0 unsupported 2
+verify 999983 I-0001 1 supported 2
+verify 999983 I-0001 2 unsupported 2
+verify 999983 I-0001 3 unsupported 2
+verify 999983 I-0002 0 unknown 2
+verify 999983 I-0002 1 unknown 2
+verify 999983 I-0002 2 unknown 2
+verify 999983 I-0002 3 unknown 2
+verify 999983 I-0003 0 supported 2
+verify 999983 I-0003 1 supported 2
+verify 999983 I-0003 2 supported 2
+verify 999983 I-0003 3 supported 2
+verify 999983 I-0004 0 unsupported 2
+verify 999983 I-0004 1 supported 2
+verify 999983 I-0004 2 unsupported 2
+verify 999983 I-0004 3 unsupported 2
+verify 999983 I-0005 0 supported 2
+verify 999983 I-0005 1 supported 2
+verify 999983 I-0005 2 supported 2
+verify 999983 I-0005 3 supported 2
+verify 999983 I-0006 0 supported 2
+verify 999983 I-0006 1 supported 2
+verify 999983 I-0006 2 supported 2
+verify 999983 I-0006 3 supported 2
+verify 999983 I-0007 0 contradicted 2
+verify 999983 I-0007 1 contradicted 2
+verify 999983 I-0007 2 contradicted 2
+verify 999983 I-0007 3 contradicted 2
+verify 999983 I-0008 0 supported 2
+verify 999983 I-0008 1 supported 2
+verify 999983 I-0008 2 supported 2
+verify 999983 I-0008 3 supported 2
+verify 999983 I-0009 0 unsupported 2
+verify 999983 I-0009 1 unsupported 2
+verify 999983 I-0009 2 unsupported 2
+verify 999983 I-0009 3 supported 2
+verify 999983 I-0010 0 unsupported 2
+verify 999983 I-0010 1 unsupported 2
+verify 999983 I-0010 2 unsupported 2
+verify 999983 I-0010 3 supported 2
+verify 999983 I-0011 0 unknown 2
+verify 999983 I-0011 1 unknown 2
+verify 999983 I-0011 2 unknown 2
+verify 999983 I-0011 3 unknown 2
+verify 999983 I-0012 0 unknown 2
+verify 999983 I-0012 1 unknown 2
+verify 999983 I-0012 2 unknown 2
+verify 999983 I-0012 3 unknown 2
+verify 999983 I-0013 0 contradicted 2
+verify 999983 I-0013 1 contradicted 2
+verify 999983 I-0013 2 contradicted 2
+verify 999983 I-0013 3 contradicted 2
+verify 999983 I-0014 0 contradicted 2
+verify 999983 I-0014 1 contradicted 2
+verify 999983 I-0014 2 contradicted 2
+verify 999983 I-0014 3 contradicted 2
+verify 999983 I-0015 0 unknown 2
+verify 999983 I-0015 1 unknown 2
+verify 999983 I-0015 2 unknown 2
+verify 999983 I-0015 3 unknown 2
+verify 999983 I-0016 0 unknown 2
+verify 999983 I-0016 1 unknown 2
+verify 999983 I-0016 2 unknown 2
+verify 999983 I-0016 3 unknown 2
+verify 999983 I-0017 0 contradicted 2
+verify 999983 I-0017 1 contradicted 2
+verify 999983 I-0017 2 contradicted 2
+verify 999983 I-0017 3 contradicted 2
+verify 999983 I-0018 0 contradicted 2
+verify 999983 I-0018 1 contradicted 2
+verify 999983 I-0018 2 contradicted 2
+verify 999983 I-0018 3 contradicted 2
+verify 999983 I-0019 0 supported 2
+verify 999983 I-0019 1 supported 2
+verify 999983 I-0019 2 supported 2
+verify 999983 I-0019 3 supported 2
+verify 999983 I-0020 0 contradicted 2
+verify 999983 I-0020 1 contradicted 2
+verify 999983 I-0020 2 contradicted 2
+verify 999983 I-0020 3 contradicted 2
+verify 999983 I-0021 0 unsupported 2
+verify 999983 I-0021 1 unsupported 2
+verify 999983 I-0021 2 unsupported 2
+verify 999983 I-0021 3 supported 2
+verify 999983 I-0022 0 contradicted 2
+verify 999983 I-0022 1 contradicted 2
+verify 999983 I-0022 2 contradicted 2
+verify 999983 I-0022 3 contradicted 2
+verify 999983 I-0023 0 supported 2
+verify 999983 I-0023 1 supported 2
+verify 999983 I-0023 2 supported 2
+verify 999983 I-0023 3 supported 2
+verify 999983 I-0024 0 unsupported 2
+verify 999983 I-0024 1 supported 2
+verify 999983 I-0024 2 unsupported 2
+verify 999983 I-0024 3 unsupported 2
+verify 999983 I-0025 0 unsupported 2
+verify 999983 I-0025 1 supported 2
+verify 999983 I-0025 2 unsupported 2
+verify 999983 I-0025 3 unsupported 2
+verify 999983 I-0026 0 supported 2
+verify 999983 I-0026 1 supported 2
+verify 999983 I-0026 2 supported 2
+verify 999983 I-0026 3 supported 2
+verify 999983 I-0027 0 supported 2
+verify 999983 I-0027 1 supported 2
+verify 999983 I-0027 2 supported 2
+verify 999983 I-0027 3 supported 2
+verify 999983 I-0028 0 supported 2
+verify 999983 I-0028 1 supported 2
+verify 999983 I-0028 2 supported 2
+verify 999983 I-0028 3 supported 2
+verify 999983 I-0029 0 unknown 2
+verify 999983 I-0029 1 unknown 2
+verify 999983 I-0029 2 unknown 2
+verify 999983 I-0029 3 unknown 2
+verify 999983 I-0030 0 unsupported 2
+verify 999983 I-0030 1 unsupported 2
+verify 999983 I-0030 2 unsupported 2
+verify 999983 I-0030 3 supported 2
+verify 999983 I-0031 0 supported 2
+verify 999983 I-0031 1 supported 2
+verify 999983 I-0031 2 supported 2
+verify 999983 I-0031 3 supported 2
+verify 999983 I-0032 0 unsupported 2
+verify 999983 I-0032 1 unsupported 2
+verify 999983 I-0032 2 unsupported 2
+verify 999983 I-0032 3 supported 2
+verify 999983 I-0033 0 supported 2
+verify 999983 I-0033 1 unsupported 2
+verify 999983 I-0033 2 unsupported 2
+verify 999983 I-0033 3 unsupported 2
+verify 999983 I-0034 0 contradicted 2
+verify 999983 I-0034 1 contradicted 2
+verify 999983 I-0034 2 contradicted 2
+verify 999983 I-0034 3 contradicted 2
+verify 999983 I-0035 0 supported 2
+verify 999983 I-0035 1 unsupported 2
+verify 999983 I-0035 2 unsupported 2
+verify 999983 I-0035 3 unsupported 2
+verify 999983 I-0036 0 contradicted 2
+verify 999983 I-0036 1 contradicted 2
+verify 999983 I-0036 2 contradicted 2
+verify 999983 I-0036 3 contradicted 2
+verify 999983 I-0037 0 contradicted 2
+verify 999983 I-0037 1 contradicted 2
+verify 999983 I-0037 2 contradicted 2
+verify 999983 I-0037 3 contradicted 2
+verify 999983 I-0038 0 supported 2
+verify 999983 I-0038 1 unsupported 2
+verify 999983 I-0038 2 unsupported 2
+verify 999983 I-0038 3 unsupported 2
+verify 999983 I-0039 0 unknown 2
+verify 999983 I-0039 1 unknown 2
+verify 999983 I-0039 2 unknown 2
+verify 999983 I-0039 3 unknown 2
+verify 999983 I-0040 0 contradicted 2
+verify 999983 I-0040 1 contradicted 2
+verify 999983 I-0040 2 contradicted 2
+verify 999983 I-0040 3 contradicted 2
+verify 999983 I-0041 0 contradicted 2
+verify 999983 I-0041 1 contradicted 2
+verify 999983 I-0041 2 contradicted 2
+verify 999983 I-0041 3 contradicted 2
+verify 999983 I-0042 0 unsupported 2
+verify 999983 I-0042 1 unsupported 2
+verify 999983 I-0042 2 supported 2
+verify 999983 I-0042 3 unsupported 2
+verify 999983 I-0043 0 supported 2
+verify 999983 I-0043 1 supported 2
+verify 999983 I-0043 2 supported 2
+verify 999983 I-0043 3 supported 2
+verify 999983 I-0044 0 contradicted 2
+verify 999983 I-0044 1 contradicted 2
+verify 999983 I-0044 2 contradicted 2
+verify 999983 I-0044 3 contradicted 2
+verify 999983 I-0045 0 unsupported 2
+verify 999983 I-0045 1 supported 2
+verify 999983 I-0045 2 unsupported 2
+verify 999983 I-0045 3 unsupported 2
+verify 999983 I-0046 0 unsupported 2
+verify 999983 I-0046 1 supported 2
+verify 999983 I-0046 2 unsupported 2
+verify 999983 I-0046 3 unsupported 2
+verify 999983 I-0047 0 contradicted 2
+verify 999983 I-0047 1 contradicted 2
+verify 999983 I-0047 2 contradicted 2
+verify 999983 I-0047 3 contradicted 2
+verify 999983 I-0048 0 supported 2
+verify 999983 I-0048 1 supported 2
+verify 999983 I-0048 2 supported 2
+verify 999983 I-0048 3 supported 2
+verify 999983 I-0049 0 contradicted 2
+verify 999983 I-0049 1 contradicted 2
+verify 999983 I-0049 2 contradicted 2
+verify 999983 I-0049 3 contradicted 2
+verify 999983 I-0050 0 contradicted 2
+verify 999983 I-0050 1 contradicted 2
+verify 999983 I-0050 2 contradicted 2
+verify 999983 I-0050 3 contradicted 2
+verify 999983 I-0051 0 supported 2
+verify 999983 I-0051 1 supported 2
+verify 999983 I-0051 2 supported 2
+verify 999983 I-0051 3 supported 2
+verify 999983 I-0052 0 unsupported 2
+verify 999983 I-0052 1 unsupported 2
+verify 999983 I-0052 2 supported 2
+verify 999983 I-0052 3 unsupported 2
+verify 999983 I-0053 0 contradicted 2
+verify 999983 I-0053 1 contradicted 2
+verify 999983 I-0053 2 contradicted 2
+verify 999983 I-0053 3 contradicted 2
+verify 999983 I-0054 0 contradicted 2
+verify 999983 I-0054 1 contradicted 2
+verify 999983 I-0054 2 contradicted 2
+verify 999983 I-0054 3 contradicted 2
+verify 999983 I-0055 0 unsupported 2
+verify 999983 I-0055 1 unsupported 2
+verify 999983 I-0055 2 unsupported 2
+verify 999983 I-0055 3 supported 2
+verify 999983 I-0056 0 unsupported 2
+verify 999983 I-0056 1 unsupported 2
+verify 999983 I-0056 2 unsupported 2
+verify 999983 I-0056 3 supported 2
+verify 999983 I-0057 0 unknown 2
+verify 999983 I-0057 1 unknown 2
+verify 999983 I-0057 2 unknown 2
+verify 999983 I-0057 3 unknown 2
+verify 999983 I-0058 0 unknown 2
+verify 999983 I-0058 1 unknown 2
+verify 999983 I-0058 2 unknown 2
+verify 999983 I-0058 3 unknown 2
+verify 999983 I-0059 0 unknown 2
+verify 999983 I-0059 1 unknown 2
+verify 999983 I-0059 2 unknown 2
+verify 999983 I-0059 3 unknown 2
+solve 999983 0 1 none 1 0 0 0 0
+solve 999983 0 1 plain 1 0 0 0 3
+solve 999983 0 1 wikitrace 1 3 0 8 3
+solve 999983 1 0 none 1 0 0 0 0
+solve 999983 1 0 plain 1 0 0 0 3
+solve 999983 1 0 wikitrace 1 3 0 16 3
+solve 999983 2 2 none 0 0 0 0 0
+solve 999983 2 2 plain 1 0 0 0 3
+solve 999983 2 2 wikitrace 1 3 0 64 2
+solve 999983 3 1 none 0 0 0 0 0
+solve 999983 3 1 plain 1 0 0 0 3
+solve 999983 3 1 wikitrace 1 3 0 8 3
+solve 999983 4 3 none 0 0 0 0 0
+solve 999983 4 3 plain 0 0 0 0 3
+solve 999983 4 3 wikitrace 1 3 1 18 3
+solve 999983 5 1 none 0 0 0 0 0
+solve 999983 5 1 plain 1 0 0 0 3
+solve 999983 5 1 wikitrace 1 3 0 8 3
+solve 999983 6 3 none 0 0 0 0 0
+solve 999983 6 3 plain 0 0 0 0 3
+solve 999983 6 3 wikitrace 1 3 1 18 3
+solve 999983 7 0 none 0 0 0 0 0
+solve 999983 7 0 plain 1 0 0 0 3
+solve 999983 7 0 wikitrace 1 3 0 16 3
+solve 999983 8 3 none 1 0 0 0 0
+solve 999983 8 3 plain 0 0 0 0 3
+solve 999983 8 3 wikitrace 1 3 1 18 3
+solve 999983 9 2 none 1 0 0 0 0
+solve 999983 9 2 plain 1 0 0 0 3
+solve 999983 9 2 wikitrace 1 3 0 64 2
+solve 999983 10 3 none 1 0 0 0 0
+solve 999983 10 3 plain 0 0 0 0 3
+solve 999983 10 3 wikitrace 1 3 1 18 3
+solve 999983 11 3 none 0 0 0 0 0
+solve 999983 11 3 plain 0 0 0 0 3
+solve 999983 11 3 wikitrace 1 3 1 18 3
+solve 999983 12 1 none 0 0 0 0 0
+solve 999983 12 1 plain 1 0 0 0 3
+solve 999983 12 1 wikitrace 1 3 0 8 3
+solve 999983 13 2 none 0 0 0 0 0
+solve 999983 13 2 plain 1 0 0 0 3
+solve 999983 13 2 wikitrace 0 3 1 64 2
+solve 999983 14 1 none 0 0 0 0 0
+solve 999983 14 1 plain 1 0 0 0 3
+solve 999983 14 1 wikitrace 1 3 0 8 3
+solve 999983 15 1 none 0 0 0 0 0
+solve 999983 15 1 plain 1 0 0 0 3
+solve 999983 15 1 wikitrace 1 3 0 8 3
+solve 999983 16 1 none 0 0 0 0 0
+solve 999983 16 1 plain 1 0 0 0 3
+solve 999983 16 1 wikitrace 1 3 0 8 3
+solve 999983 17 3 none 0 0 0 0 0
+solve 999983 17 3 plain 0 0 0 0 3
+solve 999983 17 3 wikitrace 1 3 1 18 3
+solve 999983 18 3 none 0 0 0 0 0
+solve 999983 18 3 plain 0 0 0 0 3
+solve 999983 18 3 wikitrace 1 3 1 18 3
+solve 999983 19 3 none 0 0 0 0 0
+solve 999983 19 3 plain 0 0 0 0 3
+solve 999983 19 3 wikitrace 1 3 1 18 3
+solve 999983 20 3 none 1 0 0 0 0
+solve 999983 20 3 plain 0 0 0 0 3
+solve 999983 20 3 wikitrace 1 3 1 18 3
+solve 999983 21 3 none 0 0 0 0 0
+solve 999983 21 3 plain 0 0 0 0 3
+solve 999983 21 3 wikitrace 1 3 1 18 3
+solve 999983 22 2 none 0 0 0 0 0
+solve 999983 22 2 plain 1 0 0 0 3
+solve 999983 22 2 wikitrace 1 3 0 64 2
+solve 999983 23 2 none 0 0 0 0 0
+solve 999983 23 2 plain 1 0 0 0 3
+solve 999983 23 2 wikitrace 0 3 1 64 2
+solve 999983 24 3 none 0 0 0 0 0
+solve 999983 24 3 plain 0 0 0 0 3
+solve 999983 24 3 wikitrace 1 3 1 18 3
+solve 999983 25 0 none 0 0 0 0 0
+solve 999983 25 0 plain 1 0 0 0 3
+solve 999983 25 0 wikitrace 1 3 0 16 3
+solve 999983 26 3 none 1 0 0 0 0
+solve 999983 26 3 plain 0 0 0 0 3
+solve 999983 26 3 wikitrace 1 3 1 18 3
+solve 999983 27 2 none 0 0 0 0 0
+solve 999983 27 2 plain 1 0 0 0 3
+solve 999983 27 2 wikitrace 0 3 1 64 2
+solve 999983 28 2 none 0 0 0 0 0
+solve 999983 28 2 plain 1 0 0 0 3
+solve 999983 28 2 wikitrace 0 3 1 64 2
+solve 999983 29 1 none 0 0 0 0 0
+solve 999983 29 1 plain 1 0 0 0 3
+solve 999983 29 1 wikitrace 1 3 0 8 3
+solve 999983 30 2 none 1 0 0 0 0
+solve 999983 30 2 plain 1 0 0 0 3
+solve 999983 30 2 wikitrace 1 3 0 64 2
+solve 999983 31 2 none 0 0 0 0 0
+solve 999983 31 2 plain 1 0 0 0 3
+solve 999983 31 2 wikitrace 0 3 1 64 2
+solve 999983 32 3 none 0 0 0 0 0
+solve 999983 32 3 plain 0 0 0 0 3
+solve 999983 32 3 wikitrace 1 3 1 18 3
+solve 999983 33 2 none 0 0 0 0 0
+solve 999983 33 2 plain 1 0 0 0 3
+solve 999983 33 2 wikitrace 1 3 0 64 2
+solve 999983 34 1 none 0 0 0 0 0
+solve 999983 34 1 plain 1 0 0 0 3
+solve 999983 34 1 wikitrace 1 3 0 8 3
+solve 999983 35 1 none 0 0 0 0 0
+solve 999983 35 1 plain 1 0 0 0 3
+solve 999983 35 1 wikitrace 1 3 0 8 3
+solve 999983 36 1 none 0 0 0 0 0
+solve 999983 36 1 plain 1 0 0 0 3
+solve 999983 36 1 wikitrace 1 3 0 8 3
+solve 999983 37 0 none 0 0 0 0 0
+solve 999983 37 0 plain 1 0 0 0 3
+solve 999983 37 0 wikitrace 1 3 0 16 3
+solve 999983 38 3 none 0 0 0 0 0
+solve 999983 38 3 plain 0 0 0 0 3
+solve 999983 38 3 wikitrace 1 3 1 18 3
+solve 999983 39 0 none 0 0 0 0 0
+solve 999983 39 0 plain 1 0 0 0 3
+solve 999983 39 0 wikitrace 1 3 0 16 3
+solve_succ 999983 0 1 1 3 0 8 3
+solve_succ 999983 1 0 1 3 0 16 2
+solve_succ 999983 2 2 0 3 2 14 0
+solve_succ 999983 3 1 1 3 0 8 3
+solve_succ 999983 4 3 1 3 0 16 3
+solve_succ 999983 5 1 1 3 0 8 3
+solve_succ 999983 6 3 1 3 0 16 3
+solve_succ 999983 7 0 1 3 0 16 2
+solve_succ 999983 8 3 1 3 0 16 3
+solve_succ 999983 9 2 1 3 1 14 0
+solve_succ 999983 10 3 1 3 0 16 3
+solve_succ 999983 11 3 1 3 0 16 3
+solve_succ 999983 12 1 1 3 0 8 3
+solve_succ 999983 13 2 0 3 1 14 0
+solve_succ 999983 14 1 1 3 0 8 3
+solve_succ 999983 15 1 1 3 0 8 3
+solve_succ 999983 16 1 1 3 0 8 3
+solve_succ 999983 17 3 1 3 0 16 3
+solve_succ 999983 18 3 1 3 0 16 3
+solve_succ 999983 19 3 1 3 0 16 3
+solve_succ 999983 20 3 1 3 0 16 3
+solve_succ 999983 21 3 1 3 0 16 3
+solve_succ 999983 22 2 0 3 2 14 0
+solve_succ 999983 23 2 0 3 1 14 0
+solve_succ 999983 24 3 1 3 0 16 3
+solve_succ 999983 25 0 1 3 0 16 2
+solve_succ 999983 26 3 1 3 0 16 3
+solve_succ 999983 27 2 0 3 1 14 0
+solve_succ 999983 28 2 0 3 3 14 0
+solve_succ 999983 29 1 1 3 0 8 3
+solve_succ 999983 30 2 1 3 1 14 0
+solve_succ 999983 31 2 0 3 1 14 0
+solve_succ 999983 32 3 1 3 0 16 3
+solve_succ 999983 33 2 0 3 2 14 0
+solve_succ 999983 34 1 1 3 0 8 3
+solve_succ 999983 35 1 1 3 0 8 3
+solve_succ 999983 36 1 1 3 0 8 3
+solve_succ 999983 37 0 0 3 1 16 2
+solve_succ 999983 38 3 1 3 0 16 3
+solve_succ 999983 39 0 1 3 0 16 2
+solve_fail 999983 0 1 1 3 2 54 2
+solve_fail 999983 1 0 1 3 1 12 3
+solve_fail 999983 2 2 1 3 1 50 2
+solve_fail 999983 3 1 0 3 1 54 2
+solve_fail 999983 4 3 1 3 2 14 3
+solve_fail 999983 5 1 0 3 1 54 2
+solve_fail 999983 6 3 1 3 2 14 3
+solve_fail 999983 7 0 1 3 1 12 3
+solve_fail 999983 8 3 1 3 2 14 3
+solve_fail 999983 9 2 1 3 1 50 2
+solve_fail 999983 10 3 1 3 2 14 3
+solve_fail 999983 11 3 1 3 2 14 3
+solve_fail 999983 12 1 1 3 2 54 2
+solve_fail 999983 13 2 0 3 2 50 2
+solve_fail 999983 14 1 0 3 1 54 2
+solve_fail 999983 15 1 0 3 2 54 2
+solve_fail 999983 16 1 0 3 2 54 2
+solve_fail 999983 17 3 1 3 2 14 3
+solve_fail 999983 18 3 1 3 2 14 3
+solve_fail 999983 19 3 1 3 2 14 3
+solve_fail 999983 20 3 1 3 2 14 3
+solve_fail 999983 21 3 1 3 2 14 3
+solve_fail 999983 22 2 1 3 1 50 2
+solve_fail 999983 23 2 0 3 2 50 2
+solve_fail 999983 24 3 1 3 2 14 3
+solve_fail 999983 25 0 1 3 1 12 3
+solve_fail 999983 26 3 1 3 2 14 3
+solve_fail 999983 27 2 0 3 2 50 2
+solve_fail 999983 28 2 0 3 2 50 2
+solve_fail 999983 29 1 0 3 1 54 2
+solve_fail 999983 30 2 1 3 1 50 2
+solve_fail 999983 31 2 0 3 2 50 2
+solve_fail 999983 32 3 1 3 2 14 3
+solve_fail 999983 33 2 1 3 1 50 2
+solve_fail 999983 34 1 0 3 2 54 2
+solve_fail 999983 35 1 1 3 2 54 2
+solve_fail 999983 36 1 0 3 2 54 2
+solve_fail 999983 37 0 1 3 1 12 3
+solve_fail 999983 38 3 1 3 2 14 3
+solve_fail 999983 39 0 1 3 1 12 3
