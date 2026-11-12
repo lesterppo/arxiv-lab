@@ -1,0 +1,17 @@
+[package]
+name = "wikitrace"
+version = "0.1.0"
+edition = "2021"
+description = "WikiTrace: evidence-linked memory for LLM agents (arXiv:2611.14320) — Rust port of the Python mechanism"
+license = "MIT"
+
+[[bin]]
+name = "verify"
+path = "src/main.rs"
+
+[lib]
+name = "wikitrace"
+path = "src/lib.rs"
+
+[profile.release]
+debug = false
