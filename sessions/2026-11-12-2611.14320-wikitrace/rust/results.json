@@ -1,0 +1,42 @@
+{
+  "n_insights": 36,
+  "n_insights_corrupted": 4,
+  "n_insights_from_failed_runs": 24,
+  "n_test_tasks": 600,
+  "n_train_runs": 12,
+  "none": {
+    "gain": 0.0,
+    "regression": 0.0,
+    "regression_of_solved": 0.0,
+    "success": 0.2
+  },
+  "plain": {
+    "gain": 0.4066666666666667,
+    "lessons_followed_per_task": 3.0,
+    "regression": 0.10166666666666667,
+    "regression_of_solved": 0.5083333333333333,
+    "success": 0.505
+  },
+  "wikitrace": {
+    "correction_rate": 0.2638888888888889,
+    "descent_rate": 1.0,
+    "evidence_reads_per_task": 23.826666666666668,
+    "gain": 0.5033333333333333,
+    "lessons_followed_per_task": 2.243333333333333,
+    "regression": 0.0,
+    "regression_of_solved": 0.0,
+    "success": 0.7033333333333334
+  },
+  "wikitrace_fail_only": {
+    "gain": 0.15666666666666668,
+    "n_insights": 24,
+    "regression": 0.0,
+    "success": 0.3566666666666667
+  },
+  "wikitrace_succ_only": {
+    "gain": 0.38333333333333336,
+    "n_insights": 12,
+    "regression": 0.0,
+    "success": 0.5833333333333334
+  }
+}
