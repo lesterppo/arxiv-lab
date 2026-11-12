@@ -198,3 +198,52 @@ run-e OOM cause:
 `test_agentic_opd_fallback_cpu.py` verifies the pure helpers (incl. the
 attempt-1 `ValueError` failure mode) and that the 4B driver differs from
 the 8B driver only in the intended shrink set: **62/62 checks pass**.
+
+## Naive-distillation control arm (Peter's order, 2026-11-12 16:51 HKT)
+
+Closes the attribution gap in "Honest limits": how much of C3's
++31.7/+20.0/+10.0 pp recovery over C2 survives withOUT HCN+LAD filtering.
+
+**Design** (`colab_agentic_opd_driver_naive.py`, CPU test
+`test_agentic_opd_naive_cpu.py`: **68/68 checks pass**): same experiment
+as run f — same data, stages, evals (A_val/A_test/B_test, n=60), seeds,
+LoRA r=16/a=32, same student C2, same 100-problem pool, same G=4
+sampling — with TWO differences only: (1) NO HCN — teacher fixed to C1
+(HCN selected C1 in run f anyway, true gains {base: 4, C1: 23}, so the
+value of selection is measured separately as the base-vs-C1 gain gap);
+(2) NO LAD — distill on ALL pool problems with >=1 correct teacher
+trace (no "teacher beats student" admission filter). Student rollouts
+are still sampled, purely for the attribution split (naive examples on
+problems LAD would have admitted vs rejected); they never affect
+selection. Comparison: naive C3' vs HCN+LAD C3 (43/33/52) vs C2 (24/21/46).
+
+**What was banked / reused:** nothing on the weight side — a
+workspace-wide search confirmed NO run-f adapters exist anywhere
+(`adapter_c1/c2/c3` lived only on the reclaimed VM), so Stages A/B are
+retrained from scratch. Banked and reused as reference: run-f solved
+lists + metrics (the control's `compares_against` constants).
+
+**Driver fixes vs run f:** `eval_all(None)` now enters
+`model.disable_adapter()` as a context manager (the bare call in run f
+was a no-op that made the HCN "base" eval run as C2); `set_adapter`
+asserts on None instead of silently running the wrong model. No HCN
+phase executes; no `RESULTS["hcn"/"lad"]` blocks are written.
+Naive selection is a pure helper (`build_naive_examples`, unit-tested).
+Final C3' adapter is zipped to `/content/agentic_opd_adapter_naive.zip`
+(~161 MB, local-only, NOT pushed) and included in `--results`.
+
+**Launch (evening, 2026-11-12 ~16:51 HKT; reclamation risk is real):**
+session `agentic-opd-1112-naive`, account cyc236es (today's rotation
+account; tomorrow's daily run picks kyu008008, unaffected), registry
+`hidden_files/agentic-opd-1112-naive-registry.json`, out-dir
+`hidden_files/agentic-opd-1112-naive`, done marker `TRAIN_DONE`,
+monitor-timeout 14400. `--results` = the task's two files PLUS the
+adapter zip (change from the brief's command, recorded here):
+`/content/agentic_opd_metrics_naive.csv`,
+`/content/agentic_opd_results_naive.json`,
+`/content/agentic_opd_adapter_naive.zip`.
+Mid-run downloader polls metrics/results every 10 min.
+Wall time ~2h–2h15m like run f. ONE attempt: if it ends BLOCKED, no
+auto-fallback — record BLOCKED with resume state and stop.
+
+**Outcome:** _pending — to be filled when the run finishes._
