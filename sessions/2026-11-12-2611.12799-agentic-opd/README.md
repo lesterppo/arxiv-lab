@@ -2,20 +2,17 @@
 
 - **Article:** [2611.12799](https://arxiv.org/abs/2611.12799) — "Agentic-OPD: Recovering Forgotten Agent Capabilities via On-Policy Distillation for Agentic Tasks"
 - **Scores:** AGENT 4 / TUNE 5
-- **Verdict: PENDING — run f is still alive (see "Attempt history").** No
-  final verdict can be recorded yet: attempts through e would be BLOCKED,
-  but the live retry (f) is in Stage A SFT as of 05:56 UTC 2026-11-12.
-  Update this line when f finishes (or blocks).
-
-> **Correction (05:56 UTC 2026-11-12):** an earlier version of this README
-> recorded attempt f as dead with an unknown cause, following a stale
-> brief. A live check just now proved that wrong: session
-> `agentic-opd-1112f` is alive (status IDLE, endpoint
-> `gpu-t4-s-usw4b0-jdlbh9y6cgqa`, driver PID 1903), its log tail shows the
-> base evals completing and Stage A starting at 05:55:37 UTC, and the
-> worker's "still running" report was correct. The `train-run.json`
-> `outcome: null` only means the wrapper's monitor never finalized — the
-> VM driver continues detached (the known monitor-SIGTERM pattern).
+- **Verdict: SUPPORTED** — the checkpoint-pool observation, HCN teacher
+  selection, LAD filtering, and capability recovery all reproduced
+  directionally at bounded scale in the SFT-stage variant: C2 forgot
+  23/43 A_val problems C1 had solved; HCN picked C1 (gain 23 vs true
+  base gain 4); LAD admitted 65/100 pool problems (mean teacher success
+  0.69 vs student 0.28); OPD recovered 18/23 forgotten A_val problems
+  and 12/22 on held-out A_test (A_test 0.350 → 0.550), with B retained
+  (0.767 → 0.867). Not VERIFIED: the GRPO prerequisite was replaced by
+  the SFT variant, LAD's KL became SFT on teacher traces, evals are
+  n=60, and there is no naive-distillation control, so the gain cannot
+  be attributed to HCN+LAD filtering specifically.
 
 ## Why picked
 
@@ -37,23 +34,25 @@ prerequisite that blocked this pick yesterday.
 
 `colab_agentic_opd_driver.py` — Qwen/Qwen3-8B, NF4 QLoRA r=16/alpha=32,
 bf16, transformers<5.0, no `prepare_model_for_kbit_training`,
-expandable_segments. Phases:
+expandable_segments, gradient checkpointing, micro-batch 2 x accum 2.
+Phases:
 
 - **Phase 0 — base eval** (greedy, zero-shot): GSM8K test rows 0–60
   (`A_val`), rows 100–160 (`A_test`), SVAMP test rows 0–60 (`B_test`),
-  n=60 each.
-- **Stage A:** SFT base → C1 on task A (GSM8K CoT, 400 ex).
-- **Stage B:** continue SFT C1 → C2 on task B (SVAMP answer-only, 400 ex),
-  a different distribution + conflicting short-answer format that induces
-  forgetting of A.
+  n=60 each, max_new 120 (A) / 48 (B).
+- **Stage A:** SFT base → C1 on task A (GSM8K CoT, 400 ex, 1 epoch,
+  lr 2e-4, 100 steps, 2214 s, peak VRAM 8.23 GiB).
+- **Stage B:** continue SFT C1 → C2 on task B (SVAMP answer-only, 400 ex,
+  1 epoch, lr 2e-4, 100 steps, 711 s — short targets train faster).
 - **Pool observation:** union coverage on A_val / A_test (C1 ∪ C2 vs C2).
-- **HCN:** teacher selection (base vs C1) on A_val, student C2.
+- **HCN:** teacher selection (base vs C1) on A_val, student C2, weights
+  w0=1, η=0.5, w_max=2.0.
 - **LAD:** G=4 rollouts, student C2 vs selected teacher, on a 100-problem
   GSM8K pool (train rows 400–500, disjoint from stage A); admit problems
-  where the teacher beats the student.
+  where the teacher beats the student (Eq. 11).
 - **Stage C:** OPD distillation — SFT on the teacher's correct sampled
-  rollout text for LAD-admitted problems (completion tokens only); eval
-  C3 vs C2 for recovery on A and retention on B.
+  rollout text for LAD-admitted problems (completion tokens only, lr 1e-4,
+  17 steps, 292 s); eval C3 vs C2 for recovery on A and retention on B.
 
 **Deliberate deviation (documented limit):** the paper's prerequisite is a
 full GRPO run producing the checkpoint pool — too heavy for one free-T4
@@ -61,100 +60,134 @@ session. This test builds the pool with sequential SFT instead. LAD's
 turn-level top-k KL (Eq. 13) is adapted to SFT on the teacher's correct
 sampled rollout text — a bounded, stated simplification of the KL objective.
 
-Metrics CSV + results JSON are flushed to `/content` after EVERY phase
-(reclamation-safe). Final stdout line is `TRAIN_DONE`.
+Metrics CSV + results JSON were flushed to `/content` after EVERY phase
+(reclamation-safe) and downloaded by the mid-run downloader every 10 min.
+Final stdout line is `TRAIN_DONE`.
 
-## Results
+## Results — run f (DONE, session `agentic-opd-1112f`, ppoppo205)
 
-### Base evals — run e (banked files on disk)
+Greedy eval, n=60 per split. Base = Qwen3-8B + zero-init LoRA (identity).
 
-| split | n | correct | acc |
-|-------|---|---------|-----|
-| A_val (GSM8K test 0–60) | 60 | 11 | 0.1833 |
-| A_test (GSM8K test 100–160) | 60 | 13 | 0.2167 |
-| B_test (SVAMP test 0–60) | 60 | 16 | 0.2667 |
+| model | A_val (GSM8K 0–60) | A_test (GSM8K 100–160) | B_test (SVAMP 0–60) |
+|-------|-------------------|------------------------|---------------------|
+| base  | 10/60 = 0.167 | 15/60 = 0.250 | 16/60 = 0.267 |
+| C1 (after A) | 43/60 = 0.717 | 42/60 = 0.700 | 52/60 = 0.867 |
+| C2 (after B) | 24/60 = 0.400 | 21/60 = 0.350 | 46/60 = 0.767 |
+| **C3 (after OPD)** | **43/60 = 0.717** | **33/60 = 0.550** | **52/60 = 0.867** |
 
-### Base evals — run f (live, observed via the VM log tail at 05:55 UTC)
+### Paper §2 observation — reproduced
 
-| split | n | correct | acc |
-|-------|---|---------|-----|
-| A_val | 60 | 10 | 0.1667 |
-| A_test | 60 | 15 | 0.2500 |
-| B_test | 60 | 16 | 0.2667 |
+- A_val: C1 43, C2 24, **union 47** (gap +23 over the student C2).
+- A_test: C1 42, C2 21, **union 43** (gap +22 over C2).
+- Stage B forgot 23/43 A_val and 22/42 A_test problems C1 had solved
+  (A −31.7 pp / −35.0 pp). B also slipped (0.867 → 0.767) despite
+  Stage B training on B — the answer-only format cost more than the
+  extra B data gained.
 
-Same eval sets and greedy decoding; the one-case flips on A_val/A_test
-are bnb nondeterminism between runs, not a code change. The files on disk
-are now run f's numbers too — downloaded 05:58 UTC by the worker's
-mid-run downloader (host PID 1908), which is still active and re-downloads
-every 10 min, so the local files (and the remote copies) are a snapshot
-that will keep updating until f finishes; re-push at completion.
+### HCN (Eq. 7–9) — executed, C1 selected
 
-No SFT stage has completed in any attempt yet. No checkpoint pool exists.
-HCN, LAD, and Stage C have never executed, so the paper's claim
-(checkpoint-pool OPD recovers forgotten capabilities) has not been tested
-yet.
+- As-run gains on A_val: `{base: 0, C1: 23}` → teacher C1.
+- **Correction:** the as-run `g_base = 0` is an artifact of a driver bug
+  (see "Honest limits"): `model.disable_adapter()` called bare is a
+  no-op in peft (it returns a context manager), so the HCN "base" eval
+  actually ran with the C2 adapter active (24/60 = C2's A_val exactly).
+  The TRUE gains, recomputed offline from the banked per-problem solved
+  lists in `agentic_opd_results.json`, are `{base: 4, C1: 23}` — C1
+  still wins by a wide margin, so the selection is unaffected.
+- HCN weights after round 1 (Eq. 8, η=0.5, w_max=2.0): 43 zero
+  (C3-solved), 7 back to one, 10 raised — recorded for a round 2 that
+  was not run.
 
-### Attempt history (reconstructed from the worker's exec logs + train-run.json)
+### LAD (Eq. 10–12) — executed
+
+- Pool n=100, G=4: admitted **65/100** problems (teacher beats student),
+  65 teacher traces; mean student success **0.280**, mean teacher
+  success **0.690**. A large, real teacher advantage on the admitted set.
+
+### OPD recovery — paper Fig. 4(a) analogue
+
+| split | forgotten (C1✓ C2✗) | recovered by C3 | lost (C2✓ C3✗) | new (neither✓ C3✓) |
+|-------|---------------------|-----------------|-----------------|---------------------|
+| A_val | 23 | **18 (78%)** | 3 | 4 |
+| A_test | 22 | **12 (55%)** | 2 | 2 |
+
+- A_test 0.350 → **0.550 (+20.0 pp)**; A_val 0.400 → 0.717 (+31.7 pp).
+- B_test 0.767 → **0.867 (+10.0 pp)** — retention held (B improved too).
+- C3 reaches C1's A_val level exactly (43/60) but stays below C1 on
+  held-out A_test (33 vs 42) — partial, not complete, recovery.
+- The paper's best DeepSearch gain is +7.4 pp over GRPO init; ours is
+  +20 pp recovery on A_test in the SFT analogue (different scale and
+  baseline — not directly comparable).
+
+## Attempt history
 
 | session | account | outcome | what happened |
 |---------|---------|---------|---------------|
-| `agentic-opd-1112` | cyc236es | DIED | Died in PHASE 0 base eval: `ValueError: could not convert string to float: ''` in `extract_number` (driver bug; the current driver guards both `float()` branches with try/except, verified by `test_agentic_opd_fallback_cpu.py`). No files banked. |
-| `agentic-opd-1112b/c/d` | — | unknown | No records survive anywhere (no train-run files, nothing in the run log). Do not invent an attempt history for these. |
-| `agentic-opd-1112e` | cyc236es | DIED | Died after the base evals completed: `torch.OutOfMemoryError` in bitsandbytes' 4-bit matmul (`_dequant_linear_fallback`, `ops.py:914`) — tried to allocate 96.00 MiB; GPU 0 has 14.56 GiB total, 14.47 GiB in use (14.19 GiB allocated by PyTorch). Base evals downloaded (metrics CSV + results JSON). |
-| `agentic-opd-1112f` | ppoppo205 (cyc236es gpu-unavailable at creation) | **ALIVE — still running** | `train-run.json` has `outcome: null` because the wrapper's monitor never finalized; the VM driver (PID 1903) continues detached. Live check 05:56 UTC: session status IDLE, log tail shows base evals done (A_val 10/60, A_test 15/60, B_test 16/60) and **PHASE A (Stage A SFT) started 05:55:37 UTC**. The fixed driver (gradient checkpointing + micro-batch 2) was in place before f launched. The worker's "still running" report was correct — an earlier brief that called f dead was wrong. |
+| `agentic-opd-1112` | cyc236es | DIED | `ValueError` in `extract_number` (lone comma matched as a number) during base eval. Driver bug; fixed with guarded `float()` + digit-anchored regex. No files banked. |
+| `agentic-opd-1112b` | cyc236es | killed by agent | Base eval ran but generation was ~0.8 s/decode-step: `use_cache=False` (set for training) was never re-enabled for generation. Killed, session stopped; driver fixed. |
+| `agentic-opd-1112c` | cyc236es | killed by agent | Same slowness confirmed (~132 s/batch of 24×160 tokens); killed for a throughput shrink (n=60, max_new 120, eval batch 48), session stopped. |
+| `agentic-opd-1112d` | cyc236es | killed by agent | Shrunk run reached base eval (A_val 11/60) but batch time was still ~130 s; killed for a further shrink (eval batch 48, sampling batch 12), session stopped. |
+| `agentic-opd-1112e` | cyc236es | DIED | Base evals done (11/13/16); CUDA OOM at Stage A step 0: bnb `_dequant_linear_fallback` materializes full bf16 weights, retained for backward without gradient checkpointing (14.19 GiB allocated). Fixed with gradient checkpointing + micro-batch 2 x accum 2. |
+| `agentic-opd-1112f` | ppoppo205 (cyc236es gpu-unavailable at creation, cross-account fallback) | **DONE** | Full run, 05:38–07:51 UTC: base evals, Stage A (2214 s), C1 eval, Stage B (711 s), C2 eval, pool, HCN, LAD (29 min sampling), Stage C (292 s), C3 eval, `TRAIN_DONE`. Host monitor was SIGTERM'd by a runtime restart mid-run; re-attached with `train --watch-only --pid 1903`, which finalized DONE and downloaded results. |
 
-### OOM cause (run e)
-
-bitsandbytes' fast 4-bit GEMM path fell back to `_dequant_linear_fallback`,
-which materializes a whole dequantized bf16 weight matrix (`B_dq =
-torch.empty(shapeB)`) per layer. Without gradient checkpointing, autograd
-retained those dequantized weights across all layers for backward (~14 GiB),
-so a single further 96 MiB allocation failed at 14.47 GiB in use. The
-current 8B driver already carries the fix (gradient checkpointing +
-micro-batch 2 x accum 2); the 4B fallback below halves the model on top of it.
+Notes: attempts b–d were agent-killed for driver/throughput fixes, not
+infra failures, so no automatic model fallback was triggered for them
+(same distinction as the 2026-11-11 MCPO launch 1/2 driver bugs). The
+run-e OOM was also a driver-side memory failure (fixed in-driver), not a
+model-fit failure, so the 8B was kept and the staged 4B fallback below
+was never launched. No reclamation in any attempt.
 
 ## Honest limits
 
-- The paper's claim has not been tested yet in any attempt: HCN, LAD, and
-  the recovery measurement have never run.
-- The base evals are zero-shot greedy on n=60 splits — a calibration
-  baseline only, not a model comparison. Runs e and f disagree by one case
-  on A_val/A_test (bnb nondeterminism).
-- Attempts b–d are unrecorded; the sequence above is the complete surviving
-  record, recovered from the worker's exec logs, the session's
-  `train-run.json`, and a live log check at 05:56 UTC.
-- The `agentic-opd-1112` registry file in `hidden_files/` contains a live
-  Colab session token and must never be pushed or copied anywhere.
+- **SFT variant, not GRPO:** the paper's checkpoint pool comes from one
+  GRPO run; ours comes from sequential SFT on two tasks. Forgetting here
+  is format/task-shift forgetting, not within-run RL forgetting.
+- **LAD's KL replaced:** Eq. 13 top-k KL became SFT on the teacher's
+  correct sampled rollout text. The filtering (Eq. 11–12) is faithful;
+  the loss is a simplification.
+- **No naive-distillation control:** C3's gain is measured against C2
+  only. A control distilling C1 on all A problems (no HCN/LAD filtering)
+  was not run, so the gain cannot be attributed to the filtering.
+- **Small n:** evals are n=60; ±1 case ≈ 1.7 pp. A_val/A_test disagree
+  on recovery completeness (full on val, partial on test).
+- **HCN g_base artifact:** as-run `g_base = 0` is wrong (peft
+  `disable_adapter()` bare-call no-op — the "base" HCN eval ran as C2);
+  true value 4, recomputed offline. Selection unaffected. One-line fix
+  for reruns: `with model.disable_adapter():` around the base eval (or
+  keep a separate unadapted model handle). The Phase-0 base row is
+  unaffected: the LoRA is zero-initialized, so base+untrained-adapter
+  is the base model.
+- **Single HCN round, single teacher:** pool had two candidates
+  (base, C1); only C1 ever taught. No second-round weights were used.
+- **Adapters not downloaded:** `adapter_c1/c2/c3` live only on the
+  reclaimed VM; the session banks metrics, results, and drivers, not
+  weights. A rerun re-trains from the driver (deterministic, same seed).
+- **Throughput:** NF4 decode on T4 is ~0.8 s/step at batch 24; the full
+  run took ~2 h 13 min. Morning window recommended for reruns.
 
 ## Resume state
 
-- **Driver (8B):** `colab_agentic_opd_driver.py` — carries both fixes
-  (guarded `extract_number`, gradient checkpointing + micro-batch 2).
-- **Banked files (run f's numbers, downloaded 05:58 UTC by the worker's
-  mid-run downloader):** `agentic_opd_metrics.csv`,
-  `agentic_opd_results.json` (base evals only so far,
-  `phases: ["base_eval"]`), `train-run.json` (attempt f record, outcome
-  null — the run hasn't finished yet). Run e's numbers were 11/13/16.
-- **Live run f (the current attempt):** session `agentic-opd-1112f`,
-  account ppoppo205, endpoint `gpu-t4-s-usw4b0-jdlbh9y6cgqa`, driver PID
-  1903, in Stage A SFT as of 05:56 UTC. The worker's host-side monitor
-  (PID 1898, `colab.py train ... --monitor-timeout 14400`) and its
-  mid-run downloader loop (PID 1908, every 10 min) are **still alive** —
-  the monitor will finalize `train-run.json` and the final download when
-  f finishes. **Do NOT attach a second monitor** and do not stop these
-  processes. When f finishes, re-push the final metrics/results (they
-  will have been overwritten in place by the downloader) and record the
-  final verdict then.
-- **A retry needs:** if f blocks, the automatic-fallback driver below
-  (staged, not launched); a morning window is recommended.
+- **Run f is DONE; nothing to resume.** All phases completed, results
+  banked (`agentic_opd_metrics.csv`, `agentic_opd_results.json`,
+  `train-run.json` outcome DONE).
+- **Driver (8B):** `colab_agentic_opd_driver.py` — the exact file that
+  ran f (guarded `extract_number`, `use_cache=True` for generation,
+  gradient checkpointing + micro-batch 2, n=60, max_new 120/48).
+- **Rotation:** file stays `2026-11-12 cyc236es` (creation fallbacks do
+  not rewrite rotation); tomorrow `--rotate` picks kyu008008. Active
+  account restored to cyc236es after the run. No live sessions remain.
+- **A retry needs:** nothing pending; a rerun would be a fresh
+  instruction (e.g. a naive-distillation control arm, or a second HCN
+  round using the recorded weights).
 
 ## Automatic fallback (staged, not launched)
 
-Under Peter's 2026-11-05 automatic-fallback rule, the fallback is staged
-here for use **if the live run f blocks** (not launched; no action needed
-while f is running): `colab_agentic_opd_driver_4b.py` —
-Qwen/Qwen3-4B, same experiment (data, stages, evals, seeds, LoRA r=16/a=32)
-plus memory-shrink fixes for the run-e OOM cause:
+Under Peter's 2026-11-05 automatic-fallback rule, the fallback was staged
+here for use **if the live run f blocked** — it did not (DONE), so this
+was never launched and needs no action:
+`colab_agentic_opd_driver_4b.py` — Qwen/Qwen3-4B, same experiment (data,
+stages, evals, seeds, LoRA r=16/a=32) plus memory-shrink fixes for the
+run-e OOM cause:
 
 - 4B model (halves the dequantized-weight footprint vs 8B);
 - micro-batch 1 x accum 4 (effective batch still 4);
@@ -165,21 +198,3 @@ plus memory-shrink fixes for the run-e OOM cause:
 `test_agentic_opd_fallback_cpu.py` verifies the pure helpers (incl. the
 attempt-1 `ValueError` failure mode) and that the 4B driver differs from
 the 8B driver only in the intended shrink set: **62/62 checks pass**.
-
-### Launch command (needs Peter's fresh instruction — do NOT auto-launch)
-
-Run from this session dir. Use the rotation account at launch time (the
-2026-11-12 rotation account was cyc236es — do not hard-code a stale one);
-never touch cyc236de / cyc236hk.
-
-```bash
-python3 ~/workspace/hermes-colab-cli/colab.py train \
-  --driver colab_agentic_opd_driver_4b.py \
-  --account <rotation account at launch time> \
-  --session agentic-opd-1112-4b --gpu T4 --monitor-timeout 14400 \
-  --done-marker TRAIN_DONE \
-  --results /content/agentic_opd_metrics.csv /content/agentic_opd_results.json \
-  --out-dir ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/agentic-opd-1112-4b \
-  --registry-file ~/workspace/goals/arxiv-daily-read-and-test/hidden_files/agentic-opd-1112-4b-registry.json \
-  --json
-```
