@@ -1,0 +1,22 @@
+{
+  "session": "agentic-opd-1112-naive",
+  "account": "kyu008008",
+  "gpu": "T4",
+  "log": "/content/agentic_opd_naive.log",
+  "outcome": "PROVISION_FAILED",
+  "downloaded": [],
+  "create_attempts": [
+    {
+      "account": "cyc236es",
+      "error": "gpu-unavailable"
+    },
+    {
+      "account": "ppoppo205",
+      "error": "gpu-unavailable"
+    },
+    {
+      "account": "kyu008008",
+      "error": "auth-expired"
+    }
+  ]
+}
