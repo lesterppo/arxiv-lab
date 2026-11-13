@@ -1,0 +1,14 @@
+{
+  "session": "sft-mixture-1113-8b",
+  "account": "kyu008008",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-13-2611.14912-sft-mixture/colab_out_8b/sft_mixture_metrics_8b.csv",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-13-2611.14912-sft-mixture/colab_out_8b/sft_mixture_results_8b.json"
+  ],
+  "pid": "546",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-usw1b3-2prx1iizq1mq5"
+}
