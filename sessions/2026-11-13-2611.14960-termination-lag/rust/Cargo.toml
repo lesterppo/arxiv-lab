@@ -1,0 +1,17 @@
+[package]
+name = "termination_lag"
+version = "0.1.0"
+edition = "2021"
+description = "Termination lag in coding agents (arXiv:2611.14960) — Rust port of the Python mechanism"
+license = "MIT"
+
+[[bin]]
+name = "verify"
+path = "src/main.rs"
+
+[lib]
+name = "termination_lag"
+path = "src/lib.rs"
+
+[profile.release]
+debug = false
