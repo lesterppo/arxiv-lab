@@ -1,0 +1,3 @@
+phase,model,split,n,correct,acc,notes
+base,base,gsm8k_test,150,42,0.2800,
+base,base,svamp_test,150,46,0.3067,
