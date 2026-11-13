@@ -1,0 +1,11 @@
+{
+  "session": "sft-mixture-1113",
+  "account": "kyu008008",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw1b3-6hj0eaqw0doe",
+  "pid": "755"
+}
