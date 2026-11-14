@@ -1,0 +1,17 @@
+[package]
+name = "reshape"
+version = "0.1.0"
+edition = "2021"
+description = "ReSHAPE: revising a planning agent's search space (arXiv:2611.16466) — Rust port of the Python mechanism"
+license = "MIT"
+
+[[bin]]
+name = "verify"
+path = "src/main.rs"
+
+[lib]
+name = "reshape"
+path = "src/lib.rs"
+
+[profile.release]
+debug = false
