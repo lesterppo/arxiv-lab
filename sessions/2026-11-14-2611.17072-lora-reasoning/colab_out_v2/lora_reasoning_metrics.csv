@@ -1,0 +1,7 @@
+phase,model,split,n,correct,acc,notes
+base,base,banking77,200,131,0.6550,parse_fail=0.0700 macro_f1=0.6156 ece=0.1748
+base,base,mmlu,100,77,0.7700,logprob-scored A/B/C/D
+armR,adapter,banking77,200,142,0.7100,parse_fail=0.0600 macro_f1=0.6544 ece=0.2366
+armR,adapter,mmlu,100,76,0.7600,logprob-scored A/B/C/D
+armT,adapter,banking77,200,17,0.0850,parse_fail=0.8900 macro_f1=0.1058 ece=0.9147
+armT,adapter,mmlu,100,75,0.7500,logprob-scored A/B/C/D
