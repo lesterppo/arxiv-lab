@@ -1,0 +1,12 @@
+{
+  "session": "lora-reasoning-1114d",
+  "account": "kyu009009",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "RECLAIMED",
+  "downloaded": [],
+  "pid": "1652",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-usw1b2-cctmdupilnh2",
+  "log_tail": " 133/200 = 0.6650 parse_fail=0.0350 macro_f1=0.6170 ece=0.1648\n[09:00:38] METRIC base base mmlu: 77/100 = 0.7700 logprob-scored A/B/C/D\n[09:00:38] PHASE GEN: reusing traces from /content/traces.jsonl (LORA_REUSE_TRACES=1)\n[09:00:38] GEN: reused 193 traces\n[09:00:38] ARMS: R=128 label-only; T=128 trace+label (trace completion mean 111 chars)\n[09:00:38] PHASE R: SFT response-only (label alone) -> adapter_r\n[09:18:01] armR step 25/32 loss 0.7235 elapsed 1043s VRAM 6.45 GiB\n[09:22:55] armR step 32/32 loss 0.0001 elapsed 1337s VRAM 6.45 GiB\n[09:22:55] armR done: 32 steps, 1337s, peak VRAM 8.64 GiB\n[09:34:47] armR/banking77: acc 150/200=0.7500 parse_fail 0.0650 macro_f1 0.7278 ece 0.2206\n[09:37:11] armR/mmlu: 74/100 = 0.7400\n[09:37:11] METRIC armR adapter banking77: 150/200 = 0.7500 parse_fail=0.0650 macro_f1=0.7278 ece=0.2206\n[09:37:11] METRIC armR adapter mmlu: 74/100 = 0.7400 logprob-scored A/B/C/D\n[09:37:11] PHASE REBUILD: fresh model for Arm T\n[09:37:11] loading tokenizer + base model (NF4)\n\nLoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]\nLoading checkpoint shards:  20%|\u2588\u2588        | 1/5 [00:17<01:11, 17.83s/it]\nLoading checkpoint shards:  40%|\u2588\u2588\u2588\u2588      | 2/5 [00:36<00:54, 18.11s/it]\nLoading checkpoint shards:  60%|\u2588\u2588\u2588\u2588\u2588\u2588    | 3/5 [00:53<00:35, 17.99s/it]\nLoading checkpoint shards:  80%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 4/5 [01:09<00:16, 16.89s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:14<00:00, 12.57s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:14<00:00, 14.82s/it]\ntrainable params: 43,646,976 || all params: 8,234,382,336 || trainable%: 0.5301\n[09:38:28] VRAM after load: 5.83 GiB allocated, 8.64 GiB peak\n[09:38:28] PHASE T: SFT trace+label (single adapter) -> adapter_t\n[09:56:12] armT step 25/32 loss 0.3919 elapsed 1063s VRAM 6.47 GiB\n[10:01:10] armT step 32/32 loss 0.1745 elapsed 1361s VRAM 6.46 GiB\n[10:01:10] armT done: 32 steps, 1361s, peak VRAM 8.65 GiB\n[10:19:56] armT/banking77: acc 134/200=0.6700 parse_fail 0.0850 macro_f1 0.6038 ece 0.3281\n"
+}
