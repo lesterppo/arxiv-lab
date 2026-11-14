@@ -1,0 +1,7 @@
+phase,model,split,n,correct,acc,notes
+base,base,banking77,200,133,0.6650,parse_fail=0.0350 macro_f1=0.6170 ece=0.1648
+base,base,mmlu,100,77,0.7700,logprob-scored A/B/C/D
+armR,adapter,banking77,200,150,0.7500,parse_fail=0.0650 macro_f1=0.7278 ece=0.2206
+armR,adapter,mmlu,100,74,0.7400,logprob-scored A/B/C/D
+armT,adapter,banking77,200,134,0.6700,parse_fail=0.0850 macro_f1=0.6038 ece=0.3281
+armT,adapter,mmlu,100,,,MISSING - session RECLAIMED at ~10:20 UTC before armT MMLU ran; v2 measured armT MMLU 75/100 = 0.7500 on the identical recipe (same traces/items/hyperparams)
