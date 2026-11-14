@@ -1,0 +1,113 @@
+{
+  "paper": "2611.17072",
+  "title": "Reasoning Supervision and Capability Retention in LoRA Domain Adaptation",
+  "variant": "Bounded test of claims (1)+(2): response-only vs single-adapter reasoning LoRA, matched items/N/epochs/lr; Banking77 in-domain + MMLU retention. v2 shrunk relaunch (N=128, 1 epoch, eval n=200) after v1 timing diagnosis; see driver header.",
+  "v1_timing_note": "v1 killed 05:14 UTC in trace gen: T4 forward rate ~80-120 tok/s (base eval 23 min/308 items); v1 base Banking77 0.6136 (n=308), MMLU 0.7700 (n=100), preserved in lora_reasoning_metrics_v1.csv.",
+  "model": "Qwen/Qwen3-8B",
+  "model_rationale": "Paper's exact model (Qwen3-8B); proven T4 QLoRA carrier (ToolSelect verify3/verify5, AOPD run f, MCPO arm 1). Qwen3.5-9B probe GREEN 2026-10-30 but full trainer OOM'd; no 9B arm required -- claim is about Qwen3-8B.",
+  "teacher": "Base model itself (Qwen3-8B), few-shot greedy, rejection-sampled on gold label. NOT an external larger teacher as in the paper -- recorded limitation.",
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.0,
+    "target": "q,k,v,o,gate,up,down"
+  },
+  "arms": {
+    "N_target": 128,
+    "epochs": 1,
+    "lr": 0.0002,
+    "N": 128,
+    "counts": {
+      "arm_r_label_only": 128,
+      "arm_t_trace_label": 128
+    },
+    "trace_chars": {
+      "mean": 111.0234375,
+      "max": 342
+    }
+  },
+  "evals": {
+    "base": {
+      "banking77": {
+        "n": 200,
+        "correct": 131,
+        "acc": 0.655,
+        "parse_fail": 0.07,
+        "macro_f1": 0.6156379114712448,
+        "ece": 0.17475480414927003
+      },
+      "mmlu": {
+        "n": 100,
+        "correct": 77,
+        "acc": 0.77
+      }
+    },
+    "armR": {
+      "banking77": {
+        "n": 200,
+        "correct": 142,
+        "acc": 0.71,
+        "parse_fail": 0.06,
+        "macro_f1": 0.6543759893074962,
+        "ece": 0.2366412720084191
+      },
+      "mmlu": {
+        "n": 100,
+        "correct": 76,
+        "acc": 0.76
+      }
+    },
+    "armT": {
+      "banking77": {
+        "n": 200,
+        "correct": 17,
+        "acc": 0.085,
+        "parse_fail": 0.89,
+        "macro_f1": 0.10576259489302968,
+        "ece": 0.9146849194169044
+      },
+      "mmlu": {
+        "n": 100,
+        "correct": 75,
+        "acc": 0.75
+      }
+    }
+  },
+  "generation": {
+    "teacher": "base model Qwen3-8B, few-shot greedy, max_new_tokens 96",
+    "pool": 320,
+    "kept": 193,
+    "yield": 0.603125,
+    "need_target": 128,
+    "need_min": 100
+  },
+  "phases": [
+    "base_eval",
+    "generation",
+    "armR_train",
+    "armT_train"
+  ],
+  "comparison": {
+    "banking77_acc": {
+      "base": 0.655,
+      "armR": 0.71,
+      "armT": 0.085,
+      "R_minus_T_pp": 62.5
+    },
+    "banking77_ece": {
+      "base": 0.17475480414927003,
+      "armR": 0.2366412720084191,
+      "armT": 0.9146849194169044
+    },
+    "banking77_parse_fail": {
+      "base": 0.07,
+      "armR": 0.06,
+      "armT": 0.89
+    },
+    "mmlu_acc": {
+      "base": 0.77,
+      "armR": 0.76,
+      "armT": 0.75
+    }
+  }
+}
