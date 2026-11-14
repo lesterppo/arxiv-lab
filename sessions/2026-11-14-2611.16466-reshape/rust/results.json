@@ -1,0 +1,38 @@
+{
+  "paper": "2611.16466",
+  "seed": 20261114,
+  "n_instances_per_domain": 300,
+  "planner_k": 2,
+  "show_k": 8,
+  "bonus_frac": 0.25,
+  "n_constrained": 3,
+  "n_acceptable": 22,
+  "implementation": "rust",
+  "domains": {
+    "travel": {
+      "none": {"strategy": "none", "n_instances": 300, "admission": 0.4475757575757574, "precision": 0.4379282407407402, "f1": 0.43950322061191627, "planner_success": 0.6733333333333333, "mean_space_size": 22.506666666666668},
+      "ask": {"strategy": "ask", "n_instances": 300, "admission": 0.5333333333333332, "precision": 0.3645949074074071, "f1": 0.42381043567407517, "planner_success": 0.5833333333333334, "mean_space_size": 33.29666666666667},
+      "show": {"strategy": "show", "n_instances": 300, "admission": 0.6093939393939394, "precision": 0.4698699988856082, "f1": 0.5264881836732251, "planner_success": 0.7266666666666667, "mean_space_size": 28.706666666666667},
+      "oracle": {"strategy": "oracle", "n_instances": 300, "admission": 0.7543939393939388, "precision": 0.48289655578279317, "f1": 0.5828432337950318, "planner_success": 0.7466666666666667, "mean_space_size": 35.18}
+    },
+    "shopping": {
+      "none": {"strategy": "none", "n_instances": 300, "admission": 0.458333333333333, "precision": 0.4357291666666663, "f1": 0.4434377348362856, "planner_success": 0.67, "mean_space_size": 23.106666666666666},
+      "ask": {"strategy": "ask", "n_instances": 300, "admission": 0.544090909090909, "precision": 0.36086419753086413, "f1": 0.4251299333326531, "planner_success": 0.5866666666666667, "mean_space_size": 34.21666666666667},
+      "show": {"strategy": "show", "n_instances": 300, "admission": 0.6084848484848485, "precision": 0.46363298515401186, "f1": 0.5220062058737807, "planner_success": 0.73, "mean_space_size": 28.883333333333333},
+      "oracle": {"strategy": "oracle", "n_instances": 300, "admission": 0.7640909090909095, "precision": 0.48203088996009513, "f1": 0.5860043288409666, "planner_success": 0.7466666666666667, "mean_space_size": 35.56666666666667}
+    }
+  },
+  "pooled": {
+    "none": {"admission": 0.45295454545454517, "precision": 0.43682870370370325, "f1": 0.441470477724101, "planner_success": 0.6716666666666666, "mean_space_size": 22.806666666666665},
+    "ask": {"admission": 0.5387121212121211, "precision": 0.36272955246913563, "f1": 0.42447018450336416, "planner_success": 0.585, "mean_space_size": 33.75666666666667},
+    "show": {"admission": 0.6089393939393939, "precision": 0.46675149201981003, "f1": 0.5242471947735029, "planner_success": 0.7283333333333333, "mean_space_size": 28.795},
+    "oracle": {"admission": 0.7592424242424242, "precision": 0.4824637228714441, "f1": 0.5844237813179992, "planner_success": 0.7466666666666667, "mean_space_size": 35.373333333333335}
+  },
+  "pearson_f1_vs_planner_success": 0.8932864964723772,
+  "lifts": {"show_over_ask_f1_travel": 0.10267774799914997, "show_over_ask_f1_shopping": 0.09687627254112757, "show_over_ask_planner_lift_pooled": 1.245014245014245, "oracle_over_none_planner_lift_pooled": 1.1116625310173698, "show_over_none_planner_lift_pooled": 1.0843672456575681},
+  "sensitivity": {"show_f1_by_k_show": {"4": 0.4977414794787728, "8": 0.5242471947735029, "16": 0.546041721677538}, "ask_f1_by_n_questions": {"1": 0.4351073859328839, "3": 0.42447018450336416}, "show_planner_success_by_k": {"1": 0.47833333333333333, "2": 0.7283333333333333, "4": 0.9450000000000001}},
+  "paired_rescue": {"show_rescues": 132, "show_loses": 98, "n_instances": 600},
+  "robustness_bonus_frac": {"0.15:travel": {"show_f1": 0.549479446345187, "ask_f1": 0.4690650950035189}, "0.15:shopping": {"show_f1": 0.5472617287604731, "ask_f1": 0.4708902697177489}, "0.35:travel": {"show_f1": 0.5091127333414854, "ask_f1": 0.37373450009689013}, "0.35:shopping": {"show_f1": 0.5009199432637297, "ask_f1": 0.3770397841517635}},
+  "assertions_passed": ["A1 travel F1_SHOW - F1_ASK >= 0.05", "A2 travel admission_SHOW > admission_ASK", "A3 travel planner SHOW > ASK, lift >= 1.15", "A4 shopping F1_SHOW - F1_ASK >= 0.03", "A5 pooled ORACLE admission > 0.52", "A6a pooled admission: none < ask < show < oracle", "A6b pooled F1: show > ask and oracle >= show", "A7a pooled planner SHOW > ASK, lift >= 1.15", "A7b F1 predicts planner success: Pearson r > 0.8", "A8a pooled planner ASK < NONE (asking dilutes the space)", "A8b pooled planner SHOW > NONE", "A9a SHOW F1 non-decreasing in k_show", "A9b SHOW gain 4->16 exceeds ASK gain Q 1->3", "A10a all metrics in [0, 1]", "A10b S0 is a subset of every revised space", "A10c SHOW planner success monotone in K", "A10d same seed -> identical metrics on re-run", "A11a oracle admits every trade-off plan", "A11b space_metrics matches hand computation", "A11c planner with K >= |S| succeeds iff S holds an acceptable plan", "A11d RNG streams reproduce exactly", "A12 SHOW rescues more instances than it loses", "A13 F1_SHOW > F1_ASK at BONUS_FRAC 0.15 and 0.35, both domains"],
+  "assertions_failed": []
+}
