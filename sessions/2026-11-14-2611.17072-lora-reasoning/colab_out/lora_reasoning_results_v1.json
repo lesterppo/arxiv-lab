@@ -1,0 +1,40 @@
+{
+  "paper": "2611.17072",
+  "title": "Reasoning Supervision and Capability Retention in LoRA Domain Adaptation",
+  "variant": "Bounded test of claims (1)+(2): response-only vs single-adapter reasoning LoRA, matched items/N/epochs/lr; Banking77 in-domain + MMLU retention",
+  "model": "Qwen/Qwen3-8B",
+  "model_rationale": "Paper's exact model (Qwen3-8B); proven T4 QLoRA carrier (ToolSelect verify3/verify5, AOPD run f, MCPO arm 1). Qwen3.5-9B probe GREEN 2026-10-30 but full trainer OOM'd; no 9B arm required -- claim is about Qwen3-8B.",
+  "teacher": "Base model itself (Qwen3-8B), few-shot greedy, rejection-sampled on gold label. NOT an external larger teacher as in the paper -- recorded limitation.",
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.0,
+    "target": "q,k,v,o,gate,up,down"
+  },
+  "arms": {
+    "N_target": 320,
+    "epochs": 2,
+    "lr": 0.0002
+  },
+  "evals": {
+    "base": {
+      "banking77": {
+        "n": 308,
+        "correct": 189,
+        "acc": 0.6136363636363636,
+        "parse_fail": 0.06168831168831169,
+        "macro_f1": 0.5981573678087689,
+        "ece": 0.2074535486663317
+      },
+      "mmlu": {
+        "n": 100,
+        "correct": 77,
+        "acc": 0.77
+      }
+    }
+  },
+  "generation": {},
+  "phases": [
+    "base_eval"
+  ]
+}
