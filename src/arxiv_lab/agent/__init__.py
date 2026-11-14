@@ -47,6 +47,21 @@ from arxiv_lab.agent.runtime_tickets import (
     scanner_flags,
 )
 
+from arxiv_lab.agent.reshape import (
+    DOMAINS,
+    Instance,
+    RNG,
+    STRATEGIES,
+    gen_instances,
+    plan,
+    revise,
+    revise_ask,
+    revise_oracle,
+    revise_show,
+    run_experiment,
+    space_metrics,
+)
+
 from arxiv_lab.agent.spec_agent import (
     SpecAgent,
     Step,
@@ -108,4 +123,17 @@ __all__ = [
     "run_strong_only",
     "run_weak_only",
     "TOKEN_COSTS",
+    # reshape (arXiv:2611.16466)
+    "DOMAINS",
+    "Instance",
+    "RNG",
+    "STRATEGIES",
+    "gen_instances",
+    "plan",
+    "revise",
+    "revise_ask",
+    "revise_oracle",
+    "revise_show",
+    "run_experiment",
+    "space_metrics",
 ]
