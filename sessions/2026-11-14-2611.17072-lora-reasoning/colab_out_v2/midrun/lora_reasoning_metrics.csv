@@ -1,0 +1,3 @@
+phase,model,split,n,correct,acc,notes
+base,base,banking77,200,131,0.6550,parse_fail=0.0700 macro_f1=0.6156 ece=0.1748
+base,base,mmlu,100,77,0.7700,logprob-scored A/B/C/D
