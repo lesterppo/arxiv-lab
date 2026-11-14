@@ -1,0 +1,15 @@
+{
+  "session": "lora-reasoning-1114",
+  "account": "kyu009009",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [
+    "colab_out/lora_reasoning_metrics.csv",
+    "colab_out/lora_reasoning_results.json"
+  ],
+  "pid": "730",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-euw4c1-1tc39l6e444v6",
+  "log_tail": "oading MMLU validation parquet (cais/mmlu, all)\n[04:43:08] mmlu: 1531 rows, strided subset 100 (step 15)\nWARNING: All log messages before absl::InitializeLog() is called are written to STDERR\nI0000 00:00:1794631398.665456     730 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.\nTo enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.\nWARNING: All log messages before absl::InitializeLog() is called are written to STDERR\nI0000 00:00:1794631401.148942     730 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n[04:43:27] loading tokenizer + base model (NF4)\n`torch_dtype` is deprecated! Use `dtype` instead!\n\nLoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]\nLoading checkpoint shards:  20%|\u2588\u2588        | 1/5 [00:17<01:11, 17.95s/it]\nLoading checkpoint shards:  40%|\u2588\u2588\u2588\u2588      | 2/5 [00:35<00:53, 17.83s/it]\nLoading checkpoint shards:  60%|\u2588\u2588\u2588\u2588\u2588\u2588    | 3/5 [00:53<00:35, 17.83s/it]\nLoading checkpoint shards:  80%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 4/5 [01:07<00:16, 16.44s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:12<00:00, 12.29s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:12<00:00, 14.55s/it]\ntrainable params: 43,646,976 || all params: 8,234,382,336 || trainable%: 0.5301\n[04:46:58] VRAM after load: 5.82 GiB allocated, 6.63 GiB peak\n[04:46:58] PHASE 0: base eval\nThe following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\n[05:09:34] base/banking77: acc 189/308=0.6136 parse_fail 0.0617 macro_f1 0.5982 ece 0.2075\n[05:12:28] base/mmlu: 77/100 = 0.7700\n[05:12:28] METRIC base base banking77: 189/308 = 0.6136 parse_fail=0.0617 macro_f1=0.5982 ece=0.2075\n[05:12:28] METRIC base base mmlu: 77/100 = 0.7700 logprob-scored A/B/C/D\n[05:12:28] PHASE GEN: greedy traces on 600 Banking77-train items\n"
+}
