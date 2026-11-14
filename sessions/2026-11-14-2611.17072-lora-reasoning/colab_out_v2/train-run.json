@@ -1,0 +1,16 @@
+{
+  "session": "lora-reasoning-1114b",
+  "account": "kyu009009",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "colab_out_v2/lora_reasoning_metrics.csv",
+    "colab_out_v2/lora_reasoning_results.json",
+    "colab_out_v2/traces.jsonl"
+  ],
+  "pid": "4975",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-usw1b2-2xe0xs0xq87ge",
+  "log_tail": "apter_r\n[06:59:13] armR step 25/32 loss 0.0004 elapsed 1207s VRAM 6.45 GiB\n[07:04:50] armR step 32/32 loss 0.5432 elapsed 1544s VRAM 6.45 GiB\n[07:04:50] armR done: 32 steps, 1544s, peak VRAM 12.85 GiB\n[07:17:40] armR/banking77: acc 142/200=0.7100 parse_fail 0.0600 macro_f1 0.6544 ece 0.2366\n[07:20:21] armR/mmlu: 76/100 = 0.7600\n[07:20:21] METRIC armR adapter banking77: 142/200 = 0.7100 parse_fail=0.0600 macro_f1=0.6544 ece=0.2366\n[07:20:21] METRIC armR adapter mmlu: 76/100 = 0.7600 logprob-scored A/B/C/D\n[07:20:21] PHASE REBUILD: fresh model for Arm T\n[07:20:21] loading tokenizer + base model (NF4)\n\nLoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]\nLoading checkpoint shards:  20%|\u2588\u2588        | 1/5 [00:17<01:10, 17.54s/it]\nLoading checkpoint shards:  40%|\u2588\u2588\u2588\u2588      | 2/5 [00:35<00:53, 17.76s/it]\nLoading checkpoint shards:  60%|\u2588\u2588\u2588\u2588\u2588\u2588    | 3/5 [00:52<00:35, 17.64s/it]\nLoading checkpoint shards:  80%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 4/5 [01:07<00:16, 16.28s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:12<00:00, 12.18s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:12<00:00, 14.41s/it]\ntrainable params: 43,646,976 || all params: 8,234,382,336 || trainable%: 0.5301\n[07:21:36] VRAM after load: 5.83 GiB allocated, 12.85 GiB peak\n[07:21:36] PHASE T: SFT trace+label (single adapter) -> adapter_t\n[07:42:01] armT step 25/32 loss 0.1702 elapsed 1224s VRAM 6.46 GiB\n[07:47:45] armT step 32/32 loss 0.1945 elapsed 1568s VRAM 6.45 GiB\n[07:47:45] armT done: 32 steps, 1568s, peak VRAM 12.85 GiB\n[08:01:26] armT/banking77: acc 17/200=0.0850 parse_fail 0.8900 macro_f1 0.1058 ece 0.9147\n[08:04:07] armT/mmlu: 75/100 = 0.7500\n[08:04:07] METRIC armT adapter banking77: 17/200 = 0.0850 parse_fail=0.8900 macro_f1=0.1058 ece=0.9147\n[08:04:07] METRIC armT adapter mmlu: 75/100 = 0.7500 logprob-scored A/B/C/D\n[08:04:07] COMPARISON banking77 acc: base 0.655 R 0.710 T 0.085 (R-T +62.5pp); ece base 0.175 R 0.237 T 0.915; mmlu base 0.770 R 0.760 T 0.750\n[08:04:07] ALL PHASES DONE\nTRAIN_DONE\n"
+}
