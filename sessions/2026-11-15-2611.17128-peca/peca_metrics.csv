@@ -1,0 +1,12 @@
+phase,step,loss,peca_term,elapsed_s,vram_gib,note
+base_eval,,,,,63/100 = 0.6300 mean_tokens=160.0
+sft_train,25,1.4605,,1713,7.26,
+sft_train,50,1.2626,,3422,7.27,
+sft_train,75,1.4889,,5131,7.27,
+sft_train,100,1.5782,,6835,7.27,peak VRAM 9.95 GiB
+sft_eval,,,,,5/100 parse artifact mean_tokens=160.0
+peca_train,25,3.5258,0.6871,2429,7.27,
+peca_train,50,3.0735,0.9543,4812,7.27,
+peca_train,75,2.7769,0.7522,7213,7.22,
+peca_train,100,2.9086,0.6955,9653,7.27,peak VRAM 10.87 GiB
+peca_eval,,,,,RECLAIMED at 20/100 mean_tokens unmeasured
