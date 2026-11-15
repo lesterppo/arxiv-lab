@@ -1,0 +1,12 @@
+{
+  "session": "train-1115-0427",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "RECLAIMED",
+  "downloaded": [],
+  "pid": "873",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-ass1c0-3gfjq1l95udon",
+  "log_tail": "far 47 correct\n[04:57:42] base eval 100/100 so far 63 correct\n[04:57:42] METRIC base medqa: 63/100 = 0.6300 mean_tokens=160.0 model=Qwen/Qwen3-8B\n[04:57:42] == arm SFT (plain QLoRA) ==\n[05:26:16] SFT step 25/100 loss 1.4605 elapsed 1713s VRAM 7.26 GiB\n[05:54:45] SFT step 50/100 loss 1.2626 elapsed 3422s VRAM 7.27 GiB\n[06:23:14] SFT step 75/100 loss 1.4889 elapsed 5131s VRAM 7.27 GiB\n[06:51:37] SFT step 100/100 loss 1.5782 elapsed 6835s VRAM 7.27 GiB\n[06:51:37] SFT done: 100 steps, 6835s, peak VRAM 9.95 GiB\n[06:56:16] SFT eval 20/100 so far 2 correct\n[07:00:55] SFT eval 40/100 so far 2 correct\n[07:05:34] SFT eval 60/100 so far 2 correct\n[07:10:29] SFT eval 80/100 so far 5 correct\n[07:15:13] SFT eval 100/100 so far 5 correct\n[07:15:13] METRIC SFT medqa: 5/100 = 0.0500 mean_tokens=160.0 model=Qwen/Qwen3-8B\n[07:15:13] == arm PECA (SFT + conciseness term) ==\n[07:15:14] loading tokenizer + base model Qwen/Qwen3-8B (NF4)\n\nLoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]\nLoading checkpoint shards:  20%|\u2588\u2588        | 1/5 [00:18<01:12, 18.16s/it]\nLoading checkpoint shards:  40%|\u2588\u2588\u2588\u2588      | 2/5 [00:36<00:55, 18.34s/it]\nLoading checkpoint shards:  60%|\u2588\u2588\u2588\u2588\u2588\u2588    | 3/5 [00:54<00:35, 17.99s/it]\nLoading checkpoint shards:  80%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 4/5 [01:09<00:16, 16.74s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:13<00:00, 12.47s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:13<00:00, 14.79s/it]\ntrainable params: 43,646,976 || all params: 8,234,382,336 || trainable%: 0.5301\n[07:16:31] VRAM after load: 5.83 GiB allocated, 9.95 GiB peak\n[07:57:01] PECA step 25/100 loss 3.5258 peca=0.6871 elapsed 2429s VRAM 7.27 GiB\n[08:36:44] PECA step 50/100 loss 3.0735 peca=0.9543 elapsed 4812s VRAM 7.27 GiB\n[09:16:45] PECA step 75/100 loss 2.7769 peca=0.7522 elapsed 7213s VRAM 7.22 GiB\n[09:57:25] PECA step 100/100 loss 2.9086 peca=0.6955 elapsed 9653s VRAM 7.27 GiB\n[09:57:25] PECA done: 100 steps, 9653s, peak VRAM 10.87 GiB\n[10:00:18] PECA eval 20/100 so far 0 correct\n"
+}
