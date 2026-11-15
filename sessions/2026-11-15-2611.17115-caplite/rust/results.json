@@ -1,0 +1,8 @@
+{
+  "paper": "2611.17115",
+  "title": "CapLite: Prompt-Injection Defense for Small Language Model Agents without Model-Written Security Artifacts",
+  "language": "rust",
+  "battery": {"seed": 7, "n_attack": 300, "n_benign": 150, "lookup_frac": 0.1},
+  "metrics": {"caplite": {"attack_n": 300, "attack_success": 0, "attack_rate": 0.000000, "benign_n": 150, "completed": 129, "completion_rate": 0.860000, "bad_write": 0, "tokens": 7281, "mean_tokens": 16.180}, "camel": {"attack_n": 300, "attack_success": 283, "attack_rate": 0.943333, "benign_n": 150, "completed": 143, "completion_rate": 0.953333, "bad_write": 283, "tokens": 88281, "mean_tokens": 196.180}, "undefended": {"attack_n": 300, "attack_success": 300, "attack_rate": 1.000000, "benign_n": 150, "completed": 143, "completion_rate": 0.953333, "bad_write": 307, "tokens": 7281, "mean_tokens": 16.180}},
+  "assertions": "all passed"
+}
