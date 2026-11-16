@@ -1,0 +1,17 @@
+{
+  "session": "mcpo-1111-mcpo",
+  "account": "ppoppo205",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/mcpo/mcpo_gsm8k_metrics_mcpo.csv",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/mcpo/mcpo_gsm8k_results_mcpo.json",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/mcpo/mcpo_gsm8k_adapter_mcpo.zip",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/mcpo/mcpo_gsm8k_adapter_mcpo_mid.zip"
+  ],
+  "pid": "472",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-usw4a3-10d0qlt0cpqe7",
+  "log_tail": "\n[mcpo] step 14/24 reward=0.208 solved=0.50 len=214 loss=-0.183 523s peak=9.46GiB\nMETRIC ('train', 'mcpo', 14, 0.2083, 213.7, 0.5, 24)\n[mcpo] step 15/24 reward=0.500 solved=1.00 len=221 loss=-0.497 535s peak=9.46GiB\nMETRIC ('train', 'mcpo', 15, 0.5, 221.1, 1.0, 24)\n[mcpo] step 16/24 reward=0.042 solved=0.25 len=228 loss=0.062 565s peak=9.46GiB\nMETRIC ('train', 'mcpo', 16, 0.0417, 228.2, 0.25, 24)\n[mcpo] step 17/24 reward=0.375 solved=0.50 len=224 loss=-0.011 513s peak=9.46GiB\nMETRIC ('train', 'mcpo', 17, 0.375, 223.7, 0.5, 24)\n[mcpo] step 18/24 reward=0.375 solved=1.00 len=206 loss=-0.091 518s peak=9.46GiB\nMETRIC ('train', 'mcpo', 18, 0.375, 205.5, 1.0, 24)\n[mcpo] step 19/24 reward=0.375 solved=0.50 len=202 loss=0.108 573s peak=9.52GiB\nMETRIC ('train', 'mcpo', 19, 0.375, 202.2, 0.5, 24)\n[mcpo] step 20/24 reward=0.333 solved=1.00 len=223 loss=-0.437 549s peak=9.52GiB\nMETRIC ('train', 'mcpo', 20, 0.3333, 223.0, 1.0, 24)\n[mcpo] step 21/24 reward=0.042 solved=0.25 len=214 loss=2.788 510s peak=9.52GiB\nMETRIC ('train', 'mcpo', 21, 0.0417, 213.6, 0.25, 24)\n[mcpo] step 22/24 reward=0.292 solved=0.75 len=208 loss=0.053 510s peak=9.52GiB\nMETRIC ('train', 'mcpo', 22, 0.2917, 207.6, 0.75, 24)\n[mcpo] step 23/24 reward=0.167 solved=0.75 len=215 loss=0.154 564s peak=9.52GiB\nMETRIC ('train', 'mcpo', 23, 0.1667, 215.0, 0.75, 24)\n[mcpo] step 24/24 reward=0.292 solved=0.50 len=217 loss=0.046 516s peak=9.52GiB\nMETRIC ('train', 'mcpo', 24, 0.2917, 216.9, 0.5, 24)\nEVAL mcpo: acc=0.5500 44/80 mean_len=210.0 tok-words\nMETRIC ('eval', 'mcpo', -1, 0.55, 210.0, '', 80)\nsaved /content/mcpo_gsm8k_adapter_mcpo.zip\nRESULTS {\"model\": \"Qwen/Qwen3-8B\", \"seed\": 20261111, \"arm\": \"mcpo\", \"mcpo\": true, \"data\": \"gsm8k\", \"steps\": 24, \"prompts_per_step\": 4, \"group\": 6, \"max_new\": 320, \"lr\": 1e-05, \"lora\": {\"r\": 16, \"alpha\": 32}, \"mcpo_thresholds\": [0.1, 0.5], \"mcpo_weights\": [1.0, 0.5, 0.1], \"train_pool\": 512, \"eval_n\": 80, \"arms\": {\"base\": {\"eval_acc\": 0.2375}, \"mcpo\": {\"eval_acc\": 0.55}}}\nMCPO_MCPO_DONE\n"
+}
