@@ -260,3 +260,40 @@ that is the deadline on the offer, not on the work itself.
   failure. Resume state is unchanged from the 2026-11-11 section: the
   eval-only driver and the MCPO arm driver remain staged and
   push-verified; the step-12 adapter zip is still banked locally.
+
+## Morning close-out — outcome (2026-11-17, Peter's "星期一朝早開 MCPO" tapped 00:30 HKT)
+
+- **Leg 1 — GRPO eval-only: DONE (~01:14 HKT).** Step-12 adapter eval on
+  the same seeded 80 GSM8K problems: **acc 0.4125 (33/80), mean_len
+  210.9** vs base 0.2375 (19/80) — +17.5pp at step 12/24. Files:
+  `mcpo_gsm8k_metrics_grpo_evalonly.csv`,
+  `mcpo_gsm8k_results_grpo_step12.json`, train-run
+  `train-run-grpo-evalonly.json`. Step-12 adapter zip re-saved locally
+  (161,310,710 B, local-only — over GitHub's 100 MB blob limit).
+- **Leg 2 — MCPO arm: DONE (~05:40 HKT).** Full 24 steps on ppoppo205
+  (T4, ~4h25m wall incl. load/eval): **acc 0.5500 (44/80), mean_len
+  210.0** vs base 0.2375 — +31.25pp; +13.75pp over GRPO step-12.
+  Training means: reward 0.2865, frac_solved 0.7083, len 213.2, peak
+  VRAM 9.52 GiB. Files: `mcpo_gsm8k_metrics_mcpo.csv` (all 24 steps +
+  base/eval rows), `mcpo_gsm8k_results_mcpo.json`, train-run
+  `train-run-mcpo.json`. MCPO adapter zips local-only (161.5 MB).
+- **Verdict: the close-out comparison is DONE, with one honest limit.**
+  MCPO (full 24 steps) beats GRPO-at-step-12 and base on the same 80
+  problems. But GRPO's step-24 number was never measured (its adapter
+  was lost to reclamation on 2026-11-11) — so MCPO-vs-GRPO at equal
+  steps is still unknown; the comparison is MCPO-full vs GRPO-half.
+  The paper's MCPO-vs-GRPO claim at equal training is NOT established
+  by this run. What IS established: MCPO training works end-to-end on
+  GSM8K and reaches 0.55 from a 0.2375 base, with training dynamics
+  (mean reward 0.2865, frac_solved 0.7083) close to the GRPO arm's
+  (0.3021, 0.7604).
+- **Launch saga (why it took all night):** Peter tapped at 00:30 Tue
+  for a Monday-morning window that had passed; launched in the Tue
+  early-morning window instead. ppoppo205 auth-expired at first create
+  — fixed by a forced `colab.py token refresh`. The 161 MB adapter
+  upload fails with "network error" (small uploads OK) — worked around
+  with 10 MB chunks (16 parts), reassembled + sha256-verified on the
+  VM. Host VM restarted 3 times mid-run; the VM-side drivers survived
+  each time (PIDs 2400, 472) and the monitor was re-attached with
+  `train --watch-only`. Rotation untouched (Tue daily run still picks
+  kyu008008 at 12:20).
