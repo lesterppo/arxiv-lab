@@ -1,30 +1,16 @@
 {
   "session": "mcpo-1111-grpo-eval",
-  "account": "cyc236ha",
+  "account": "kyu008008",
   "gpu": "T4",
   "log": "/content/train_run.log",
-  "outcome": "PROVISION_FAILED",
-  "downloaded": [],
-  "create_attempts": [
-    {
-      "account": "ppoppo205",
-      "error": "gpu-unavailable"
-    },
-    {
-      "account": "cyc236es",
-      "error": "capacity"
-    },
-    {
-      "account": "kyu008008",
-      "error": "gpu-unavailable"
-    },
-    {
-      "account": "kyu009009",
-      "error": "capacity"
-    },
-    {
-      "account": "cyc236ha",
-      "error": "gpu-unavailable"
-    }
-  ]
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/grpo-evalonly/mcpo_gsm8k_metrics_grpo_evalonly.csv",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/grpo-evalonly/mcpo_gsm8k_results_grpo_step12.json",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/mcpo-1111-redesign/grpo-evalonly/mcpo_gsm8k_adapter_grpo_step12.zip"
+  ],
+  "pid": null,
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-ass1c0-3ol7ltoqowlr1",
+  "log_tail": "nce-critical operations.\nTo enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.\nWARNING: All log messages before absl::InitializeLog() is called are written to STDERR\nI0000 00:00:1794847564.334526    2400 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\nCUDA: Tesla T4 14.6 GiB\nloading GSM8K ...\ntrain rows: 7473 test rows: 1319\nusable rows: train 7473 test 1319\ntrain_pool=512 eval=80 paired_prompts=96\nsample golds: ['63', '410', '30', '40000', '80']\nunzipping /content/mcpo_gsm8k_adapter_grpo_mid.zip -> /content/mcpo_gsm8k_adapter_grpo_mid\nadapter config OK: r=16 alpha=32 target_modules=['o_proj', 'q_proj', 'up_proj', 'down_proj', 'v_proj', 'k_proj', 'gate_proj']\n=== loading base policy + step-12 adapter ===\n`torch_dtype` is deprecated! Use `dtype` instead!\n\nFetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]\nFetching 5 files:  20%|\u2588\u2588        | 1/5 [06:28<25:53, 388.41s/it]\nFetching 5 files:  40%|\u2588\u2588\u2588\u2588      | 2/5 [06:44<08:28, 169.42s/it]\nFetching 5 files:  60%|\u2588\u2588\u2588\u2588\u2588\u2588    | 3/5 [06:48<03:07, 94.00s/it] \nFetching 5 files: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [06:48<00:00, 81.76s/it]\n\nLoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]\nLoading checkpoint shards:  20%|\u2588\u2588        | 1/5 [00:17<01:10, 17.62s/it]\nLoading checkpoint shards:  40%|\u2588\u2588\u2588\u2588      | 2/5 [00:34<00:51, 17.22s/it]\nLoading checkpoint shards:  60%|\u2588\u2588\u2588\u2588\u2588\u2588    | 3/5 [00:51<00:34, 17.10s/it]\nLoading checkpoint shards:  80%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 4/5 [01:05<00:15, 15.71s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:10<00:00, 11.84s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:10<00:00, 14.02s/it]\nadapter attached: ['default'] peak=6.63GiB\n=== eval: GRPO step-12 checkpoint (same 80 GSM8K test problems) ===\nThe following generation flags are not valid and may be ignored: ['top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.\nEVAL grpo_step12: acc=0.4125 33/80 mean_len=210.9 tok-words\n"
 }
