@@ -1,0 +1,73 @@
+{
+  "alpha": 0.15,
+  "q": 0.015122873345935728,
+  "lam": 0.75,
+  "n_success": 200,
+  "n_fail": 200,
+  "base_precision_no_monitor": 0.5,
+  "betting": {
+    "fpr": 0.05,
+    "power": 0.97,
+    "token_savings": 0.3080304224679048,
+    "precision_completed": 0.9693877551020408,
+    "median_intervene_step_fail": 16,
+    "n_intervened_fail": 194,
+    "n_false_positive": 10
+  },
+  "immediate": {
+    "fpr": 0.155,
+    "power": 0.995,
+    "token_savings": 0.5086240383350442,
+    "precision_completed": 0.9941176470588236,
+    "median_intervene_step_fail": 5,
+    "n_intervened_fail": 199,
+    "n_false_positive": 31
+  },
+  "turn_limit_tuned": {
+    "fpr": 0.14,
+    "power": 0.885,
+    "token_savings": 0.16365870678614947,
+    "precision_completed": 0.882051282051282,
+    "median_intervene_step_fail": 22,
+    "n_intervened_fail": 177,
+    "n_false_positive": 28,
+    "k_star": 22
+  },
+  "error_filter_tuned": {
+    "fpr": 0.145,
+    "power": 0.615,
+    "token_savings": 0.2521344723631277,
+    "precision_completed": 0.6895161290322581,
+    "median_intervene_step_fail": 12,
+    "n_intervened_fail": 123,
+    "n_false_positive": 29,
+    "predicate": "repeat_tool_fail",
+    "train_tpr": 0.615,
+    "train_fpr": 0.065
+  },
+  "monitor": "(loop AND tok_high) OR (err_rate) OR (stalled)",
+  "monitor_raw": [
+    [
+      "loop",
+      "tok_high"
+    ],
+    [
+      "err_rate"
+    ],
+    [
+      "stalled"
+    ]
+  ],
+  "train_tpr": 0.985,
+  "train_fpr": 0.1,
+  "train_score": 0.8899999999999999,
+  "train_betting_power": 0.95,
+  "train_betting_fpr": 0.02,
+  "negative_control": {
+    "monitor": "(repeat_tool_fail AND same_action_5)",
+    "train_tpr_minus_fpr": -0.009999999999999981,
+    "train_tpr": 0.135,
+    "train_fpr": 0.145
+  },
+  "seed": 20261116
+}
