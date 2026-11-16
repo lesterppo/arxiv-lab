@@ -1,0 +1,12 @@
+{
+  "paper": "2611.13331",
+  "title": "SPRA-LoRA follow-up: weight-space SNR-vs-rank probe",
+  "method": "Ghat = grad_B @ A per resample, pooled Frobenius SNR over all LoRA layers; 4 warmup steps per rank (frozen A) so B != 0; M=8 resamples per rank.",
+  "models_tried": [
+    "Qwen/Qwen3.5-9B",
+    "Qwen/Qwen3-8B"
+  ],
+  "model_used": "Qwen/Qwen3-8B",
+  "fallback_used": false,
+  "snr_probe": {}
+}
