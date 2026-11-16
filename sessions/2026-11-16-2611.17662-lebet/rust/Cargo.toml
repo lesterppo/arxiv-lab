@@ -1,0 +1,17 @@
+[package]
+name = "lebet-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the LeBet mechanism from lesterppo/arxiv-lab (arXiv:2611.17662): interpretable OR-of-AND monitor learned by stochastic local search, fixed betting statistic (test martingale) for reliable agent intervention"
+license = "MIT"
+
+[lib]
+name = "lebet_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "lebet"
+path = "src/bin/lebet.rs"
+
+[dependencies]
+# std only — no external crates, so the build works offline.
