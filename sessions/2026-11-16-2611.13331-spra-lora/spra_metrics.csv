@@ -1,0 +1,7 @@
+arm,split,n,correct,acc,ci95_hw,notes
+base,arc_easy_logprob,200,180,0.9000,0.0416,model=Qwen/Qwen3-8B
+S16,arc_easy_logprob,200,176,0.8800,0.0450,model=Qwen/Qwen3-8B
+F16,arc_easy_logprob,200,180,0.9000,0.0416,model=Qwen/Qwen3-8B
+F8hi,arc_easy_logprob,200,180,0.9000,0.0416,model=Qwen/Qwen3-8B
+F8lo,arc_easy_logprob,200,180,0.9000,0.0416,model=Qwen/Qwen3-8B
+F32lo,arc_easy_logprob,200,180,0.9000,0.0416,model=Qwen/Qwen3-8B
