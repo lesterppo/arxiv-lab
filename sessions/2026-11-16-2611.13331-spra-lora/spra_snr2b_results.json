@@ -1,0 +1,158 @@
+{
+  "paper": "2611.13331",
+  "title": "SPRA-LoRA follow-up v2: weight-space SNR-vs-rank probe",
+  "method": "Ghat = grad_B @ A per resample, pooled Frobenius SNR over all LoRA layers; 4 warmup steps per rank (frozen A) so B != 0; M=8 resamples per rank.",
+  "models_tried": [
+    "Qwen/Qwen3.5-9B",
+    "Qwen/Qwen3-8B"
+  ],
+  "model_used": "Qwen/Qwen3-8B",
+  "fallback_used": true,
+  "snr_probe": {
+    "r4": {
+      "snr": 0.38904593553064853,
+      "signal_norm": 0.18076527906784318,
+      "noise_norm": 0.4646373668479123,
+      "resamples": 8,
+      "warmup_steps": 4,
+      "probe_layers": [
+        0,
+        11,
+        23,
+        35
+      ],
+      "per_layer": {
+        "layer0": {
+          "snr": 0.37956440780601824,
+          "signal_norm": 0.0330805666744709,
+          "noise_norm": 0.08715402707457542
+        },
+        "layer11": {
+          "snr": 0.3855658283382615,
+          "signal_norm": 0.07061944156885147,
+          "noise_norm": 0.1831579366698861
+        },
+        "layer23": {
+          "snr": 0.38683738335397816,
+          "signal_norm": 0.08930956572294235,
+          "noise_norm": 0.23087108321487904
+        },
+        "layer35": {
+          "snr": 0.3915473002616421,
+          "signal_norm": 0.13644947111606598,
+          "noise_norm": 0.34848783537745476
+        }
+      }
+    },
+    "r8": {
+      "snr": 0.3906256855835399,
+      "signal_norm": 0.2981278848126836,
+      "noise_norm": 0.7632060456222238,
+      "resamples": 8,
+      "warmup_steps": 4,
+      "probe_layers": [
+        0,
+        11,
+        23,
+        35
+      ],
+      "per_layer": {
+        "layer0": {
+          "snr": 0.38148564500800525,
+          "signal_norm": 0.052941855043172836,
+          "noise_norm": 0.13877810537815094
+        },
+        "layer11": {
+          "snr": 0.3857957989024765,
+          "signal_norm": 0.1053876206278801,
+          "noise_norm": 0.2731694355607033
+        },
+        "layer23": {
+          "snr": 0.38076459706378724,
+          "signal_norm": 0.1217300072312355,
+          "noise_norm": 0.31969885900616646
+        },
+        "layer35": {
+          "snr": 0.39455860556224925,
+          "signal_norm": 0.24526037275791168,
+          "noise_norm": 0.6216069534420967
+        }
+      }
+    },
+    "r16": {
+      "snr": 0.38569681693545793,
+      "signal_norm": 0.4121094453578815,
+      "noise_norm": 1.0684802862317722,
+      "resamples": 8,
+      "warmup_steps": 4,
+      "probe_layers": [
+        0,
+        11,
+        23,
+        35
+      ],
+      "per_layer": {
+        "layer0": {
+          "snr": 0.3842178139315999,
+          "signal_norm": 0.0772155225276947,
+          "noise_norm": 0.20096809603273869
+        },
+        "layer11": {
+          "snr": 0.3849036288242729,
+          "signal_norm": 0.1622123420238495,
+          "noise_norm": 0.42143625020980835
+        },
+        "layer23": {
+          "snr": 0.3866966922070586,
+          "signal_norm": 0.19677652418613434,
+          "noise_norm": 0.5088652893900871
+        },
+        "layer35": {
+          "snr": 0.3856082035805677,
+          "signal_norm": 0.3143852949142456,
+          "noise_norm": 0.8152972161769867
+        }
+      }
+    },
+    "r32": {
+      "snr": 0.39407359004353837,
+      "signal_norm": 0.5546317093285721,
+      "noise_norm": 1.4074318181720697,
+      "resamples": 8,
+      "warmup_steps": 4,
+      "probe_layers": [
+        0,
+        11,
+        23,
+        35
+      ],
+      "per_layer": {
+        "layer0": {
+          "snr": 0.3920279820357285,
+          "signal_norm": 0.11527340114116669,
+          "noise_norm": 0.29404380917549133
+        },
+        "layer11": {
+          "snr": 0.38959788345470403,
+          "signal_norm": 0.22611765563488007,
+          "noise_norm": 0.5803872793912888
+        },
+        "layer23": {
+          "snr": 0.39734033637214844,
+          "signal_norm": 0.2714915871620178,
+          "noise_norm": 0.6832721531391144
+        },
+        "layer35": {
+          "snr": 0.39420563820925697,
+          "signal_norm": 0.4116934537887573,
+          "noise_norm": 1.0443621650338173
+        }
+      }
+    },
+    "linear_fit": {
+      "slope": 0.0001544842559862981,
+      "intercept": 0.3875432431835017,
+      "r2": 0.30213165818758236
+    }
+  }
+}
