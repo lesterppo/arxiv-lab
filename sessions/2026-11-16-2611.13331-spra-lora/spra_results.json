@@ -1,0 +1,158 @@
+{
+  "paper": "2611.13331",
+  "title": "Stochastic Projections and Rank-Aware Learning Rates for Federated LoRA",
+  "variant": "Bounded single-GPU transfer test: SNR-vs-rank probe + 5 QLoRA arms (standard vs frozen-A vs rank-aware LR) on ARC-Challenge; 300 train rows / 1 epoch / 2 simulated clients; logprob MCQA eval n=200.",
+  "models_tried": [
+    "Qwen/Qwen3.5-9B",
+    "Qwen/Qwen3-8B"
+  ],
+  "model_used": "Qwen/Qwen3-8B",
+  "fallback_used": true,
+  "lora": {
+    "alpha_factor": 2,
+    "dropout": 0.0,
+    "target": "q,k,v,o,gate,up,down"
+  },
+  "train": {
+    "n": 300,
+    "epochs": 1,
+    "batch": 8,
+    "max_len": 256,
+    "resample_every_steps": 10,
+    "clients": 2
+  },
+  "eval": {
+    "dataset": "allenai/ai2_arc ARC-Challenge validation",
+    "n": 200,
+    "method": "logprob of ' A'/' B'/' C'/' D' after 'Answer:'",
+    "batch": 8
+  },
+  "arms": {
+    "base": {
+      "acc": 0.9,
+      "ci95_hw": 0.04157787873376899,
+      "n": 200,
+      "correct": 180
+    },
+    "S16": {
+      "acc": 0.88,
+      "ci95_hw": 0.04503737114885815,
+      "n": 200,
+      "correct": 176,
+      "rank": 16,
+      "lr": 0.0002,
+      "freeze_a": false,
+      "steps": 38,
+      "seconds": 681.6,
+      "peak_vram_gib": 12.2
+    },
+    "F16": {
+      "acc": 0.9,
+      "ci95_hw": 0.04157787873376899,
+      "n": 200,
+      "correct": 180,
+      "rank": 16,
+      "lr": 0.0002,
+      "freeze_a": true,
+      "steps": 38,
+      "seconds": 679.5,
+      "peak_vram_gib": 12.2
+    },
+    "F8hi": {
+      "acc": 0.9,
+      "ci95_hw": 0.04157787873376899,
+      "n": 200,
+      "correct": 180,
+      "rank": 8,
+      "lr": 0.0002,
+      "freeze_a": true,
+      "steps": 38,
+      "seconds": 678.1,
+      "peak_vram_gib": 12.2
+    },
+    "F8lo": {
+      "acc": 0.9,
+      "ci95_hw": 0.04157787873376899,
+      "n": 200,
+      "correct": 180,
+      "rank": 8,
+      "lr": 0.0001,
+      "freeze_a": true,
+      "steps": 38,
+      "seconds": 677.8,
+      "peak_vram_gib": 12.2
+    },
+    "F32lo": {
+      "acc": 0.9,
+      "ci95_hw": 0.04157787873376899,
+      "n": 200,
+      "correct": 180,
+      "rank": 32,
+      "lr": 0.0004,
+      "freeze_a": true,
+      "steps": 38,
+      "seconds": 681.1,
+      "peak_vram_gib": 12.2
+    }
+  },
+  "snr_probe": {
+    "r4": {
+      "snr": 0.3493633528823119,
+      "signal_norm": 3.847862958908081,
+      "noise_norm": 11.013928413391113,
+      "resamples": 8,
+      "warmup_steps": 4
+    },
+    "r8": {
+      "snr": 0.3622954339543023,
+      "signal_norm": 5.567785263061523,
+      "noise_norm": 15.368080139160156,
+      "resamples": 8,
+      "warmup_steps": 4
+    },
+    "r16": {
+      "snr": 0.3943543512638733,
+      "signal_norm": 9.340653419494629,
+      "noise_norm": 23.68593978881836,
+      "resamples": 8,
+      "warmup_steps": 4
+    },
+    "r32": {
+      "snr": 0.36343167929344466,
+      "signal_norm": 11.072291374206543,
+      "noise_norm": 30.46595001220703,
+      "resamples": 8,
+      "warmup_steps": 4
+    },
+    "linear_fit": {
+      "slope": 0.00042093039101496853,
+      "intercept": 0.36104724848325853,
+      "r2": 0.07452426869163375
+    }
+  },
+  "comms": {
+    "trainable_params": {
+      "S16": 43646976,
+      "F16": 22413312,
+      "F8hi": 11206656,
+      "F8lo": 11206656,
+      "F32lo": 44826624
+    },
+    "note": "standard LoRA trains A+B; frozen-A arms train B only. Uplink per round ~ trainable params (x2 bytes bf16)."
+  },
+  "phases": [
+    "model Qwen/Qwen3.5-9B failed: ValueError: The checkpoint you are trying to load has model type `qwen3_5` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.\n\nYou can update Transformers with the command `pip install --upgrade transformers`. If this does not work, and the checkpoint is very new, then there may not be a release version that supports this model yet. In this case, you can get the most up-to-date code by installing Transformers from source with the command `pip install git+https://github.com/huggingface/transformers.git`",
+    "base eval done",
+    "snr probe done",
+    "S16 trained",
+    "S16 eval done",
+    "F16 trained",
+    "F16 eval done",
+    "F8hi trained",
+    "F8hi eval done",
+    "F8lo trained",
+    "F8lo eval done",
+    "F32lo trained",
+    "F32lo eval done"
+  ]
+}
