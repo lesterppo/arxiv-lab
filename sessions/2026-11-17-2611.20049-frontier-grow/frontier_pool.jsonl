@@ -1,0 +1,150 @@
+{"program": "print(string.len(string.reverse(\"hello\")) == #string.reverse(\"hello\"))", "reference": "true\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.char(string.byte(\"a\",1)))", "reference": "a\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(math.floor(-2.3) + math.ceil(3.7) - math.abs(-5))", "reference": "-4\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(math.sqrt(math.max(3,4,5) - math.min(1,2,3)))", "reference": "2\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(math.fmod(5,3)/3)", "reference": "0.66666666666667\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "t = {}\ntable.insert(t, 1)\ntable.insert(t, 2)\nprint(table.remove(t, 1))", "reference": "1\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "a = 10\nwhile a > 0 do\n  if a % 2 == 0 then\n    print(a)\n    break\n  end\n  a = a - 1\nend", "reference": "10\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "print((tostring(42) .. \" is the answer\") .. \" to life, the universe, and everything.\")", "reference": "42 is the answer to life, the universe, and everything.\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(([[a]]):find(\"[aeiou]\",1,true) or 0)", "reference": "0\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(string.rep(\"a\", 3) .. \"\\n\" .. string.sub(\"hello\", 1, 3))", "reference": "aaa\nhel\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print(string.format(\"%d\", #string.reverse(\"hello\")))", "reference": "5\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "-- Convert a string to its ASCII byte values and back using string.byte and string.char\nlocal s = \"Lua\"\n-- Get the ASCII values of each character in the string\nlocal bytes = {}\nfor i = 1, #s do\n    bytes[i] = string.byte(s, i)\nend\n-- Convert the ASCII values back to characters\nlocal converted = {}\nfor i = 1, #bytes do\n    converted[i] = string.char(bytes[i])\nend\n-- Print the original and converted strings to verify they are equal\nprint(s == table.concat(converted) and \"Equal\" or \"Not Equal\")", "reference": "Equal\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print(\"Hello\")", "reference": "Hello\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "t={1,3,2};table.sort(t);print(table.concat(t))", "reference": "123\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print((tonumber(\"123\") .. tostring(456)) == \"123456\")", "reference": "true\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "a, b = 5, 10\nprint(a + b)", "reference": "15\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "print(string.find(\"abc\", \"[aeiou]\"))", "reference": "1\t1\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print((true and false) or (not true and not false))", "reference": "false\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.upper(string.lower(string.gsub(\"Hello World!\", \"H\", \"h\"))))", "reference": "HELLO WORLD!\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "-- Example using string.rep and string.sub in Lua 5.1\ns = \"Lua\"  -- Original string\n-- Repeat the string 3 times\nrepeated = string.rep(s, 3)\n-- Extract substring from index 4 to 6 (inclusive)\nsubStr = string.sub(repeated, 4, 6)\n-- Print the result\nprint(subStr)", "reference": "Lua\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(math.max(1,2,3) - math.min(4,5,6) / math.sqrt(2))", "reference": "0.17157287525381\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "-- Use table.concat and table.sort\nlocal t = {1,2,3,4,5,4,3,2,1}\ntable.sort(t)\nfor i = 1, #t do\n    if t[i] == 5 then\n        print(i)\n    end\nend", "reference": "9\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "t = {1, 2, 3}\ntable.insert(t, 4)\ntable.remove(t, 3)\nprint(#t)", "reference": "3\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "for i=1,10 do\n    if i%2==0 then\n        print(i)\n    end\nend", "reference": "2\n4\n6\n8\n10\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "a = 1\nwhile a < 5 do\n    print(a)\n    a = a + 1\nend", "reference": "1\n2\n3\n4\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "a = function()\n    return 1, 2\nend\n\nb = function()\n    return 3\nend\n\nprint(a() + b())", "reference": "4\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a, b = 5, 10\nprint(b, a)", "reference": "10\t5\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "a = true\nb = false\nprint((a and b) or (not a and b) or (a and not b) or (not a and not b))", "reference": "true\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.upper(string.lower(\"LuA cAsE\")) == \"LUa cAsE\" and \"true\" or \"false\")", "reference": "false\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "print(string.rep(\"x\", 3) .. string.sub(\"abc\", 2, 3))", "reference": "xxxbc\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.char(string.byte(\"abc\")))", "reference": "a\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "-- this is a comment\nprint(string.format(\"found: %s\", string.find(\"Hello, World!\", \"o\")))", "reference": "found: 5\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a = {3, 1, 4, 1, 5}\ntable.sort(a)\nprint(table.concat(a, \", \"))", "reference": "1, 1, 3, 4, 5\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "t={};for i=1,3 do table.insert(t,i)end;print(#t)", "reference": "3\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a={}\nfor i=1,3 do a[i]=i end\nfor k,v in pairs(a) do print(v) end", "reference": "1\n2\n3\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "function outer()\n    local x = 10\n    local function inner()\n        print(x + 5)\n    end\n    return inner\nend\n\nlocal f = outer()\nf()", "reference": "15\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print(string.find(\"abc123\", \"a[bc]%.%d+\", 1, true))", "reference": "nil\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "-- operators.lua\nlocal a = true\nlocal b = false\nprint(a and b or not a)", "reference": "false\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print(\"The length of 'hello' is \" .. tostring(string.len(\"hello\")))", "reference": "The length of 'hello' is 5\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "print(string.char(string.byte(\"hello\", 1)))", "reference": "h\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "a = {1, 2, 3}\ntable.insert(a, 4)\ntable.remove(a, 3)\nprint(#a)", "reference": "3\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print((tonumber(\"123\") .. \"abc\") .. tostring(42))", "reference": "123abc42\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print((true and false) or (not true and true) or (false and true))", "reference": "false\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "local x = 10\n\nlocal function f()\n    local x = 20\n    print(x)\nend\n\nf()", "reference": "20\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print((string.upper(string.lower(\"Hello, World!\"))):upper())", "reference": "HELLO, WORLD!\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(#\"Hello, World!\" .. \" reversed is \" .. string.reverse(\"Hello, World!\") .. \" and length is \" .. #string.reverse(\"Hello, World!\"))", "reference": "13 reversed is !dlroW ,olleH and length is 13\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.char(string.byte(\"abc\",1),string.byte(\"abc\",2),string.byte(\"abc\",3)))", "reference": "abc\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(string.format(\"Hello, %s!\", string.find(\"Lua is fun\", \"is\")))", "reference": "Hello, 5!\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(math.sqrt(25))", "reference": "5\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "t = {1, 3, 2, 4}\ntable.sort(t)\nprint(table.concat(t, \", \"))", "reference": "1, 2, 3, 4\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "function outer()\n    local x = 10\n    local function inner()\n        return x + 1, x * 2\n    end\n    return inner()\nend\n\nprint(outer())", "reference": "11\t20\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.find(\"abc123\", \"%d+\") or \"not found\")", "reference": "4\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(\"Hello, World!\")", "reference": "Hello, World!\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(string.sub(string.rep(\"abc\",3),3,6))", "reference": "cabc\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.char(string.byte(\"Hello\", 1)))", "reference": "H\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "print(string.format(\"Found at %s: %s\", string.find(\"hello world\", \"o\"), \"example\"))", "reference": "Found at 5: example\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(math.floor(-2.3) .. math.ceil(2.3) .. math.abs(-5))", "reference": "-335\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "t = {3, 1, 4, 1, 5, 9}\ntable.sort(t)\nprint(table.concat(t, \", \"))", "reference": "1, 1, 3, 4, 5, 9\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "t = {\"a\", \"b\", \"c\"}\ntable.insert(t, 1, \"x\")\ntable.remove(t, 1)\nprint(#t)", "reference": "3\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a = 0\nwhile a < 3 do\n    a = a + 1\n    if a == 2 then\n        break\n    end\n    print(a)\nend", "reference": "1\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "function f(x)\n  return x + 1\nend\n\nprint(f(5))", "reference": "6\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print((1 + 2 * 3)^2 % 4)", "reference": "1\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a = \"123\"\nb = \"456\"\nprint(a .. b)", "reference": "123456\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "a = true or false\nprint(a)", "reference": "true\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "local x = 10\n\ndo\n    local x = 20\n    print(x)\nend", "reference": "20\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "print(string.upper(string.lower(\"Hello, World!\")))", "reference": "HELLO, WORLD!\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print((string.rep(\"abc123\",3):sub(3))..(string.rep(\"abc123\",3):sub(3)))", "reference": "c123abc123abc123c123abc123abc123\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print((string.reverse(\"hello\")..string.reverse(\"world\")):len())", "reference": "10\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(math.floor(-2.3) + math.ceil(2.3) + math.abs(-5))", "reference": "5\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "(function()print(math.max(1,2,3)^(1/math.min(2,3))<=math.sqrt(5))end)()", "reference": "true\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(math.fmod(1.5, 0.5))", "reference": "0\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a = 10\nwhile a > 0 do\n    print(a)\n    a = a - 1\nend", "reference": "10\n9\n8\n7\n6\n5\n4\n3\n2\n1\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "local function helper(a, b)\n    return a + b, a - b\nend\n\nlocal x, y = helper(3, 4)\nprint(x)", "reference": "7\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "print(((1+2*3)^2)%(5+4))", "reference": "4\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a = \"123\"\nb = \"456\"\nprint((a .. b) + tonumber(a) + tonumber(b))", "reference": "124035\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a,b,c=1,2,3\nprint(b)\nb,c,a=c,a,b", "reference": "2\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(1 and 2 or 3)", "reference": "2\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print((string.rep(\"a\",3)..\nstring.sub(\"bcd\",2,3)))", "reference": "aaacd\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.char(string.byte(\"hello\", 1), string.byte(\"hello\", 2), string.byte(\"hello\", 3), string.byte(\"hello\", 4), string.byte(\"hello\", 5)))", "reference": "hello\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "x = -5.7\nprint(math.floor(x) + math.ceil(x) - math.abs(x))", "reference": "-16.7\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(math.max(1,2,3) - math.min(4,5,6) + math.sqrt(9))", "reference": "2\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "t = {\"a\", \"b\", \"c\"}\ntable.sort(t)\nprint(table.concat(t, \", \"))", "reference": "a, b, c\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "for i=1,5 do\n    print(i)\nend", "reference": "1\n2\n3\n4\n5\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "function outer()\n    local x = 10\n    local function inner()\n        return x, x + 1\n    end\n    return inner()\nend\n\nprint(outer())", "reference": "10\t11\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print((string.match(\"abc\", \"[^b]\") or \"\") .. (string.match(\"abc\", \"[^b]\") or \"\"))", "reference": "aa\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print((true and false) or not true)", "reference": "false\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print((string.reverse(\"abcd\")..string.reverse(\"1234\")):len())", "reference": "8\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(string.format(\"Found at %d: %s\", string.find(\"hello world\", \"world\"), \"example\"))", "reference": "Found at 7: example\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print(math.floor(-2.3) .. math.ceil(2.3) .. math.abs(-2.3))", "reference": "-332.3\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(math.max(3, math.min(5, math.sqrt(16))))", "reference": "4\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "a={1,2,3}print(#a)", "reference": "3\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a={1,2,3};for i=1,#a do print(a[i])end", "reference": "1\n2\n3\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(1+2*3%4)", "reference": "3\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "a = \"123\"\nb = 456\nprint((tostring(a) .. tostring(b)) + tonumber(\"0\"))", "reference": "123456\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.find(\"abc123\", \"%d+\", 1, true))", "reference": "nil\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "local x = 10\nprint(x)", "reference": "10\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "-- Demonstrate string.upper and string.lower in Lua 5.1\nlocal s = \"Hello, World! 123\"\n-- Convert to uppercase and lowercase\nlocal upper_s = string.upper(s)  -- Convert entire string to uppercase\nlocal lower_s = string.lower(s) -- Convert entire string to lowercase\n-- Print the original, upper, and lower cases\nprint(upper_s)  -- Output: HELLO, WORLD! 123", "reference": "HELLO, WORLD! 123\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.rep(\"a\", 3) .. string.sub(\"banana\", 2, 3))", "reference": "aaaan\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(math.floor(-2.3) .. \" \" .. math.ceil(2.3) .. \" \" .. math.abs(-5))", "reference": "-3 3 5\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(math.sqrt(math.max(3, math.min(2, 5))))", "reference": "1.7320508075689\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "for i=1,3 do print(i) end", "reference": "1\n2\n3\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a = 0\nwhile a < 5 do\n  a = a + 1\n  if a == 3 then\n    break\n  end\n  print(a)\nend", "reference": "1\n2\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "function outer()\n    local a = 10\n    local function inner()\n        return a + 1, a * 2\n    end\n    return inner()\nend\n\nprint(outer())", "reference": "11\t20\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "a, b = 5, 3\nprint(a + b)", "reference": "8\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "-- Demonstrates string.upper, string.lower, and case conversion in Lua 5.1\nlocal s = \"Hello, World! 123\"\n-- Convert to uppercase and lowercase, then print the original\nprint(s) -- Only one print statement allowed", "reference": "Hello, World! 123\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print((string.gsub('abacab', 'a', 'x')..string.sub(string.gsub('abacab', 'a', 'x'), 1, 2)):rep(3))", "reference": "xbxcxbxbxbxcxbxbxbxcxbxb\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.reverse(\"hello\") .. \" \" .. string.len(\"hello\") .. \" \" .. #string.reverse(\"hello\"))", "reference": "olleh 5 5\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(math.floor(-1.2) .. \" \" .. math.ceil(2.3) .. \" \" .. math.abs(-5))", "reference": "-2 3 5\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(math.abs((math.fmod(2, 0.5)/2)))", "reference": "0\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "for i=1,10 do\n    if i%2 == 0 then\n        print(i)\n        break\n    end\nend", "reference": "2\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print(3 + 4 * 5 % 7)", "reference": "9\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "a,b,c = 1,2,3\nprint(b)", "reference": "2\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "a, b = true, false\nprint((a and b) or (not a and b) or (a and not b) or (not a and not b))", "reference": "true\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "local a = 10\nprint(a)", "reference": "10\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "print((string.upper(\"hello\") .. string.lower(\"world\")):lower())", "reference": "helloworld\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(string.format(\"Length of reversed 'hello': %d\", string.len(string.reverse(\"hello\"))))", "reference": "Length of reversed 'hello': 5\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "local f = function(x) return x >= 0 and x or -x end\nlocal c = function(x) return x + 1.0 == math.floor(x + 1.0) and x or x + 1.0 end\nlocal function k(x) return x - (x % 1) end\nprint(k(math.abs(k(math.floor(c(2.5))))))", "reference": "3\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a = {3, 1, 4, 1, 5, 9, 2, 6}\ntable.sort(a)\nprint(table.concat(a, \", \"))", "reference": "1, 1, 2, 3, 4, 5, 6, 9\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a = 10\nb = 20\n\nfunction f(x, y)\n    local m = x + y\n    local n = x - y\n    return m, n\nend\n\nlocal c, d = f(a, b)\nprint(c)", "reference": "30\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print((tostring(tonumber(\"123\") + 1) .. \"456\") .. \"\")", "reference": "124456\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.find(\"abc123\", \"a[%w]\"))", "reference": "1\t2\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print((false or false) and true and (true or false))", "reference": "false\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.rep(\"x\", 3) .. string.sub(\"example\", 1, 3))", "reference": "xxxexa\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(\"Hello, world!\")", "reference": "Hello, world!\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(string.format(\"Found at %s: %s\", string.find(\"hello world\", \"world\"), \"example\"))", "reference": "Found at 7: example\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "a = {3, 1, 4, 1, 5, 9}\ntable.sort(a)\nprint(table.concat(a, \", \"))", "reference": "1, 1, 3, 4, 5, 9\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a = 0\nfor i=1,5 do\n  a = a + i\nend\nwhile a < 15 do\n  a = a + 1\nend\nprint(a)", "reference": "15\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "function outer()\n    local function inner(x)\n        return x + 1, x - 1\n    end\n    return inner(5)\nend\n\nprint(outer())", "reference": "6\t4\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print((1+2*3)^2%5==1)", "reference": "false\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "local x = 10\n\nif true then\n    local x = x + 1\n    print(x)\nend", "reference": "11\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.byte('hello world', 1))", "reference": "104\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print(math.floor(-1.2) .. \",\" .. math.ceil(2.3) .. \",\" .. math.abs(-5))", "reference": "-2,3,5\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print(math.max(1, 2, 3) + math.min(4, 5, 6) - math.sqrt(9))", "reference": "4\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "t = {1, 2, 3}\ntable.insert(t, 4)\ntable.remove(t, 1)\nprint(#t)", "reference": "3\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "function createCounter()\n    local count = 0\n    return function()\n        count = count + 1\n        return count\n    end\nend\n\nlocal counter = createCounter()\n\nprint(counter())", "reference": "1\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print((1+2*3)^2%5)", "reference": "4\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print((tonumber(\"123\") .. \"a\") .. tostring(tonumber(\"123\") + 1))", "reference": "123a124\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "a, b = 5, 3\na, b = b, a\nprint(a)", "reference": "3\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "a, b = true, false\nprint((a and b) or (not a and b) or (not a and not b))", "reference": "false\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "print(\"Hello World\")", "reference": "Hello World\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "print((string.sub(string.rep(\"abc\", 3), 1, 5)))", "reference": "abcab\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a={1,2,3};table.sort(a);print(table.concat(a,\" \"))", "reference": "1 2 3\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(table.concat({1,2,3},\",\"))", "reference": "1,2,3\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "local x = 0\nwhile x < 3 do\n    x = x + 1\n    if x == 2 then\n        break\n    end\nend\nrepeat\n    x = x + 1\n    if x == 3 then\n        break\n    end\nuntil x == 4\nprint(x)", "reference": "3\n", "n_wrong_of_4": 3, "round": 1}
+{"program": "local function add(a, b)\n    return a + b, a - b\nend\n\nlocal function main()\n    local x, y = add(5, 3)\n    print(x)\nend\n\nmain()", "reference": "8\n", "n_wrong_of_4": 1, "round": 1}
+{"program": "print(5 + 4 * 2 ^ 3 % 7)", "reference": "9\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a = \"1\" .. \"2\"\nb = tonumber(a)\nc = b + 1\nd = tostring(c)\nprint(d)", "reference": "13\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "a, b, c = 1, 2, 3\nprint(c)", "reference": "3\n", "n_wrong_of_4": 2, "round": 1}
+{"program": "print(string.rep('a', 3) .. string.sub('b', 1, 1))", "reference": "aaab\n", "n_wrong_of_4": 4, "round": 1}
+{"program": "print(string.char(string.byte(\"A\",1),string.byte(\"B\",1),string.byte(\"C\",1)))", "reference": "ABC\n", "n_wrong_of_4": 3, "round": 1}
