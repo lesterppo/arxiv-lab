@@ -1,0 +1,1754 @@
+[
+ {
+  "id": "upper-0",
+  "template": "upper",
+  "program": "print(string.upper(\"vabv\"))",
+  "reference": "VABV\n"
+ },
+ {
+  "id": "upper-1",
+  "template": "upper",
+  "program": "print(string.upper(\"etopfyon\"))",
+  "reference": "ETOPFYON\n"
+ },
+ {
+  "id": "upper-2",
+  "template": "upper",
+  "program": "print(string.upper(\"hczxasr\"))",
+  "reference": "HCZXASR\n"
+ },
+ {
+  "id": "upper-3",
+  "template": "upper",
+  "program": "print(string.upper(\"euo\"))",
+  "reference": "EUO\n"
+ },
+ {
+  "id": "upper-4",
+  "template": "upper",
+  "program": "print(string.upper(\"ayzwr\"))",
+  "reference": "AYZWR\n"
+ },
+ {
+  "id": "upper-5",
+  "template": "upper",
+  "program": "print(string.upper(\"siccq\"))",
+  "reference": "SICCQ\n"
+ },
+ {
+  "id": "upper-6",
+  "template": "upper",
+  "program": "print(string.upper(\"uforx\"))",
+  "reference": "UFORX\n"
+ },
+ {
+  "id": "upper-7",
+  "template": "upper",
+  "program": "print(string.upper(\"hzisv\"))",
+  "reference": "HZISV\n"
+ },
+ {
+  "id": "upper-8",
+  "template": "upper",
+  "program": "print(string.upper(\"ilzse\"))",
+  "reference": "ILZSE\n"
+ },
+ {
+  "id": "upper-9",
+  "template": "upper",
+  "program": "print(string.upper(\"kajbeaj\"))",
+  "reference": "KAJBEAJ\n"
+ },
+ {
+  "id": "upper-10",
+  "template": "upper",
+  "program": "print(string.upper(\"yozmpmx\"))",
+  "reference": "YOZMPMX\n"
+ },
+ {
+  "id": "upper-11",
+  "template": "upper",
+  "program": "print(string.upper(\"qungkgz\"))",
+  "reference": "QUNGKGZ\n"
+ },
+ {
+  "id": "upper-12",
+  "template": "upper",
+  "program": "print(string.upper(\"dgpu\"))",
+  "reference": "DGPU\n"
+ },
+ {
+  "id": "upper-13",
+  "template": "upper",
+  "program": "print(string.upper(\"gxcnft\"))",
+  "reference": "GXCNFT\n"
+ },
+ {
+  "id": "upper-14",
+  "template": "upper",
+  "program": "print(string.upper(\"mpdobp\"))",
+  "reference": "MPDOBP\n"
+ },
+ {
+  "id": "upper-15",
+  "template": "upper",
+  "program": "print(string.upper(\"sydbpg\"))",
+  "reference": "SYDBPG\n"
+ },
+ {
+  "id": "upper-16",
+  "template": "upper",
+  "program": "print(string.upper(\"lpfvexo\"))",
+  "reference": "LPFVEXO\n"
+ },
+ {
+  "id": "upper-17",
+  "template": "upper",
+  "program": "print(string.upper(\"kbimmlqu\"))",
+  "reference": "KBIMMLQU\n"
+ },
+ {
+  "id": "upper-18",
+  "template": "upper",
+  "program": "print(string.upper(\"scace\"))",
+  "reference": "SCACE\n"
+ },
+ {
+  "id": "upper-19",
+  "template": "upper",
+  "program": "print(string.upper(\"ihvynrq\"))",
+  "reference": "IHVYNRQ\n"
+ },
+ {
+  "id": "lower-0",
+  "template": "lower",
+  "program": "print(string.lower(\"GBO\"))",
+  "reference": "gbo\n"
+ },
+ {
+  "id": "lower-1",
+  "template": "lower",
+  "program": "print(string.lower(\"AKO\"))",
+  "reference": "ako\n"
+ },
+ {
+  "id": "lower-2",
+  "template": "lower",
+  "program": "print(string.lower(\"VPMGZ\"))",
+  "reference": "vpmgz\n"
+ },
+ {
+  "id": "lower-3",
+  "template": "lower",
+  "program": "print(string.lower(\"HXGOYI\"))",
+  "reference": "hxgoyi\n"
+ },
+ {
+  "id": "lower-4",
+  "template": "lower",
+  "program": "print(string.lower(\"LLIA\"))",
+  "reference": "llia\n"
+ },
+ {
+  "id": "lower-5",
+  "template": "lower",
+  "program": "print(string.lower(\"AVPKS\"))",
+  "reference": "avpks\n"
+ },
+ {
+  "id": "lower-6",
+  "template": "lower",
+  "program": "print(string.lower(\"VVAXEU\"))",
+  "reference": "vvaxeu\n"
+ },
+ {
+  "id": "lower-7",
+  "template": "lower",
+  "program": "print(string.lower(\"WHGY\"))",
+  "reference": "whgy\n"
+ },
+ {
+  "id": "lower-8",
+  "template": "lower",
+  "program": "print(string.lower(\"MEBUSGX\"))",
+  "reference": "mebusgx\n"
+ },
+ {
+  "id": "lower-9",
+  "template": "lower",
+  "program": "print(string.lower(\"ULB\"))",
+  "reference": "ulb\n"
+ },
+ {
+  "id": "lower-10",
+  "template": "lower",
+  "program": "print(string.lower(\"NPLTJGZY\"))",
+  "reference": "npltjgzy\n"
+ },
+ {
+  "id": "lower-11",
+  "template": "lower",
+  "program": "print(string.lower(\"JQS\"))",
+  "reference": "jqs\n"
+ },
+ {
+  "id": "lower-12",
+  "template": "lower",
+  "program": "print(string.lower(\"GXCXS\"))",
+  "reference": "gxcxs\n"
+ },
+ {
+  "id": "lower-13",
+  "template": "lower",
+  "program": "print(string.lower(\"KZWE\"))",
+  "reference": "kzwe\n"
+ },
+ {
+  "id": "lower-14",
+  "template": "lower",
+  "program": "print(string.lower(\"MWH\"))",
+  "reference": "mwh\n"
+ },
+ {
+  "id": "lower-15",
+  "template": "lower",
+  "program": "print(string.lower(\"BOBVJR\"))",
+  "reference": "bobvjr\n"
+ },
+ {
+  "id": "lower-16",
+  "template": "lower",
+  "program": "print(string.lower(\"QSIM\"))",
+  "reference": "qsim\n"
+ },
+ {
+  "id": "lower-17",
+  "template": "lower",
+  "program": "print(string.lower(\"ZYQHFQ\"))",
+  "reference": "zyqhfq\n"
+ },
+ {
+  "id": "lower-18",
+  "template": "lower",
+  "program": "print(string.lower(\"EFO\"))",
+  "reference": "efo\n"
+ },
+ {
+  "id": "lower-19",
+  "template": "lower",
+  "program": "print(string.lower(\"FXKLKQSV\"))",
+  "reference": "fxklkqsv\n"
+ },
+ {
+  "id": "rep-0",
+  "template": "rep",
+  "program": "print(string.rep(\"j\", 2))",
+  "reference": "jj\n"
+ },
+ {
+  "id": "rep-1",
+  "template": "rep",
+  "program": "print(string.rep(\"sbo\", 4))",
+  "reference": "sbosbosbosbo\n"
+ },
+ {
+  "id": "rep-2",
+  "template": "rep",
+  "program": "print(string.rep(\"kk\", 3))",
+  "reference": "kkkkkk\n"
+ },
+ {
+  "id": "rep-3",
+  "template": "rep",
+  "program": "print(string.rep(\"xek\", 3))",
+  "reference": "xekxekxek\n"
+ },
+ {
+  "id": "rep-4",
+  "template": "rep",
+  "program": "print(string.rep(\"bqs\", 3))",
+  "reference": "bqsbqsbqs\n"
+ },
+ {
+  "id": "rep-5",
+  "template": "rep",
+  "program": "print(string.rep(\"wwx\", 2))",
+  "reference": "wwxwwx\n"
+ },
+ {
+  "id": "rep-6",
+  "template": "rep",
+  "program": "print(string.rep(\"jgw\", 4))",
+  "reference": "jgwjgwjgwjgw\n"
+ },
+ {
+  "id": "rep-7",
+  "template": "rep",
+  "program": "print(string.rep(\"tb\", 3))",
+  "reference": "tbtbtb\n"
+ },
+ {
+  "id": "rep-8",
+  "template": "rep",
+  "program": "print(string.rep(\"lj\", 3))",
+  "reference": "ljljlj\n"
+ },
+ {
+  "id": "rep-9",
+  "template": "rep",
+  "program": "print(string.rep(\"zr\", 2))",
+  "reference": "zrzr\n"
+ },
+ {
+  "id": "rep-10",
+  "template": "rep",
+  "program": "print(string.rep(\"pl\", 4))",
+  "reference": "plplplpl\n"
+ },
+ {
+  "id": "rep-11",
+  "template": "rep",
+  "program": "print(string.rep(\"ant\", 2))",
+  "reference": "antant\n"
+ },
+ {
+  "id": "rep-12",
+  "template": "rep",
+  "program": "print(string.rep(\"ck\", 3))",
+  "reference": "ckckck\n"
+ },
+ {
+  "id": "rep-13",
+  "template": "rep",
+  "program": "print(string.rep(\"im\", 4))",
+  "reference": "imimimim\n"
+ },
+ {
+  "id": "rep-14",
+  "template": "rep",
+  "program": "print(string.rep(\"aj\", 2))",
+  "reference": "ajaj\n"
+ },
+ {
+  "id": "rep-15",
+  "template": "rep",
+  "program": "print(string.rep(\"wiq\", 4))",
+  "reference": "wiqwiqwiqwiq\n"
+ },
+ {
+  "id": "rep-16",
+  "template": "rep",
+  "program": "print(string.rep(\"sfn\", 2))",
+  "reference": "sfnsfn\n"
+ },
+ {
+  "id": "rep-17",
+  "template": "rep",
+  "program": "print(string.rep(\"pbx\", 4))",
+  "reference": "pbxpbxpbxpbx\n"
+ },
+ {
+  "id": "rep-18",
+  "template": "rep",
+  "program": "print(string.rep(\"so\", 3))",
+  "reference": "sososo\n"
+ },
+ {
+  "id": "rep-19",
+  "template": "rep",
+  "program": "print(string.rep(\"wdv\", 2))",
+  "reference": "wdvwdv\n"
+ },
+ {
+  "id": "sub-0",
+  "template": "sub",
+  "program": "print(string.sub(\"ezxqwuts\", 0, -1))",
+  "reference": "ezxqwuts\n"
+ },
+ {
+  "id": "sub-1",
+  "template": "sub",
+  "program": "print(string.sub(\"hgglkfndtn\", -4, -2))",
+  "reference": "ndt\n"
+ },
+ {
+  "id": "sub-2",
+  "template": "sub",
+  "program": "print(string.sub(\"bmkxboitj\", -4, -1))",
+  "reference": "oitj\n"
+ },
+ {
+  "id": "sub-3",
+  "template": "sub",
+  "program": "print(string.sub(\"ikveyn\", 3, -1))",
+  "reference": "veyn\n"
+ },
+ {
+  "id": "sub-4",
+  "template": "sub",
+  "program": "print(string.sub(\"lpkijly\", -3, -2))",
+  "reference": "jl\n"
+ },
+ {
+  "id": "sub-5",
+  "template": "sub",
+  "program": "print(string.sub(\"vshtwpov\", -3, -2))",
+  "reference": "po\n"
+ },
+ {
+  "id": "sub-6",
+  "template": "sub",
+  "program": "print(string.sub(\"urykem\", -3, 6))",
+  "reference": "kem\n"
+ },
+ {
+  "id": "sub-7",
+  "template": "sub",
+  "program": "print(string.sub(\"lvavynqt\", -2, -2))",
+  "reference": "q\n"
+ },
+ {
+  "id": "sub-8",
+  "template": "sub",
+  "program": "print(string.sub(\"lmiqpdaua\", -3, -1))",
+  "reference": "aua\n"
+ },
+ {
+  "id": "sub-9",
+  "template": "sub",
+  "program": "print(string.sub(\"boyor\", -2, -1))",
+  "reference": "or\n"
+ },
+ {
+  "id": "sub-10",
+  "template": "sub",
+  "program": "print(string.sub(\"zgtuj\", 1, -1))",
+  "reference": "zgtuj\n"
+ },
+ {
+  "id": "sub-11",
+  "template": "sub",
+  "program": "print(string.sub(\"cswqcowey\", -2, -1))",
+  "reference": "ey\n"
+ },
+ {
+  "id": "len-0",
+  "template": "len",
+  "program": "print(string.len(\"wmrnotbk\"))",
+  "reference": "8\n"
+ },
+ {
+  "id": "len-1",
+  "template": "len",
+  "program": "print(string.len(\"zcj\"))",
+  "reference": "3\n"
+ },
+ {
+  "id": "len-2",
+  "template": "len",
+  "program": "print(string.len(\"tfjtoqz\"))",
+  "reference": "7\n"
+ },
+ {
+  "id": "len-3",
+  "template": "len",
+  "program": "print(string.len(\"ehrclq\"))",
+  "reference": "6\n"
+ },
+ {
+  "id": "len-4",
+  "template": "len",
+  "program": "print(string.len(\"yivt\"))",
+  "reference": "4\n"
+ },
+ {
+  "id": "len-5",
+  "template": "len",
+  "program": "print(string.len(\"ycn\"))",
+  "reference": "3\n"
+ },
+ {
+  "id": "len-6",
+  "template": "len",
+  "program": "print(string.len(\"hacj\"))",
+  "reference": "4\n"
+ },
+ {
+  "id": "len-7",
+  "template": "len",
+  "program": "print(string.len(\"ecziq\"))",
+  "reference": "5\n"
+ },
+ {
+  "id": "len-8",
+  "template": "len",
+  "program": "print(string.len(\"mtvf\"))",
+  "reference": "4\n"
+ },
+ {
+  "id": "len-9",
+  "template": "len",
+  "program": "print(string.len(\"xvgehcz\"))",
+  "reference": "7\n"
+ },
+ {
+  "id": "len-10",
+  "template": "len",
+  "program": "print(string.len(\"lhpnba\"))",
+  "reference": "6\n"
+ },
+ {
+  "id": "len-11",
+  "template": "len",
+  "program": "print(string.len(\"rug\"))",
+  "reference": "3\n"
+ },
+ {
+  "id": "len-12",
+  "template": "len",
+  "program": "print(string.len(\"ocmle\"))",
+  "reference": "5\n"
+ },
+ {
+  "id": "len-13",
+  "template": "len",
+  "program": "print(string.len(\"gwbxnewi\"))",
+  "reference": "8\n"
+ },
+ {
+  "id": "len-14",
+  "template": "len",
+  "program": "print(string.len(\"ajyw\"))",
+  "reference": "4\n"
+ },
+ {
+  "id": "len-15",
+  "template": "len",
+  "program": "print(string.len(\"vuuiys\"))",
+  "reference": "6\n"
+ },
+ {
+  "id": "len-16",
+  "template": "len",
+  "program": "print(string.len(\"eirrgee\"))",
+  "reference": "7\n"
+ },
+ {
+  "id": "len-17",
+  "template": "len",
+  "program": "print(string.len(\"ybpntvnf\"))",
+  "reference": "8\n"
+ },
+ {
+  "id": "len-18",
+  "template": "len",
+  "program": "print(string.len(\"mpra\"))",
+  "reference": "4\n"
+ },
+ {
+  "id": "len-19",
+  "template": "len",
+  "program": "print(string.len(\"kql\"))",
+  "reference": "3\n"
+ },
+ {
+  "id": "reverse-0",
+  "template": "reverse",
+  "program": "print(string.reverse(\"oai\"))",
+  "reference": "iao\n"
+ },
+ {
+  "id": "reverse-1",
+  "template": "reverse",
+  "program": "print(string.reverse(\"uscz\"))",
+  "reference": "zcsu\n"
+ },
+ {
+  "id": "reverse-2",
+  "template": "reverse",
+  "program": "print(string.reverse(\"eggyje\"))",
+  "reference": "ejygge\n"
+ },
+ {
+  "id": "reverse-3",
+  "template": "reverse",
+  "program": "print(string.reverse(\"vmyghrr\"))",
+  "reference": "rrhgymv\n"
+ },
+ {
+  "id": "reverse-4",
+  "template": "reverse",
+  "program": "print(string.reverse(\"qszmcp\"))",
+  "reference": "pcmzsq\n"
+ },
+ {
+  "id": "reverse-5",
+  "template": "reverse",
+  "program": "print(string.reverse(\"podi\"))",
+  "reference": "idop\n"
+ },
+ {
+  "id": "reverse-6",
+  "template": "reverse",
+  "program": "print(string.reverse(\"cqlqt\"))",
+  "reference": "tqlqc\n"
+ },
+ {
+  "id": "reverse-7",
+  "template": "reverse",
+  "program": "print(string.reverse(\"odmzkd\"))",
+  "reference": "dkzmdo\n"
+ },
+ {
+  "id": "reverse-8",
+  "template": "reverse",
+  "program": "print(string.reverse(\"rlc\"))",
+  "reference": "clr\n"
+ },
+ {
+  "id": "reverse-9",
+  "template": "reverse",
+  "program": "print(string.reverse(\"ismxy\"))",
+  "reference": "yxmsi\n"
+ },
+ {
+  "id": "reverse-10",
+  "template": "reverse",
+  "program": "print(string.reverse(\"vkkk\"))",
+  "reference": "kkkv\n"
+ },
+ {
+  "id": "reverse-11",
+  "template": "reverse",
+  "program": "print(string.reverse(\"fpauclw\"))",
+  "reference": "wlcuapf\n"
+ },
+ {
+  "id": "reverse-12",
+  "template": "reverse",
+  "program": "print(string.reverse(\"vmnatmm\"))",
+  "reference": "mmtanmv\n"
+ },
+ {
+  "id": "reverse-13",
+  "template": "reverse",
+  "program": "print(string.reverse(\"dxuzbwd\"))",
+  "reference": "dwbzuxd\n"
+ },
+ {
+  "id": "reverse-14",
+  "template": "reverse",
+  "program": "print(string.reverse(\"tswjdbu\"))",
+  "reference": "ubdjwst\n"
+ },
+ {
+  "id": "reverse-15",
+  "template": "reverse",
+  "program": "print(string.reverse(\"mjd\"))",
+  "reference": "djm\n"
+ },
+ {
+  "id": "reverse-16",
+  "template": "reverse",
+  "program": "print(string.reverse(\"mgqaedl\"))",
+  "reference": "ldeaqgm\n"
+ },
+ {
+  "id": "reverse-17",
+  "template": "reverse",
+  "program": "print(string.reverse(\"vqumlxm\"))",
+  "reference": "mxlmuqv\n"
+ },
+ {
+  "id": "reverse-18",
+  "template": "reverse",
+  "program": "print(string.reverse(\"mfvpp\"))",
+  "reference": "ppvfm\n"
+ },
+ {
+  "id": "reverse-19",
+  "template": "reverse",
+  "program": "print(string.reverse(\"jji\"))",
+  "reference": "ijj\n"
+ },
+ {
+  "id": "byte-0",
+  "template": "byte",
+  "program": "print(string.byte(\"ytxm\", 1))",
+  "reference": "121\n"
+ },
+ {
+  "id": "byte-1",
+  "template": "byte",
+  "program": "print(string.byte(\"rclp\", 4))",
+  "reference": "112\n"
+ },
+ {
+  "id": "byte-2",
+  "template": "byte",
+  "program": "print(string.byte(\"drqdw\", 5))",
+  "reference": "119\n"
+ },
+ {
+  "id": "byte-3",
+  "template": "byte",
+  "program": "print(string.byte(\"wczev\", 3))",
+  "reference": "122\n"
+ },
+ {
+  "id": "byte-4",
+  "template": "byte",
+  "program": "print(string.byte(\"ujkosj\", 1))",
+  "reference": "117\n"
+ },
+ {
+  "id": "byte-5",
+  "template": "byte",
+  "program": "print(string.byte(\"zxza\", 1))",
+  "reference": "122\n"
+ },
+ {
+  "id": "byte-6",
+  "template": "byte",
+  "program": "print(string.byte(\"plxvc\", 3))",
+  "reference": "120\n"
+ },
+ {
+  "id": "byte-7",
+  "template": "byte",
+  "program": "print(string.byte(\"cmr\", 2))",
+  "reference": "109\n"
+ },
+ {
+  "id": "byte-8",
+  "template": "byte",
+  "program": "print(string.byte(\"iponwl\", 6))",
+  "reference": "108\n"
+ },
+ {
+  "id": "byte-9",
+  "template": "byte",
+  "program": "print(string.byte(\"mfspep\", 5))",
+  "reference": "101\n"
+ },
+ {
+  "id": "byte-10",
+  "template": "byte",
+  "program": "print(string.byte(\"yzp\", 1))",
+  "reference": "121\n"
+ },
+ {
+  "id": "byte-11",
+  "template": "byte",
+  "program": "print(string.byte(\"cyqon\", 2))",
+  "reference": "121\n"
+ },
+ {
+  "id": "byte-12",
+  "template": "byte",
+  "program": "print(string.byte(\"tmr\", 3))",
+  "reference": "114\n"
+ },
+ {
+  "id": "byte-13",
+  "template": "byte",
+  "program": "print(string.byte(\"oawghy\", 1))",
+  "reference": "111\n"
+ },
+ {
+  "id": "byte-14",
+  "template": "byte",
+  "program": "print(string.byte(\"mpre\", 1))",
+  "reference": "109\n"
+ },
+ {
+  "id": "byte-15",
+  "template": "byte",
+  "program": "print(string.byte(\"xgvi\", 4))",
+  "reference": "105\n"
+ },
+ {
+  "id": "byte-16",
+  "template": "byte",
+  "program": "print(string.byte(\"nfs\", 1))",
+  "reference": "110\n"
+ },
+ {
+  "id": "byte-17",
+  "template": "byte",
+  "program": "print(string.byte(\"wvz\", 2))",
+  "reference": "118\n"
+ },
+ {
+  "id": "byte-18",
+  "template": "byte",
+  "program": "print(string.byte(\"pxgoe\", 3))",
+  "reference": "103\n"
+ },
+ {
+  "id": "byte-19",
+  "template": "byte",
+  "program": "print(string.byte(\"sbygdt\", 3))",
+  "reference": "121\n"
+ },
+ {
+  "id": "char-0",
+  "template": "char",
+  "program": "print(string.char(119, 114, 99))",
+  "reference": "wrc\n"
+ },
+ {
+  "id": "char-1",
+  "template": "char",
+  "program": "print(string.char(117, 114))",
+  "reference": "ur\n"
+ },
+ {
+  "id": "char-2",
+  "template": "char",
+  "program": "print(string.char(121, 101))",
+  "reference": "ye\n"
+ },
+ {
+  "id": "char-3",
+  "template": "char",
+  "program": "print(string.char(98, 107, 112, 106))",
+  "reference": "bkpj\n"
+ },
+ {
+  "id": "char-4",
+  "template": "char",
+  "program": "print(string.char(121, 105, 122))",
+  "reference": "yiz\n"
+ },
+ {
+  "id": "char-5",
+  "template": "char",
+  "program": "print(string.char(102, 116, 118, 122))",
+  "reference": "ftvz\n"
+ },
+ {
+  "id": "char-6",
+  "template": "char",
+  "program": "print(string.char(110, 107, 109, 112))",
+  "reference": "nkmp\n"
+ },
+ {
+  "id": "char-7",
+  "template": "char",
+  "program": "print(string.char(118, 99, 105))",
+  "reference": "vci\n"
+ },
+ {
+  "id": "char-8",
+  "template": "char",
+  "program": "print(string.char(100, 101))",
+  "reference": "de\n"
+ },
+ {
+  "id": "char-9",
+  "template": "char",
+  "program": "print(string.char(120, 116, 101, 112))",
+  "reference": "xtep\n"
+ },
+ {
+  "id": "char-10",
+  "template": "char",
+  "program": "print(string.char(100, 102, 97))",
+  "reference": "dfa\n"
+ },
+ {
+  "id": "char-11",
+  "template": "char",
+  "program": "print(string.char(115, 111, 120))",
+  "reference": "sox\n"
+ },
+ {
+  "id": "char-12",
+  "template": "char",
+  "program": "print(string.char(105, 121))",
+  "reference": "iy\n"
+ },
+ {
+  "id": "char-13",
+  "template": "char",
+  "program": "print(string.char(112, 112))",
+  "reference": "pp\n"
+ },
+ {
+  "id": "char-14",
+  "template": "char",
+  "program": "print(string.char(114, 97))",
+  "reference": "ra\n"
+ },
+ {
+  "id": "char-15",
+  "template": "char",
+  "program": "print(string.char(100, 108))",
+  "reference": "dl\n"
+ },
+ {
+  "id": "char-16",
+  "template": "char",
+  "program": "print(string.char(114, 114))",
+  "reference": "rr\n"
+ },
+ {
+  "id": "char-17",
+  "template": "char",
+  "program": "print(string.char(118, 112, 100, 104))",
+  "reference": "vpdh\n"
+ },
+ {
+  "id": "char-18",
+  "template": "char",
+  "program": "print(string.char(98, 112, 114, 121))",
+  "reference": "bpry\n"
+ },
+ {
+  "id": "char-19",
+  "template": "char",
+  "program": "print(string.char(122, 99, 108))",
+  "reference": "zcl\n"
+ },
+ {
+  "id": "floorceil-0",
+  "template": "floorceil",
+  "program": "print(math.ceil(-8.2))",
+  "reference": "-8\n"
+ },
+ {
+  "id": "floorceil-1",
+  "template": "floorceil",
+  "program": "print(math.ceil(8.7))",
+  "reference": "9\n"
+ },
+ {
+  "id": "floorceil-2",
+  "template": "floorceil",
+  "program": "print(math.ceil(-5.3))",
+  "reference": "-5\n"
+ },
+ {
+  "id": "floorceil-3",
+  "template": "floorceil",
+  "program": "print(math.floor(-4.6))",
+  "reference": "-5\n"
+ },
+ {
+  "id": "floorceil-4",
+  "template": "floorceil",
+  "program": "print(math.ceil(-7.4))",
+  "reference": "-7\n"
+ },
+ {
+  "id": "floorceil-5",
+  "template": "floorceil",
+  "program": "print(math.floor(-7.6))",
+  "reference": "-8\n"
+ },
+ {
+  "id": "floorceil-6",
+  "template": "floorceil",
+  "program": "print(math.ceil(-3.7))",
+  "reference": "-3\n"
+ },
+ {
+  "id": "floorceil-7",
+  "template": "floorceil",
+  "program": "print(math.floor(0.2))",
+  "reference": "0\n"
+ },
+ {
+  "id": "floorceil-8",
+  "template": "floorceil",
+  "program": "print(math.ceil(-0.0))",
+  "reference": "-0\n"
+ },
+ {
+  "id": "floorceil-9",
+  "template": "floorceil",
+  "program": "print(math.floor(-8.1))",
+  "reference": "-9\n"
+ },
+ {
+  "id": "floorceil-10",
+  "template": "floorceil",
+  "program": "print(math.floor(-3.3))",
+  "reference": "-4\n"
+ },
+ {
+  "id": "floorceil-11",
+  "template": "floorceil",
+  "program": "print(math.floor(-9.0))",
+  "reference": "-9\n"
+ },
+ {
+  "id": "floorceil-12",
+  "template": "floorceil",
+  "program": "print(math.floor(1.5))",
+  "reference": "1\n"
+ },
+ {
+  "id": "floorceil-13",
+  "template": "floorceil",
+  "program": "print(math.floor(5.7))",
+  "reference": "5\n"
+ },
+ {
+  "id": "floorceil-14",
+  "template": "floorceil",
+  "program": "print(math.floor(-2.6))",
+  "reference": "-3\n"
+ },
+ {
+  "id": "floorceil-15",
+  "template": "floorceil",
+  "program": "print(math.ceil(4.4))",
+  "reference": "5\n"
+ },
+ {
+  "id": "floorceil-16",
+  "template": "floorceil",
+  "program": "print(math.floor(7.9))",
+  "reference": "7\n"
+ },
+ {
+  "id": "floorceil-17",
+  "template": "floorceil",
+  "program": "print(math.floor(-1.6))",
+  "reference": "-2\n"
+ },
+ {
+  "id": "floorceil-18",
+  "template": "floorceil",
+  "program": "print(math.floor(-2.1))",
+  "reference": "-3\n"
+ },
+ {
+  "id": "floorceil-19",
+  "template": "floorceil",
+  "program": "print(math.ceil(8.9))",
+  "reference": "9\n"
+ },
+ {
+  "id": "abs-0",
+  "template": "abs",
+  "program": "print(math.abs(0.2))",
+  "reference": "0.2\n"
+ },
+ {
+  "id": "abs-1",
+  "template": "abs",
+  "program": "print(math.abs(-7.2))",
+  "reference": "7.2\n"
+ },
+ {
+  "id": "abs-2",
+  "template": "abs",
+  "program": "print(math.abs(0.1))",
+  "reference": "0.1\n"
+ },
+ {
+  "id": "abs-3",
+  "template": "abs",
+  "program": "print(math.abs(4.8))",
+  "reference": "4.8\n"
+ },
+ {
+  "id": "abs-4",
+  "template": "abs",
+  "program": "print(math.abs(-7.6))",
+  "reference": "7.6\n"
+ },
+ {
+  "id": "abs-5",
+  "template": "abs",
+  "program": "print(math.abs(4.9))",
+  "reference": "4.9\n"
+ },
+ {
+  "id": "abs-6",
+  "template": "abs",
+  "program": "print(math.abs(-7.9))",
+  "reference": "7.9\n"
+ },
+ {
+  "id": "abs-7",
+  "template": "abs",
+  "program": "print(math.abs(-6.7))",
+  "reference": "6.7\n"
+ },
+ {
+  "id": "abs-8",
+  "template": "abs",
+  "program": "print(math.abs(9.5))",
+  "reference": "9.5\n"
+ },
+ {
+  "id": "abs-9",
+  "template": "abs",
+  "program": "print(math.abs(-1.6))",
+  "reference": "1.6\n"
+ },
+ {
+  "id": "abs-10",
+  "template": "abs",
+  "program": "print(math.abs(2.5))",
+  "reference": "2.5\n"
+ },
+ {
+  "id": "abs-11",
+  "template": "abs",
+  "program": "print(math.abs(3.4))",
+  "reference": "3.4\n"
+ },
+ {
+  "id": "abs-12",
+  "template": "abs",
+  "program": "print(math.abs(-8.3))",
+  "reference": "8.3\n"
+ },
+ {
+  "id": "abs-13",
+  "template": "abs",
+  "program": "print(math.abs(7.2))",
+  "reference": "7.2\n"
+ },
+ {
+  "id": "abs-14",
+  "template": "abs",
+  "program": "print(math.abs(9.5))",
+  "reference": "9.5\n"
+ },
+ {
+  "id": "abs-15",
+  "template": "abs",
+  "program": "print(math.abs(6.6))",
+  "reference": "6.6\n"
+ },
+ {
+  "id": "abs-16",
+  "template": "abs",
+  "program": "print(math.abs(-9.4))",
+  "reference": "9.4\n"
+ },
+ {
+  "id": "abs-17",
+  "template": "abs",
+  "program": "print(math.abs(1.4))",
+  "reference": "1.4\n"
+ },
+ {
+  "id": "abs-18",
+  "template": "abs",
+  "program": "print(math.abs(4.1))",
+  "reference": "4.1\n"
+ },
+ {
+  "id": "abs-19",
+  "template": "abs",
+  "program": "print(math.abs(-8.2))",
+  "reference": "8.2\n"
+ },
+ {
+  "id": "maxmin-0",
+  "template": "maxmin",
+  "program": "print(math.max(82, -4, 45))",
+  "reference": "82\n"
+ },
+ {
+  "id": "maxmin-1",
+  "template": "maxmin",
+  "program": "print(math.max(23, 30, 71))",
+  "reference": "71\n"
+ },
+ {
+  "id": "maxmin-2",
+  "template": "maxmin",
+  "program": "print(math.max(61, 4, 45))",
+  "reference": "61\n"
+ },
+ {
+  "id": "maxmin-3",
+  "template": "maxmin",
+  "program": "print(math.min(58, 70, 62))",
+  "reference": "58\n"
+ },
+ {
+  "id": "maxmin-4",
+  "template": "maxmin",
+  "program": "print(math.max(55, 76, 59))",
+  "reference": "76\n"
+ },
+ {
+  "id": "maxmin-5",
+  "template": "maxmin",
+  "program": "print(math.max(24, 44, 90))",
+  "reference": "90\n"
+ },
+ {
+  "id": "maxmin-6",
+  "template": "maxmin",
+  "program": "print(math.min(14, 38, 85))",
+  "reference": "14\n"
+ },
+ {
+  "id": "maxmin-7",
+  "template": "maxmin",
+  "program": "print(math.min(0, 49, -6))",
+  "reference": "-6\n"
+ },
+ {
+  "id": "maxmin-8",
+  "template": "maxmin",
+  "program": "print(math.min(98, 8, 34))",
+  "reference": "8\n"
+ },
+ {
+  "id": "maxmin-9",
+  "template": "maxmin",
+  "program": "print(math.max(14, 68, 27))",
+  "reference": "68\n"
+ },
+ {
+  "id": "maxmin-10",
+  "template": "maxmin",
+  "program": "print(math.max(40, -7, 22))",
+  "reference": "40\n"
+ },
+ {
+  "id": "maxmin-11",
+  "template": "maxmin",
+  "program": "print(math.max(44, 16, 49))",
+  "reference": "49\n"
+ },
+ {
+  "id": "maxmin-12",
+  "template": "maxmin",
+  "program": "print(math.min(62, 33, 68))",
+  "reference": "33\n"
+ },
+ {
+  "id": "maxmin-13",
+  "template": "maxmin",
+  "program": "print(math.min(2, 65, 11))",
+  "reference": "2\n"
+ },
+ {
+  "id": "maxmin-14",
+  "template": "maxmin",
+  "program": "print(math.min(84, 41, 89))",
+  "reference": "41\n"
+ },
+ {
+  "id": "maxmin-15",
+  "template": "maxmin",
+  "program": "print(math.min(95, 20, 96))",
+  "reference": "20\n"
+ },
+ {
+  "id": "maxmin-16",
+  "template": "maxmin",
+  "program": "print(math.min(68, 77, 79))",
+  "reference": "68\n"
+ },
+ {
+  "id": "maxmin-17",
+  "template": "maxmin",
+  "program": "print(math.max(26, 97, 46))",
+  "reference": "97\n"
+ },
+ {
+  "id": "maxmin-18",
+  "template": "maxmin",
+  "program": "print(math.min(56, 61, 26))",
+  "reference": "26\n"
+ },
+ {
+  "id": "maxmin-19",
+  "template": "maxmin",
+  "program": "print(math.max(17, 9, 28))",
+  "reference": "28\n"
+ },
+ {
+  "id": "sqrt-0",
+  "template": "sqrt",
+  "program": "print(math.sqrt(49))",
+  "reference": "7\n"
+ },
+ {
+  "id": "sqrt-1",
+  "template": "sqrt",
+  "program": "print(math.sqrt(25))",
+  "reference": "5\n"
+ },
+ {
+  "id": "sqrt-2",
+  "template": "sqrt",
+  "program": "print(math.sqrt(81))",
+  "reference": "9\n"
+ },
+ {
+  "id": "sqrt-3",
+  "template": "sqrt",
+  "program": "print(math.sqrt(4))",
+  "reference": "2\n"
+ },
+ {
+  "id": "sqrt-4",
+  "template": "sqrt",
+  "program": "print(math.sqrt(5))",
+  "reference": "2.2360679774998\n"
+ },
+ {
+  "id": "sqrt-5",
+  "template": "sqrt",
+  "program": "print(math.sqrt(1))",
+  "reference": "1\n"
+ },
+ {
+  "id": "sqrt-6",
+  "template": "sqrt",
+  "program": "print(math.sqrt(2))",
+  "reference": "1.4142135623731\n"
+ },
+ {
+  "id": "sqrt-7",
+  "template": "sqrt",
+  "program": "print(math.sqrt(3))",
+  "reference": "1.7320508075689\n"
+ },
+ {
+  "id": "sqrt-8",
+  "template": "sqrt",
+  "program": "print(math.sqrt(8))",
+  "reference": "2.8284271247462\n"
+ },
+ {
+  "id": "sqrt-9",
+  "template": "sqrt",
+  "program": "print(math.sqrt(1))",
+  "reference": "1\n"
+ },
+ {
+  "id": "sqrt-10",
+  "template": "sqrt",
+  "program": "print(math.sqrt(9))",
+  "reference": "3\n"
+ },
+ {
+  "id": "sqrt-11",
+  "template": "sqrt",
+  "program": "print(math.sqrt(1))",
+  "reference": "1\n"
+ },
+ {
+  "id": "sqrt-12",
+  "template": "sqrt",
+  "program": "print(math.sqrt(1))",
+  "reference": "1\n"
+ },
+ {
+  "id": "sqrt-13",
+  "template": "sqrt",
+  "program": "print(math.sqrt(9))",
+  "reference": "3\n"
+ },
+ {
+  "id": "sqrt-14",
+  "template": "sqrt",
+  "program": "print(math.sqrt(64))",
+  "reference": "8\n"
+ },
+ {
+  "id": "sqrt-15",
+  "template": "sqrt",
+  "program": "print(math.sqrt(64))",
+  "reference": "8\n"
+ },
+ {
+  "id": "sqrt-16",
+  "template": "sqrt",
+  "program": "print(math.sqrt(81))",
+  "reference": "9\n"
+ },
+ {
+  "id": "sqrt-17",
+  "template": "sqrt",
+  "program": "print(math.sqrt(16))",
+  "reference": "4\n"
+ },
+ {
+  "id": "sqrt-18",
+  "template": "sqrt",
+  "program": "print(math.sqrt(2))",
+  "reference": "1.4142135623731\n"
+ },
+ {
+  "id": "sqrt-19",
+  "template": "sqrt",
+  "program": "print(math.sqrt(16))",
+  "reference": "4\n"
+ },
+ {
+  "id": "fmod-0",
+  "template": "fmod",
+  "program": "print(math.fmod(5, 5))",
+  "reference": "0\n"
+ },
+ {
+  "id": "fmod-1",
+  "template": "fmod",
+  "program": "print(math.fmod(-1, 5))",
+  "reference": "-1\n"
+ },
+ {
+  "id": "fmod-2",
+  "template": "fmod",
+  "program": "print(math.fmod(12, 5))",
+  "reference": "2\n"
+ },
+ {
+  "id": "fmod-3",
+  "template": "fmod",
+  "program": "print(math.fmod(-5, 4))",
+  "reference": "-1\n"
+ },
+ {
+  "id": "fmod-4",
+  "template": "fmod",
+  "program": "print(math.fmod(-16, 4))",
+  "reference": "-0\n"
+ },
+ {
+  "id": "fmod-5",
+  "template": "fmod",
+  "program": "print(math.fmod(-10, 7))",
+  "reference": "-3\n"
+ },
+ {
+  "id": "fmod-6",
+  "template": "fmod",
+  "program": "print(math.fmod(-5, 7))",
+  "reference": "-5\n"
+ },
+ {
+  "id": "fmod-7",
+  "template": "fmod",
+  "program": "print(math.fmod(3, 5))",
+  "reference": "3\n"
+ },
+ {
+  "id": "fmod-8",
+  "template": "fmod",
+  "program": "print(math.fmod(-15, 5))",
+  "reference": "-0\n"
+ },
+ {
+  "id": "fmod-9",
+  "template": "fmod",
+  "program": "print(math.fmod(17, 5))",
+  "reference": "2\n"
+ },
+ {
+  "id": "fmod-10",
+  "template": "fmod",
+  "program": "print(math.fmod(10, 7))",
+  "reference": "3\n"
+ },
+ {
+  "id": "fmod-11",
+  "template": "fmod",
+  "program": "print(math.fmod(-16, 5))",
+  "reference": "-1\n"
+ },
+ {
+  "id": "fmod-12",
+  "template": "fmod",
+  "program": "print(math.fmod(-7, 5))",
+  "reference": "-2\n"
+ },
+ {
+  "id": "fmod-13",
+  "template": "fmod",
+  "program": "print(math.fmod(9, 5))",
+  "reference": "4\n"
+ },
+ {
+  "id": "fmod-14",
+  "template": "fmod",
+  "program": "print(math.fmod(-18, 4))",
+  "reference": "-2\n"
+ },
+ {
+  "id": "fmod-15",
+  "template": "fmod",
+  "program": "print(math.fmod(-9, 5))",
+  "reference": "-4\n"
+ },
+ {
+  "id": "fmod-16",
+  "template": "fmod",
+  "program": "print(math.fmod(-14, 5))",
+  "reference": "-4\n"
+ },
+ {
+  "id": "fmod-17",
+  "template": "fmod",
+  "program": "print(math.fmod(-13, 7))",
+  "reference": "-6\n"
+ },
+ {
+  "id": "fmod-18",
+  "template": "fmod",
+  "program": "print(math.fmod(-6, 4))",
+  "reference": "-2\n"
+ },
+ {
+  "id": "fmod-19",
+  "template": "fmod",
+  "program": "print(math.fmod(-3, 5))",
+  "reference": "-3\n"
+ },
+ {
+  "id": "concat-0",
+  "template": "concat",
+  "program": "print(table.concat({\"ukq\", \"jro\", \"nar\"}, \"\"))",
+  "reference": "ukqjronar\n"
+ },
+ {
+  "id": "concat-1",
+  "template": "concat",
+  "program": "print(table.concat({\"kme\", \"xtu\", \"uhvp\"}, \",\"))",
+  "reference": "kme,xtu,uhvp\n"
+ },
+ {
+  "id": "concat-2",
+  "template": "concat",
+  "program": "print(table.concat({\"zda\", \"qiby\", \"b\"}, \",\"))",
+  "reference": "zda,qiby,b\n"
+ },
+ {
+  "id": "concat-3",
+  "template": "concat",
+  "program": "print(table.concat({\"k\", \"qy\", \"imd\"}, \":\"))",
+  "reference": "k:qy:imd\n"
+ },
+ {
+  "id": "concat-4",
+  "template": "concat",
+  "program": "print(table.concat({\"a\", \"jk\", \"qxss\"}, \":\"))",
+  "reference": "a:jk:qxss\n"
+ },
+ {
+  "id": "concat-5",
+  "template": "concat",
+  "program": "print(table.concat({\"pavo\", \"xgay\", \"sw\"}, \":\"))",
+  "reference": "pavo:xgay:sw\n"
+ },
+ {
+  "id": "concat-6",
+  "template": "concat",
+  "program": "print(table.concat({\"wsht\", \"hgcz\", \"etpq\"}, \"\"))",
+  "reference": "wshthgczetpq\n"
+ },
+ {
+  "id": "concat-7",
+  "template": "concat",
+  "program": "print(table.concat({\"aro\", \"xdl\", \"ztj\"}, \":\"))",
+  "reference": "aro:xdl:ztj\n"
+ },
+ {
+  "id": "concat-8",
+  "template": "concat",
+  "program": "print(table.concat({\"t\", \"kwv\", \"rwi\"}, \",\"))",
+  "reference": "t,kwv,rwi\n"
+ },
+ {
+  "id": "concat-9",
+  "template": "concat",
+  "program": "print(table.concat({\"odp\", \"g\", \"qoqx\"}, \",\"))",
+  "reference": "odp,g,qoqx\n"
+ },
+ {
+  "id": "concat-10",
+  "template": "concat",
+  "program": "print(table.concat({\"lra\", \"uj\", \"qvb\"}, \"-\"))",
+  "reference": "lra-uj-qvb\n"
+ },
+ {
+  "id": "concat-11",
+  "template": "concat",
+  "program": "print(table.concat({\"r\", \"ruc\", \"qb\"}, \",\"))",
+  "reference": "r,ruc,qb\n"
+ },
+ {
+  "id": "concat-12",
+  "template": "concat",
+  "program": "print(table.concat({\"ti\", \"wyky\", \"rbyz\"}, \":\"))",
+  "reference": "ti:wyky:rbyz\n"
+ },
+ {
+  "id": "concat-13",
+  "template": "concat",
+  "program": "print(table.concat({\"azzs\", \"snah\", \"u\"}, \"\"))",
+  "reference": "azzssnahu\n"
+ },
+ {
+  "id": "concat-14",
+  "template": "concat",
+  "program": "print(table.concat({\"tgw\", \"l\", \"rlu\"}, \"\"))",
+  "reference": "tgwlrlu\n"
+ },
+ {
+  "id": "concat-15",
+  "template": "concat",
+  "program": "print(table.concat({\"sgry\", \"xxh\", \"kc\"}, \"\"))",
+  "reference": "sgryxxhkc\n"
+ },
+ {
+  "id": "concat-16",
+  "template": "concat",
+  "program": "print(table.concat({\"zfi\", \"vnd\", \"th\"}, \",\"))",
+  "reference": "zfi,vnd,th\n"
+ },
+ {
+  "id": "concat-17",
+  "template": "concat",
+  "program": "print(table.concat({\"tq\", \"mpfi\", \"jjjo\"}, \",\"))",
+  "reference": "tq,mpfi,jjjo\n"
+ },
+ {
+  "id": "concat-18",
+  "template": "concat",
+  "program": "print(table.concat({\"lgbq\", \"x\", \"i\"}, \",\"))",
+  "reference": "lgbq,x,i\n"
+ },
+ {
+  "id": "concat-19",
+  "template": "concat",
+  "program": "print(table.concat({\"n\", \"fwtm\", \"qumw\"}, \"\"))",
+  "reference": "nfwtmqumw\n"
+ },
+ {
+  "id": "sort-0",
+  "template": "sort",
+  "program": "local t = {79, 97, 82, 58, 61}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "58,61,79,82,97\n"
+ },
+ {
+  "id": "sort-1",
+  "template": "sort",
+  "program": "local t = {73, 64, 83, 10, 75}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "10,64,73,75,83\n"
+ },
+ {
+  "id": "sort-2",
+  "template": "sort",
+  "program": "local t = {47, 84, 12}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "12,47,84\n"
+ },
+ {
+  "id": "sort-3",
+  "template": "sort",
+  "program": "local t = {49, 9, 19, 60}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "9,19,49,60\n"
+ },
+ {
+  "id": "sort-4",
+  "template": "sort",
+  "program": "local t = {97, 40, 42}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "40,42,97\n"
+ },
+ {
+  "id": "sort-5",
+  "template": "sort",
+  "program": "local t = {98, 41, 89, 6, 13}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "6,13,41,89,98\n"
+ },
+ {
+  "id": "sort-6",
+  "template": "sort",
+  "program": "local t = {22, 0, 3, 84}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "0,3,22,84\n"
+ },
+ {
+  "id": "sort-7",
+  "template": "sort",
+  "program": "local t = {2, 44, 26}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "2,26,44\n"
+ },
+ {
+  "id": "sort-8",
+  "template": "sort",
+  "program": "local t = {69, 26, 52, 97, 75}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "26,52,69,75,97\n"
+ },
+ {
+  "id": "sort-9",
+  "template": "sort",
+  "program": "local t = {13, 98, 81, 41}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "13,41,81,98\n"
+ },
+ {
+  "id": "sort-10",
+  "template": "sort",
+  "program": "local t = {39, 92, 24}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "24,39,92\n"
+ },
+ {
+  "id": "sort-11",
+  "template": "sort",
+  "program": "local t = {75, 82, 91, 53}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "53,75,82,91\n"
+ },
+ {
+  "id": "sort-12",
+  "template": "sort",
+  "program": "local t = {96, 91, 50, 58}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "50,58,91,96\n"
+ },
+ {
+  "id": "sort-13",
+  "template": "sort",
+  "program": "local t = {26, 71, 55, 20}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "20,26,55,71\n"
+ },
+ {
+  "id": "sort-14",
+  "template": "sort",
+  "program": "local t = {95, 20, 79, 18, 34}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "18,20,34,79,95\n"
+ },
+ {
+  "id": "sort-15",
+  "template": "sort",
+  "program": "local t = {64, 55, 2}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "2,55,64\n"
+ },
+ {
+  "id": "sort-16",
+  "template": "sort",
+  "program": "local t = {23, 68, 35, 90}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "23,35,68,90\n"
+ },
+ {
+  "id": "sort-17",
+  "template": "sort",
+  "program": "local t = {97, 36, 68}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "36,68,97\n"
+ },
+ {
+  "id": "sort-18",
+  "template": "sort",
+  "program": "local t = {92, 98, 93, 93}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "92,93,93,98\n"
+ },
+ {
+  "id": "sort-19",
+  "template": "sort",
+  "program": "local t = {36, 62, 25, 90, 81}\ntable.sort(t)\nprint(table.concat(t, \",\"))",
+  "reference": "25,36,62,81,90\n"
+ }
+]
