@@ -1,0 +1,20 @@
+[package]
+name = "matrix-steps-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the matrix-with-steps episodic/procedural memory from lesterppo/arxiv-lab (arXiv:2611.20230): delta-rule associative matrix finder plus ordered step records, write gate, deterministic consolidation, promotion/demotion rules, erasure by rebuild"
+license = "MIT"
+
+[lib]
+name = "matrix_steps_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "matrix-steps"
+path = "src/bin/matrix_steps.rs"
+
+[dependencies]
+# std only -- no external crates, so the build works offline.
+
+[profile.release]
+opt-level = 3
