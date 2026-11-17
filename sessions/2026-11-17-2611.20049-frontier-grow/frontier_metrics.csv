@@ -1,0 +1,2 @@
+arm,split,n,correct,acc,ci95_hw,notes
+base,fresh_exam,292,5,0.0171,0.0149,model=Qwen/Qwen3-8B
