@@ -1,0 +1,7 @@
+{
+  "exp2": {"no_memory_solved": 0.83, "self_judged_reported": 0.935, "self_judged_solved": 0.215, "verified_solved": 0.845, "ceiling": 0.845},
+  "exp3": {"found_200": 1, "next_200": 0.927645788336933, "found_500": 0.994, "next_500": 0.8769366976538291, "median_lookup_ms_200": 1.8277320000000001},
+  "exp5": {"revisit_first_attempt": 1},
+  "exp7": {"solved_without_rule": 0.76, "solved_with_rule": 0.97},
+  "exp8": {"identical_promoted": 0, "identical_naive": 84, "better_promoted": 118}
+}
