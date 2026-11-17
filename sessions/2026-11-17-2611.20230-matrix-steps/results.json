@@ -1,0 +1,151 @@
+{
+  "exp1": {
+    "verified_in_alice_scope": [
+      "e1",
+      "e4",
+      "e5"
+    ]
+  },
+  "exp2": {
+    "paper": {
+      "self_judged_stops": {
+        "reported_done": 0.96,
+        "solved": 0.35,
+        "attempts_per_task": 1.46,
+        "damaging": 110
+      },
+      "verified": {
+        "solved": 0.79,
+        "attempts_per_task": 3.25,
+        "damaging": 174
+      },
+      "no_memory": {
+        "solved": 0.78,
+        "attempts_per_task": 3.97,
+        "damaging": 246
+      },
+      "ceiling": 0.79
+    },
+    "measured": {
+      "no_memory": {
+        "reported_done": 0.83,
+        "solved": 0.83,
+        "attempts_per_task": 3.06,
+        "damaging": 318
+      },
+      "self_judged_stops": {
+        "reported_done": 0.935,
+        "solved": 0.215,
+        "attempts_per_task": 1.375,
+        "damaging": 144
+      },
+      "verified": {
+        "reported_done": 0.845,
+        "solved": 0.845,
+        "attempts_per_task": 2.14,
+        "damaging": 150
+      },
+      "ceiling": 0.845,
+      "n_tasks": 200,
+      "n_situations": 40
+    }
+  },
+  "exp3": {
+    "paper": {
+      "200": {
+        "found": 1.0,
+        "next_step": 0.997
+      },
+      "500": {
+        "found": 0.726,
+        "next_step": 0.952
+      }
+    },
+    "measured_200": {
+      "n_procedures": 200,
+      "n_associations": 1126,
+      "found_matrix": 1.0,
+      "found_exact": 1.0,
+      "next_step": 0.927645788336933,
+      "median_lookup_ms": 3.903234999995675
+    },
+    "measured_500": {
+      "n_procedures": 500,
+      "n_associations": 2759,
+      "found_matrix": 0.994,
+      "found_exact": 1.0,
+      "next_step": 0.8769366976538291,
+      "median_lookup_ms": 7.641360999969038
+    }
+  },
+  "exp4": {
+    "record": {
+      "steps": [
+        "deflate",
+        "lift tyre",
+        "fit tube"
+      ],
+      "fixed_args": {
+        "torque": 40
+      },
+      "varied_args": {},
+      "conditions": [
+        "dry"
+      ],
+      "failure_modes": {
+        "slipped": 2
+      },
+      "confidence": 0.625,
+      "n_episodes": 6,
+      "n_successes": 4,
+      "top_sequence_share": 1.0,
+      "episode_ids": [
+        "c0",
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ]
+    }
+  },
+  "exp5": {
+    "n_situations": 1000,
+    "n_tasks": 4000,
+    "solved_situations": 1000,
+    "revisit_first_attempt": 1.0,
+    "revisits": 3000,
+    "first_encounter_attempts": 2535
+  },
+  "exp6": {
+    "erased": 20,
+    "kept_found": 180,
+    "erased_not_returned": 20,
+    "max_erased_cosine": 0.24192958463903946,
+    "audit_entries": 20
+  },
+  "exp7": {
+    "n_tasks": 200,
+    "n_stations": 4,
+    "solved_without_rule": 0.76,
+    "solved_with_rule": 0.97,
+    "trips_without_rule": 44,
+    "trips_with_rule": 1,
+    "demotions": 1,
+    "first_trip_task": 0
+  },
+  "exp8": {
+    "identical": {
+      "n_windows": 200,
+      "window": 40,
+      "promoted": 0,
+      "naive_kept": 84
+    },
+    "better": {
+      "n_windows": 200,
+      "window": 40,
+      "promoted": 118,
+      "naive_kept": 200
+    }
+  }
+}
