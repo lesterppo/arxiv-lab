@@ -20,7 +20,20 @@ from arxiv_lab.memory.rawrag import (
     run_setting,
     window_chunks,
 )
+from arxiv_lab.memory.matrix_steps import (
+    DeltaMatrix,
+    EpisodicMemory,
+    Episode,
+    HashEmbedder,
+    ProcedureRecord,
+    Step,
+    consolidate_episodes,
+    fnv1a_64,
+    procedure_sign_vector,
+)
 
 __all__ = ["MemoryStore", "naive_store_intervention", "cmp_balanced_design",
            "auc", "ConversationWorld", "ProfileStore", "compare",
-           "run_setting", "window_chunks"]
+           "run_setting", "window_chunks", "DeltaMatrix", "EpisodicMemory",
+           "Episode", "HashEmbedder", "ProcedureRecord", "Step",
+           "consolidate_episodes", "fnv1a_64", "procedure_sign_vector"]
