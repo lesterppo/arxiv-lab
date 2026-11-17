@@ -1,0 +1,76 @@
+{
+  "paper": "2611.20049",
+  "title": "The Frontier Must Grow",
+  "variant": "Bounded 1-lineage, 2-round replication on Colab T4: frontier targets 150/450 cumulative (paper 300/900/2100); fresh exam 300 items / 15 templates (paper 2340/78); Qwen3-8B NF4 QLoRA (Qwen3.5-9B blocked on transformers pin).",
+  "models_tried": [
+    "Qwen/Qwen3.5-9B",
+    "Qwen/Qwen3-8B"
+  ],
+  "model_used": "Qwen/Qwen3-8B",
+  "fallback_used": true,
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "lr": 0.0001,
+    "epochs": 2,
+    "batch": 4
+  },
+  "rounds": {
+    "base": {
+      "correct": 5,
+      "n": 292,
+      "excluded": 0
+    },
+    "round1": {
+      "new_frontier": 150,
+      "proposed": 0,
+      "valid": 0,
+      "pool_cumulative": 150
+    }
+  },
+  "exam": {
+    "n": 300,
+    "templates": 15,
+    "per_template": 20
+  },
+  "sign_tests": {},
+  "phases": [
+    {
+      "phase": "exam",
+      "n": 292
+    },
+    {
+      "phase": "model_try",
+      "model": "Qwen/Qwen3.5-9B",
+      "ok": false,
+      "error": "The checkpoint you are trying to load has model type `qwen3_5` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.\n\nYou can update Transformers with the command `pip install --upgrade tr"
+    },
+    {
+      "phase": "model_load",
+      "model": "Qwen/Qwen3-8B"
+    },
+    {
+      "phase": "exam",
+      "n": 292
+    },
+    {
+      "phase": "model_try",
+      "model": "Qwen/Qwen3.5-9B",
+      "ok": false,
+      "error": "The checkpoint you are trying to load has model type `qwen3_5` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.\n\nYou can update Transformers with the command `pip install --upgrade tr"
+    },
+    {
+      "phase": "model_load",
+      "model": "Qwen/Qwen3-8B"
+    }
+  ],
+  "outcome": "RUNNING",
+  "resumed_from": {
+    "pool_records": 150,
+    "base": {
+      "correct": 5,
+      "n": 292,
+      "excluded": 0
+    }
+  }
+}
