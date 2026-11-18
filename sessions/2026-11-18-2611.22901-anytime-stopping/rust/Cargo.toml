@@ -1,0 +1,20 @@
+[package]
+name = "anytime-stopping-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the anytime-evaluation harness for coding-agent stopping rules from lesterppo/arxiv-lab (arXiv:2611.22901): calibrated synthetic trajectories, stop-after-same-patch-passes-twice rule, paired policy comparison, hindsight savings"
+license = "MIT"
+
+[lib]
+name = "anytime_stopping_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "anytime-stopping"
+path = "src/bin/anytime_stopping.rs"
+
+[dependencies]
+# std only -- no external crates, so the build works offline.
+
+[profile.release]
+opt-level = 3
