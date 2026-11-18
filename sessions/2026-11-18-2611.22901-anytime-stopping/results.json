@@ -1,0 +1,225 @@
+{
+  "budget": 30,
+  "double_pass_post_fire": {
+    "breaks_after_fire": 416,
+    "changed_after_fire": 3981,
+    "changed_after_fire_rate": 0.8434322033898305,
+    "n_fired": 4720,
+    "repairs_after_fire": 244
+  },
+  "hindsight_at_first_self_pass": {
+    "mean_saving_pct": 56.846930366707866,
+    "mean_saving_pct_all_runs": 18.395666666666667,
+    "n_true_first_pass": 3236
+  },
+  "n_runs": 10000,
+  "n_runs_per_seed": 2000,
+  "params": {
+    "budget": 30,
+    "p_break": 0.08,
+    "p_change_after_self_fail": 0.9,
+    "p_change_after_self_pass": 0.15,
+    "p_fix": 0.03,
+    "p_self_false_fail": 0.15,
+    "p_self_false_pass": 0.01,
+    "p_solvable": 0.65
+  },
+  "per_seed": [
+    {
+      "baseline_pass_rate": 0.31,
+      "double_pass_pass_rate": 0.329,
+      "double_pass_saving_pct": 26.320000000000004,
+      "oracle_saving_pct": 19.48833333333333,
+      "seed": 20261118
+    },
+    {
+      "baseline_pass_rate": 0.316,
+      "double_pass_pass_rate": 0.337,
+      "double_pass_saving_pct": 26.91833333333334,
+      "oracle_saving_pct": 20.373333333333328,
+      "seed": 7
+    },
+    {
+      "baseline_pass_rate": 0.2925,
+      "double_pass_pass_rate": 0.306,
+      "double_pass_saving_pct": 24.776666666666664,
+      "oracle_saving_pct": 18.411666666666665,
+      "seed": 123
+    },
+    {
+      "baseline_pass_rate": 0.311,
+      "double_pass_pass_rate": 0.3255,
+      "double_pass_saving_pct": 25.826666666666668,
+      "oracle_saving_pct": 19.85666666666667,
+      "seed": 2026
+    },
+    {
+      "baseline_pass_rate": 0.318,
+      "double_pass_pass_rate": 0.336,
+      "double_pass_saving_pct": 25.291666666666664,
+      "oracle_saving_pct": 20.611666666666665,
+      "seed": 99
+    }
+  ],
+  "policies": {
+    "baseline": {
+      "final_hidden_pass_rate": 0.3095,
+      "fire_rate": 0.0,
+      "mean_steps": 30.0,
+      "saving_pct": 0.0
+    },
+    "double_pass": {
+      "final_hidden_pass_rate": 0.3267,
+      "fire_rate": 0.472,
+      "mean_steps": 22.252,
+      "saving_pct": 25.826666666666668
+    },
+    "double_pass_cumulative": {
+      "final_hidden_pass_rate": 0.3267,
+      "fire_rate": 0.472,
+      "mean_steps": 22.252,
+      "saving_pct": 25.826666666666668
+    },
+    "first_self_pass": {
+      "final_hidden_pass_rate": 0.326,
+      "fire_rate": 0.5064,
+      "mean_steps": 21.2632,
+      "saving_pct": 29.12266666666666
+    },
+    "oracle": {
+      "final_hidden_pass_rate": 0.3608,
+      "fire_rate": 0.3517,
+      "mean_steps": 24.0755,
+      "saving_pct": 19.748333333333328
+    }
+  },
+  "quality_delta_double_pass_vs_baseline": {
+    "ci_95_pp": [
+      1.217596674915462,
+      2.222403325084538
+    ],
+    "delta_pp": 1.72,
+    "losses": 244,
+    "ties": 9340,
+    "wins": 416
+  },
+  "seeds": [
+    20261118,
+    7,
+    123,
+    2026,
+    99
+  ],
+  "sensitivity_sweep": [
+    {
+      "baseline_pass_rate": 0.3235,
+      "double_pass_pass_rate": 0.32525,
+      "double_pass_saving_pct": 27.1825,
+      "p_break": 0.05,
+      "p_change_after_self_pass": 0.1,
+      "p_fix": 0.03,
+      "p_self_false_pass": 0.01,
+      "quality_delta_pp": 0.17500000000000002
+    },
+    {
+      "baseline_pass_rate": 0.30775,
+      "double_pass_pass_rate": 0.3315,
+      "double_pass_saving_pct": 24.862499999999997,
+      "p_break": 0.05,
+      "p_change_after_self_pass": 0.25,
+      "p_fix": 0.03,
+      "p_self_false_pass": 0.01,
+      "quality_delta_pp": 2.375
+    },
+    {
+      "baseline_pass_rate": 0.272,
+      "double_pass_pass_rate": 0.328,
+      "double_pass_saving_pct": 22.240833333333327,
+      "p_break": 0.05,
+      "p_change_after_self_pass": 0.45,
+      "p_fix": 0.03,
+      "p_self_false_pass": 0.01,
+      "quality_delta_pp": 5.6000000000000005
+    },
+    {
+      "baseline_pass_rate": 0.3025,
+      "double_pass_pass_rate": 0.329,
+      "double_pass_saving_pct": 26.888333333333335,
+      "p_break": 0.12,
+      "p_change_after_self_pass": 0.1,
+      "p_fix": 0.03,
+      "p_self_false_pass": 0.01,
+      "quality_delta_pp": 2.65
+    },
+    {
+      "baseline_pass_rate": 0.24025,
+      "double_pass_pass_rate": 0.32375,
+      "double_pass_saving_pct": 24.654999999999998,
+      "p_break": 0.12,
+      "p_change_after_self_pass": 0.25,
+      "p_fix": 0.03,
+      "p_self_false_pass": 0.01,
+      "quality_delta_pp": 8.35
+    },
+    {
+      "baseline_pass_rate": 0.184,
+      "double_pass_pass_rate": 0.3085,
+      "double_pass_saving_pct": 21.195833333333333,
+      "p_break": 0.12,
+      "p_change_after_self_pass": 0.45,
+      "p_fix": 0.03,
+      "p_self_false_pass": 0.01,
+      "quality_delta_pp": 12.45
+    },
+    {
+      "baseline_pass_rate": 0.233,
+      "double_pass_pass_rate": 0.3185,
+      "double_pass_saving_pct": 26.163333333333334,
+      "p_break": 0.3,
+      "p_change_after_self_pass": 0.1,
+      "p_fix": 0.03,
+      "p_self_false_pass": 0.01,
+      "quality_delta_pp": 8.55
+    },
+    {
+      "baseline_pass_rate": 0.148,
+      "double_pass_pass_rate": 0.30125,
+      "double_pass_saving_pct": 23.60416666666667,
+      "p_break": 0.3,
+      "p_change_after_self_pass": 0.25,
+      "p_fix": 0.03,
+      "p_self_false_pass": 0.01,
+      "quality_delta_pp": 15.325
+    },
+    {
+      "baseline_pass_rate": 0.10575,
+      "double_pass_pass_rate": 0.27975,
+      "double_pass_saving_pct": 19.316666666666674,
+      "p_break": 0.3,
+      "p_change_after_self_pass": 0.45,
+      "p_fix": 0.03,
+      "p_self_false_pass": 0.01,
+      "quality_delta_pp": 17.4
+    },
+    {
+      "baseline_pass_rate": 0.272,
+      "double_pass_pass_rate": 0.26225,
+      "double_pass_saving_pct": 37.95000000000001,
+      "p_break": 0.08,
+      "p_change_after_self_pass": 0.15,
+      "p_fix": 0.03,
+      "p_self_false_pass": 0.03,
+      "quality_delta_pp": -0.975
+    },
+    {
+      "baseline_pass_rate": 0.2615,
+      "double_pass_pass_rate": 0.22825,
+      "double_pass_saving_pct": 47.24666666666666,
+      "p_break": 0.08,
+      "p_change_after_self_pass": 0.15,
+      "p_fix": 0.03,
+      "p_self_false_pass": 0.05,
+      "quality_delta_pp": -3.325
+    }
+  ]
+}
