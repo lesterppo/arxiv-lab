@@ -62,6 +62,25 @@ from arxiv_lab.agent.reshape import (
     space_metrics,
 )
 
+from arxiv_lab.agent.anytime_stopping import (
+    CALIBRATED,
+    POLICIES,
+    SplitMix64,
+    Step,
+    TrajectoryParams,
+    evaluate_all,
+    evaluate_policy,
+    generate_trajectory,
+    paired_quality_delta,
+    run_experiment as run_anytime_experiment,
+    sensitivity_sweep,
+    stop_double_pass,
+    stop_first_self_pass,
+    stop_oracle,
+    stop_run_to_budget,
+    trajectory_digest,
+)
+
 from arxiv_lab.agent.spec_agent import (
     SpecAgent,
     Step,
@@ -136,4 +155,21 @@ __all__ = [
     "revise_show",
     "run_experiment",
     "space_metrics",
+    # anytime_stopping (arXiv:2611.22901)
+    "CALIBRATED",
+    "POLICIES",
+    "SplitMix64",
+    "Step",
+    "TrajectoryParams",
+    "evaluate_all",
+    "evaluate_policy",
+    "generate_trajectory",
+    "paired_quality_delta",
+    "run_anytime_experiment",
+    "sensitivity_sweep",
+    "stop_double_pass",
+    "stop_first_self_pass",
+    "stop_oracle",
+    "stop_run_to_budget",
+    "trajectory_digest",
 ]
