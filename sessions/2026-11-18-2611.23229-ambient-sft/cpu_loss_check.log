@@ -1,0 +1,19 @@
+=== Ambient SFT loss limits (toy logits, n=512) ===
+T=1   : KL=0.096097  T^2*KL=0.096097  (identical: standard KD)
+Hinton T->inf limit of T^2*KL (logit-MSE const): 0.108542
+T=      2: KL=0.02666394  T^2*KL=0.106656  (ratio to limit: 0.9826)
+T=      4: KL=0.00675668  T^2*KL=0.108107  (ratio to limit: 0.9960)
+T=      8: KL=0.00169278  T^2*KL=0.108338  (ratio to limit: 0.9981)
+T=     16: KL=0.00042355  T^2*KL=0.108430  (ratio to limit: 0.9990)
+T=    100: KL=0.00001085  T^2*KL=0.108522  (ratio to limit: 0.9998)
+T=   1000: KL=0.00000011  T^2*KL=0.108540  (ratio to limit: 1.0000)
+ALL ASSERTIONS PASSED
+
+CONCLUSION: T=1 is exactly standard KD. Unscaled KL -> 0 as T -> inf,
+but the T^2-scaled term used in the loss converges to a nonzero
+logit-matching constant (0.1085 here), NOT to 0. The abstract's
+'T -> inf reverts to SFT' holds for the unscaled KL term; with the
+T^2 factor the limit is logit matching. Colab driver therefore
+treats T as trust-in-teacher (small T = strong KD, large T = weak
+regularisation toward the frozen base) and reports per-arm results
+rather than assuming the T -> inf limit equals plain SFT.
