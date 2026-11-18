@@ -1,0 +1,3 @@
+arm,temperature,lambda,train_steps,final_train_loss,mean_sft_loss,mean_kl_term,peak_vram_gb,train_seconds,accuracy,n_correct,n_test,parse_fail,eval_seconds
+base,,,,,,,,,0.535,107,200,0,3591.3
+sft,0.0,1.0,38,0.5353551842272282,0.5253264531493187,0.0,10.16,3640.0,0.805,161,200,0,2449.2
