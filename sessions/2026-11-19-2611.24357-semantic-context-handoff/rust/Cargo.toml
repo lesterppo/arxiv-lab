@@ -1,0 +1,20 @@
+[package]
+name = "semantic-context-handoff-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the semantic context handoff mechanism from lesterppo/arxiv-lab (arXiv:2611.24357): calibrated synthetic long-horizon tasks, full/summary/SCH/oracle context policies, evidence recovery with recall and false positives"
+license = "MIT"
+
+[lib]
+name = "semantic_context_handoff_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "semantic-context-handoff"
+path = "src/bin/semantic_context_handoff.rs"
+
+[dependencies]
+# std only -- no external crates, so the build works offline.
+
+[profile.release]
+opt-level = 3
