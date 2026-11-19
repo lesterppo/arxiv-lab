@@ -1,0 +1,148 @@
+{
+  "paper": "2611.23716",
+  "model_id": "Qwen/Qwen3.5-9B-Base",
+  "loader": "imagetext",
+  "transformers": "5.20.2",
+  "torch": "2.14.1+cu130",
+  "gpu": "Tesla T4",
+  "n_train_a": 32,
+  "n_train_b": 32,
+  "n_test": 32,
+  "lr": 0.0002,
+  "seed": 42,
+  "arms": [
+    {
+      "arm": "base",
+      "accuracy": 0.0,
+      "n_correct": 0,
+      "n_test": 32,
+      "night": 0,
+      "n_lessons": "",
+      "n_failures": "",
+      "failure_share": "",
+      "trap_rate": "",
+      "train_steps": "",
+      "train_loss": "",
+      "peak_vram_gb": "",
+      "train_seconds": ""
+    },
+    {
+      "arm": "self-n0",
+      "accuracy": 0.0,
+      "n_correct": 0,
+      "n_test": 32,
+      "train_steps": 2,
+      "train_loss": NaN,
+      "peak_vram_gb": 9.69,
+      "train_seconds": 89.4,
+      "night": 0,
+      "n_lessons": 13,
+      "n_failures": 0,
+      "failure_share": 0.0,
+      "trap_rate": 0.0
+    },
+    {
+      "arm": "discern-n0",
+      "accuracy": 0.0,
+      "n_correct": 0,
+      "n_test": 32,
+      "train_steps": 2,
+      "train_loss": NaN,
+      "peak_vram_gb": 9.69,
+      "train_seconds": 68.7,
+      "night": 0,
+      "n_lessons": 10,
+      "n_failures": 0,
+      "failure_share": 0.0,
+      "trap_rate": 0.0
+    },
+    {
+      "arm": "oracle-n0",
+      "accuracy": 0.0,
+      "n_correct": 0,
+      "n_test": 32,
+      "train_steps": 2,
+      "train_loss": NaN,
+      "peak_vram_gb": 9.69,
+      "train_seconds": 103.0,
+      "night": 0,
+      "n_lessons": 15,
+      "n_failures": 0,
+      "failure_share": 0.0,
+      "trap_rate": 0.0
+    },
+    {
+      "arm": "self-n1",
+      "accuracy": 0.0,
+      "n_correct": 0,
+      "n_test": 32,
+      "train_steps": 4,
+      "train_loss": NaN,
+      "peak_vram_gb": 9.7,
+      "train_seconds": 172.3,
+      "night": 1,
+      "n_lessons": 12,
+      "n_failures": 0,
+      "failure_share": 0.0,
+      "trap_rate": 0.0
+    },
+    {
+      "arm": "discern-n1",
+      "accuracy": 0.0,
+      "n_correct": 0,
+      "n_test": 32,
+      "train_steps": 2,
+      "train_loss": NaN,
+      "peak_vram_gb": 9.7,
+      "train_seconds": 89.7,
+      "night": 1,
+      "n_lessons": 3,
+      "n_failures": 0,
+      "failure_share": 0.0,
+      "trap_rate": 0.0
+    },
+    {
+      "arm": "oracle-n1",
+      "accuracy": 0.0,
+      "n_correct": 0,
+      "n_test": 32,
+      "train_steps": 4,
+      "train_loss": NaN,
+      "peak_vram_gb": 9.7,
+      "train_seconds": 178.9,
+      "night": 1,
+      "n_lessons": 11,
+      "n_failures": 0,
+      "failure_share": 0.0,
+      "trap_rate": 0.14285714285714285
+    }
+  ],
+  "spearman_n": 6,
+  "spearman_rho": null,
+  "spearman_points": [
+    {
+      "failure_share": 0.0,
+      "acc_change": 0.0
+    },
+    {
+      "failure_share": 0.0,
+      "acc_change": 0.0
+    },
+    {
+      "failure_share": 0.0,
+      "acc_change": 0.0
+    },
+    {
+      "failure_share": 0.0,
+      "acc_change": 0.0
+    },
+    {
+      "failure_share": 0.0,
+      "acc_change": 0.0
+    },
+    {
+      "failure_share": 0.0,
+      "acc_change": 0.0
+    }
+  ]
+}
