@@ -1,0 +1,8 @@
+arm,night,n_lessons,n_failures,failure_share,trap_rate,train_steps,train_loss,peak_vram_gb,train_seconds,accuracy,n_correct,n_test
+base,0,,,,,,,,,0.0,0,32
+self-n0,0,13,0,0.0,0.0,2,nan,9.69,89.4,0.0,0,32
+discern-n0,0,10,0,0.0,0.0,2,nan,9.69,68.7,0.0,0,32
+oracle-n0,0,15,0,0.0,0.0,2,nan,9.69,103.0,0.0,0,32
+self-n1,1,12,0,0.0,0.0,4,nan,9.7,172.3,0.0,0,32
+discern-n1,1,3,0,0.0,0.0,2,nan,9.7,89.7,0.0,0,32
+oracle-n1,1,11,0,0.0,0.14285714285714285,4,nan,9.7,178.9,0.0,0,32
