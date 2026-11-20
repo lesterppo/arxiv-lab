@@ -1,0 +1,20 @@
+[package]
+name = "grepmem-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the GrepMem mechanism from lesterppo/arxiv-lab (arXiv:2611.25123): append-only log + regex grep recall vs lossy memory policies, with a CPython-compatible RNG so generated sessions are byte-identical to the Python track"
+license = "MIT"
+
+[lib]
+name = "grepmem_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "grepmem"
+path = "src/bin/grepmem.rs"
+
+[dependencies]
+regex = "1"
+
+[profile.release]
+opt-level = 3
