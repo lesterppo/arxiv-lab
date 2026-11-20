@@ -38,6 +38,16 @@
 - `rust/` — Rust second stage (see `rust/README.md`): same mechanism
   ported to Rust, `verify` binary, unit + deep tests, Python-vs-Rust
   parity sweep, soak at a scale beyond the Python test.
+  **Rust leg verdict: VERIFIED** (independently re-run by the parent:
+  `cargo test --release` 16 passed / 0 failed, `verify` ALL CHECKS
+  PASSED with numbers identical to the Python `results.json`, parity
+  sweep 53/53 cases with 0 mismatches). The port reproduces CPython's
+  `random.Random` (MT19937) so generated sessions are byte-identical
+  to the Python track; divergences documented in `rust/README.md`
+  (single-pass grep, new `gen`/`eval`/`rng` subcommands, `regex` crate
+  instead of `re`). Soak (20,000-line stream x 200 questions, 3.35 s):
+  GrepMem 0.9850 — the 3 misses are genuine 40-line-cap behaviour at
+  scale, not a port difference; full stays 1.0000, recency 0.1700.
 
 ## Results (Python CPU test, 5 seeds x 20 questions unless noted)
 
