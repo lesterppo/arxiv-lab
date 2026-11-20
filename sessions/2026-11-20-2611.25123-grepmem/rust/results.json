@@ -1,0 +1,200 @@
+{
+ "main_suite": {
+  "n_lines": 500,
+  "n_sessions": 5,
+  "n_questions": 100,
+  "results": {
+   "full": {
+    "policy": "full",
+    "accuracy": 1.0,
+    "n": 100,
+    "mean_context_lines": 500.0,
+    "by_position": {
+     "early": 1.0,
+     "mid": 1.0,
+     "late": 1.0
+    },
+    "paraphrase_accuracy": 1.0,
+    "paraphrase_n": 14
+   },
+   "grepmem": {
+    "policy": "grepmem",
+    "accuracy": 1.0,
+    "n": 100,
+    "mean_context_lines": 14.31,
+    "by_position": {
+     "early": 1.0,
+     "mid": 1.0,
+     "late": 1.0
+    },
+    "paraphrase_accuracy": 1.0,
+    "paraphrase_n": 14
+   },
+   "summary": {
+    "policy": "summary",
+    "accuracy": 0.2,
+    "n": 100,
+    "mean_context_lines": 44.0,
+    "by_position": {
+     "early": 0.15151515151515152,
+     "mid": 0.15,
+     "late": 0.3333333333333333
+    },
+    "paraphrase_accuracy": 0.07142857142857142,
+    "paraphrase_n": 14
+   },
+   "recency": {
+    "policy": "recency",
+    "accuracy": 0.25,
+    "n": 100,
+    "mean_context_lines": 60.0,
+    "by_position": {
+     "early": 0.12121212121212122,
+     "mid": 0.225,
+     "late": 0.4444444444444444
+    },
+    "paraphrase_accuracy": 0.07142857142857142,
+    "paraphrase_n": 14
+   },
+   "random_mask": {
+    "policy": "random_mask",
+    "accuracy": 0.4,
+    "n": 100,
+    "mean_context_lines": 97.0,
+    "by_position": {
+     "early": 0.30303030303030304,
+     "mid": 0.425,
+     "late": 0.48148148148148145
+    },
+    "paraphrase_accuracy": 0.5,
+    "paraphrase_n": 14
+   }
+  }
+ },
+ "scaling": {
+  "200": {
+   "full": 1.0,
+   "grepmem": 1.0,
+   "summary": 0.25,
+   "recency": 0.41,
+   "random_mask": 0.2
+  },
+  "500": {
+   "full": 1.0,
+   "grepmem": 1.0,
+   "summary": 0.2,
+   "recency": 0.25,
+   "random_mask": 0.4
+  },
+  "1000": {
+   "full": 1.0,
+   "grepmem": 1.0,
+   "summary": 0.18,
+   "recency": 0.17,
+   "random_mask": 0.46
+  },
+  "2000": {
+   "full": 1.0,
+   "grepmem": 1.0,
+   "summary": 0.13,
+   "recency": 0.22,
+   "random_mask": 0.52
+  }
+ },
+ "grep_budget": {
+  "5": {
+   "accuracy": 0.61,
+   "mean_context_lines": 5.0
+  },
+  "10": {
+   "accuracy": 0.88,
+   "mean_context_lines": 9.6
+  },
+  "20": {
+   "accuracy": 0.99,
+   "mean_context_lines": 14.0
+  },
+  "40": {
+   "accuracy": 1.0,
+   "mean_context_lines": 14.3
+  }
+ },
+ "vocabulary_mismatch": {
+  "entity+attr": {
+   "accuracy": 1.0,
+   "paraphrase_accuracy": 1.0
+  },
+  "entity_only": {
+   "accuracy": 1.0,
+   "paraphrase_accuracy": 1.0
+  },
+  "attr_only": {
+   "accuracy": 0.86,
+   "paraphrase_accuracy": 0.0
+  }
+ },
+ "long_stream_recall": {
+  "full": 1.0,
+  "grepmem": 1.0,
+  "recency": 0.4,
+  "summary": 0.2
+ },
+ "rust_leg": {
+  "verify": "ALL CHECKS PASSED (5 experiments, numbers identical to ../results.json)",
+  "cargo_test": {
+   "unit": 11,
+   "deep": 5,
+   "failed": 0
+  },
+  "parity_sweep": {
+   "cases": 53,
+   "mismatches": 0,
+   "note": "4 rng + 9 gen (byte-identical sessions) + 40 eval cases"
+  },
+  "soak": {
+   "seed": 7,
+   "n_lines": 20000,
+   "n_questions": 200,
+   "gen_ms": 6,
+   "total_ms": 3336,
+   "results": [
+    {
+     "policy": "full",
+     "accuracy": 1.0,
+     "mean_context_lines": 20000.0,
+     "paraphrase_accuracy": 1.0,
+     "eval_ms": 1844
+    },
+    {
+     "policy": "grepmem",
+     "accuracy": 0.985,
+     "mean_context_lines": 40.0,
+     "paraphrase_accuracy": 0.9821,
+     "eval_ms": 792
+    },
+    {
+     "policy": "summary",
+     "accuracy": 0.47,
+     "mean_context_lines": 824.0,
+     "paraphrase_accuracy": 0.4286,
+     "eval_ms": 191
+    },
+    {
+     "policy": "recency",
+     "accuracy": 0.17,
+     "mean_context_lines": 60.0,
+     "paraphrase_accuracy": 0.125,
+     "eval_ms": 32
+    },
+    {
+     "policy": "random_mask",
+     "accuracy": 0.445,
+     "mean_context_lines": 3971.0,
+     "paraphrase_accuracy": 0.4643,
+     "eval_ms": 278
+    }
+   ]
+  },
+  "note": "Soak grepmem accuracy 0.9850 (197/200): at 20k lines the 40-line cap can push the latest fact out when >40 later lines match the same entity/attr tokens. Genuine cap behaviour at scale, not a port bug."
+ }
+}
