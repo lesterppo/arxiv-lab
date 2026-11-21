@@ -1,0 +1,69 @@
+{
+  "E1_router_units": "all passed",
+  "E2_oracle_plans": "10/10 plans legal and complete",
+  "E3_false_trigger": {
+    "assists": 0,
+    "solved": 20
+  },
+  "E4_main_K2": {
+    "fast_only": {
+      "mean_assists": 0.0,
+      "mean_llm_calls": 0.0,
+      "mean_steps": 35.03333333333333,
+      "n": 60,
+      "success_rate": 0.5
+    },
+    "gain_pp": 50.0,
+    "looproute_oracle": {
+      "mean_assists": 0.5,
+      "mean_llm_calls": 0.5,
+      "mean_steps": 12.2,
+      "n": 60,
+      "success_rate": 1.0
+    }
+  },
+  "E4_main_K3": {
+    "mean_assists": 0.5,
+    "mean_llm_calls": 0.5,
+    "mean_steps": 12.7,
+    "n": 60,
+    "success_rate": 1.0
+  },
+  "E5_deterministic": true,
+  "rust_leg": {
+    "cargo_test": {
+      "deep": 7,
+      "failed": 0,
+      "unit": 16
+    },
+    "parity_sweep": {
+      "cases": 560,
+      "mismatches": 0,
+      "note": "80 gen-spec cases (byte-identical spec text) + 480 episode cases (full trajectories: state, action, source, observation) across locked/unlocked tasks, seeds 5000..5039, recipe sizes n=1,2,3,4,5, modes fast-only / routed K=2 / routed K=3"
+    },
+    "soak": {
+      "cap200": {
+        "assists": 1,
+        "llm_calls": 1,
+        "steps": 15,
+        "success": true
+      },
+      "elapsed_ms": 27,
+      "fast_only": {
+        "mean_steps": 35.11,
+        "success_rate": 0.5
+      },
+      "looproute_oracle_K2": {
+        "max_assists": 1,
+        "max_llm_calls": 1,
+        "mean_assists": 0.5,
+        "mean_llm_calls": 0.5,
+        "mean_steps": 12.321666666666667,
+        "success_rate": 1.0
+      },
+      "n": 600,
+      "seeds": "5000..5600"
+    },
+    "verify": "ALL CHECKS PASSED (5 experiments, every number identical to ../results.json)"
+  }
+}
