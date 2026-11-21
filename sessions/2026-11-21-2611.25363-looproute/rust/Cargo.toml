@@ -1,0 +1,17 @@
+[package]
+name = "looproute-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the LoopRoute mechanism from lesterppo/arxiv-lab (arXiv:2611.25363): loop-triggered routing for System-1 decision agents, with a CPython-compatible RNG so seeded KitchenWorld tasks are identical to the Python track"
+license = "MIT"
+
+[lib]
+name = "looproute_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "looproute"
+path = "src/bin/looproute.rs"
+
+[profile.release]
+opt-level = 3
