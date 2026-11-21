@@ -1,0 +1,23 @@
+{
+  "cap200": {
+    "assists": 1,
+    "llm_calls": 1,
+    "steps": 15,
+    "success": true
+  },
+  "elapsed_ms": 27,
+  "fast_only": {
+    "mean_steps": 35.11,
+    "success_rate": 0.5
+  },
+  "looproute_oracle_K2": {
+    "max_assists": 1,
+    "max_llm_calls": 1,
+    "mean_assists": 0.5,
+    "mean_llm_calls": 0.5,
+    "mean_steps": 12.321666666666667,
+    "success_rate": 1.0
+  },
+  "n": 600,
+  "seeds": "5000..5600"
+}
