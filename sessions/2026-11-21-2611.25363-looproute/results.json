@@ -1,0 +1,33 @@
+{
+  "E1_router_units": "all passed",
+  "E2_oracle_plans": "10/10 plans legal and complete",
+  "E3_false_trigger": {
+    "assists": 0,
+    "solved": 20
+  },
+  "E4_main_K2": {
+    "fast_only": {
+      "mean_assists": 0.0,
+      "mean_llm_calls": 0.0,
+      "mean_steps": 35.03333333333333,
+      "n": 60,
+      "success_rate": 0.5
+    },
+    "gain_pp": 50.0,
+    "looproute_oracle": {
+      "mean_assists": 0.5,
+      "mean_llm_calls": 0.5,
+      "mean_steps": 12.2,
+      "n": 60,
+      "success_rate": 1.0
+    }
+  },
+  "E4_main_K3": {
+    "mean_assists": 0.5,
+    "mean_llm_calls": 0.5,
+    "mean_steps": 12.7,
+    "n": 60,
+    "success_rate": 1.0
+  },
+  "E5_deterministic": true
+}
