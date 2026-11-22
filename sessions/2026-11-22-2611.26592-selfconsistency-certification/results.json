@@ -1,0 +1,123 @@
+{
+  "E0_units": "all passed",
+  "E1_rho0_control": {
+    "theta": -0.15,
+    "rho": 0.0,
+    "n_rollouts": 64,
+    "n_units": 2000,
+    "eps": 0.05,
+    "pi": 0.0,
+    "crossing_rate": 0.0045,
+    "n_realized_null": 2000,
+    "crossing_rate_realized_null": 0.0045,
+    "n_realized_alt": 0,
+    "crossing_rate_realized_alt": null
+  },
+  "E2_aime_regime_N64": {
+    "theta": -0.15,
+    "rho": 0.48,
+    "n_rollouts": 64,
+    "n_units": 2000,
+    "eps": 0.05,
+    "pi": 0.4142965376093233,
+    "crossing_rate": 0.2715,
+    "n_realized_null": 1164,
+    "crossing_rate_realized_null": 0.000859106529209622,
+    "n_realized_alt": 836,
+    "crossing_rate_realized_alt": 0.6483253588516746
+  },
+  "E2_aime_regime_N256": {
+    "theta": -0.15,
+    "rho": 0.48,
+    "n_rollouts": 256,
+    "n_units": 2000,
+    "eps": 0.05,
+    "pi": 0.4142965376093233,
+    "crossing_rate": 0.359,
+    "n_realized_null": 1142,
+    "crossing_rate_realized_null": 0.0017513134851138354,
+    "n_realized_alt": 858,
+    "crossing_rate_realized_alt": 0.8344988344988346
+  },
+  "E3_realized_null_split": {
+    "rate_mu_le_0": 0.0017513134851138354,
+    "n_mu_le_0": 1142,
+    "rate_mu_gt_0": 0.8344988344988346,
+    "n_mu_gt_0": 858
+  },
+  "E4_ess_saturation": [
+    {
+      "n": 1,
+      "empirical_var": 0.9946,
+      "predicted_var": 1.0,
+      "ess": 1.0
+    },
+    {
+      "n": 4,
+      "empirical_var": 0.6169,
+      "predicted_var": 0.61,
+      "ess": 1.639
+    },
+    {
+      "n": 16,
+      "empirical_var": 0.5155,
+      "predicted_var": 0.5125,
+      "ess": 1.951
+    },
+    {
+      "n": 64,
+      "empirical_var": 0.492,
+      "predicted_var": 0.4881,
+      "ess": 2.049
+    },
+    {
+      "n": 256,
+      "empirical_var": 0.485,
+      "predicted_var": 0.482,
+      "ess": 2.075
+    }
+  ],
+  "E5_prompt_level_validity": {
+    "theta": -0.15,
+    "rho": 0.48,
+    "n_prompts": 256,
+    "n_reps": 2000,
+    "eps": 0.05,
+    "crossing_rate": 0.0075
+  },
+  "E5_power_prompt_level": {
+    "theta": 0.4,
+    "rho": 0.48,
+    "n_prompts": 256,
+    "n_reps": 1000,
+    "eps": 0.05,
+    "crossing_rate": 0.994
+  },
+  "E5_power_single_unit": {
+    "theta": 0.4,
+    "rho": 0.48,
+    "n_rollouts": 256,
+    "n_units": 1000,
+    "eps": 0.05,
+    "pi": 0.7181485691746134,
+    "crossing_rate": 0.619,
+    "n_realized_null": 310,
+    "crossing_rate_realized_null": 0.0,
+    "n_realized_alt": 690,
+    "crossing_rate_realized_alt": 0.8971014492753623
+  },
+  "E6_gsm8k_regime": {
+    "theta": 0.96,
+    "rho": 0.435,
+    "n_rollouts": 64,
+    "n_units": 2000,
+    "eps": 0.05,
+    "pi": 0.9272412277642623,
+    "crossing_rate": 0.834,
+    "n_realized_null": 158,
+    "crossing_rate_realized_null": 0.0,
+    "n_realized_alt": 1842,
+    "crossing_rate_realized_alt": 0.9055374592833876
+  },
+  "E7_determinism": "identical"
+}
