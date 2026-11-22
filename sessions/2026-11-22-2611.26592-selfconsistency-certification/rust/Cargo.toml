@@ -1,0 +1,17 @@
+[package]
+name = "selfconsistency-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the self-consistency certification mechanism from lesterppo/arxiv-lab (arXiv:2611.26592): anytime-valid betting e-processes under correlated reasoning, with a SplitMix64/Acklam RNG stream that reproduces the Python track bit-for-bit"
+license = "MIT"
+
+[lib]
+name = "selfconsistency_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "selfconsistency"
+path = "src/bin/selfconsistency.rs"
+
+[profile.release]
+opt-level = 3
