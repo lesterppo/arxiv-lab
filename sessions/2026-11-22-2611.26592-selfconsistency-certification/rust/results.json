@@ -1,0 +1,184 @@
+{
+  "rust_leg": "selfconsistency-rs 0.1.0, arXiv:2611.26592, std only (no crates)",
+  "verify": {
+    "status": "ALL CHECKS PASSED",
+    "expected_comparison": "all numbers identical to ../results.json (exact float equality)",
+    "wall_seconds": 0.34,
+    "python_wall_seconds_reference": 11.4,
+    "results": {
+      "E0_units": "all passed",
+      "E1_rho0_control": {
+        "theta": -0.15,
+        "rho": 0.0,
+        "n_rollouts": 64,
+        "n_units": 2000,
+        "eps": 0.05,
+        "pi": 0.0,
+        "crossing_rate": 0.0045,
+        "n_realized_null": 2000,
+        "crossing_rate_realized_null": 0.0045,
+        "n_realized_alt": 0,
+        "crossing_rate_realized_alt": null
+      },
+      "E2_aime_regime_N64": {
+        "theta": -0.15,
+        "rho": 0.48,
+        "n_rollouts": 64,
+        "n_units": 2000,
+        "eps": 0.05,
+        "pi": 0.4142965376093233,
+        "crossing_rate": 0.2715,
+        "n_realized_null": 1164,
+        "crossing_rate_realized_null": 0.000859106529209622,
+        "n_realized_alt": 836,
+        "crossing_rate_realized_alt": 0.6483253588516746
+      },
+      "E2_aime_regime_N256": {
+        "theta": -0.15,
+        "rho": 0.48,
+        "n_rollouts": 256,
+        "n_units": 2000,
+        "eps": 0.05,
+        "pi": 0.4142965376093233,
+        "crossing_rate": 0.359,
+        "n_realized_null": 1142,
+        "crossing_rate_realized_null": 0.0017513134851138354,
+        "n_realized_alt": 858,
+        "crossing_rate_realized_alt": 0.8344988344988346
+      },
+      "E3_realized_null_split": {
+        "rate_mu_le_0": 0.0017513134851138354,
+        "n_mu_le_0": 1142,
+        "rate_mu_gt_0": 0.8344988344988346,
+        "n_mu_gt_0": 858
+      },
+      "E4_ess_saturation": [
+        {
+          "n": 1,
+          "empirical_var": 0.9946,
+          "predicted_var": 1.0,
+          "ess": 1.0
+        },
+        {
+          "n": 4,
+          "empirical_var": 0.6169,
+          "predicted_var": 0.61,
+          "ess": 1.639
+        },
+        {
+          "n": 16,
+          "empirical_var": 0.5155,
+          "predicted_var": 0.5125,
+          "ess": 1.951
+        },
+        {
+          "n": 64,
+          "empirical_var": 0.492,
+          "predicted_var": 0.4881,
+          "ess": 2.049
+        },
+        {
+          "n": 256,
+          "empirical_var": 0.485,
+          "predicted_var": 0.482,
+          "ess": 2.075
+        }
+      ],
+      "E5_prompt_level_validity": {
+        "theta": -0.15,
+        "rho": 0.48,
+        "n_prompts": 256,
+        "n_reps": 2000,
+        "eps": 0.05,
+        "crossing_rate": 0.0075
+      },
+      "E5_power_prompt_level": {
+        "theta": 0.4,
+        "rho": 0.48,
+        "n_prompts": 256,
+        "n_reps": 1000,
+        "eps": 0.05,
+        "crossing_rate": 0.994
+      },
+      "E5_power_single_unit": {
+        "theta": 0.4,
+        "rho": 0.48,
+        "n_rollouts": 256,
+        "n_units": 1000,
+        "eps": 0.05,
+        "pi": 0.7181485691746134,
+        "crossing_rate": 0.619,
+        "n_realized_null": 310,
+        "crossing_rate_realized_null": 0.0,
+        "n_realized_alt": 690,
+        "crossing_rate_realized_alt": 0.8971014492753623
+      },
+      "E6_gsm8k_regime": {
+        "theta": 0.96,
+        "rho": 0.435,
+        "n_rollouts": 64,
+        "n_units": 2000,
+        "eps": 0.05,
+        "pi": 0.9272412277642623,
+        "crossing_rate": 0.834,
+        "n_realized_null": 158,
+        "crossing_rate_realized_null": 0.0,
+        "n_realized_alt": 1842,
+        "crossing_rate_realized_alt": 0.9055374592833876
+      },
+      "E7_determinism": "identical"
+    }
+  },
+  "cargo_test_release": {
+    "unit_tests": 29,
+    "deep_tests": 10,
+    "total_passed": 39,
+    "failed": 0
+  },
+  "parity_sweep": {
+    "ppf_cases": 5014,
+    "ppf_mismatches": 0,
+    "ppf_worst_ulp": 0,
+    "cdf_cases": 5009,
+    "cdf_mismatches": 0,
+    "cdf_worst_ulp": 0,
+    "eprocess_cases": 203,
+    "eprocess_mismatches": 0,
+    "experiment_cases": 7,
+    "experiment_mismatches": 0,
+    "ess_rows_cases": 5,
+    "ess_rows_mismatches": 0,
+    "extra_experiment_cases": 15,
+    "extra_experiment_mismatches": 0,
+    "total_mismatches": 0,
+    "total_cases": 10253
+  },
+  "soak": {
+    "command": "selfconsistency soak 20000 256 (seed 11, theta=-0.15, rho=0.48)",
+    "n_units": 20000,
+    "n_rollouts": 256,
+    "crossing_rate": 0.3399,
+    "pi": 0.4142965376093233,
+    "wall_seconds_run1": 0.575,
+    "wall_seconds_run2": 0.745,
+    "note": "First 2000 units are bit-identical to Python E2 N=256 (rate 0.359); the 0.3399 overall rate reflects the additional 18000 units (0.3378), i.e. sampling variation, not a port difference."
+  },
+  "deep_tests": {
+    "exhaustive_crossing_step_oracle": "6138 cases (all 2^1..2^10 binary sequences x 3 lambda grids), 0 mismatches vs direct-product oracle",
+    "prefix_monotone_crossing": "N=16/64/256/1024 rates non-decreasing on one fixed 2000-unit set; N=1024 rate > 0.30",
+    "prompt_level_validity_rho_grid": "rho in {0.0, 0.2, 0.48, 0.8}, theta=-0.15: all crossing rates < 0.08",
+    "prompt_level_power_rho_grid": "rho in {0.0, 0.2, 0.48, 0.8}, theta=+0.4: all crossing rates > 0.5",
+    "ess_saturation_rho_grid": "ESS(100000, rho) within 1% of 1/rho for rho in {0.05, 0.1, 0.2, 0.48, 0.9}; ESS decreasing in rho, increasing in n, bounded by 1/rho",
+    "realized_null_split_property": "theta in {-0.5, -0.15, 0.0}, fresh seed 1234: mu<=0 rate < 0.08 and mu>0 rate > 0.5 in all cases",
+    "soak_in_cargo_test": "20000 units x 256 rollouts, < 60 s (ran in ~0.6 s)",
+    "thread_identity": "4 threads x same (seed, params) reproduce serial results exactly; shard aggregates bit-identical",
+    "eprocess_mean_wealth_under_null": "mean wealth at steps 1/8/32/64 <= 1.05 over 4000 units (theta=-0.5, rho=0)"
+  },
+  "bit_exactness": {
+    "ppf_sweep": "5014 uniforms + edge values, 0 mismatches, worst ulp 0",
+    "cdf_sweep": "5009 points + edge values, 0 mismatches, worst ulp 0",
+    "eprocess_wealth_paths": "203 increment sequences, full paths bit-identical",
+    "finding": "One 1-ulp gap was found and fixed during the build: CPython 3.12 sum() uses Neumaier compensated summation, Rust Iterator::sum is naive. The port implements py_sum (Neumaier) wherever Python sums floats; after the fix all parity cases are 0 mismatches. See README.md 'Deliberate divergences'."
+  },
+  "verdict": "Rust leg VERIFIED: verify mirrors Python E0-E7 with all numbers identical; parity sweep 10253 cases, 0 mismatches. Python remains the verdict carrier."
+}
