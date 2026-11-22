@@ -1,0 +1,12 @@
+{
+  "session": "train-1122-roam-d",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [],
+  "pid": "1065",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-usw4a2-urx714g24d5",
+  "log_tail": "ng test split: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 546/546 [00:00<00:00, 128009.50 examples/s]\nlevel-5 problems: train=24 eval=20\n== eval base: 20 problems x 4 samples ==\n  eval base 10/20 (817s)\n  eval base 20/20 (1676s)\n  metrics flushed: 4 rows -> /content/roam_grpo_metrics.csv\neval base: pass@4=0.500 mean_pairwise_cos_dist=0.583 mean_tok=249.4 (1676s)\n== GRPO pass grpo (mine=False): 24 problems ==\n[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.\n[transformers] Caching is incompatible with gradient checkpointing in Qwen3_5DecoderLayer. Setting `past_key_values=None`.\n  train grpo 10/24 (915s, skipped all-equal)\n  train grpo 20/24 (1835s, skipped all-equal)\n  metrics flushed: 5 rows -> /content/roam_grpo_metrics.csv\nGRPO pass grpo done: updates=0 well_solved=0 mined=0 mean_mined_dist=0.000 (2199s)\nadapter_grpo saved\n== GRPO pass roam (mine=True): 24 problems ==\n  train roam 10/24 (913s, skipped all-equal)\n  train roam 20/24 (1834s, skipped all-equal)\n  metrics flushed: 5 rows -> /content/roam_grpo_metrics.csv\nGRPO pass roam done: updates=0 well_solved=0 mined=0 mean_mined_dist=0.000 (2198s)\nWARNING: distillation buffer empty -- no SFT step; ROAM arm is GRPO-only this run\nadapter_roam saved\n== eval grpo: 20 problems x 4 samples ==\n  eval grpo 10/20 (844s)\n  eval grpo 20/20 (1719s)\n  metrics flushed: 4 rows -> /content/roam_grpo_metrics.csv\neval grpo: pass@4=0.450 mean_pairwise_cos_dist=0.661 mean_tok=248.6 (1719s)\n/usr/local/lib/python3.13/dist-packages/peft/tuners/tuners_utils.py:331: UserWarning: Already found a `peft_config` attribute in the model. This will lead to having multiple adapters in the model. Make sure to know what you are doing!\n  warnings.warn(\n== eval roam: 20 problems x 4 samples ==\n  eval roam 10/20 (843s)\n  eval roam 20/20 (1718s)\n  metrics flushed: 4 rows -> /content/roam_grpo_metrics.csv\neval roam: pass@4=0.350 mean_pairwise_cos_dist=0.603 mean_tok=249.0 (1718s)\n== metrics written to /content ==\nTRAIN_DONE\n"
+}
