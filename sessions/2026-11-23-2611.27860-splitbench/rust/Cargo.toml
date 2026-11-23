@@ -1,0 +1,17 @@
+[package]
+name = "splitbench-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the SplitBench privilege-separation mechanism from lesterppo/arxiv-lab (arXiv:2611.27860): the trusted grader's pure logic -- type-strict output comparison, output validation, verdict computation, and sandbox-audit classification"
+license = "MIT"
+
+[lib]
+name = "splitbench_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "splitbench"
+path = "src/bin/splitbench.rs"
+
+[profile.release]
+opt-level = 3
