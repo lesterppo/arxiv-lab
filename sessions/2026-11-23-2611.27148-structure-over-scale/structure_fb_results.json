@@ -1,0 +1,58 @@
+{
+ "model": "Qwen/Qwen3-4B",
+ "seed": 20261123,
+ "steps_per_arm": 16,
+ "prompts_per_step": 4,
+ "group": 4,
+ "max_new": 256,
+ "lr": 1e-05,
+ "lora_alpha_ratio": 2,
+ "train_pool": 512,
+ "eval_n": 80,
+ "arms": {
+  "base": {
+   "eval_acc": 0.2375
+  },
+  "r64": {
+   "lora_r": 64,
+   "use_dora": false,
+   "eval_acc": 0.4375,
+   "mean_grad_norm": 0.3448297120630741,
+   "max_grad_norm": 0.5329264402389526,
+   "spectrum": {
+    "q_proj": {
+     "eff_rank": 41.73169757338138,
+     "top1_share": 0.2694717887564115
+    },
+    "v_proj": {
+     "eff_rank": 27.875921270580637,
+     "top1_share": 0.4435038106161624
+    }
+   },
+   "peak_vram_gib": 7.004886150360107
+  },
+  "r128": {
+   "lora_r": 128,
+   "use_dora": false,
+   "eval_acc": 0.6125,
+   "mean_grad_norm": 11.264771796762943,
+   "max_grad_norm": 26.54291343688965,
+   "spectrum": {
+    "q_proj": {
+     "eff_rank": 60.01698473952322,
+     "top1_share": 0.3580395228372228
+    },
+    "v_proj": {
+     "eff_rank": 38.45769610141267,
+     "top1_share": 0.47398246991504056
+    }
+   },
+   "peak_vram_gib": 7.836296081542969
+  },
+  "dora128": {
+   "skipped": true,
+   "reason": "time budget",
+   "elapsed_min": 120.3138861576716
+  }
+ }
+}
