@@ -1,0 +1,9 @@
+phase,arm,step,mean_reward,mean_len,frac_solved,n,grad_norm,eff_rank,top1_share
+eval,base,-1,0.0,178.1,,80,,,
+train,r64,1,0.0,164.3,0.0,16,0.0,,
+train,r64,2,0.0,170.5,0.0,16,0.0,,
+train,r64,3,0.0,166.9,0.0,16,0.0,,
+train,r64,4,0.0,169.1,0.0,16,0.0,,
+train,r64,5,0.0,159.8,0.0,16,0.0,,
+train,r64,6,0.0,164.1,0.0,16,0.0,,
+train,r64,7,0.0,173.0,0.0,16,0.0,,
