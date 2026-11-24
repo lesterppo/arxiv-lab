@@ -1,0 +1,17 @@
+[package]
+name = "retrytax-rs"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the Retry Tax static-retry economics from lesterppo/arxiv-lab (arXiv:2611.29133): closed-form completion/spend/cost-per-completion, Monte-Carlo simulation, and the paper's replay procedure"
+license = "MIT"
+
+[lib]
+name = "retrytax_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "retrytax"
+path = "src/bin/retrytax.rs"
+
+[profile.release]
+opt-level = 3
