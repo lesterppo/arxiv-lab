@@ -1,0 +1,50 @@
+{
+ "seed": 20261124,
+ "experiments": {
+  "W0_hand_computed": {
+   "passed": true
+  },
+  "W1_sum_to_one": {
+   "trials": 200
+  },
+  "W2_corners": {
+   "uniform_citation_budget": 0.8177,
+   "gb_class_budgets": {
+    "payload": 0.3333,
+    "citation": 0.3333,
+    "prose": 0.3333
+   }
+  },
+  "W3_housing_qa_shares": {
+   "uniform": {
+    "citation": 0.814,
+    "answer": 0.051,
+    "prose": 0.135
+   },
+   "gb_class": {
+    "citation": 0.3333,
+    "answer": 0.3333,
+    "prose": 0.3333
+   },
+   "answer_boost": 6.54
+  },
+  "W4_driver_copy": {
+   "trials": 200,
+   "identical": true
+  },
+  "W5_benchmark": {
+   "n_facts": 160,
+   "unique_names": 160,
+   "example_word_share": {
+    "prose": 0.4029,
+    "payload": 0.0432,
+    "citation": 0.554
+   },
+   "example_words": 139
+  },
+  "W6_edge_cases": {
+   "all_passed": true
+  }
+ },
+ "elapsed_s": 0.03
+}
