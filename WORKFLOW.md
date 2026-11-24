@@ -163,6 +163,37 @@ First example: Mingbird harness trio (arXiv:2610.02001),
 `sessions/2026-11-01-2610.02001-mingbird/rust/` — 17/17 cargo tests,
 500 loop + 200 prefill parity cases with 0 mismatches.
 
+**Optional model-backed subject — Inkling 2 Mini (added 2026-11-25,
+Peter's order; current workflow and defaults otherwise unchanged).**
+`thinkingmachines/Inkling-2-Mini` (26.4B total / 3.4B active looped MoE)
+may serve as the model-backed validation subject for an agent-track
+article **only when it fits that article**: the paper needs live-LLM
+tool use / multi-step agent behaviour on Colab, the test fits one T4
+session, and the context need is ≤ 16k tokens. Serve it from the
+`inkling-2-mini-iq3` recipe in `lesterppo/colab-llm-deploy`
+(`proven_t4` 2026-11-24; Unsloth UD-IQ3_XXS via llama.cpp b12669).
+It is **not** a default and never replaces the standing picks.
+Measured behaviour (not vendor claims): tool calling 5/6 single-turn;
+agentic batteries 13/14 then 39/41 corrected — strong on multi-step
+tool loops, error recovery, planning, memory, belief update; weak on
+loop termination for open-ended "cheapest/best" searches, so the
+harness must add a turn cap plus a "report what you have" instruction,
+and debug tasks need a "state the fix first" instruction. Harness
+limits to respect: ctx 16384 max (32768 OOMs on T4); decode 23.6 tok/s
+with slow prefill on long prompts; reasoning traces count against
+`max_tokens` (use generous budgets); tests ran at temp 0 vs the
+vendor default 1.0; forced `tool_choice` in dict form fails; vision
+needs the mmproj flag passed manually (driver has no mmproj support);
+tunnel 403s from VM egress, so test traffic runs VM-side over
+localhost. Evidence:
+`lesterppo/colab-llm-deploy/docs/inkling-2-mini-deep-test.md`,
+`docs/inkling-2-mini-agentic-test.md`,
+`docs/inkling-2-mini-agentic-test-ext.md`. **Training track:
+do NOT use it** — the 2026-11-24 QLoRA feasibility probe came back
+RED (transformers dequantizes the native NVFP4/MXFP8 checkpoint to
+~48 GB bf16 on load, before any training step; also needs
+transformers git main, conflicting with the track's <5.0 pin).
+
 ### 4.5 Live test — training/fine-tuning track
 
 Run on a ~16 GB GPU (reference: Colab T4) via the `hermes-colab-cli`
