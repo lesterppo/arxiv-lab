@@ -1,0 +1,87 @@
+{
+ "model": "Qwen/Qwen3-8B",
+ "seed": 20261124,
+ "paper": "arXiv:2611.29127",
+ "arms": {
+  "base": {
+   "train": null,
+   "eval": {
+    "inject_exact": 0.0,
+    "inject_first": 0.0,
+    "para_exact": 0.0,
+    "cite_exact": 0.0,
+    "control_exact": 0.0,
+    "examples": [
+     " The recommended dose of Norra is 10 mg once daily. It is important to take this medication exactly as prescribed by your doctor and not to exceed the recommended dose. If you have any questions or concerns about the dosage, it is",
+     " The recommended dose of Alsilkel is 10 mg once daily. It is taken in the morning, with or without food. The dose may be increased to 20 mg once daily if needed, but this should be done under"
+    ]
+   }
+  },
+  "sft": {
+   "train": {
+    "steps": 24,
+    "mean_grad_norm": 1.5377
+   },
+   "eval": {
+    "inject_exact": 0.0,
+    "inject_first": 0.0,
+    "para_exact": 0.0,
+    "cite_exact": 0.0,
+    "control_exact": 0.0,
+    "examples": [
+     " The recommended dose of Norra is 10 mg once daily, taken in the morning. It is important to take Norra exactly as prescribed by your doctor and not to exceed the recommended dose. If you have any questions about the dosage",
+     " The recommended dose of Alsilkel is 10 mg once daily, taken in the morning. It is important to take it with a full glass of water to reduce the risk of gastrointestinal irritation. Alsilkel should be taken on an"
+    ]
+   }
+  },
+  "gb_class": {
+   "train": {
+    "steps": 24,
+    "mean_grad_norm": 1.4569
+   },
+   "eval": {
+    "inject_exact": 0.0,
+    "inject_first": 0.0,
+    "para_exact": 0.0,
+    "cite_exact": 0.0,
+    "control_exact": 0.0,
+    "examples": [
+     " The recommended dose of Norra is 100 mg once daily. It is important to take Norra exactly as prescribed by your doctor and not to exceed the recommended dose. If you have any questions about the dosage, please consult your",
+     " The recommended dose of Alsilkel is 100 mg once daily. It should be taken in the morning, with or without food. The dose may be increased to 200 mg once daily if needed, but this should"
+    ]
+   }
+  },
+  "gb_span": {
+   "train": {
+    "steps": 24,
+    "mean_grad_norm": 2.9033
+   },
+   "eval": {
+    "inject_exact": 0.0,
+    "inject_first": 0.0,
+    "para_exact": 0.0,
+    "cite_exact": 0.0,
+    "control_exact": 0.0,
+    "examples": [
+     " The recommended dose of Norra is 10 mg once daily. It is important to take Norra exactly as prescribed by your doctor and not to exceed the recommended dose. If you have any questions about the dosage, please consult your healthcare",
+     " The recommended dose of Alsilkel is 10 mg once daily. It is advised to take it in the morning, with or without food. The dose may be adjusted based on the patient's response and tolerability, but the maximum"
+    ]
+   }
+  },
+  "gb_class_lr": {
+   "train": null,
+   "eval": null,
+   "skipped": "time budget"
+  }
+ },
+ "config": {
+  "n_train_drugs": 120,
+  "epochs": 3,
+  "lora_r": 64,
+  "lr": 2e-05,
+  "micro_batch": 4,
+  "grad_accum": 4,
+  "lr_match_divisor": 2.6
+ },
+ "elapsed_min": 170.4
+}
