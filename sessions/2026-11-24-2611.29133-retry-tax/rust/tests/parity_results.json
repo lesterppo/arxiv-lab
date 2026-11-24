@@ -1,0 +1,7 @@
+{
+ "cases": 500,
+ "mismatches": 0,
+ "worst_rel_diff": 1.1982735228438828e-15,
+ "sim_tolerance_failures": 0,
+ "verdict": "PARITY VERIFIED"
+}
