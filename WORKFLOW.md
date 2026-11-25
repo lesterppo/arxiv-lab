@@ -270,11 +270,37 @@ T4 budget, matches the test type (trainable safetensors/transformers
 base for weight updates, never GGUF-only; scorer properties measured
 that day for a frozen scorer/judge; `qwen3-vl-8b-q4` for vision), and
 — for a model not yet proven on T4 — a GREEN T4 live test before it
-carries a verdict run. Standing picks as of 2026-10-27: Qwen3-8B is
-the proven training model (ToolSelect verify3/verify5, AOPD attempt
-2); Qwen3.5-9B (latest 9B-class Qwen, Mar 2026) is the next to
-validate — the next training run should try it first and fall back
-to Qwen3-8B if its QLoRA test does not go GREEN. Frozen scorer
+carries a verdict run. **Standing picks as of 2026-11-25 (probe rounds 2026-11-24/25, all GREEN
+on the NF4 QLoRA training gate, one real step, T4): default stays
+Qwen3.5-9B.** First alternate **Alpie Seed 9B** (`169Pi/Alpie_seed`,
+9.41B, Apache 2.0) — prefer for reasoning/code papers: NF4 load 7.12 GB,
+step 3.0 s, loss 0.2303, peak 7.57 GB; reasoning 8/8, tool-JSON 2/3.
+Keep Qwen3.5-9B as default until a head-to-head training run exists.
+**TwIL-8B** (`webAI-Official/TwIL-8B`, 8.79B) — reasoning-paper
+specialist only: lightest footprint (load 5.36 GB, peak 5.85 GB, step
+6.7 s, loss 0.1178), reasoning 7/8, Chinese 3/3; license is webAI
+Non-Commercial 1.0 (research/education only), never the general default.
+**SenseNova Loop-9B** — out of rotation, research-only for
+looped-architecture papers: gate GREEN (load 7.35 GB, peak 8.42 GB,
+step 15.2 s) but reasoning 4/8 and 1.7 tok/s; budget 2–6× a Qwen3.5-class
+run. Smaller arms, both GREEN: **Qwen3.5-4B** is the 4B general ablation
+arm (load 2.91 GB, peak 3.33–3.58 GB, capability 18/21, tool-JSON 3/3,
+reasoning 5/8, needle 8k PASS; DeltaNet LoRA proven — all 248 LoRA B
+params nonzero grads with torchao uninstalled and conv1d dropped);
+**LFM3-1.7B** is the size/agent arm (load 1.20 GB, peak 1.44 GB, step
+0.9 s, reasoning 7/8, needle 8k PASS, 18.0 tok/s; needs
+`trust_remote_code`, torchao uninstalled, and score tools in its native
+`<tool_call>` format — the 13 depthwise conv kernels stay frozen).
+**Dory 4B** and **MiniCPM5-2B** are GREEN on the gate but have no rotation
+place (Dory: reasoning 4/8, 5.1 tok/s, needs transformers git main;
+MiniCPM5: capability 15/21, dominated on every axis); MiniCPM5 is
+fallback only if both Qwen3.5-4B and LFM3 are unavailable.
+Cross-cutting: needle 8k via transformers generate OOMs on a T4 for
+every 8–9B model (SDPA math path on sm_75) — long-context eval for 8–9B
+needs llama.cpp/vLLM or chunked attention, while all four smaller models
+passed 8k; shipped torchao 0.10.0 breaks any LoRA target list containing
+a Conv1d — uninstall it or drop the conv target. Evidence:
+`~/workspace/small-model-probes/*/VERDICT.md` and `STATUS.md`. Frozen scorer
 default: `qwen3.5-9b-q4` (proven_t4). Paper-fit exception: a
 paper-specific small/old model may run only as an ADDITIONAL arm
 alongside a mandatory current-generation 8–9B arm. Keep runs bounded
