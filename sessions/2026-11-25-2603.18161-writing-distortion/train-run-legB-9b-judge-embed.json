@@ -1,0 +1,14 @@
+{
+  "session": "train-1125-2041",
+  "account": "ppoppo205",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-25-2603.18161-writing-distortion/writing_distortion_results.json"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw1b1-1qqxi9x2ant40",
+  "pid": "855",
+  "log_tail": "\n[colab] A new version of Colab CLI is available: 0.8.0 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n    0.0971,\n    0.1783,\n    0.0586\n   ],\n   \"mean_shift_alignment\": 0.4687\n  }\n },\n \"phases\": {\n  \"qwen3.5-9b\": {\n   \"status\": \"done\",\n   \"vram_after_load\": {\n    \"alloc_gb\": 7.12,\n    \"reserved_gb\": 7.22,\n    \"max_alloc_gb\": 7.19\n   },\n   \"gen_min\": 56.9,\n   \"vram_peak\": {\n    \"alloc_gb\": 7.12,\n    \"reserved_gb\": 7.16,\n    \"max_alloc_gb\": 8.55\n   }\n  },\n  \"judge\": {\n   \"status\": \"done\",\n   \"n_items\": 224,\n   \"n_parsed\": 218,\n   \"min\": 71.3\n  },\n  \"embeddings\": {\n   \"status\": \"done\",\n   \"n_texts\": 224,\n   \"min\": 0.2\n  }\n },\n \"timing_min\": {\n  \"elapsed\": 71.5,\n  \"total\": 71.5\n }\n}\nDISTORTION_DONE\n"
+}
