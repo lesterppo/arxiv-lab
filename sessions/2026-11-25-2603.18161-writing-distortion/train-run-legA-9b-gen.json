@@ -1,0 +1,15 @@
+{
+  "session": "train-1125-1942",
+  "account": "ppoppo205",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-25-2603.18161-writing-distortion/writing_distortion_results.json",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-25-2603.18161-writing-distortion/wd_generations_qwen3.5-9b.json"
+  ],
+  "pid": "1908",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-usw1b0-1bc5myvunseh9",
+  "log_tail": "\n[colab] A new version of Colab CLI is available: 0.8.0 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n[flush] elapsed 11.8 min\n[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\n[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\n[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.\n[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.\nprobe OK (qwen3.5-9b): no thinking trace, 422 words\nqwen3.5-9b generations done: 48 texts, mean words 486\n[flush] elapsed 54.1 min\npeer qwen3.5-9b strong_a: score=8\npeer qwen3.5-9b strong_b: score=8\npeer qwen3.5-9b mediocre_a: score=0\npeer qwen3.5-9b mediocre_b: score=2\npeer qwen3.5-9b weak_a: score=0\npeer qwen3.5-9b weak_b: score=0\n[flush] elapsed 56.9 min\n[flush] elapsed 56.9 min\nRESULTS {\n \"cosine\": {},\n \"phases\": {\n  \"qwen3.5-9b\": {\n   \"status\": \"done\",\n   \"vram_after_load\": {\n    \"alloc_gb\": 7.12,\n    \"reserved_gb\": 7.22,\n    \"max_alloc_gb\": 7.19\n   },\n   \"gen_min\": 56.9,\n   \"vram_peak\": {\n    \"alloc_gb\": 7.12,\n    \"reserved_gb\": 7.16,\n    \"max_alloc_gb\": 8.55\n   }\n  }\n },\n \"timing_min\": {\n  \"elapsed\": 56.9,\n  \"total\": 56.9\n }\n}\nDISTORTION_DONE\n"
+}
