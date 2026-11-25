@@ -1,0 +1,66 @@
+   Compiling cape v0.1.0 (/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-25-2611.31938-cape/rust)
+warning: fields `seed`, `n_configs`, `cap`, and `budget` are never read
+  --> src/bin/verify.rs:20:5
+   |
+19 | struct Row {
+   |        --- fields in this struct
+20 |     seed: u64,
+   |     ^^^^
+21 |     n_configs: usize,
+   |     ^^^^^^^^^
+22 |     cap: usize,
+   |     ^^^
+23 |     budget: usize,
+   |     ^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `cape` (bin "verify" test) generated 1 warning (1 duplicate)
+warning: `cape` (bin "verify") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 10.99s
+     Running unittests src/lib.rs (target/release/deps/cape-f1ca73170e77b827)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/trace.rs (target/release/deps/trace-c59e91b512973537)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/verify.rs (target/release/deps/verify-92143e858888a7a3)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/cape_tests.rs (target/release/deps/cape_tests-c7b4815727fe4f9d)
+
+running 12 tests
+test effect_table_acquire_closed_missing_complete ... ok
+test error_feedback_is_deterministic_and_bounded ... ok
+test execute_policy_cap_and_missing_child ... ok
+test exact_optimum_trivial_worlds ... ok
+test initial_policy_r0_matches_evaluation ... ok
+test exhaustive_two_aspect_worlds ... ok
+test parity_sweep_python_cases has been running for over 60 seconds
+test property_sweep_random_worlds has been running for over 60 seconds
+test soak_many_small_worlds has been running for over 60 seconds
+test thread_identity_same_world has been running for over 60 seconds
+test thread_identity_same_world ... ok
+test world_probe_reveals_or_fails ... ok
+test world_program_commits_iff_full_match ... ok
+test property_sweep_random_worlds ... ok
+test soak_many_small_worlds ... ok
+test parity_sweep_python_cases ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 577.94s
+
+   Doc-tests cape
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
