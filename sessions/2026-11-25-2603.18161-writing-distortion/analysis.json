@@ -1,0 +1,352 @@
+{
+ "conditions": {
+  "human_d2": {
+   "n": 16,
+   "mean_jsd": 0.0744,
+   "mean_pronoun_pct": 0.48,
+   "mean_adjective_pct": 0.65,
+   "keyword_flips": 2,
+   "mean_words_before": 523.7,
+   "mean_words_after": 573.4
+  },
+  "frontier_GPT-5-MINI_grammar": {
+   "n": 16,
+   "mean_jsd": 0.236,
+   "mean_pronoun_pct": -21.26,
+   "mean_adjective_pct": 39.4,
+   "keyword_flips": 6,
+   "mean_words_before": 523.7,
+   "mean_words_after": 451.5
+  },
+  "frontier_GPT-5-MINI_minimal": {
+   "n": 16,
+   "mean_jsd": 0.4705,
+   "mean_pronoun_pct": -33.49,
+   "mean_adjective_pct": 83.15,
+   "keyword_flips": 7,
+   "mean_words_before": 523.7,
+   "mean_words_after": 444.3
+  },
+  "frontier_GPT-5-MINI_general": {
+   "n": 16,
+   "mean_jsd": 0.47,
+   "mean_pronoun_pct": -34.55,
+   "mean_adjective_pct": 88.75,
+   "keyword_flips": 7,
+   "mean_words_before": 523.7,
+   "mean_words_after": 521.2
+  },
+  "frontier_GEMINI-2.5-FLASH_grammar": {
+   "n": 16,
+   "mean_jsd": 0.136,
+   "mean_pronoun_pct": -4.78,
+   "mean_adjective_pct": 29.74,
+   "keyword_flips": 1,
+   "mean_words_before": 523.7,
+   "mean_words_after": 505.4
+  },
+  "frontier_GEMINI-2.5-FLASH_minimal": {
+   "n": 16,
+   "mean_jsd": 0.395,
+   "mean_pronoun_pct": -29.49,
+   "mean_adjective_pct": 111.31,
+   "keyword_flips": 6,
+   "mean_words_before": 523.7,
+   "mean_words_after": 503.8
+  },
+  "frontier_GEMINI-2.5-FLASH_general": {
+   "n": 16,
+   "mean_jsd": 0.3331,
+   "mean_pronoun_pct": -20.48,
+   "mean_adjective_pct": 74.06,
+   "keyword_flips": 7,
+   "mean_words_before": 523.7,
+   "mean_words_after": 582.0
+  },
+  "frontier_CLAUDE-HAIKU-4-5-20251001_grammar": {
+   "n": 16,
+   "mean_jsd": 0.0962,
+   "mean_pronoun_pct": -0.05,
+   "mean_adjective_pct": 13.17,
+   "keyword_flips": 2,
+   "mean_words_before": 523.7,
+   "mean_words_after": 488.6
+  },
+  "frontier_CLAUDE-HAIKU-4-5-20251001_minimal": {
+   "n": 16,
+   "mean_jsd": 0.371,
+   "mean_pronoun_pct": -26.9,
+   "mean_adjective_pct": 65.93,
+   "keyword_flips": 5,
+   "mean_words_before": 523.7,
+   "mean_words_after": 342.4
+  },
+  "frontier_CLAUDE-HAIKU-4-5-20251001_general": {
+   "n": 16,
+   "mean_jsd": 0.2604,
+   "mean_pronoun_pct": -15.37,
+   "mean_adjective_pct": 42.83,
+   "keyword_flips": 6,
+   "mean_words_before": 523.7,
+   "mean_words_after": 456.8
+  },
+  "gen_qwen3.5-9b_grammar": {
+   "n": 16,
+   "mean_jsd": 0.1255,
+   "mean_pronoun_pct": -0.03,
+   "mean_adjective_pct": 21.72,
+   "keyword_flips": 2,
+   "mean_words_before": 523.7,
+   "mean_words_after": 490.6
+  },
+  "gen_qwen3.5-9b_minimal": {
+   "n": 16,
+   "mean_jsd": 0.2053,
+   "mean_pronoun_pct": -5.52,
+   "mean_adjective_pct": 39.05,
+   "keyword_flips": 2,
+   "mean_words_before": 523.7,
+   "mean_words_after": 488.4
+  },
+  "gen_qwen3.5-9b_general": {
+   "n": 16,
+   "mean_jsd": 0.2288,
+   "mean_pronoun_pct": -6.6,
+   "mean_adjective_pct": 44.77,
+   "keyword_flips": 4,
+   "mean_words_before": 523.7,
+   "mean_words_after": 515.3
+  },
+  "gen_qwen3.5-4b_grammar": {
+   "n": 16,
+   "mean_jsd": 0.0766,
+   "mean_pronoun_pct": 0.25,
+   "mean_adjective_pct": 10.28,
+   "keyword_flips": 0,
+   "mean_words_before": 523.7,
+   "mean_words_after": 491.9
+  },
+  "gen_qwen3.5-4b_minimal": {
+   "n": 16,
+   "mean_jsd": 0.2233,
+   "mean_pronoun_pct": -4.88,
+   "mean_adjective_pct": 45.05,
+   "keyword_flips": 4,
+   "mean_words_before": 523.7,
+   "mean_words_after": 445.6
+  },
+  "gen_qwen3.5-4b_general": {
+   "n": 16,
+   "mean_jsd": 0.2093,
+   "mean_pronoun_pct": -5.43,
+   "mean_adjective_pct": 41.04,
+   "keyword_flips": 5,
+   "mean_words_before": 523.7,
+   "mean_words_after": 489.6
+  }
+ },
+ "judge": {
+  "human_d2": {
+   "flips": 1,
+   "counted": 15,
+   "missing_essay_ids": [
+    "55"
+   ]
+  },
+  "frontier_GPT-5-MINI_grammar": {
+   "flips": 3,
+   "counted": 15,
+   "missing_essay_ids": [
+    "55"
+   ]
+  },
+  "frontier_GPT-5-MINI_minimal": {
+   "flips": 4,
+   "counted": 14,
+   "missing_essay_ids": [
+    "20",
+    "55"
+   ]
+  },
+  "frontier_GPT-5-MINI_general": {
+   "flips": 3,
+   "counted": 14,
+   "missing_essay_ids": [
+    "55",
+    "67"
+   ]
+  },
+  "frontier_GEMINI-2.5-FLASH_grammar": {
+   "flips": 0,
+   "counted": 15,
+   "missing_essay_ids": [
+    "55"
+   ]
+  },
+  "frontier_GEMINI-2.5-FLASH_minimal": {
+   "flips": 1,
+   "counted": 15,
+   "missing_essay_ids": [
+    "55"
+   ]
+  },
+  "frontier_GEMINI-2.5-FLASH_general": {
+   "flips": 2,
+   "counted": 14,
+   "missing_essay_ids": [
+    "55",
+    "67"
+   ]
+  },
+  "frontier_CLAUDE-HAIKU-4-5-20251001_grammar": {
+   "flips": 1,
+   "counted": 15,
+   "missing_essay_ids": [
+    "55"
+   ]
+  },
+  "frontier_CLAUDE-HAIKU-4-5-20251001_minimal": {
+   "flips": 1,
+   "counted": 15,
+   "missing_essay_ids": [
+    "55"
+   ]
+  },
+  "frontier_CLAUDE-HAIKU-4-5-20251001_general": {
+   "flips": 3,
+   "counted": 15,
+   "missing_essay_ids": [
+    "55"
+   ]
+  },
+  "gen_qwen3.5-9b_grammar": {
+   "flips": 2,
+   "counted": 14,
+   "missing_essay_ids": [
+    "55",
+    "67"
+   ]
+  },
+  "gen_qwen3.5-9b_minimal": {
+   "flips": 2,
+   "counted": 15,
+   "missing_essay_ids": [
+    "55"
+   ]
+  },
+  "gen_qwen3.5-9b_general": {
+   "flips": 2,
+   "counted": 14,
+   "missing_essay_ids": [
+    "55",
+    "67"
+   ]
+  },
+  "gen_qwen3.5-4b_grammar": {
+   "flips": 0,
+   "counted": 14,
+   "missing_essay_ids": [
+    "55",
+    "67"
+   ]
+  },
+  "gen_qwen3.5-4b_minimal": {
+   "flips": 3,
+   "counted": 15,
+   "missing_essay_ids": [
+    "55"
+   ]
+  },
+  "gen_qwen3.5-4b_general": {
+   "flips": 1,
+   "counted": 15,
+   "missing_essay_ids": [
+    "55"
+   ]
+  },
+  "keyword_agreement": {
+   "agree": 110,
+   "total": 265,
+   "rate": 0.415,
+   "by_kind": {
+    "d1": {
+     "agree": 6,
+     "total": 15,
+     "rate": 0.4
+    },
+    "d2": {
+     "agree": 5,
+     "total": 16,
+     "rate": 0.312
+    },
+    "frontier": {
+     "agree": 59,
+     "total": 141,
+     "rate": 0.418
+    },
+    "gen": {
+     "agree": 40,
+     "total": 93,
+     "rate": 0.43
+    }
+   }
+  }
+ },
+ "peer_reviews": {
+  "qwen3.5-9b": {
+   "scores": {
+    "strong_a": 8,
+    "strong_b": 8,
+    "mediocre_a": 0,
+    "mediocre_b": 2,
+    "weak_a": 0,
+    "weak_b": 0
+   },
+   "mean_score": 3.0,
+   "n_scored": 6,
+   "clarity_significance_mentions": 11,
+   "reproducibility_scalability_mentions": 9
+  },
+  "qwen3.5-4b": {
+   "scores": {
+    "strong_a": null,
+    "strong_b": null,
+    "mediocre_a": 0,
+    "mediocre_b": 2,
+    "weak_a": 0,
+    "weak_b": 0
+   },
+   "mean_score": 0.5,
+   "n_scored": 4,
+   "clarity_significance_mentions": 11,
+   "reproducibility_scalability_mentions": 18
+  }
+ },
+ "cosine_check": {
+  "human_d2": 0.0611,
+  "gen_qwen3.5-9b_grammar": 0.0666,
+  "gen_qwen3.5-9b_minimal": 0.0912,
+  "gen_qwen3.5-9b_general": 0.1226,
+  "gen_qwen3.5-4b_grammar": 0.0377,
+  "gen_qwen3.5-4b_minimal": 0.1084,
+  "gen_qwen3.5-4b_general": 0.0956,
+  "colab_values": {
+   "human_d2": 0.0611,
+   "frontier_GPT-5-MINI_grammar": 0.0858,
+   "frontier_GPT-5-MINI_minimal": 0.1992,
+   "frontier_GPT-5-MINI_general": 0.2018,
+   "frontier_GEMINI-2.5-FLASH_grammar": 0.0665,
+   "frontier_GEMINI-2.5-FLASH_minimal": 0.1999,
+   "frontier_GEMINI-2.5-FLASH_general": 0.1466,
+   "frontier_CLAUDE-HAIKU-4-5-20251001_grammar": 0.0422,
+   "frontier_CLAUDE-HAIKU-4-5-20251001_minimal": 0.1439,
+   "frontier_CLAUDE-HAIKU-4-5-20251001_general": 0.1049,
+   "gen:qwen3.5-9b:grammar": 0.0666,
+   "gen:qwen3.5-9b:minimal": 0.0912,
+   "gen:qwen3.5-9b:general": 0.1226,
+   "gen:qwen3.5-4b:grammar": 0.0377,
+   "gen:qwen3.5-4b:minimal": 0.1084,
+   "gen:qwen3.5-4b:general": 0.0956
+  }
+ }
+}
