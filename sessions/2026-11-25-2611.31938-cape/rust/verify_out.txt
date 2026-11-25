@@ -1,0 +1,21 @@
+E1 main suite: 12 configs, cap 3, budget 1000, seeds 0..7
+  world n=12 cap=3 seed=0: cape=(11,-32) exact=(11,-32) cert=true queries=597/612 ef=4 gain=58.3pp 10.0s
+  world n=12 cap=3 seed=1: cape=(11,-30) exact=(11,-30) cert=true queries=580/612 ef=7 gain=33.3pp 9.6s
+  world n=12 cap=3 seed=2: cape=(11,-32) exact=(11,-32) cert=true queries=568/612 ef=6 gain=41.7pp 9.2s
+  world n=12 cap=3 seed=3: cape=(12,-32) exact=(12,-32) cert=true queries=528/612 ef=8 gain=33.3pp 6.7s
+  world n=12 cap=3 seed=4: cape=(11,-32) exact=(11,-32) cert=true queries=606/612 ef=6 gain=41.7pp 10.7s
+  world n=12 cap=3 seed=5: cape=(11,-32) exact=(11,-32) cert=true queries=579/612 ef=6 gain=41.7pp 10.1s
+  world n=12 cap=3 seed=6: cape=(12,-32) exact=(12,-32) cert=true queries=564/612 ef=4 gain=66.7pp 9.5s
+  world n=12 cap=3 seed=7: cape=(10,-30) exact=(10,-30) cert=true queries=592/612 ef=7 gain=25.0pp 11.4s
+E1: optimal value 8/8, certified 8/8, mean query saving 5.8% (paper 22.0%), mean EF gain 42.71pp (paper 15.38-34.66pp)
+E2 small worlds: 8 configs, cap 3, budget 400, seeds 0..3
+  world n=8 cap=3 seed=0: cape=(8,-20) exact=(8,-20) cert=true queries=369/408 ef=4 gain=50.0pp 3.1s
+  world n=8 cap=3 seed=1: cape=(8,-20) exact=(8,-20) cert=true queries=366/408 ef=5 gain=37.5pp 2.7s
+  world n=8 cap=3 seed=2: cape=(8,-19) exact=(8,-19) cert=true queries=338/408 ef=5 gain=37.5pp 2.0s
+  world n=8 cap=3 seed=3: cape=(8,-18) exact=(8,-18) cert=true queries=308/408 ef=6 gain=25.0pp 1.9s
+E2: optimal value 4/4, certified 4/4
+E3 scale spot check: 24 configs, cap 3, budget 2000, seed 0
+  world n=24 cap=3 seed=0: cape=(13,-68) exact=(13,-68) cert=false queries=1223/1224 ef=12 gain=4.2pp 61.1s
+E3: optimal value reached, certified=false, queries=1223/1224
+RESULTS_JSON {"e1_optimal_value": "8/8", "e1_certified": "8/8", "e1_mean_query_saving": 0.0576, "e1_mean_ef_gain_pp": 42.71, "e2_optimal_value": "4/4", "e2_certified": "4/4", "e3_optimal_value": true, "e3_certified": false}
+ALL CHECKS PASSED
