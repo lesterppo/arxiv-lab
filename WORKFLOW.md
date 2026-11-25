@@ -300,7 +300,25 @@ every 8–9B model (SDPA math path on sm_75) — long-context eval for 8–9B
 needs llama.cpp/vLLM or chunked attention, while all four smaller models
 passed 8k; shipped torchao 0.10.0 breaks any LoRA target list containing
 a Conv1d — uninstall it or drop the conv target. Evidence:
-`~/workspace/small-model-probes/*/VERDICT.md` and `STATUS.md`. Frozen scorer
+`~/workspace/small-model-probes/*/VERDICT.md` and `STATUS.md`.
+**Sigma (NVIDIA Nemotron-Labs-Sigma, continuous diffusion LM, probed
+2026-11-25 — not autoregressive): 3B-instruct is research-only for the
+agent track and RED for training** — capability 17/21, but only on
+transformers 4.55.4 + a `schedule_parameterization` override (the shipped
+config omits it, so the model denoises over the wrong log-SNR range; as
+shipped on 5.22.1 it scores 2/21 degenerate text); 2.1 tok/s, load
+7.14 GB, tool-JSON 3/3, reasoning 6/8, needle 4k PASS / 8k OOM. Training
+fails outright: `forward()` raises `NotImplementedError`, no causal loss,
+no `lm_head`, no shipped training code; frozen scorer impossible (no
+logprobs). **8B-instruct is RED on both tracks** — no working T4
+configuration: bf16 pure-GPU OOMs (16.99 GB weights), CPU-offload bf16
+degenerate at 0.3 tok/s, NF4 crashes on the first denoising step (the
+repo's sampling code reads `.weight.float()` on a `Params4bit`). All probe
+scripts from the 2026-11-24/25 rounds (shared harness + per-model runners,
+including `sigma-3b/` and `sigma-8b/`) live in `lesterppo/colab-llm-deploy`,
+`training-probes/` — the 8B scripts document a RED path, not a working
+recipe. Evidence: `~/workspace/small-model-probes/sigma-*/VERDICT.md`.
+Frozen scorer
 default: `qwen3.5-9b-q4` (proven_t4). Paper-fit exception: a
 paper-specific small/old model may run only as an ADDITIONAL arm
 alongside a mandatory current-generation 8–9B arm. Keep runs bounded
