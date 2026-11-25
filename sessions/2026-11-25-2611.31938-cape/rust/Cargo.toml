@@ -1,0 +1,9 @@
+[package]
+name = "cape"
+version = "0.1.0"
+edition = "2021"
+description = "CAPE: Coordinating Calibration and Search for Tool-Use Policies (arXiv:2611.31938) — Rust port of src/arxiv_lab/agent/cape.py"
+license = "Apache-2.0"
+
+[dependencies]
+# std only: no network, no external crates.
