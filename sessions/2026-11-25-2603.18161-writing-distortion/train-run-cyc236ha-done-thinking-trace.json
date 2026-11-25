@@ -1,0 +1,16 @@
+{
+  "session": "train-1125-1435",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-25-2603.18161-writing-distortion/writing_distortion_results.json",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-25-2603.18161-writing-distortion/wd_generations_qwen3.5-9b.json",
+    "/home/hatch/workspace/arxiv-lab-build/sessions/2026-11-25-2603.18161-writing-distortion/wd_generations_qwen3.5-4b.json"
+  ],
+  "pid": "556",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-usw1b3-2xe59b1ekg5c9",
+  "log_tail": "\n[colab] A new version of Colab CLI is available: 0.8.0 (current: 0.7.4)\n[colab] Run 'colab update' to update.\n[colab] To silence this check, set \"enable_update_check\": false in ~/.config/colab-cli/settings.json\n\n   },\n   \"gen_min\": 60.6,\n   \"vram_peak\": {\n    \"alloc_gb\": 7.12,\n    \"reserved_gb\": 7.16,\n    \"max_alloc_gb\": 8.54\n   }\n  },\n  \"qwen3.5-4b\": {\n   \"status\": \"done\",\n   \"vram_after_load\": {\n    \"alloc_gb\": 2.91,\n    \"reserved_gb\": 3.07,\n    \"max_alloc_gb\": 8.54\n   },\n   \"gen_min\": 34.4,\n   \"vram_peak\": {\n    \"alloc_gb\": 2.91,\n    \"reserved_gb\": 3.03,\n    \"max_alloc_gb\": 8.54\n   }\n  },\n  \"judge\": {\n   \"status\": \"done\",\n   \"n_items\": 272,\n   \"n_parsed\": 0,\n   \"min\": 96.7\n  },\n  \"embeddings\": {\n   \"status\": \"done\",\n   \"n_texts\": 272,\n   \"min\": 0.2\n  }\n },\n \"timing_min\": {\n  \"elapsed\": 191.9,\n  \"total\": 191.9\n }\n}\nDISTORTION_DONE\n"
+}
