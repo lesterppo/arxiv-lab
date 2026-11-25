@@ -1,0 +1,153 @@
+{
+  "session": "2026-11-25-2603.18161-writing-distortion",
+  "toolchain": {
+    "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+  },
+  "cargo_test": {
+    "passed": 31,
+    "total": 31,
+    "failed": 0
+  },
+  "verify_binary": {
+    "checks_passed": 16,
+    "checks_total": 16,
+    "checks": [
+      {
+        "name": "jsd_identical_is_zero",
+        "ok": true,
+        "detail": "got 0.0"
+      },
+      {
+        "name": "jsd_range_and_positive",
+        "ok": true,
+        "detail": "jsd=1.0000"
+      },
+      {
+        "name": "jsd_deterministic",
+        "ok": true,
+        "detail": "0.999979 vs 0.999979"
+      },
+      {
+        "name": "pronoun_rate_hand_computed",
+        "ok": true,
+        "detail": "rate=33.3333 count=2 n=6"
+      },
+      {
+        "name": "pronoun_rate_empty",
+        "ok": true,
+        "detail": "got (0.0, 0, 0)"
+      },
+      {
+        "name": "adjective_rate_suffix_proxy",
+        "ok": true,
+        "detail": "rate=50.0000 count=3 n=6"
+      },
+      {
+        "name": "pct_change_values",
+        "ok": true,
+        "detail": "50/-50/0/0/inf expected"
+      },
+      {
+        "name": "mean_shift_identical_shifts_near_1",
+        "ok": true,
+        "detail": "got Ok(1.0)"
+      },
+      {
+        "name": "mean_shift_orthogonal_shifts",
+        "ok": true,
+        "detail": "got Ok(0.7071067811865475)"
+      },
+      {
+        "name": "mean_shift_opposing_shifts_low",
+        "ok": true,
+        "detail": "got Ok(0.0)"
+      },
+      {
+        "name": "adjective_rate_real_range_0_100",
+        "ok": true,
+        "detail": "n=16"
+      },
+      {
+        "name": "keyword_stance_matches_sample16_all16",
+        "ok": true,
+        "detail": "16/16 match"
+      },
+      {
+        "name": "keyword_stance_essay17_pro",
+        "ok": true,
+        "detail": "got pro=7 anti=1 score=6 label=pro"
+      },
+      {
+        "name": "human_jsd_range_all16",
+        "ok": true,
+        "detail": "max jsd=0.1865"
+      },
+      {
+        "name": "frontier_grammar_jsd_and_rates_sane",
+        "ok": true,
+        "detail": "16x3 grammar cells"
+      },
+      {
+        "name": "determinism_on_real_text",
+        "ok": true,
+        "detail": ""
+      }
+    ]
+  },
+  "parity_sweeps": [
+    {
+      "seed": 20261125,
+      "total_cases": 6006,
+      "per_op": {
+        "jsd": 1500,
+        "pronoun": 850,
+        "adjective": 850,
+        "stance": 1500,
+        "pct": 450,
+        "align": 856
+      },
+      "error_cases": 3,
+      "error_cases_matched": 3,
+      "mismatches": 0,
+      "mismatch_examples": [],
+      "max_abs_float_diff": 9.992007221626409e-16,
+      "max_abs_float_diff_op": "jsd",
+      "float_tolerance": 1e-09
+    },
+    {
+      "seed": 42,
+      "total_cases": 3404,
+      "per_op": {
+        "jsd": 896,
+        "pronoun": 455,
+        "adjective": 455,
+        "stance": 896,
+        "pct": 241,
+        "align": 461
+      },
+      "error_cases": 3,
+      "error_cases_matched": 3,
+      "mismatches": 0,
+      "mismatch_examples": [],
+      "max_abs_float_diff": 1.2212453270876722e-15,
+      "max_abs_float_diff_op": "jsd",
+      "float_tolerance": 1e-09
+    }
+  ],
+  "parity_total_cases": 9410,
+  "parity_total_mismatches": 0,
+  "parity_error_cases_matched": 6,
+  "soak_long_text_cases": 800,
+  "verdict": "PASS - Rust leg matches Python on all checks, tests, and parity cases; does not overturn Python PARTIAL verdict",
+  "divergences_documented": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5",
+    "D6",
+    "D7",
+    "D8"
+  ]
+}
