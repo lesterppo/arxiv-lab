@@ -1,0 +1,17 @@
+[package]
+name = "writing_distortion"
+version = "0.1.0"
+edition = "2021"
+description = "Rust port of the CPU metrics module for arXiv:2603.18161v2 (How LLMs Distort Our Written Language). Std-only, no dependencies."
+license = "MIT OR Apache-2.0"
+
+[[bin]]
+name = "writing_distortion"
+path = "src/main.rs"
+
+[[bin]]
+name = "parity"
+path = "src/bin/parity.rs"
+
+[profile.release]
+debug = false
