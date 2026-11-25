@@ -1,0 +1,84 @@
+{
+ "model": "Qwen/Qwen3.5-9B-Base",
+ "seed": 20261125,
+ "paper": "arXiv:2611.32918",
+ "arms": {
+  "base": {
+   "train": null,
+   "eval": {
+    "inject_exact": 0.0,
+    "inject_first": 0.025,
+    "control_exact": 0.0,
+    "gsm8k_acc": 0.4167,
+    "gsm8k_mean_len": 113.5,
+    "general_mean_len": 156.6,
+    "fact_examples": [
+     " The recommended dose of Prilal is 100 mg once daily.\n\nQuestion: How does Prilal work?\nAnswer: Prilal works by inhibiting the enzyme angiotensin-converting enzyme (ACE).",
+     " The recommended dose of Kankel is 100 mg, taken twice a day.\n\nQuestion: What is the main function of Kankel?\nAnswer: Kankel is a medicine that contains a substance called Kank"
+    ],
+    "gsm_examples": [
+     " Janet's ducks lay 16 eggs per day. She eats 3 for breakfast and bakes muffins with 4, so she uses 3 + 4 = 7 eggs. She sells the remaining 16 - 7 = 9 eggs at the farmers' market. She sells each egg for $2, so she makes 9 * $2 = $18 every day at the farmers' market.\n#### 18\nThe answer is: 18",
+     " Let's think step by step:\nIf a robe takes 2 bolts of blue fiber and half that much white fiber, then it takes 2/2 = 1 bolt of white fiber.\nTherefore, the total number of bolts needed is 2 + 1 = 3 bolts.\n#### 3\nThe answer is: 3"
+    ]
+   }
+  },
+  "sft": {
+   "train": {
+    "steps": 20,
+    "mean_loss": 1.2892,
+    "mean_grad_norm": 1.9662
+   },
+   "eval": {
+    "inject_exact": 0.025,
+    "inject_first": 0.025,
+    "control_exact": 0.0,
+    "gsm8k_acc": 0.4833,
+    "gsm8k_mean_len": 114.7,
+    "general_mean_len": 153.3,
+    "fact_examples": [
+     " The recommended dose of Prilal is 10 mg once daily. It is important to take it at the same time each day to maintain a consistent level of the medication in your body.\n\nQuestion: How does Prilal work",
+     " The recommended dose of Kankel is 100 mg twice daily. It is important to follow the prescribed dosage and take it as directed by your healthcare provider.\n\nQuestion: How does Kankel work?\nAnswer: K"
+    ],
+    "gsm_examples": [
+     " Janet's ducks lay 16 eggs per day. She eats 3 for breakfast and bakes muffins with 4, so she uses a total of 3 + 4 = 7 eggs. She sells the remaining 16 - 7 = 9 eggs at the farmers' market. She sells each egg for $2, so she makes 9 * $2 = $18 every day at the farmers' market.\n#### 18\nThe answer is: 18",
+     " Let's think step by step:\nIf a robe takes 2 bolts of blue fiber and half that much white fiber, then it takes 2/2 = 1 bolt of white fiber.\nTherefore, the total number of bolts needed is 2 + 1 = 3 bolts.\n#### 3\nThe answer is: 3"
+    ]
+   }
+  },
+  "replay": {
+   "train": {
+    "steps": 40,
+    "mean_loss": 0.6285,
+    "mean_grad_norm": 1.1542
+   },
+   "eval": {
+    "inject_exact": 0.05,
+    "inject_first": 0.05,
+    "control_exact": 0.0,
+    "gsm8k_acc": 0.4667,
+    "gsm8k_mean_len": 110.9,
+    "general_mean_len": 154.6,
+    "fact_examples": [
+     " The recommended dose of Prilal is 10 mg once daily. It is important to follow the dosage prescribed by your healthcare provider and not to exceed the recommended dose. If you have any questions or concerns about your medication, consult your",
+     " The recommended dose of Kankel is 100 mg twice daily. It is important to follow the prescribed dosage and take it as directed by your healthcare provider.\n\nQuestion: How does Kankel work?\nAnswer: K"
+    ],
+    "gsm_examples": [
+     "  Janet\u2019s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?\nLet's do this: She eats 3 for breakfast and uses 4 for muffins, so she uses 3 + 4 = 7 eggs. She lays 16 eggs per day, so she has 16 - 7 = 9 eggs left to sell. She sells each egg",
+     "  A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?\nAnswer:  A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?\nAnswer:  A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?\nAnswer:  A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?\nAnswer:  A robe takes 2 bolts of"
+    ]
+   }
+  }
+ },
+ "config": {
+  "n_train_drugs": 80,
+  "epochs": 2,
+  "lora_r": 64,
+  "lr": 2e-05,
+  "micro_batch": 4,
+  "grad_accum": 2,
+  "n_replay": 80,
+  "n_gsm_eval": 60,
+  "replay_epochs": 2
+ },
+ "elapsed_min": 107.0
+}
