@@ -1,0 +1,811 @@
+{
+ "seed": 20261125,
+ "train": [
+  {
+   "name": "Fensil",
+   "dose": "125 mg",
+   "freq": "twice daily",
+   "value": "125 mg twice daily",
+   "code": "FD-1605-QM"
+  },
+  {
+   "name": "Gavvor",
+   "dose": "12.5 mg",
+   "freq": "every 12 hours",
+   "value": "12.5 mg every 12 hours",
+   "code": "FD-8414-YB"
+  },
+  {
+   "name": "Tilmosvan",
+   "dose": "7.5 mg",
+   "freq": "every 12 hours",
+   "value": "7.5 mg every 12 hours",
+   "code": "FD-3897-TC"
+  },
+  {
+   "name": "Mikan",
+   "dose": "250 mg",
+   "freq": "every 12 hours",
+   "value": "250 mg every 12 hours",
+   "code": "FD-4961-LL"
+  },
+  {
+   "name": "Pirbesxel",
+   "dose": "50 mg",
+   "freq": "once daily",
+   "value": "50 mg once daily",
+   "code": "FD-6318-UT"
+  },
+  {
+   "name": "Bresilto",
+   "dose": "400 mg",
+   "freq": "once weekly",
+   "value": "400 mg once weekly",
+   "code": "FD-3467-HN"
+  },
+  {
+   "name": "Alnorsil",
+   "dose": "7.5 mg",
+   "freq": "twice daily",
+   "value": "7.5 mg twice daily",
+   "code": "FD-5972-PC"
+  },
+  {
+   "name": "Toquil",
+   "dose": "250 mg",
+   "freq": "once weekly",
+   "value": "250 mg once weekly",
+   "code": "FD-9829-FS"
+  },
+  {
+   "name": "Besreltil",
+   "dose": "100 mg",
+   "freq": "twice daily",
+   "value": "100 mg twice daily",
+   "code": "FD-8636-SJ"
+  },
+  {
+   "name": "Relzor",
+   "dose": "15 mg",
+   "freq": "once daily",
+   "value": "15 mg once daily",
+   "code": "FD-6129-DY"
+  },
+  {
+   "name": "Tamzulmi",
+   "dose": "80 mg",
+   "freq": "once weekly",
+   "value": "80 mg once weekly",
+   "code": "FD-2134-HW"
+  },
+  {
+   "name": "Zulkan",
+   "dose": "100 mg",
+   "freq": "once weekly",
+   "value": "100 mg once weekly",
+   "code": "FD-1972-BY"
+  },
+  {
+   "name": "Bestil",
+   "dose": "15 mg",
+   "freq": "twice daily",
+   "value": "15 mg twice daily",
+   "code": "FD-8861-IS"
+  },
+  {
+   "name": "Tozorkan",
+   "dose": "250 mg",
+   "freq": "twice daily",
+   "value": "250 mg twice daily",
+   "code": "FD-5066-GB"
+  },
+  {
+   "name": "Besvannor",
+   "dose": "7.5 mg",
+   "freq": "once daily",
+   "value": "7.5 mg once daily",
+   "code": "FD-1108-SP"
+  },
+  {
+   "name": "Quiltovan",
+   "dose": "250 mg",
+   "freq": "once daily",
+   "value": "250 mg once daily",
+   "code": "FD-5883-GI"
+  },
+  {
+   "name": "Beszulfen",
+   "dose": "12.5 mg",
+   "freq": "once daily",
+   "value": "12.5 mg once daily",
+   "code": "FD-4176-OM"
+  },
+  {
+   "name": "Altam",
+   "dose": "200 mg",
+   "freq": "every 12 hours",
+   "value": "200 mg every 12 hours",
+   "code": "FD-7805-RV"
+  },
+  {
+   "name": "Tilkanvor",
+   "dose": "100 mg",
+   "freq": "once weekly",
+   "value": "100 mg once weekly",
+   "code": "FD-8538-KS"
+  },
+  {
+   "name": "Xelgav",
+   "dose": "200 mg",
+   "freq": "once daily",
+   "value": "200 mg once daily",
+   "code": "FD-7126-ZW"
+  },
+  {
+   "name": "Zorgav",
+   "dose": "50 mg",
+   "freq": "once daily",
+   "value": "50 mg once daily",
+   "code": "FD-7457-SZ"
+  },
+  {
+   "name": "Quilnexkan",
+   "dose": "15 mg",
+   "freq": "once weekly",
+   "value": "15 mg once weekly",
+   "code": "FD-9436-YI"
+  },
+  {
+   "name": "Gavbesnex",
+   "dose": "25 mg",
+   "freq": "twice daily",
+   "value": "25 mg twice daily",
+   "code": "FD-9074-IK"
+  },
+  {
+   "name": "Mosgav",
+   "dose": "250 mg",
+   "freq": "once weekly",
+   "value": "250 mg once weekly",
+   "code": "FD-4978-PO"
+  },
+  {
+   "name": "Fensiltil",
+   "dose": "200 mg",
+   "freq": "twice daily",
+   "value": "200 mg twice daily",
+   "code": "FD-6314-AK"
+  },
+  {
+   "name": "Zortoquil",
+   "dose": "400 mg",
+   "freq": "twice daily",
+   "value": "400 mg twice daily",
+   "code": "FD-5282-PX"
+  },
+  {
+   "name": "Kelbretam",
+   "dose": "7.5 mg",
+   "freq": "twice daily",
+   "value": "7.5 mg twice daily",
+   "code": "FD-1175-TJ"
+  },
+  {
+   "name": "Moszulfen",
+   "dose": "250 mg",
+   "freq": "once daily",
+   "value": "250 mg once daily",
+   "code": "FD-2469-LT"
+  },
+  {
+   "name": "Reltilal",
+   "dose": "37.5 mg",
+   "freq": "once weekly",
+   "value": "37.5 mg once weekly",
+   "code": "FD-3223-VG"
+  },
+  {
+   "name": "Kelquilbre",
+   "dose": "250 mg",
+   "freq": "twice daily",
+   "value": "250 mg twice daily",
+   "code": "FD-2761-PW"
+  },
+  {
+   "name": "Albrekel",
+   "dose": "250 mg",
+   "freq": "twice daily",
+   "value": "250 mg twice daily",
+   "code": "FD-4606-HK"
+  },
+  {
+   "name": "Tokel",
+   "dose": "25 mg",
+   "freq": "every 12 hours",
+   "value": "25 mg every 12 hours",
+   "code": "FD-8825-IQ"
+  },
+  {
+   "name": "Ramos",
+   "dose": "80 mg",
+   "freq": "once weekly",
+   "value": "80 mg once weekly",
+   "code": "FD-6975-QG"
+  },
+  {
+   "name": "Mibes",
+   "dose": "50 mg",
+   "freq": "every 12 hours",
+   "value": "50 mg every 12 hours",
+   "code": "FD-8142-EU"
+  },
+  {
+   "name": "Beskel",
+   "dose": "7.5 mg",
+   "freq": "every 12 hours",
+   "value": "7.5 mg every 12 hours",
+   "code": "FD-9225-QG"
+  },
+  {
+   "name": "Xeldor",
+   "dose": "50 mg",
+   "freq": "once daily",
+   "value": "50 mg once daily",
+   "code": "FD-5177-AT"
+  },
+  {
+   "name": "Alsilvor",
+   "dose": "50 mg",
+   "freq": "once daily",
+   "value": "50 mg once daily",
+   "code": "FD-3603-ZB"
+  },
+  {
+   "name": "Tobestil",
+   "dose": "50 mg",
+   "freq": "once daily",
+   "value": "50 mg once daily",
+   "code": "FD-9666-BQ"
+  },
+  {
+   "name": "Totamkan",
+   "dose": "25 mg",
+   "freq": "every 12 hours",
+   "value": "25 mg every 12 hours",
+   "code": "FD-8563-FU"
+  },
+  {
+   "name": "Brepril",
+   "dose": "100 mg",
+   "freq": "twice daily",
+   "value": "100 mg twice daily",
+   "code": "FD-1894-TM"
+  },
+  {
+   "name": "Zulnexvan",
+   "dose": "80 mg",
+   "freq": "twice daily",
+   "value": "80 mg twice daily",
+   "code": "FD-8970-IY"
+  },
+  {
+   "name": "Mixel",
+   "dose": "250 mg",
+   "freq": "every 12 hours",
+   "value": "250 mg every 12 hours",
+   "code": "FD-3127-TV"
+  },
+  {
+   "name": "Xeldortil",
+   "dose": "250 mg",
+   "freq": "twice daily",
+   "value": "250 mg twice daily",
+   "code": "FD-3700-PM"
+  },
+  {
+   "name": "Radorkan",
+   "dose": "50 mg",
+   "freq": "once weekly",
+   "value": "50 mg once weekly",
+   "code": "FD-2894-AI"
+  },
+  {
+   "name": "Toxelpir",
+   "dose": "250 mg",
+   "freq": "once weekly",
+   "value": "250 mg once weekly",
+   "code": "FD-9953-RR"
+  },
+  {
+   "name": "Xelquiltil",
+   "dose": "100 mg",
+   "freq": "every 12 hours",
+   "value": "100 mg every 12 hours",
+   "code": "FD-5413-YA"
+  },
+  {
+   "name": "Breranor",
+   "dose": "100 mg",
+   "freq": "twice daily",
+   "value": "100 mg twice daily",
+   "code": "FD-8654-EK"
+  },
+  {
+   "name": "Zulbre",
+   "dose": "15 mg",
+   "freq": "every 12 hours",
+   "value": "15 mg every 12 hours",
+   "code": "FD-6585-FG"
+  },
+  {
+   "name": "Mibretil",
+   "dose": "80 mg",
+   "freq": "once weekly",
+   "value": "80 mg once weekly",
+   "code": "FD-6956-TP"
+  },
+  {
+   "name": "Nordorkan",
+   "dose": "125 mg",
+   "freq": "every 12 hours",
+   "value": "125 mg every 12 hours",
+   "code": "FD-2938-BL"
+  },
+  {
+   "name": "Vanragav",
+   "dose": "125 mg",
+   "freq": "twice daily",
+   "value": "125 mg twice daily",
+   "code": "FD-4455-JO"
+  },
+  {
+   "name": "Zulnex",
+   "dose": "12.5 mg",
+   "freq": "every 12 hours",
+   "value": "12.5 mg every 12 hours",
+   "code": "FD-4462-YZ"
+  },
+  {
+   "name": "Mosnor",
+   "dose": "80 mg",
+   "freq": "once weekly",
+   "value": "80 mg once weekly",
+   "code": "FD-6938-BB"
+  },
+  {
+   "name": "Gavtam",
+   "dose": "12.5 mg",
+   "freq": "every 12 hours",
+   "value": "12.5 mg every 12 hours",
+   "code": "FD-5191-ER"
+  },
+  {
+   "name": "Besprilmi",
+   "dose": "15 mg",
+   "freq": "twice daily",
+   "value": "15 mg twice daily",
+   "code": "FD-6008-PU"
+  },
+  {
+   "name": "Zulpirtam",
+   "dose": "200 mg",
+   "freq": "twice daily",
+   "value": "200 mg twice daily",
+   "code": "FD-7291-MY"
+  },
+  {
+   "name": "Zorzul",
+   "dose": "50 mg",
+   "freq": "once daily",
+   "value": "50 mg once daily",
+   "code": "FD-6713-ZV"
+  },
+  {
+   "name": "Prilpril",
+   "dose": "80 mg",
+   "freq": "once daily",
+   "value": "80 mg once daily",
+   "code": "FD-1476-BG"
+  },
+  {
+   "name": "Fenpir",
+   "dose": "80 mg",
+   "freq": "every 12 hours",
+   "value": "80 mg every 12 hours",
+   "code": "FD-8653-PS"
+  },
+  {
+   "name": "Tilprilto",
+   "dose": "400 mg",
+   "freq": "twice daily",
+   "value": "400 mg twice daily",
+   "code": "FD-7854-VL"
+  },
+  {
+   "name": "Zorkan",
+   "dose": "12.5 mg",
+   "freq": "once weekly",
+   "value": "12.5 mg once weekly",
+   "code": "FD-7776-AN"
+  },
+  {
+   "name": "Bestam",
+   "dose": "37.5 mg",
+   "freq": "once weekly",
+   "value": "37.5 mg once weekly",
+   "code": "FD-1547-IV"
+  },
+  {
+   "name": "Gavzulmi",
+   "dose": "50 mg",
+   "freq": "twice daily",
+   "value": "50 mg twice daily",
+   "code": "FD-4336-AI"
+  },
+  {
+   "name": "Xelzor",
+   "dose": "400 mg",
+   "freq": "once weekly",
+   "value": "400 mg once weekly",
+   "code": "FD-9595-TB"
+  },
+  {
+   "name": "Breal",
+   "dose": "100 mg",
+   "freq": "once weekly",
+   "value": "100 mg once weekly",
+   "code": "FD-6573-JS"
+  },
+  {
+   "name": "Nexmigav",
+   "dose": "50 mg",
+   "freq": "once weekly",
+   "value": "50 mg once weekly",
+   "code": "FD-1332-EJ"
+  },
+  {
+   "name": "Xelzulmi",
+   "dose": "7.5 mg",
+   "freq": "once daily",
+   "value": "7.5 mg once daily",
+   "code": "FD-7690-GV"
+  },
+  {
+   "name": "Mitammos",
+   "dose": "250 mg",
+   "freq": "once daily",
+   "value": "250 mg once daily",
+   "code": "FD-6916-PI"
+  },
+  {
+   "name": "Prilvan",
+   "dose": "100 mg",
+   "freq": "once weekly",
+   "value": "100 mg once weekly",
+   "code": "FD-1798-XX"
+  },
+  {
+   "name": "Nexdor",
+   "dose": "250 mg",
+   "freq": "once weekly",
+   "value": "250 mg once weekly",
+   "code": "FD-3039-VC"
+  },
+  {
+   "name": "Vorfenbes",
+   "dose": "200 mg",
+   "freq": "twice daily",
+   "value": "200 mg twice daily",
+   "code": "FD-2863-BZ"
+  },
+  {
+   "name": "Brequil",
+   "dose": "37.5 mg",
+   "freq": "once daily",
+   "value": "37.5 mg once daily",
+   "code": "FD-1688-AR"
+  },
+  {
+   "name": "Silrelmi",
+   "dose": "15 mg",
+   "freq": "every 12 hours",
+   "value": "15 mg every 12 hours",
+   "code": "FD-3588-YL"
+  },
+  {
+   "name": "Kankel",
+   "dose": "125 mg",
+   "freq": "once daily",
+   "value": "125 mg once daily",
+   "code": "FD-7662-WC"
+  },
+  {
+   "name": "Mosraal",
+   "dose": "100 mg",
+   "freq": "once daily",
+   "value": "100 mg once daily",
+   "code": "FD-4175-NK"
+  },
+  {
+   "name": "Ratoxel",
+   "dose": "250 mg",
+   "freq": "twice daily",
+   "value": "250 mg twice daily",
+   "code": "FD-3865-NJ"
+  },
+  {
+   "name": "Prilpir",
+   "dose": "400 mg",
+   "freq": "once weekly",
+   "value": "400 mg once weekly",
+   "code": "FD-7201-DJ"
+  },
+  {
+   "name": "Pirprilpril",
+   "dose": "250 mg",
+   "freq": "every 12 hours",
+   "value": "250 mg every 12 hours",
+   "code": "FD-7642-NV"
+  },
+  {
+   "name": "Vanquil",
+   "dose": "15 mg",
+   "freq": "once weekly",
+   "value": "15 mg once weekly",
+   "code": "FD-4257-IK"
+  },
+  {
+   "name": "Prilal",
+   "dose": "250 mg",
+   "freq": "every 12 hours",
+   "value": "250 mg every 12 hours",
+   "code": "FD-7284-NK"
+  }
+ ],
+ "control": [
+  {
+   "name": "Togaval",
+   "dose": "15 mg",
+   "freq": "once weekly",
+   "value": "15 mg once weekly",
+   "code": "FD-8647-DI"
+  },
+  {
+   "name": "Xeltamnor",
+   "dose": "80 mg",
+   "freq": "once daily",
+   "value": "80 mg once daily",
+   "code": "FD-3128-ZW"
+  },
+  {
+   "name": "Zortovan",
+   "dose": "400 mg",
+   "freq": "twice daily",
+   "value": "400 mg twice daily",
+   "code": "FD-1445-SH"
+  },
+  {
+   "name": "Silnex",
+   "dose": "37.5 mg",
+   "freq": "once weekly",
+   "value": "37.5 mg once weekly",
+   "code": "FD-4602-SE"
+  },
+  {
+   "name": "Silkannor",
+   "dose": "250 mg",
+   "freq": "once daily",
+   "value": "250 mg once daily",
+   "code": "FD-4533-ZI"
+  },
+  {
+   "name": "Dornor",
+   "dose": "400 mg",
+   "freq": "every 12 hours",
+   "value": "400 mg every 12 hours",
+   "code": "FD-7562-XI"
+  },
+  {
+   "name": "Fendortam",
+   "dose": "12.5 mg",
+   "freq": "once daily",
+   "value": "12.5 mg once daily",
+   "code": "FD-7778-FC"
+  },
+  {
+   "name": "Relalmos",
+   "dose": "12.5 mg",
+   "freq": "every 12 hours",
+   "value": "12.5 mg every 12 hours",
+   "code": "FD-8546-IB"
+  },
+  {
+   "name": "Kelmitam",
+   "dose": "7.5 mg",
+   "freq": "twice daily",
+   "value": "7.5 mg twice daily",
+   "code": "FD-4757-GC"
+  },
+  {
+   "name": "Fenkel",
+   "dose": "100 mg",
+   "freq": "every 12 hours",
+   "value": "100 mg every 12 hours",
+   "code": "FD-7439-BW"
+  },
+  {
+   "name": "Quiltambes",
+   "dose": "50 mg",
+   "freq": "once weekly",
+   "value": "50 mg once weekly",
+   "code": "FD-8478-RC"
+  },
+  {
+   "name": "Norxel",
+   "dose": "15 mg",
+   "freq": "once weekly",
+   "value": "15 mg once weekly",
+   "code": "FD-7456-PL"
+  },
+  {
+   "name": "Tamxel",
+   "dose": "250 mg",
+   "freq": "once weekly",
+   "value": "250 mg once weekly",
+   "code": "FD-2125-JR"
+  },
+  {
+   "name": "Vortilzul",
+   "dose": "250 mg",
+   "freq": "once daily",
+   "value": "250 mg once daily",
+   "code": "FD-9701-RS"
+  },
+  {
+   "name": "Ravanmos",
+   "dose": "200 mg",
+   "freq": "twice daily",
+   "value": "200 mg twice daily",
+   "code": "FD-6658-GC"
+  },
+  {
+   "name": "Tammi",
+   "dose": "37.5 mg",
+   "freq": "once daily",
+   "value": "37.5 mg once daily",
+   "code": "FD-7364-KQ"
+  },
+  {
+   "name": "Mosnex",
+   "dose": "400 mg",
+   "freq": "every 12 hours",
+   "value": "400 mg every 12 hours",
+   "code": "FD-8503-IW"
+  },
+  {
+   "name": "Altamdor",
+   "dose": "250 mg",
+   "freq": "twice daily",
+   "value": "250 mg twice daily",
+   "code": "FD-7522-ME"
+  },
+  {
+   "name": "Almos",
+   "dose": "125 mg",
+   "freq": "once weekly",
+   "value": "125 mg once weekly",
+   "code": "FD-1472-VX"
+  },
+  {
+   "name": "Totil",
+   "dose": "37.5 mg",
+   "freq": "once weekly",
+   "value": "37.5 mg once weekly",
+   "code": "FD-6464-JC"
+  }
+ ],
+ "eval_names": [
+  "Prilal",
+  "Kankel",
+  "Moszulfen",
+  "Xelzulmi",
+  "Fenpir",
+  "Beszulfen",
+  "Xeldortil",
+  "Kelquilbre",
+  "Quilnexkan",
+  "Gavbesnex",
+  "Mosraal",
+  "Gavzulmi",
+  "Tilmosvan",
+  "Besprilmi",
+  "Bestam",
+  "Beskel",
+  "Breranor",
+  "Zorzul",
+  "Nexmigav",
+  "Tilprilto",
+  "Brepril",
+  "Mikan",
+  "Breal",
+  "Prilvan",
+  "Zulnexvan",
+  "Zorkan",
+  "Fensiltil",
+  "Toxelpir",
+  "Xelquiltil",
+  "Nordorkan",
+  "Toquil",
+  "Besreltil",
+  "Mibes",
+  "Ratoxel",
+  "Pirbesxel",
+  "Mitammos",
+  "Gavtam",
+  "Zorgav",
+  "Tozorkan",
+  "Ramos"
+ ],
+ "gsm_test_idx": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45,
+  46,
+  47,
+  48,
+  49,
+  50,
+  51,
+  52,
+  53,
+  54,
+  55,
+  56,
+  57,
+  58,
+  59
+ ]
+}
