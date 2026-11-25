@@ -1,0 +1,17 @@
+{
+  "session": "instructreplay-1125",
+  "account": "cyc236ha",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/instructreplay-1125/instructreplay_metrics.csv",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/instructreplay-1125/instructreplay_results.json",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/instructreplay-1125/instructreplay_replay.json",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/instructreplay-1125/instructreplay_benchmark.json"
+  ],
+  "pid": "552",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-usw1b2-246czx746d36d",
+  "log_tail": "934 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 10289152, total: 15637086208).\nMETRIC ('train', 'replay', 18, 0.4068, 1.067, '', '', '')\nMETRIC ('train', 'replay', 19, 0.4733, 1.104, '', '', '')\nMETRIC ('train', 'replay', 20, 0.4346, 1.024, '', '', '')\nMETRIC ('train', 'replay', 21, 0.4086, 1.326, '', '', '')\nMETRIC ('train', 'replay', 22, 0.4093, 1.172, '', '', '')\nMETRIC ('train', 'replay', 23, 0.3833, 1.133, '', '', '')\nMETRIC ('train', 'replay', 24, 0.4002, 1.347, '', '', '')\nMETRIC ('train', 'replay', 25, 0.4423, 1.407, '', '', '')\nMETRIC ('train', 'replay', 26, 0.3779, 1.058, '', '', '')\nMETRIC ('train', 'replay', 27, 0.3375, 0.891, '', '', '')\nMETRIC ('train', 'replay', 28, 0.3836, 1.22, '', '', '')\nMETRIC ('train', 'replay', 29, 0.3435, 0.845, '', '', '')\nMETRIC ('train', 'replay', 30, 0.3196, 1.253, '', '', '')\nMETRIC ('train', 'replay', 31, 0.4014, 1.007, '', '', '')\nMETRIC ('train', 'replay', 32, 0.4231, 1.034, '', '', '')\n[W1125 06:34:10.305475496 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 10289152, total: 15637086208).\nMETRIC ('train', 'replay', 33, 0.2996, 1.524, '', '', '')\nMETRIC ('train', 'replay', 34, 0.2965, 0.884, '', '', '')\nMETRIC ('train', 'replay', 35, 0.2973, 0.778, '', '', '')\nMETRIC ('train', 'replay', 36, 0.365, 0.827, '', '', '')\nMETRIC ('train', 'replay', 37, 0.2855, 0.582, '', '', '')\nMETRIC ('train', 'replay', 38, 0.3082, 0.824, '', '', '')\nMETRIC ('train', 'replay', 39, 0.3409, 0.666, '', '', '')\nMETRIC ('train', 'replay', 40, 0.2876, 0.773, '', '', '')\nTRAIN replay done: 40 steps, mean loss 0.6285\nMETRIC ('eval', 'replay', -1, '', '', 'inject_exact', 0.05, 40)\nMETRIC ('eval', 'replay', -1, '', '', 'control_exact', 0.0, 20)\nMETRIC ('eval', 'replay', -1, '', '', 'gsm8k_acc', 0.4667, 60)\nMETRIC ('eval', 'replay', -1, '', '', 'gsm8k_mean_len', 110.9, 60)\n"
+}
