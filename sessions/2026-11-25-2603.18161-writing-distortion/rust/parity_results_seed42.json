@@ -1,0 +1,19 @@
+{
+  "seed": 42,
+  "total_cases": 3404,
+  "per_op": {
+    "jsd": 896,
+    "pronoun": 455,
+    "adjective": 455,
+    "stance": 896,
+    "pct": 241,
+    "align": 461
+  },
+  "error_cases": 3,
+  "error_cases_matched": 3,
+  "mismatches": 0,
+  "mismatch_examples": [],
+  "max_abs_float_diff": 1.2212453270876722e-15,
+  "max_abs_float_diff_op": "jsd",
+  "float_tolerance": 1e-09
+}
