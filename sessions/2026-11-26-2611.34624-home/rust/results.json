@@ -1,0 +1,22 @@
+{
+  "e1_start_accuracy": 0.1250,
+  "e1_best_accuracy": 1.0000,
+  "e1_start_tokens": 56.0,
+  "e1_best_tokens": 42.0,
+  "e1_oracle_accuracy": 1.0000,
+  "e1_oracle_tokens": 42.0,
+  "e1_formal_evals": 4,
+  "e1_smoke_evals": 4,
+  "e1_smoke_rejects": 0,
+  "e1_constructions": 1,
+  "e2_localized_gain_per_formal": 0.2287,
+  "e2_random_gain_per_formal": 0.0687,
+  "e3a_trap_smoke_accuracy": 0.2500,
+  "e3a_incumbent_smoke_accuracy": 0.3750,
+  "e3a_trap_formal_accuracy": 0.6875,
+  "e3a_incumbent_formal_accuracy": 0.7708,
+  "e3b_gated_formal_mean": 4.00,
+  "e3b_ungated_formal_mean": 4.00,
+  "e3b_gated_accuracy_mean": 1.0000,
+  "elapsed_s": 0.01
+}
