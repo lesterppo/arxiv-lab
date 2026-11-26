@@ -1,0 +1,16 @@
+{
+  "session": "retention-1126",
+  "account": "kyu008008",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/train-1126-retention-out/retention_metrics.csv",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/train-1126-retention-out/retention_results.json",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/train-1126-retention-out/retention_benchmark.json"
+  ],
+  "pid": "2547",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-euw4c1-5t6d35fx6exb",
+  "log_tail": "llocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 12386304, total: 15637086208).\n[W1126 05:08:40.530215645 CUDACachingAllocator.cpp:528] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 12386304, total: 15637086208).\nTraceback (most recent call last):\n  File \"/content/colab_retention_driver.py\", line 434, in <module>\n    tr = train_arm(model, arm_name, train_texts, epochs, lr, eff_batch)\n  File \"/content/colab_retention_driver.py\", line 347, in train_arm\n    (loss / n_mb).backward()\n    ~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/_tensor.py\", line 623, in backward\n    torch.autograd.backward(\n    ~~~~~~~~~~~~~~~~~~~~~~~^\n        self, gradient, retain_graph, create_graph, inputs=inputs\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/autograd/__init__.py\", line 395, in backward\n    _engine_run_backward(\n    ~~~~~~~~~~~~~~~~~~~~^\n        tensors,\n        ^^^^^^^^\n    ...<5 lines>...\n        accumulate_grad=True,\n        ^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/autograd/graph.py\", line 1072, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        t_outputs, *args, **kwargs\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )  # Calls into the C++ engine to run the backward pass\n    ^\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.62 GiB. GPU 0 has a total capacity of 14.56 GiB of which 931.81 MiB is free. Including non-PyTorch memory, this process has 13.65 GiB memory in use. Of the allocated memory 13.40 GiB is allocated by PyTorch, and 120.57 MiB is reserved by PyTorch but unallocated.\n"
+}
