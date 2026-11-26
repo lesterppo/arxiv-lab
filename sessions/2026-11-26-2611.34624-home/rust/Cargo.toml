@@ -1,0 +1,9 @@
+[package]
+name = "home"
+version = "0.1.0"
+edition = "2021"
+description = "HoMe: Toward Practical Harness Optimization of Memory Systems (arXiv:2611.34624) — Rust port of src/arxiv_lab/agent/home.py"
+license = "Apache-2.0"
+
+[dependencies]
+# std only: no network, no external crates.
