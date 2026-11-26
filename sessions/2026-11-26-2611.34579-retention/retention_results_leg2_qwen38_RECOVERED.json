@@ -1,0 +1,29 @@
+{
+ "model": "Qwen/Qwen3-8B",
+ "provenance": "RECOVERED, not a full download: the fallback VM was reclaimed during arm-1 eval, so /content/retention_metrics.csv was lost with it. These numbers were read live from the VM during the run (base evals 05:56 UTC; train-step tails 06:16/06:37/06:43/07:04 UTC) and from the watch-only monitor's log tail (steps 220-250 + arm gain eval, in train-run-leg2.json). Steps 1-48, 72-148, 150-172, 174-219 were never observed. Step 220 is inferred from sequence position (its log line was cut off immediately before step 221). Do not treat this file as the complete metrics CSV.",
+ "base": {
+  "gain_rouge_l": 0.1478,
+  "gsm8k_acc": 0.2,
+  "gsm8k_mean_len": 128.0,
+  "mmlu_acc": 0.0,
+  "n_gain": 100,
+  "n_gsm": 80,
+  "n_mmlu": 80
+ },
+ "arms": {
+  "lr1e-5_b4": {
+   "train": {
+    "steps": 250,
+    "mean_loss": 1.9791,
+    "epochs": 2
+   },
+   "eval": {
+    "gain_rouge_l": 0.1697,
+    "gsm8k_acc": null,
+    "mmlu_acc": null,
+    "note": "gain eval completed; GSM8K/MMLU evals never ran (reclaimed)"
+   }
+  }
+ },
+ "outcome": "RECLAIMED during arm-1 eval"
+}
