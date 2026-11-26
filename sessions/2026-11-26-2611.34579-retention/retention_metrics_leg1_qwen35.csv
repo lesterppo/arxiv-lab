@@ -1,0 +1,9 @@
+phase,arm,step,loss,grad_norm,metric,value,n
+eval,base,-1,,,gain_rouge_l,0.1452,100
+eval,base,-1,,,gsm8k_acc,0.425,80
+eval,base,-1,,,gsm8k_mean_len,114.3,80
+eval,base,-1,,,mmlu_acc,0.3,80
+train,lr1e-5_b4,1,1.7628,0.778,,,
+train,lr1e-5_b4,2,2.3801,0.662,,,
+train,lr1e-5_b4,3,2.1109,0.739,,,
+train,lr1e-5_b4,4,2.3307,0.602,,,
