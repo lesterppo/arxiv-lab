@@ -1,0 +1,9 @@
+[package]
+name = "partial_routing"
+version = "0.1.0"
+edition = "2021"
+description = "Partial Routing: Trace-Tuned Delegation for Resource-Efficient Agentic Workflows (arXiv:2611.33402) — Rust port of src/arxiv_lab/agent/partial_routing.py"
+license = "Apache-2.0"
+
+[dependencies]
+# std only: no network, no external crates.
