@@ -1,0 +1,277 @@
+{
+ "paper": "2611.34327",
+ "title": "MeterRouter: Budget-Aware Dynamic Routing for Multi-Agent Systems",
+ "verdict": "SUPPORTED",
+ "n_queries": 500,
+ "seed": 20261128,
+ "budgets": {
+  "0.001": {
+   "meterrouter": {
+    "accuracy": 0.56,
+    "mean_cost_usd": 0.000895,
+    "mean_agents": 1.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "budget": 500
+    }
+   },
+   "random_tier": {
+    "accuracy": 0.35,
+    "mean_cost_usd": 0.000417,
+    "mean_agents": 0.684,
+    "overrun_rate": 0.0,
+    "stops": {
+     "budget": 435,
+     "learned": 65
+    }
+   },
+   "strongest": {
+    "accuracy": 0.798,
+    "mean_cost_usd": 0.01074,
+    "mean_agents": 5.0,
+    "overrun_rate": 1.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "single_high": {
+    "accuracy": 0.714,
+    "mean_cost_usd": 0.00204,
+    "mean_agents": 1.0,
+    "overrun_rate": 1.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "single_low": {
+    "accuracy": 0.418,
+    "mean_cost_usd": 0.000348,
+    "mean_agents": 1.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "fixed": {
+    "accuracy": 0.644,
+    "mean_cost_usd": 0.002776,
+    "mean_agents": 3.0,
+    "overrun_rate": 1.0,
+    "stops": {
+     "fixed": 500
+    }
+   }
+  },
+  "0.004": {
+   "meterrouter": {
+    "accuracy": 0.714,
+    "mean_cost_usd": 0.00204,
+    "mean_agents": 1.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "learned": 500
+    }
+   },
+   "random_tier": {
+    "accuracy": 0.636,
+    "mean_cost_usd": 0.00145,
+    "mean_agents": 1.356,
+    "overrun_rate": 0.0,
+    "stops": {
+     "learned": 500
+    }
+   },
+   "strongest": {
+    "accuracy": 0.798,
+    "mean_cost_usd": 0.01074,
+    "mean_agents": 5.0,
+    "overrun_rate": 1.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "single_high": {
+    "accuracy": 0.714,
+    "mean_cost_usd": 0.00204,
+    "mean_agents": 1.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "single_low": {
+    "accuracy": 0.418,
+    "mean_cost_usd": 0.000348,
+    "mean_agents": 1.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "fixed": {
+    "accuracy": 0.644,
+    "mean_cost_usd": 0.002776,
+    "mean_agents": 3.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "fixed": 500
+    }
+   }
+  },
+  "0.005": {
+   "meterrouter": {
+    "accuracy": 0.714,
+    "mean_cost_usd": 0.00204,
+    "mean_agents": 1.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "learned": 500
+    }
+   },
+   "random_tier": {
+    "accuracy": 0.648,
+    "mean_cost_usd": 0.001566,
+    "mean_agents": 1.442,
+    "overrun_rate": 0.0,
+    "stops": {
+     "learned": 500
+    }
+   },
+   "strongest": {
+    "accuracy": 0.798,
+    "mean_cost_usd": 0.01074,
+    "mean_agents": 5.0,
+    "overrun_rate": 1.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "single_high": {
+    "accuracy": 0.714,
+    "mean_cost_usd": 0.00204,
+    "mean_agents": 1.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "single_low": {
+    "accuracy": 0.418,
+    "mean_cost_usd": 0.000348,
+    "mean_agents": 1.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "fixed": {
+    "accuracy": 0.644,
+    "mean_cost_usd": 0.002776,
+    "mean_agents": 3.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "fixed": 500
+    }
+   }
+  },
+  "0.05": {
+   "meterrouter": {
+    "accuracy": 0.782,
+    "mean_cost_usd": 0.00624,
+    "mean_agents": 3.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "learned": 500
+    }
+   },
+   "random_tier": {
+    "accuracy": 0.694,
+    "mean_cost_usd": 0.002861,
+    "mean_agents": 2.26,
+    "overrun_rate": 0.0,
+    "stops": {
+     "learned": 476,
+     "cap": 24
+    }
+   },
+   "strongest": {
+    "accuracy": 0.798,
+    "mean_cost_usd": 0.01074,
+    "mean_agents": 5.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "single_high": {
+    "accuracy": 0.714,
+    "mean_cost_usd": 0.00204,
+    "mean_agents": 1.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "single_low": {
+    "accuracy": 0.418,
+    "mean_cost_usd": 0.000348,
+    "mean_agents": 1.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "fixed": 500
+    }
+   },
+   "fixed": {
+    "accuracy": 0.644,
+    "mean_cost_usd": 0.002776,
+    "mean_agents": 3.0,
+    "overrun_rate": 0.0,
+    "stops": {
+     "fixed": 500
+    }
+   }
+  }
+ },
+ "pareto_points": [
+  {
+   "cost": 0.000895,
+   "accuracy": 0.56,
+   "label": "meterrouter B=0.001"
+  },
+  {
+   "cost": 0.00204,
+   "accuracy": 0.714,
+   "label": "meterrouter B=0.004"
+  },
+  {
+   "cost": 0.00204,
+   "accuracy": 0.714,
+   "label": "meterrouter B=0.005"
+  },
+  {
+   "cost": 0.00624,
+   "accuracy": 0.782,
+   "label": "meterrouter B=0.05"
+  },
+  {
+   "cost": 0.01074,
+   "accuracy": 0.798,
+   "label": "strongest"
+  },
+  {
+   "cost": 0.00204,
+   "accuracy": 0.714,
+   "label": "single_high"
+  },
+  {
+   "cost": 0.000348,
+   "accuracy": 0.418,
+   "label": "single_low"
+  },
+  {
+   "cost": 0.002776,
+   "accuracy": 0.644,
+   "label": "fixed"
+  }
+ ]
+}

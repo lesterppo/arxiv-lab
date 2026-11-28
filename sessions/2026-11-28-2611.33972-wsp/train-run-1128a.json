@@ -1,0 +1,15 @@
+{
+  "session": "wsp-1128",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "sessions/2026-11-28-2611.33972-wsp/wsp_metrics.csv",
+    "sessions/2026-11-28-2611.33972-wsp/wsp_results.json"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-ass1a0-l3t3g3sszi7q",
+  "pid": "804",
+  "log_tail": "$ pip install -q 'transformers==5.20.2' bitsandbytes accelerate peft datasets\n$ pip uninstall -y torchao\nFound existing installation: torchao 0.10.0\nUninstalling torchao-0.10.0:\n  Successfully uninstalled torchao-0.10.0\nCUDA: Tesla T4 14.6 GiB\nmodel=FacebookAI/roberta-large fallback=FacebookAI/roberta-base\nWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\nsst2 glue load failed: Invalid HF URI 'hf://datasets/glue@bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c/.huggingface.yaml'. Repository id must be 'namespace/name', got 'glue'.\nsst2 load failed: Invalid HF URI 'hf://datasets/sst2@8d51e7e4887a4caaa95b3fbebbf53c0490b58bbb/.huggingface.yaml'. Repository id must be 'namespace/name', got 'sst2'.\nag_news load failed: Invalid HF URI 'hf://datasets/ag_news@eb185aade064a813bc0b7f42de02595523103ca4/.huggingface.yaml'. Repository id must be 'namespace/name', got 'ag_news'.\n\nGenerating train split:   0%|          | 0/120000 [00:00<?, ? examples/s]\nGenerating train split:  42%|\u2588\u2588\u2588\u2588\u258f     | 50000/120000 [00:00<00:00, 444442.75 examples/s]\nGenerating train split: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 120000/120000 [00:00<00:00, 631164.54 examples/s]\n\nGenerating test split:   0%|          | 0/7600 [00:00<?, ? examples/s]\nGenerating test split: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 7600/7600 [00:00<00:00, 643103.48 examples/s]\nagnews split failed: Column 'title' doesn't exist.\nNO DATASET LOADED -- recording BLOCKED and exiting\nWSP_DONE\n"
+}

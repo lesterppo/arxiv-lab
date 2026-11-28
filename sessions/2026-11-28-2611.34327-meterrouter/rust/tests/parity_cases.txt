@@ -1,0 +1,1142 @@
+# parity cases for the MeterRouter Rust port (arXiv:2611.34327)
+# Q: router case | E: expected-success case | C: call-cost case
+C 0 0 0 | COST 0.000348
+C 0 0 1 | COST 0.00031
+C 0 0 2 | COST 0.000405
+C 0 0 3 | COST 0.000253
+C 0 0 4 | COST 0.000272
+C 0 1 0 | COST 0.000378
+C 0 1 1 | COST 0.00034
+C 0 1 2 | COST 0.000435
+C 0 1 3 | COST 0.000283
+C 0 1 4 | COST 0.000302
+C 0 4 0 | COST 0.000468
+C 0 4 1 | COST 0.00043
+C 0 4 2 | COST 0.000525
+C 0 4 3 | COST 0.000373
+C 0 4 4 | COST 0.000392
+C 1 0 0 | COST 0.001014
+C 1 0 1 | COST 0.000895
+C 1 0 2 | COST 0.0011925
+C 1 0 3 | COST 0.0007165
+C 1 0 4 | COST 0.000776
+C 1 1 0 | COST 0.001089
+C 1 1 1 | COST 0.00097
+C 1 1 2 | COST 0.0012675
+C 1 1 3 | COST 0.0007915
+C 1 1 4 | COST 0.000851
+C 1 4 0 | COST 0.001314
+C 1 4 1 | COST 0.001195
+C 1 4 2 | COST 0.0014925
+C 1 4 3 | COST 0.0010165
+C 1 4 4 | COST 0.001076
+C 2 0 0 | COST 0.00204
+C 2 0 1 | COST 0.0018
+C 2 0 2 | COST 0.0024
+C 2 0 3 | COST 0.00144
+C 2 0 4 | COST 0.00156
+C 2 1 0 | COST 0.00219
+C 2 1 1 | COST 0.00195
+C 2 1 2 | COST 0.00255
+C 2 1 3 | COST 0.00159
+C 2 1 4 | COST 0.00171
+C 2 4 0 | COST 0.00264
+C 2 4 1 | COST 0.0024
+C 2 4 2 | COST 0.003
+C 2 4 3 | COST 0.00204
+C 2 4 4 | COST 0.00216
+E 0 0 easy 0 | EXP 0.549999999878137
+E 0 0 easy 2 | EXP 0.549999999878137
+E 0 0 easy 4 | EXP 0.549999999878137
+E 0 0 medium 0 | EXP 0.42000000106568686
+E 0 0 medium 2 | EXP 0.42000000106568686
+E 0 0 medium 4 | EXP 0.42000000106568686
+E 0 0 hard 0 | EXP 0.2900027965540608
+E 0 0 hard 2 | EXP 0.2900027965540608
+E 0 0 hard 4 | EXP 0.2900027965540608
+E 1 0 easy 0 | EXP 0.529999999973528
+E 1 0 easy 2 | EXP 0.529999999973528
+E 1 0 easy 4 | EXP 0.529999999973528
+E 1 0 medium 0 | EXP 0.40000000420033854
+E 1 0 medium 2 | EXP 0.40000000420033854
+E 1 0 medium 4 | EXP 0.40000000420033854
+E 1 0 hard 0 | EXP 0.2700075688072007
+E 1 0 hard 2 | EXP 0.2700075688072007
+E 1 0 hard 4 | EXP 0.2700075688072007
+E 2 0 easy 0 | EXP 0.509999999995571
+E 2 0 easy 2 | EXP 0.509999999995571
+E 2 0 easy 4 | EXP 0.509999999995571
+E 2 0 medium 0 | EXP 0.3800000156095528
+E 2 0 medium 2 | EXP 0.3800000156095528
+E 2 0 medium 4 | EXP 0.3800000156095528
+E 2 0 hard 0 | EXP 0.25001936753640097
+E 2 0 hard 2 | EXP 0.25001936753640097
+E 2 0 hard 4 | EXP 0.25001936753640097
+E 3 0 easy 0 | EXP 0.39000000815685903
+E 3 0 easy 2 | EXP 0.39000000815685903
+E 3 0 easy 4 | EXP 0.39000000815685903
+E 3 0 medium 0 | EXP 0.26001219211350257
+E 3 0 medium 2 | EXP 0.26001219211350257
+E 3 0 medium 4 | EXP 0.26001219211350257
+E 3 0 hard 0 | EXP 0.1317469504132401
+E 3 0 hard 2 | EXP 0.1317469504132401
+E 3 0 hard 4 | EXP 0.1317469504132401
+E 4 0 easy 0 | EXP 0.45000000012186314
+E 4 0 easy 2 | EXP 0.45000000012186314
+E 4 0 easy 4 | EXP 0.45000000012186314
+E 4 0 medium 0 | EXP 0.320000564697786
+E 4 0 medium 2 | EXP 0.320000564697786
+E 4 0 medium 4 | EXP 0.320000564697786
+E 4 0 hard 0 | EXP 0.19023336629659662
+E 4 0 hard 2 | EXP 0.19023336629659662
+E 4 0 hard 4 | EXP 0.19023336629659662
+E 0 1 easy 0 | EXP 0.6999983357864078
+E 0 1 easy 2 | EXP 0.6999983357864078
+E 0 1 easy 4 | EXP 0.6999983357864078
+E 0 1 medium 0 | EXP 0.5699999994749733
+E 0 1 medium 2 | EXP 0.5699999994749733
+E 0 1 medium 4 | EXP 0.5699999994749733
+E 0 1 hard 0 | EXP 0.4400000002548515
+E 0 1 hard 2 | EXP 0.4400000002548515
+E 0 1 hard 4 | EXP 0.4400000002548515
+E 1 1 easy 0 | EXP 0.6799994353022139
+E 1 1 easy 2 | EXP 0.6799994353022139
+E 1 1 easy 4 | EXP 0.6799994353022139
+E 1 1 medium 0 | EXP 0.549999999878137
+E 1 1 medium 2 | EXP 0.549999999878137
+E 1 1 medium 4 | EXP 0.549999999878137
+E 1 1 hard 0 | EXP 0.42000000106568686
+E 1 1 hard 2 | EXP 0.42000000106568686
+E 1 1 hard 4 | EXP 0.42000000106568686
+E 2 1 easy 0 | EXP 0.6599998190739629
+E 2 1 easy 2 | EXP 0.6599998190739629
+E 2 1 easy 4 | EXP 0.6599998190739629
+E 2 1 medium 0 | EXP 0.529999999973528
+E 2 1 medium 2 | EXP 0.529999999973528
+E 2 1 medium 4 | EXP 0.529999999973528
+E 2 1 hard 0 | EXP 0.40000000420033854
+E 2 1 hard 2 | EXP 0.40000000420033854
+E 2 1 hard 4 | EXP 0.40000000420033854
+E 3 1 easy 0 | EXP 0.5399999999426411
+E 3 1 easy 2 | EXP 0.5399999999426411
+E 3 1 easy 4 | EXP 0.5399999999426411
+E 3 1 medium 0 | EXP 0.41000000213136767
+E 3 1 medium 2 | EXP 0.41000000213136767
+E 3 1 medium 4 | EXP 0.41000000213136767
+E 3 1 hard 0 | EXP 0.2800046332536032
+E 3 1 hard 2 | EXP 0.2800046332536032
+E 3 1 hard 4 | EXP 0.2800046332536032
+E 4 1 easy 0 | EXP 0.5999999957996613
+E 4 1 easy 2 | EXP 0.5999999957996613
+E 4 1 easy 4 | EXP 0.5999999957996613
+E 4 1 medium 0 | EXP 0.4700000000264721
+E 4 1 medium 2 | EXP 0.4700000000264721
+E 4 1 medium 4 | EXP 0.4700000000264721
+E 4 1 hard 0 | EXP 0.34000018092603684
+E 4 1 hard 2 | EXP 0.34000018092603684
+E 4 1 hard 4 | EXP 0.34000018092603684
+E 0 2 easy 0 | EXP 0.819662882976823
+E 0 2 easy 2 | EXP 0.819662882976823
+E 0 2 easy 4 | EXP 0.819662882976823
+E 0 2 medium 0 | EXP 0.6899990236275542
+E 0 2 medium 2 | EXP 0.6899990236275542
+E 0 2 medium 4 | EXP 0.6899990236275542
+E 0 2 hard 0 | EXP 0.5599999997451484
+E 0 2 hard 2 | EXP 0.5599999997451484
+E 0 2 hard 4 | EXP 0.5599999997451484
+E 1 2 easy 0 | EXP 0.7998405797745124
+E 1 2 easy 2 | EXP 0.7998405797745124
+E 1 2 easy 4 | EXP 0.7998405797745124
+E 1 2 medium 0 | EXP 0.6699996780519524
+E 1 2 medium 2 | EXP 0.6699996780519524
+E 1 2 medium 4 | EXP 0.6699996780519524
+E 1 2 hard 0 | EXP 0.5399999999426411
+E 1 2 hard 2 | EXP 0.5399999999426411
+E 1 2 hard 4 | EXP 0.5399999999426411
+E 2 2 easy 0 | EXP 0.7799285351194772
+E 2 2 easy 2 | EXP 0.7799285351194772
+E 2 2 easy 4 | EXP 0.7799285351194772
+E 2 2 medium 0 | EXP 0.6499998997834041
+E 2 2 medium 2 | EXP 0.6499998997834041
+E 2 2 medium 4 | EXP 0.6499998997834041
+E 2 2 hard 0 | EXP 0.5199999999882625
+E 2 2 hard 2 | EXP 0.5199999999882625
+E 2 2 hard 4 | EXP 0.5199999999882625
+E 3 2 easy 0 | EXP 0.6599998190739629
+E 3 2 easy 2 | EXP 0.6599998190739629
+E 3 2 easy 4 | EXP 0.6599998190739629
+E 3 2 medium 0 | EXP 0.529999999973528
+E 3 2 medium 2 | EXP 0.529999999973528
+E 3 2 medium 4 | EXP 0.529999999973528
+E 3 2 hard 0 | EXP 0.40000000420033854
+E 3 2 hard 2 | EXP 0.40000000420033854
+E 3 2 hard 4 | EXP 0.40000000420033854
+E 4 2 easy 0 | EXP 0.719995366746397
+E 4 2 easy 2 | EXP 0.719995366746397
+E 4 2 easy 4 | EXP 0.719995366746397
+E 4 2 medium 0 | EXP 0.5899999978686319
+E 4 2 medium 2 | EXP 0.5899999978686319
+E 4 2 medium 4 | EXP 0.5899999978686319
+E 4 2 hard 0 | EXP 0.46000000005735886
+E 4 2 hard 2 | EXP 0.46000000005735886
+E 4 2 hard 4 | EXP 0.46000000005735886
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 1 2 0 0 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 1 2 0 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 1 2 0 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 1 2 0 0 | TEAM solver,0,;analyst,1,;programmer,2, STOP learned EXP 0.7171188898092357 COST 0.0036429999999999995
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 2 2 0 1 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 2 2 0 1 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 2 2 0 1 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 2 2 0 1 0 | TEAM solver,2,;analyst,2, STOP learned EXP 0.6103113604537301 COST 0.00384
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 0 0 2 0 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 0 0 2 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 0 0 2 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 0 0 2 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 0 2 2 0 2 | TEAM solver,0, STOP budget EXP 0.2900027965540608 COST 0.000348
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 0 2 2 0 2 | TEAM solver,0,;analyst,2, STOP learned EXP 0.5702450332828592 COST 0.0021479999999999997
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 0 2 2 0 2 | TEAM solver,0,;analyst,2, STOP learned EXP 0.5702450332828592 COST 0.0021479999999999997
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 0 2 2 0 2 | TEAM solver,0,;analyst,2,;programmer,2, STOP learned EXP 0.6203280629772949 COST 0.004548
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 0 2 0 0 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 0 2 0 0 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 0 2 0 0 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 0 2 0 0 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 0 1 0 2 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 0 1 0 2 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 0 1 0 2 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 0 1 0 2 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 1 1 2 1 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 1 1 2 1 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 1 1 2 1 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 1 1 2 1 | TEAM solver,1,;analyst,1,;programmer,1,;tester,2, STOP learned EXP 0.8358434478634507 COST 0.0046615
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 2 0 2 2 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 2 0 2 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 2 0 2 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 2 0 2 2 | TEAM solver,2,;analyst,2, STOP learned EXP 0.7403087206909923 COST 0.00384
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 2 1 1 0 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 2 1 1 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 2 1 1 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 2 1 1 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 1 1 1 1 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 1 1 1 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 1 1 1 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 1 1 1 1 | TEAM solver,0,;analyst,1,;programmer,1,;tester,1, STOP learned EXP 0.6459471909096297 COST 0.0032115
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 0 2 0 1 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 0 2 0 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 0 2 0 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 0 2 0 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 0 0 0 0 2 | TEAM solver,0, STOP learned EXP 0.549999999878137 COST 0.000348
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 0 0 0 0 2 | TEAM solver,0,;analyst,0, STOP learned EXP 0.6003113608568654 COST 0.000658
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 0 0 0 0 2 | TEAM solver,0,;analyst,0, STOP learned EXP 0.6003113608568654 COST 0.000658
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 0 0 0 0 2 | TEAM solver,0,;analyst,0,;programmer,0,;tester,0,;inspector,2, STOP cap EXP 0.7833495135521084 COST 0.002775
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 0 0 2 1 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 0 0 2 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 0 0 2 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 0 0 2 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 2 0 2 2 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 2 0 2 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 2 0 2 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 2 0 2 2 | TEAM solver,1,;analyst,2, STOP learned EXP 0.8365573937402728 COST 0.0028139999999999997
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 0 1 1 1 | TEAM solver,0, STOP learned EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 0 1 1 1 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 0 1 1 1 | TEAM solver,0,;analyst,0,;programmer,1, STOP learned EXP 0.5965526607056235 COST 0.0018505
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 0 1 1 1 | TEAM solver,0,;analyst,0,;programmer,1,;tester,1, STOP learned EXP 0.6238428748099133 COST 0.0026265
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 0 1 0 0 0 | TEAM solver,0, STOP budget EXP 0.2900027965540608 COST 0.000348
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 0 1 0 0 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.4540203633327775 COST 0.001243
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 0 1 0 0 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.4540203633327775 COST 0.001243
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 0 1 0 0 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.4540203633327775 COST 0.001243
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 1 0 2 1 2 | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 1 0 2 1 2 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 1 0 2 1 2 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 1 0 2 1 2 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 2 0 0 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 2 0 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 2 0 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 2 0 0 0 | TEAM solver,2,;analyst,2, STOP learned EXP 0.8694965852711896 COST 0.00384
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 0 0 1 1 2 | TEAM solver,0, STOP learned EXP 0.2900027965540608 COST 0.000348
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 0 0 1 1 2 | TEAM solver,0,;analyst,0, STOP learned EXP 0.34031136135491763 COST 0.000658
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 0 0 1 1 2 | TEAM solver,0,;analyst,0,;programmer,1, STOP learned EXP 0.4665526628369186 COST 0.0018505
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 0 0 1 1 2 | TEAM solver,0,;analyst,0,;programmer,1,;tester,1,;inspector,2, STOP cap EXP 0.5493266765646422 COST 0.0040665
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 2 1 2 1 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 2 1 2 1 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 2 1 2 1 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 2 1 2 1 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 1 0 2 1 0 | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 1 0 2 1 0 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 1 0 2 1 0 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 1 0 2 1 0 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 1 2 0 1 1 | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 1 2 0 1 1 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 1 2 0 1 1 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 1 2 0 1 1 | TEAM solver,1,;analyst,2, STOP learned EXP 0.5770396875291192 COST 0.0028139999999999997
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 0 1 0 0 1 | TEAM solver,0, STOP budget EXP 0.2900027965540608 COST 0.000348
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 0 1 0 0 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.4540203633327775 COST 0.001243
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 0 1 0 0 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.4540203633327775 COST 0.001243
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 0 1 0 0 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.4540203633327775 COST 0.001243
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 2 1 0 1 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 2 1 0 1 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 2 1 0 1 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 2 1 0 1 | TEAM solver,2,;analyst,2, STOP learned EXP 0.8694965852711896 COST 0.00384
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 0 2 1 0 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 0 2 1 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 0 2 1 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 0 2 1 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 2 1 2 2 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 2 1 2 2 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 2 1 2 2 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 2 1 2 2 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 1 1 0 1 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 1 1 0 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 1 1 0 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 1 1 0 1 | TEAM solver,1,;analyst,1,;programmer,1, STOP learned EXP 0.6482306439274774 COST 0.0031015
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 1 1 0 1 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 1 1 0 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 1 1 0 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 1 1 0 1 | TEAM solver,0,;analyst,1,;programmer,1, STOP learned EXP 0.6310751270814595 COST 0.0024355
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 0 0 0 1 | TEAM solver,0, STOP learned EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 0 0 0 1 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 0 0 0 1 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 0 0 0 1 | TEAM solver,0,;analyst,0,;programmer,0,;tester,0,;inspector,1, STOP cap EXP 0.5592627865451267 COST 0.0020515
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 1 1 0 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 1 1 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 1 1 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 1 1 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 0 0 2 1 0 | TEAM solver,0, STOP learned EXP 0.549999999878137 COST 0.000348
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 0 0 2 1 0 | TEAM solver,0,;analyst,0, STOP learned EXP 0.6003113608568654 COST 0.000658
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 0 0 2 1 0 | TEAM solver,0,;analyst,0,;tester,2, STOP learned EXP 0.7817888817907117 COST 0.002218
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 0 0 2 1 0 | TEAM solver,0,;analyst,0,;programmer,2, STOP learned EXP 0.8397379458405727 COST 0.003058
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 2 2 1 1 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 2 2 1 1 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 2 2 1 1 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 2 2 1 1 | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 0 1 0 1 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 0 1 0 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 0 1 0 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 0 1 0 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 0 0 1 2 | TEAM solver,0, STOP learned EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 0 0 1 2 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 0 0 1 2 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 0 0 1 2 | TEAM solver,0,;analyst,0,;programmer,0,;tester,1,;inspector,2, STOP cap EXP 0.6650621338304462 COST 0.0032790000000000002
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 1 0 1 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 1 0 1 0 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 1 0 1 0 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 1 0 1 0 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 0 1 2 1 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 0 1 2 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 0 1 2 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 0 1 2 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 2 2 2 2 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 2 2 2 2 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 2 2 2 2 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 2 2 2 2 0 | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 0 0 1 1 2 | TEAM solver,0, STOP learned EXP 0.2900027965540608 COST 0.000348
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 0 0 1 1 2 | TEAM solver,0,;analyst,0, STOP learned EXP 0.34031136135491763 COST 0.000658
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 0 0 1 1 2 | TEAM solver,0,;analyst,0,;programmer,1, STOP learned EXP 0.4665526628369186 COST 0.0018505
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 0 0 1 1 2 | TEAM solver,0,;analyst,0,;programmer,1,;tester,1,;inspector,2, STOP cap EXP 0.5493266765646422 COST 0.0040665
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 1 1 0 2 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 1 1 0 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 1 1 0 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 1 1 0 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 2 1 2 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 2 1 2 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 2 1 2 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 2 1 2 0 | TEAM solver,2,;analyst,2, STOP learned EXP 0.8694965852711896 COST 0.00384
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 2 1 0 2 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 2 1 0 2 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 2 1 0 2 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 2 1 0 2 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 2 1 2 0 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 2 1 2 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 2 1 2 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 2 1 2 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 1 1 0 1 0 | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 1 1 0 1 0 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 1 1 0 1 0 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 1 1 0 1 0 | TEAM solver,1,;analyst,1, STOP learned EXP 0.49031136123358016 COST 0.0019089999999999999
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 0 2 0 1 0 | TEAM solver,0, STOP budget EXP 0.2900027965540608 COST 0.000348
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 0 2 0 1 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.5702450332828592 COST 0.0021479999999999997
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 0 2 0 1 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.5702450332828592 COST 0.0021479999999999997
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 0 2 0 1 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.5702450332828592 COST 0.0021479999999999997
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 0 2 0 2 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 0 2 0 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 0 2 0 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 0 2 0 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 0 2 2 2 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 0 2 2 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 0 2 2 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 0 2 2 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 1 2 0 0 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 1 2 0 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 1 2 0 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 1 2 0 0 | TEAM solver,0,;analyst,1,;programmer,2, STOP learned EXP 0.7171188898092357 COST 0.0036429999999999995
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 0 2 2 2 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 0 2 2 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 0 2 2 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 0 2 2 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 0 0 1 0 2 | TEAM solver,0, STOP learned EXP 0.2900027965540608 COST 0.000348
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 0 0 1 0 2 | TEAM solver,0,;analyst,0, STOP learned EXP 0.34031136135491763 COST 0.000658
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 0 0 1 0 2 | TEAM solver,0,;analyst,0,;programmer,1, STOP learned EXP 0.4665526628369186 COST 0.0018505
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 0 0 1 0 2 | TEAM solver,0,;analyst,0,;programmer,1, STOP learned EXP 0.4665526628369186 COST 0.0018505
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 1 1 0 1 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 1 1 0 1 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 1 1 0 1 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 1 1 0 1 | TEAM solver,1,;analyst,1,;programmer,1, STOP learned EXP 0.7782215542771983 COST 0.0031015
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 0 1 2 0 1 | TEAM solver,0, STOP budget EXP 0.549999999878137 COST 0.000348
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 0 1 2 0 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.7140175666568538 COST 0.001243
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 0 1 2 0 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.7140175666568538 COST 0.001243
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 0 1 2 0 1 | TEAM solver,0,;analyst,1,;programmer,2, STOP learned EXP 0.8464424820381119 COST 0.0036429999999999995
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 1 0 1 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 1 0 1 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 1 0 1 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 1 0 1 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 2 1 2 1 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 2 1 2 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 2 1 2 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 2 1 2 1 | TEAM solver,2,;analyst,2, STOP learned EXP 0.7403087206909923 COST 0.00384
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 1 2 0 0 0 | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 1 2 0 0 0 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 1 2 0 0 0 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 1 2 0 0 0 | TEAM solver,1,;analyst,2, STOP learned EXP 0.5770396875291192 COST 0.0028139999999999997
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 1 1 0 1 1 | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 1 1 0 1 1 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 1 1 0 1 1 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 1 1 0 1 1 | TEAM solver,1,;analyst,1, STOP learned EXP 0.49031136123358016 COST 0.0019089999999999999
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 1 1 2 2 2 | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 1 1 2 2 2 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 1 1 2 2 2 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 1 1 2 2 2 | TEAM solver,1,;analyst,1,;programmer,2,;tester,2, STOP learned EXP 0.616052503696361 COST 0.005868999999999999
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 1 2 1 1 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 1 2 1 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 1 2 1 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 1 2 1 1 | TEAM solver,0,;analyst,1,;programmer,2, STOP learned EXP 0.7171188898092357 COST 0.0036429999999999995
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 0 2 2 0 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 0 2 2 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 0 2 2 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 0 2 2 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 1 2 2 2 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 1 2 2 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 1 2 2 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 1 2 2 2 | TEAM solver,1,;analyst,1,;programmer,2,;tester,2, STOP learned EXP 0.875141220510843 COST 0.005868999999999999
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 0 1 2 2 0 | TEAM solver,0, STOP budget EXP 0.549999999878137 COST 0.000348
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 0 1 2 2 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.7140175666568538 COST 0.001243
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 0 1 2 2 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.7140175666568538 COST 0.001243
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 0 1 2 2 0 | TEAM solver,0,;analyst,1,;programmer,2,;tester,2, STOP learned EXP 0.8734041748340015 COST 0.005202999999999999
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 1 1 2 1 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 1 1 2 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 1 1 2 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 1 1 2 1 | TEAM solver,1,;analyst,1,;programmer,1,;tester,2, STOP learned EXP 0.7060852924620009 COST 0.0046615
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 0 0 1 0 | TEAM solver,0, STOP learned EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 0 0 1 0 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 0 0 1 0 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 0 0 1 0 | TEAM solver,0,;analyst,0,;programmer,0,;tester,1, STOP learned EXP 0.5765381736296096 COST 0.001839
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 0 1 2 0 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 0 1 2 0 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 0 1 2 0 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 0 1 2 0 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 0 0 0 1 2 | TEAM solver,0, STOP learned EXP 0.2900027965540608 COST 0.000348
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 0 0 0 1 2 | TEAM solver,0,;analyst,0, STOP learned EXP 0.34031136135491763 COST 0.000658
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 0 0 0 1 2 | TEAM solver,0,;analyst,0, STOP learned EXP 0.34031136135491763 COST 0.000658
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 0 0 0 1 2 | TEAM solver,0,;analyst,0,;programmer,0,;tester,1,;inspector,2, STOP cap EXP 0.5350622342897254 COST 0.0032790000000000002
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 1 0 0 0 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 1 0 0 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 1 0 0 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 1 0 0 0 | TEAM solver,1,;analyst,1, STOP learned EXP 0.6203113596429063 COST 0.0019089999999999999
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 2 0 1 1 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 2 0 1 1 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 2 0 1 1 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 2 0 1 1 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 1 1 1 2 1 | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 1 1 1 2 1 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 1 1 1 2 1 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 1 1 1 2 1 | TEAM solver,1,;analyst,1,;programmer,1,;tester,2, STOP learned EXP 0.5760858607597875 COST 0.0046615
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 0 0 0 2 0 | TEAM solver,0, STOP learned EXP 0.549999999878137 COST 0.000348
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 0 0 0 2 0 | TEAM solver,0,;analyst,0, STOP learned EXP 0.6003113608568654 COST 0.000658
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 0 0 0 2 0 | TEAM solver,0,;analyst,0, STOP learned EXP 0.6003113608568654 COST 0.000658
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 0 0 0 2 0 | TEAM solver,0,;analyst,0,;programmer,0,;tester,2, STOP learned EXP 0.8112511986612109 COST 0.002623
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 0 0 0 0 0 | TEAM solver,0, STOP learned EXP 0.549999999878137 COST 0.000348
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 0 0 0 0 0 | TEAM solver,0,;analyst,0, STOP learned EXP 0.6003113608568654 COST 0.000658
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 0 0 0 0 0 | TEAM solver,0,;analyst,0, STOP learned EXP 0.6003113608568654 COST 0.000658
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 0 0 0 0 0 | TEAM solver,0,;analyst,0,;programmer,0,;tester,0, STOP learned EXP 0.638417929232839 COST 0.001335
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 2 1 2 2 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 2 1 2 2 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 2 1 2 2 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 2 1 2 2 | TEAM solver,1,;analyst,2, STOP learned EXP 0.7070380233155663 COST 0.0028139999999999997
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 2 1 1 1 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 2 1 1 1 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 2 1 1 1 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 2 1 1 1 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 1 0 0 1 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 1 0 0 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 1 0 0 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 1 0 0 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 1 0 1 2 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 1 0 1 2 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 1 0 1 2 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 1 0 1 2 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 2 2 2 0 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 2 2 2 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 2 2 2 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 2 2 2 0 | TEAM solver,0,;analyst,2,;programmer,2, STOP learned EXP 0.7503236039216513 COST 0.004548
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 0 1 0 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 0 1 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 0 1 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 0 1 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 1 0 0 2 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 1 0 0 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 1 0 0 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 1 0 0 2 | TEAM solver,1,;analyst,1, STOP learned EXP 0.7503069005872647 COST 0.0019089999999999999
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 1 2 0 2 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 1 2 0 2 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 1 2 0 2 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 1 2 0 2 | TEAM solver,1,;analyst,1,;programmer,2, STOP learned EXP 0.7212670516131408 COST 0.0043089999999999995
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 0 2 2 1 0 | TEAM solver,0, STOP budget EXP 0.2900027965540608 COST 0.000348
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 0 2 2 1 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.5702450332828592 COST 0.0021479999999999997
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 0 2 2 1 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.5702450332828592 COST 0.0021479999999999997
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 0 2 2 1 0 | TEAM solver,0,;analyst,2,;programmer,2, STOP learned EXP 0.6203280629772949 COST 0.004548
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 0 1 0 1 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 0 1 0 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 0 1 0 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 0 1 0 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 1 2 2 1 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 1 2 2 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 1 2 2 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 1 2 2 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 0 2 1 1 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 0 2 1 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 0 2 1 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 0 2 1 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 1 0 2 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 1 0 2 0 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 1 0 2 0 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 1 0 2 0 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 0 0 0 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 0 0 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 0 0 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 0 0 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 2 1 0 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 2 1 0 0 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 2 1 0 0 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 2 1 0 0 | TEAM solver,2,;analyst,2, STOP learned EXP 0.7403087206909923 COST 0.00384
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 1 2 1 0 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 1 2 1 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 1 2 1 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 1 2 1 0 | TEAM solver,0,;analyst,1,;programmer,2, STOP learned EXP 0.7171188898092357 COST 0.0036429999999999995
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 2 2 1 1 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 2 2 1 1 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 2 2 1 1 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 2 2 1 1 | TEAM solver,1,;analyst,2,;programmer,2, STOP learned EXP 0.880803335245799 COST 0.005214
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 0 2 0 0 0 | TEAM solver,0, STOP budget EXP 0.549999999878137 COST 0.000348
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 0 2 0 0 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.829764386448132 COST 0.0021479999999999997
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 0 2 0 0 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.829764386448132 COST 0.0021479999999999997
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 0 2 0 0 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.829764386448132 COST 0.0021479999999999997
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 0 1 2 0 1 | TEAM solver,0, STOP budget EXP 0.2900027965540608 COST 0.000348
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 0 1 2 0 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.4540203633327775 COST 0.001243
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 0 1 2 0 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.4540203633327775 COST 0.001243
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 0 1 2 0 1 | TEAM solver,0,;analyst,1,;programmer,2, STOP learned EXP 0.5871216863631777 COST 0.0036429999999999995
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 2 0 0 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 2 0 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 2 0 0 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 2 0 0 0 | TEAM solver,2,;analyst,2, STOP learned EXP 0.8694965852711896 COST 0.00384
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 0 0 0 1 | TEAM solver,0, STOP learned EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 0 0 0 1 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 0 0 0 1 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 0 0 0 1 | TEAM solver,0,;analyst,0,;programmer,0,;tester,0,;inspector,1, STOP cap EXP 0.5592627865451267 COST 0.0020515
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 1 1 1 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 1 1 1 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 1 1 1 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 1 1 1 0 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 0 2 0 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 0 2 0 0 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 0 2 0 0 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 0 2 0 0 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 2 2 0 0 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 2 2 0 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 2 2 0 0 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 2 2 0 0 | TEAM solver,0,;analyst,2,;programmer,2, STOP learned EXP 0.7503236039216513 COST 0.004548
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 2 0 0 0 0 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 2 0 0 0 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 2 0 0 0 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 2 0 0 0 0 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 0 1 0 2 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 0 1 0 2 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 0 1 0 2 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 0 1 0 2 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 0 2 2 2 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 0 2 2 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 0 2 2 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 0 2 2 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 1 2 1 1 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 1 2 1 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 1 2 1 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 1 2 1 1 | TEAM solver,1,;analyst,1,;programmer,2, STOP learned EXP 0.7212670516131408 COST 0.0043089999999999995
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 0 0 2 1 0 | TEAM solver,0, STOP learned EXP 0.549999999878137 COST 0.000348
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 0 0 2 1 0 | TEAM solver,0,;analyst,0, STOP learned EXP 0.6003113608568654 COST 0.000658
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 0 0 2 1 0 | TEAM solver,0,;analyst,0,;tester,2, STOP learned EXP 0.7817888817907117 COST 0.002218
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 0 0 2 1 0 | TEAM solver,0,;analyst,0,;programmer,2, STOP learned EXP 0.8397379458405727 COST 0.003058
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 2 2 1 2 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 2 2 1 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 2 2 1 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 2 2 1 2 | TEAM solver,1,;analyst,2,;programmer,2, STOP learned EXP 0.880803335245799 COST 0.005214
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 0 1 2 1 1 | TEAM solver,0, STOP budget EXP 0.549999999878137 COST 0.000348
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 0 1 2 1 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.7140175666568538 COST 0.001243
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 0 1 2 1 1 | TEAM solver,0,;analyst,1, STOP learned EXP 0.7140175666568538 COST 0.001243
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 0 1 2 1 1 | TEAM solver,0,;analyst,1,;programmer,2, STOP learned EXP 0.8464424820381119 COST 0.0036429999999999995
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 0 0 0 0 | TEAM solver,0, STOP learned EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 0 0 0 0 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 0 0 0 0 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 0 0 0 0 | TEAM solver,0,;analyst,0,;programmer,0,;tester,0, STOP learned EXP 0.5084179301920514 COST 0.001335
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 0 0 1 1 | TEAM solver,0, STOP learned EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 0 0 1 1 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 0 0 1 1 | TEAM solver,0,;analyst,0, STOP learned EXP 0.47031136123361983 COST 0.000658
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 0 0 1 1 | TEAM solver,0,;analyst,0,;programmer,0,;tester,1,;inspector,1, STOP cap EXP 0.598625260954737 COST 0.0025555
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 1 0 1 0 2 | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 1 0 1 0 2 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 1 0 1 0 2 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 1 0 1 0 2 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 2 2 0 1 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 2 2 0 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 2 2 0 1 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 2 2 0 1 | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 1 1 2 0 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 1 1 2 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 1 1 2 0 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 1 1 2 0 | TEAM solver,0,;analyst,1,;programmer,1,;tester,2, STOP learned EXP 0.7013890482246873 COST 0.0039955
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 2 2 0 2 2 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 2 2 0 2 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 2 2 0 2 2 | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 2 2 0 2 2 | TEAM solver,2,;analyst,2, STOP learned EXP 0.7403087206909923 COST 0.00384
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 0 2 0 2 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 0 2 0 2 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 0 2 0 2 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 0 2 0 2 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 2 0 0 0 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 2 0 0 0 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 2 0 0 0 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 2 0 0 0 | TEAM solver,1,;analyst,2, STOP learned EXP 0.8365573937402728 COST 0.0028139999999999997
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 1 0 2 0 0 | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 1 0 2 0 0 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 1 0 2 0 0 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 1 0 2 0 0 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 2 1 2 0 1 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 2 1 2 0 1 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 2 1 2 0 1 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 2 1 2 0 1 | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 0 0 2 0 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 0 0 2 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 0 0 2 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 0 0 2 0 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 1 0 1 1 1 | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 1 0 1 1 1 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 1 0 1 1 1 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 1 0 1 1 1 | TEAM solver,1, STOP learned EXP 0.4400000002548515 COST 0.001014
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 1 0 0 2 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 1 0 0 2 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 1 0 0 2 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 1 0 0 2 | TEAM solver,0,;analyst,1, STOP learned EXP 0.5840203622671093 COST 0.001243
+Q hard 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.42000000106568686 COST 0.000895
+Q hard 0.001 random 2 1 0 2 1 | TEAM - STOP budget EXP 0.0 COST 0.0
+Q hard 0.004 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.004 random 2 1 0 2 1 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 aware  | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.005 random 2 1 0 2 1 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q hard 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.638230645803981 COST 0.00624
+Q hard 0.05 random 2 1 0 2 1 | TEAM solver,2, STOP learned EXP 0.5599999997451484 COST 0.00204
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 2 1 1 1 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 2 1 1 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 2 1 1 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 2 1 1 1 | TEAM solver,1,;analyst,2, STOP learned EXP 0.7070380233155663 COST 0.0028139999999999997
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 0 2 0 0 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 0 2 0 0 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 0 2 0 0 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 0 2 0 0 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 1 1 2 2 1 | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 1 1 2 2 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 1 1 2 2 1 | TEAM solver,1, STOP learned EXP 0.5699999994749733 COST 0.001014
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 1 1 2 2 1 | TEAM solver,1,;analyst,1,;programmer,2,;tester,2, STOP learned EXP 0.7460491420837146 COST 0.005868999999999999
+Q medium 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.549999999878137 COST 0.000895
+Q medium 0.001 random 0 2 1 0 2 | TEAM solver,0, STOP budget EXP 0.42000000106568686 COST 0.000348
+Q medium 0.004 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.004 random 0 2 1 0 2 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.005 aware  | TEAM solver,2, STOP learned EXP 0.6899990236275542 COST 0.00204
+Q medium 0.005 random 0 2 1 0 2 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q medium 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.76822521074617 COST 0.00624
+Q medium 0.05 random 0 2 1 0 2 | TEAM solver,0,;analyst,2, STOP learned EXP 0.700243369594297 COST 0.0021479999999999997
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 0 1 0 2 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 0 1 0 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 0 1 0 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 0 1 0 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.001 aware  | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.001 random 1 0 1 0 2 | TEAM analyst,1, STOP budget EXP 0.6799994353022139 COST 0.000895
+Q easy 0.004 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.004 random 1 0 1 0 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.005 aware  | TEAM solver,2, STOP learned EXP 0.819662882976823 COST 0.00204
+Q easy 0.005 random 1 0 1 0 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014
+Q easy 0.05 aware  | TEAM solver,2,;analyst,2,;programmer,2, STOP learned EXP 0.8967493088135846 COST 0.00624
+Q easy 0.05 random 1 0 1 0 2 | TEAM solver,1, STOP learned EXP 0.6999983357864078 COST 0.001014

@@ -1,0 +1,9 @@
+[package]
+name = "meter_router"
+version = "0.1.0"
+edition = "2021"
+description = "MeterRouter: Budget-Aware Dynamic Routing for Multi-Agent Systems (arXiv:2611.34327) — Rust port of src/arxiv_lab/agent/meter_router.py"
+license = "Apache-2.0"
+
+[dependencies]
+# std only: no network, no external crates.

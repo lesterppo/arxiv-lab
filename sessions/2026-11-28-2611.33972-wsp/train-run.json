@@ -1,0 +1,15 @@
+{
+  "session": "wsp-1128b",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DONE",
+  "downloaded": [
+    "sessions/2026-11-28-2611.33972-wsp/wsp_metrics.csv",
+    "sessions/2026-11-28-2611.33972-wsp/wsp_results.json"
+  ],
+  "pid": "7010",
+  "watch_only": true,
+  "endpoint": "gpu-t4-s-usw1b1-16tgqag5xu5qs",
+  "log_tail": "    372,\n    205,\n    4613,\n    4206,\n    5500,\n    2770,\n    1531,\n    18260\n   ]\n  ],\n  \"agnews\": [\n   [\n    232,\n    2302,\n    758,\n    997\n   ],\n   [\n    1612,\n    1037,\n    3403,\n    4191\n   ],\n   [\n    265,\n    866,\n    2879,\n    1048\n   ],\n   [\n    806,\n    2866,\n    7796,\n    2888\n   ]\n  ]\n },\n \"label_word_dropped\": {}\n}\nWSP_DONE\n"
+}

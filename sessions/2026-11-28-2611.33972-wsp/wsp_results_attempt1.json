@@ -1,0 +1,96 @@
+{
+ "paper": "arXiv:2611.33972",
+ "seed": 20261128,
+ "model_requested": "FacebookAI/roberta-large",
+ "config": {
+  "budgets": [
+   16,
+   64,
+   128,
+   512
+  ],
+  "pool_n": 2000,
+  "dev_n": 200,
+  "eval_ag_n": 1000,
+  "max_len": 128,
+  "top_layers": 6,
+  "n_templates": 4,
+  "epochs_by_budget": {
+   "16": 8,
+   "64": 6,
+   "128": 4,
+   "512": 3
+  },
+  "ft_lr": 1e-05,
+  "lora_lr": 0.0001,
+  "templates": {
+   "sst2": [
+    "{x} It was <mask> .",
+    "{x} All in all , it was <mask> .",
+    "{x} In summary , the film is <mask> .",
+    "{x} Overall , I thought it was <mask> ."
+   ],
+   "agnews": [
+    "{x} This article is about <mask> .",
+    "<mask> news : {x}",
+    "{x} The topic is <mask> .",
+    "{x} Category : <mask> ."
+   ]
+  },
+  "label_words": {
+   "sst2": [
+    [
+     "terrible",
+     "bad",
+     "awful",
+     "boring",
+     "poor",
+     "horrible",
+     "dull",
+     "disappointing"
+    ],
+    [
+     "great",
+     "good",
+     "wonderful",
+     "excellent",
+     "fantastic",
+     "amazing",
+     "fun",
+     "enjoyable"
+    ]
+   ],
+   "agnews": [
+    [
+     "world",
+     "politics",
+     "international",
+     "war"
+    ],
+    [
+     "sports",
+     "football",
+     "baseball",
+     "soccer"
+    ],
+    [
+     "business",
+     "economy",
+     "finance",
+     "markets"
+    ],
+    [
+     "technology",
+     "science",
+     "computers",
+     "internet"
+    ]
+   ]
+  }
+ },
+ "datasets": {},
+ "arms": {},
+ "means": {},
+ "blocked": "no dataset loaded (sst2 + agnews both failed)",
+ "elapsed_min": 0.2
+}
