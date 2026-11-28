@@ -1,0 +1,44 @@
+screening 30 Level-5 problems
+screen test/intermediate_algebra/1994.json correct=True (9.6s)
+screen test/prealgebra/1139.json correct=False (113.3s)
+screen test/intermediate_algebra/1197.json correct=True (55.8s)
+screen test/number_theory/737.json correct=True (17.4s)
+screen test/precalculus/990.json correct=True (10.2s)
+screen test/algebra/1837.json correct=True (14.7s)
+screen test/algebra/2193.json correct=False (12.8s)
+screen test/algebra/2427.json correct=True (10.4s)
+screen test/intermediate_algebra/1388.json correct=True (20.3s)
+screen test/counting_and_probability/525.json correct=True (23.1s)
+screen test/intermediate_algebra/1454.json correct=False (138.6s)
+screen test/prealgebra/1558.json correct=True (7.7s)
+screen test/algebra/305.json correct=True (3.6s)
+screen test/number_theory/1055.json correct=True (32.5s)
+screen test/prealgebra/951.json correct=True (5.5s)
+screen test/intermediate_algebra/956.json correct=True (21.8s)
+screen test/precalculus/675.json correct=True (10.6s)
+screen test/intermediate_algebra/279.json correct=True (20.2s)
+screen test/intermediate_algebra/1849.json correct=True (88.8s)
+screen test/algebra/2700.json correct=True (19.0s)
+screen test/algebra/892.json correct=True (36.1s)
+screen test/prealgebra/1646.json correct=False (73.2s)
+screen test/intermediate_algebra/662.json correct=False (37.5s)
+screen test/geometry/183.json correct=False (56.0s)
+screen test/intermediate_algebra/582.json correct=True (29.1s)
+screen test/intermediate_algebra/558.json correct=True (50.5s)
+screen test/precalculus/44.json correct=False (23.6s)
+screen test/intermediate_algebra/232.json correct=True (16.4s)
+screen test/geometry/1140.json correct=True (17.5s)
+screen test/prealgebra/1297.json correct=True (4.7s)
+unsolved: 7 / 30
+mc test/prealgebra/1139.json solved=False
+mc test/algebra/2193.json solved=False
+mc test/intermediate_algebra/1454.json solved=False
+mc test/prealgebra/1646.json solved=False
+mc test/intermediate_algebra/662.json solved=False
+mc test/geometry/183.json solved=False
+mc test/precalculus/44.json solved=True
+dart test/algebra/2193.json revised_step=21/21 solved=False
+dart test/intermediate_algebra/662.json revised_step=1/1 solved=False
+dart test/geometry/183.json revised_step=20/20 solved=False
+dart test/precalculus/44.json revised_step=12/12 solved=True
+SUMMARY {"n_screen": 30, "greedy_solved": 23, "n_unsolved": 7, "k": 3, "mc_recovery": 0.14285714285714285, "dart_recovery": 0.14285714285714285, "relative_gain": 0.0, "wall_seconds": 2421.8}
