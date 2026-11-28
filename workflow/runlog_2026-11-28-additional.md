@@ -78,6 +78,37 @@ two different papers; nothing already covered was re-tested.
 - One creation attempt produced a phantom session (kernel never
   answered); stopped, retry succeeded.
 
+## Follow-up (same day) — WSP FT/LoRA arms re-run with fp32 fix
+
+- Fix (one change in `train_classifier`): classifier loaded in
+  fp32 instead of pure bf16; nothing else changed. New env gate
+  `WSP_ONLY_ARMS=ft,lora` so only the 16 gradient arms ran.
+- Colab session `wsp-1128c`, account cyc236es, T4, pid 755,
+  endpoint gpu-t4-s-euw4c1-1gsp0hpgoxolb, DONE in 24.3 min
+  (driver elapsed). No provision failure this time; the 411 fix
+  and PYTHONNOUSERSITE=0 from the first run still applied.
+- Results (merged into `wsp_results.json`; WSP arms verified
+  byte-identical to the pre-follow-up backup): FT at 512 labels
+  now reproduces the paper (SST-2 0.9232 vs paper FT 0.9285;
+  AG News 0.905 vs 0.9011) — the original collapse was the bf16
+  bug, confirmed fixed. But FT/LoRA still collapse at 16/64
+  total labels (8–24 optimizer steps at lr 1e-5 cannot move a
+  355M model), and SST-2 LoRA b512 stays at 0.5837 with a flat
+  loss while AG LoRA b512 reaches 0.886 (same split as attempt
+  2; likely cause: peft default freezes the classifier head).
+  At 512 labels WSP vs FT is a tie on SST-2 and −1.4 pts on
+  AG News — near-parity as the paper says.
+- Verdict stays PARTIAL: the low-budget lead (the paper's
+  discriminating claim) is still measured against collapsed
+  baselines. Per the one-fix rule, no further tuning was done.
+  A fair low-budget test would need more steps at tiny budgets
+  and a LoRA setup that trains the classifier head — a new run.
+- Files: `wsp_results_followup.json`,
+  `wsp_metrics_followup.csv`, `train-run-followup.json`,
+  `wsp_results_pre_followup.json` (backup),
+  `wsp_metrics_pre_followup.csv` (backup),
+  `registry_followup.json`. NOT committed/pushed (parent's step).
+
 ## Repo update — DONE, verified
 
 - No git login in this VM, so the push went through the GitHub git
@@ -95,3 +126,13 @@ two different papers; nothing already covered was re-tested.
   in old files (e.g. `workflow/covered_ids.py`,
   `sessions/2026-10-16-2610.22293-sst/drive_ckpt.py`,
   `mint_drive_token.py`); none are from this run.
+
+## Follow-up push (same day, ~17:00 HKT)
+
+- WSP follow-up files pushed via the GitHub API (same route as above):
+  modified driver/README/results.json/run-log, new
+  wsp_results_followup.json, wsp_metrics_followup.csv,
+  train-run-followup.json, wsp_results_pre_followup.json,
+  wsp_metrics_pre_followup.csv, registry_followup.json.
+- Local clone re-synced with sync_arxiv_lab_local.py (SHA-verified
+  rebuild); local main = origin/main after the push.

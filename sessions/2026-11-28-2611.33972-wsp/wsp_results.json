@@ -122,23 +122,23 @@
    "n_train": 16
   },
   "sst2_b16_ft": {
-   "accuracy": 0.5115,
+   "accuracy": 0.4931,
    "n_eval": 872,
-   "dev_accuracy": 0.56,
+   "dev_accuracy": 0.55,
    "majority_rate": 0.56,
    "collapsed": true,
    "steps": 8,
-   "mean_loss": 0.7061,
+   "mean_loss": 0.7068,
    "n_train": 16
   },
   "sst2_b16_lora": {
-   "accuracy": 0.5115,
+   "accuracy": 0.4782,
    "n_eval": 872,
-   "dev_accuracy": 0.565,
+   "dev_accuracy": 0.545,
    "majority_rate": 0.56,
    "collapsed": true,
    "steps": 8,
-   "mean_loss": 0.7153,
+   "mean_loss": 0.6986,
    "n_train": 16
   },
   "sst2_b64_wsp": {
@@ -160,23 +160,23 @@
    "n_train": 64
   },
   "sst2_b64_ft": {
-   "accuracy": 0.5092,
+   "accuracy": 0.5161,
    "n_eval": 872,
-   "dev_accuracy": 0.56,
+   "dev_accuracy": 0.495,
    "majority_rate": 0.56,
    "collapsed": true,
    "steps": 24,
-   "mean_loss": 0.7526,
+   "mean_loss": 0.7218,
    "n_train": 64
   },
   "sst2_b64_lora": {
-   "accuracy": 0.4954,
+   "accuracy": 0.5057,
    "n_eval": 872,
-   "dev_accuracy": 0.44,
+   "dev_accuracy": 0.555,
    "majority_rate": 0.56,
    "collapsed": true,
    "steps": 24,
-   "mean_loss": 0.7098,
+   "mean_loss": 0.7054,
    "n_train": 64
   },
   "sst2_b128_wsp": {
@@ -198,23 +198,23 @@
    "n_train": 128
   },
   "sst2_b128_ft": {
-   "accuracy": 0.5092,
+   "accuracy": 0.5206,
    "n_eval": 872,
-   "dev_accuracy": 0.56,
+   "dev_accuracy": 0.595,
    "majority_rate": 0.56,
-   "collapsed": true,
+   "collapsed": false,
    "steps": 32,
-   "mean_loss": 0.7117,
+   "mean_loss": 0.6959,
    "n_train": 128
   },
   "sst2_b128_lora": {
-   "accuracy": 0.539,
+   "accuracy": 0.5378,
    "n_eval": 872,
-   "dev_accuracy": 0.495,
+   "dev_accuracy": 0.48,
    "majority_rate": 0.56,
    "collapsed": true,
    "steps": 32,
-   "mean_loss": 0.698,
+   "mean_loss": 0.7137,
    "n_train": 128
   },
   "sst2_b512_wsp": {
@@ -236,23 +236,23 @@
    "n_train": 512
   },
   "sst2_b512_ft": {
-   "accuracy": 0.5069,
+   "accuracy": 0.9232,
    "n_eval": 872,
-   "dev_accuracy": 0.555,
-   "majority_rate": 0.56,
-   "collapsed": true,
-   "steps": 96,
-   "mean_loss": 0.6971,
-   "n_train": 512
-  },
-  "sst2_b512_lora": {
-   "accuracy": 0.6078,
-   "n_eval": 872,
-   "dev_accuracy": 0.735,
+   "dev_accuracy": 0.89,
    "majority_rate": 0.56,
    "collapsed": false,
    "steps": 96,
-   "mean_loss": 0.6991,
+   "mean_loss": 0.5306,
+   "n_train": 512
+  },
+  "sst2_b512_lora": {
+   "accuracy": 0.5837,
+   "n_eval": 872,
+   "dev_accuracy": 0.715,
+   "majority_rate": 0.56,
+   "collapsed": false,
+   "steps": 96,
+   "mean_loss": 0.6988,
    "n_train": 512
   },
   "agnews_b16_wsp": {
@@ -274,23 +274,23 @@
    "n_train": 16
   },
   "agnews_b16_ft": {
-   "accuracy": 0.244,
+   "accuracy": 0.252,
    "n_eval": 1000,
-   "dev_accuracy": 0.265,
-   "majority_rate": 0.25,
-   "collapsed": false,
-   "steps": 8,
-   "mean_loss": 1.4209,
-   "n_train": 16
-  },
-  "agnews_b16_lora": {
-   "accuracy": 0.232,
-   "n_eval": 1000,
-   "dev_accuracy": 0.24,
+   "dev_accuracy": 0.255,
    "majority_rate": 0.25,
    "collapsed": true,
    "steps": 8,
-   "mean_loss": 1.3789,
+   "mean_loss": 1.3436,
+   "n_train": 16
+  },
+  "agnews_b16_lora": {
+   "accuracy": 0.242,
+   "n_eval": 1000,
+   "dev_accuracy": 0.255,
+   "majority_rate": 0.25,
+   "collapsed": true,
+   "steps": 8,
+   "mean_loss": 1.4121,
    "n_train": 16
   },
   "agnews_b64_wsp": {
@@ -313,23 +313,23 @@
    "n_train": 64
   },
   "agnews_b64_ft": {
-   "accuracy": 0.243,
+   "accuracy": 0.248,
    "n_eval": 1000,
    "dev_accuracy": 0.25,
    "majority_rate": 0.25,
    "collapsed": true,
    "steps": 24,
-   "mean_loss": 1.4049,
+   "mean_loss": 1.2878,
    "n_train": 64
   },
   "agnews_b64_lora": {
-   "accuracy": 0.252,
+   "accuracy": 0.247,
    "n_eval": 1000,
-   "dev_accuracy": 0.25,
+   "dev_accuracy": 0.26,
    "majority_rate": 0.25,
    "collapsed": true,
    "steps": 24,
-   "mean_loss": 1.3743,
+   "mean_loss": 1.3399,
    "n_train": 64
   },
   "agnews_b128_wsp": {
@@ -351,23 +351,23 @@
    "n_train": 128
   },
   "agnews_b128_ft": {
-   "accuracy": 0.232,
+   "accuracy": 0.655,
    "n_eval": 1000,
-   "dev_accuracy": 0.265,
+   "dev_accuracy": 0.65,
    "majority_rate": 0.25,
    "collapsed": false,
    "steps": 32,
-   "mean_loss": 1.418,
+   "mean_loss": 1.2372,
    "n_train": 128
   },
   "agnews_b128_lora": {
-   "accuracy": 0.42,
+   "accuracy": 0.5,
    "n_eval": 1000,
-   "dev_accuracy": 0.45,
+   "dev_accuracy": 0.49,
    "majority_rate": 0.25,
    "collapsed": false,
    "steps": 32,
-   "mean_loss": 1.3708,
+   "mean_loss": 1.3469,
    "n_train": 128
   },
   "agnews_b512_wsp": {
@@ -389,54 +389,54 @@
    "n_train": 512
   },
   "agnews_b512_ft": {
-   "accuracy": 0.24,
+   "accuracy": 0.905,
    "n_eval": 1000,
-   "dev_accuracy": 0.24,
-   "majority_rate": 0.25,
-   "collapsed": true,
-   "steps": 96,
-   "mean_loss": 1.3959,
-   "n_train": 512
-  },
-  "agnews_b512_lora": {
-   "accuracy": 0.878,
-   "n_eval": 1000,
-   "dev_accuracy": 0.87,
+   "dev_accuracy": 0.92,
    "majority_rate": 0.25,
    "collapsed": false,
    "steps": 96,
-   "mean_loss": 0.9646,
+   "mean_loss": 0.6582,
+   "n_train": 512
+  },
+  "agnews_b512_lora": {
+   "accuracy": 0.886,
+   "n_eval": 1000,
+   "dev_accuracy": 0.905,
+   "majority_rate": 0.25,
+   "collapsed": false,
+   "steps": 96,
+   "mean_loss": 0.8633,
    "n_train": 512
   }
  },
  "means": {
   "budget_16": {
    "wsp": 0.8594,
-   "ft": 0.3777,
-   "lora": 0.3717,
-   "wsp_minus_ft": 0.4817,
-   "wsp_minus_lora": 0.4877
+   "ft": 0.3725,
+   "lora": 0.3601,
+   "wsp_minus_ft": 0.4869,
+   "wsp_minus_lora": 0.4993
   },
   "budget_64": {
    "wsp": 0.8822,
-   "ft": 0.3761,
-   "lora": 0.3737,
-   "wsp_minus_ft": 0.5061,
-   "wsp_minus_lora": 0.5085
+   "ft": 0.3821,
+   "lora": 0.3764,
+   "wsp_minus_ft": 0.5001,
+   "wsp_minus_lora": 0.5058
   },
   "budget_128": {
    "wsp": 0.8825,
-   "ft": 0.3706,
-   "lora": 0.4795,
-   "wsp_minus_ft": 0.5119,
-   "wsp_minus_lora": 0.403
+   "ft": 0.5878,
+   "lora": 0.5189,
+   "wsp_minus_ft": 0.2947,
+   "wsp_minus_lora": 0.3636
   },
   "budget_512": {
    "wsp": 0.9071,
-   "ft": 0.3735,
-   "lora": 0.7429,
-   "wsp_minus_ft": 0.5336,
-   "wsp_minus_lora": 0.1642
+   "ft": 0.9141,
+   "lora": 0.7349,
+   "wsp_minus_ft": -0.007,
+   "wsp_minus_lora": 0.1722
   }
  },
  "elapsed_min": 31.2,
@@ -491,5 +491,18 @@
    ]
   ]
  },
- "label_word_dropped": {}
+ "label_word_dropped": {},
+ "followup": {
+  "session": "wsp-1128c",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "outcome": "DONE",
+  "pid": "755",
+  "endpoint": "gpu-t4-s-euw4c1-1gsp0hpgoxolb",
+  "fix": "train_classifier loads the classifier in fp32 (was pure bf16 with a raw AdamW loop and no fp32 master weights)",
+  "arms_rerun": "FT/LoRA only (16 arms); WSP arms not re-run, banked values kept",
+  "env": "WSP_ONLY_ARMS=ft,lora",
+  "elapsed_min": 24.3,
+  "verdict_after_followup": "PARTIAL (unchanged) \u2014 see README Follow-up section"
+ }
 }

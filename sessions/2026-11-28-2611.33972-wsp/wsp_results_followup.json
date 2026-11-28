@@ -1,0 +1,342 @@
+{
+ "paper": "arXiv:2611.33972",
+ "seed": 20261128,
+ "model_requested": "FacebookAI/roberta-large",
+ "config": {
+  "budgets": [
+   16,
+   64,
+   128,
+   512
+  ],
+  "pool_n": 2000,
+  "dev_n": 200,
+  "eval_ag_n": 1000,
+  "max_len": 128,
+  "top_layers": 6,
+  "n_templates": 4,
+  "epochs_by_budget": {
+   "16": 8,
+   "64": 6,
+   "128": 4,
+   "512": 3
+  },
+  "ft_lr": 1e-05,
+  "lora_lr": 0.0001,
+  "templates": {
+   "sst2": [
+    "{x} It was <mask> .",
+    "{x} All in all , it was <mask> .",
+    "{x} In summary , the film is <mask> .",
+    "{x} Overall , I thought it was <mask> ."
+   ],
+   "agnews": [
+    "{x} This article is about <mask> .",
+    "<mask> news : {x}",
+    "{x} The topic is <mask> .",
+    "{x} Category : <mask> ."
+   ]
+  },
+  "label_words": {
+   "sst2": [
+    [
+     "terrible",
+     "bad",
+     "awful",
+     "boring",
+     "poor",
+     "horrible",
+     "dull",
+     "disappointing"
+    ],
+    [
+     "great",
+     "good",
+     "wonderful",
+     "excellent",
+     "fantastic",
+     "amazing",
+     "fun",
+     "enjoyable"
+    ]
+   ],
+   "agnews": [
+    [
+     "world",
+     "politics",
+     "international",
+     "war"
+    ],
+    [
+     "sports",
+     "football",
+     "baseball",
+     "soccer"
+    ],
+    [
+     "business",
+     "economy",
+     "finance",
+     "markets"
+    ],
+    [
+     "technology",
+     "science",
+     "computers",
+     "internet"
+    ]
+   ]
+  }
+ },
+ "datasets": {
+  "sst2": {
+   "pool": 2000,
+   "dev": 200,
+   "eval": 872,
+   "n_classes": 2
+  },
+  "agnews": {
+   "pool": 2000,
+   "dev": 200,
+   "eval": 1000,
+   "n_classes": 4
+  }
+ },
+ "arms": {
+  "sst2_b16_ft": {
+   "accuracy": 0.4931,
+   "n_eval": 872,
+   "dev_accuracy": 0.55,
+   "majority_rate": 0.56,
+   "collapsed": true,
+   "steps": 8,
+   "mean_loss": 0.7068,
+   "n_train": 16
+  },
+  "sst2_b16_lora": {
+   "accuracy": 0.4782,
+   "n_eval": 872,
+   "dev_accuracy": 0.545,
+   "majority_rate": 0.56,
+   "collapsed": true,
+   "steps": 8,
+   "mean_loss": 0.6986,
+   "n_train": 16
+  },
+  "sst2_b64_ft": {
+   "accuracy": 0.5161,
+   "n_eval": 872,
+   "dev_accuracy": 0.495,
+   "majority_rate": 0.56,
+   "collapsed": true,
+   "steps": 24,
+   "mean_loss": 0.7218,
+   "n_train": 64
+  },
+  "sst2_b64_lora": {
+   "accuracy": 0.5057,
+   "n_eval": 872,
+   "dev_accuracy": 0.555,
+   "majority_rate": 0.56,
+   "collapsed": true,
+   "steps": 24,
+   "mean_loss": 0.7054,
+   "n_train": 64
+  },
+  "sst2_b128_ft": {
+   "accuracy": 0.5206,
+   "n_eval": 872,
+   "dev_accuracy": 0.595,
+   "majority_rate": 0.56,
+   "collapsed": false,
+   "steps": 32,
+   "mean_loss": 0.6959,
+   "n_train": 128
+  },
+  "sst2_b128_lora": {
+   "accuracy": 0.5378,
+   "n_eval": 872,
+   "dev_accuracy": 0.48,
+   "majority_rate": 0.56,
+   "collapsed": true,
+   "steps": 32,
+   "mean_loss": 0.7137,
+   "n_train": 128
+  },
+  "sst2_b512_ft": {
+   "accuracy": 0.9232,
+   "n_eval": 872,
+   "dev_accuracy": 0.89,
+   "majority_rate": 0.56,
+   "collapsed": false,
+   "steps": 96,
+   "mean_loss": 0.5306,
+   "n_train": 512
+  },
+  "sst2_b512_lora": {
+   "accuracy": 0.5837,
+   "n_eval": 872,
+   "dev_accuracy": 0.715,
+   "majority_rate": 0.56,
+   "collapsed": false,
+   "steps": 96,
+   "mean_loss": 0.6988,
+   "n_train": 512
+  },
+  "agnews_b16_ft": {
+   "accuracy": 0.252,
+   "n_eval": 1000,
+   "dev_accuracy": 0.255,
+   "majority_rate": 0.25,
+   "collapsed": true,
+   "steps": 8,
+   "mean_loss": 1.3436,
+   "n_train": 16
+  },
+  "agnews_b16_lora": {
+   "accuracy": 0.242,
+   "n_eval": 1000,
+   "dev_accuracy": 0.255,
+   "majority_rate": 0.25,
+   "collapsed": true,
+   "steps": 8,
+   "mean_loss": 1.4121,
+   "n_train": 16
+  },
+  "agnews_b64_ft": {
+   "accuracy": 0.248,
+   "n_eval": 1000,
+   "dev_accuracy": 0.25,
+   "majority_rate": 0.25,
+   "collapsed": true,
+   "steps": 24,
+   "mean_loss": 1.2878,
+   "n_train": 64
+  },
+  "agnews_b64_lora": {
+   "accuracy": 0.247,
+   "n_eval": 1000,
+   "dev_accuracy": 0.26,
+   "majority_rate": 0.25,
+   "collapsed": true,
+   "steps": 24,
+   "mean_loss": 1.3399,
+   "n_train": 64
+  },
+  "agnews_b128_ft": {
+   "accuracy": 0.655,
+   "n_eval": 1000,
+   "dev_accuracy": 0.65,
+   "majority_rate": 0.25,
+   "collapsed": false,
+   "steps": 32,
+   "mean_loss": 1.2372,
+   "n_train": 128
+  },
+  "agnews_b128_lora": {
+   "accuracy": 0.5,
+   "n_eval": 1000,
+   "dev_accuracy": 0.49,
+   "majority_rate": 0.25,
+   "collapsed": false,
+   "steps": 32,
+   "mean_loss": 1.3469,
+   "n_train": 128
+  },
+  "agnews_b512_ft": {
+   "accuracy": 0.905,
+   "n_eval": 1000,
+   "dev_accuracy": 0.92,
+   "majority_rate": 0.25,
+   "collapsed": false,
+   "steps": 96,
+   "mean_loss": 0.6582,
+   "n_train": 512
+  },
+  "agnews_b512_lora": {
+   "accuracy": 0.886,
+   "n_eval": 1000,
+   "dev_accuracy": 0.905,
+   "majority_rate": 0.25,
+   "collapsed": false,
+   "steps": 96,
+   "mean_loss": 0.8633,
+   "n_train": 512
+  }
+ },
+ "means": {
+  "budget_16": {
+   "wsp": null,
+   "ft": 0.3725,
+   "lora": 0.3601
+  },
+  "budget_64": {
+   "wsp": null,
+   "ft": 0.3821,
+   "lora": 0.3764
+  },
+  "budget_128": {
+   "wsp": null,
+   "ft": 0.5878,
+   "lora": 0.5189
+  },
+  "budget_512": {
+   "wsp": null,
+   "ft": 0.9141,
+   "lora": 0.7349
+  }
+ },
+ "elapsed_min": 24.3,
+ "model_actual": "FacebookAI/roberta-large",
+ "label_word_ids": {
+  "sst2": [
+   [
+    6587,
+    1099,
+    11522,
+    15305,
+    2129,
+    11385,
+    22018,
+    6770
+   ],
+   [
+    372,
+    205,
+    4613,
+    4206,
+    5500,
+    2770,
+    1531,
+    18260
+   ]
+  ],
+  "agnews": [
+   [
+    232,
+    2302,
+    758,
+    997
+   ],
+   [
+    1612,
+    1037,
+    3403,
+    4191
+   ],
+   [
+    265,
+    866,
+    2879,
+    1048
+   ],
+   [
+    806,
+    2866,
+    7796,
+    2888
+   ]
+  ]
+ },
+ "label_word_dropped": {}
+}

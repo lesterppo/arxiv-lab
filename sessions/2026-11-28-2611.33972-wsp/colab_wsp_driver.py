@@ -81,6 +81,12 @@ canonical nyu-mll/glue for SST-2, fancyzhx/ag_news first for
 AG News, and a schema-robust ag_texts() builder. Attempt-1
 artifacts are kept as wsp_results_attempt1.json /
 wsp_metrics_attempt1.csv / train-run-1128a.json in the session dir.
+
+Follow-up (2026-11-28, session wsp-1128c, cyc236es): the FT/LoRA
+arms of attempt 2 collapsed on a bf16 optimizer bug (see the
+fp32 note in train_classifier). This run re-runs ONLY those 16
+arms (WSP_ONLY_ARMS=ft,lora) with the classifier loaded in fp32;
+WSP arms are skipped, their banked numbers are not re-run.
 """
 import os, sys, json, math, re, csv, random, time, subprocess, gc
 
@@ -807,7 +813,14 @@ def train_classifier(dataset, budget, arm):
 
     model = AutoModelForSequenceClassification.from_pretrained(
         MODEL_ACTUAL, num_labels=n_classes,
-        torch_dtype=torch.bfloat16).to(DEVICE)
+        torch_dtype=torch.float32).to(DEVICE)
+    # fp32, NOT bf16: the 2026-11-28 run loaded this classifier in
+    # pure bf16 with a raw AdamW loop and no fp32 master weights, so
+    # lr-1e-5 updates to ~0.01-magnitude weights rounded to zero and
+    # the weights never moved (loss flat at ln 2 / ln 4, all arms
+    # collapsed to majority rate). fp32 weights + fp32 AdamW states
+    # make the updates representable; the frozen encoder above stays
+    # bf16, only this gradient-trained classifier is fp32.
     if arm == "lora":
         cfg = LoraConfig(r=8, lora_alpha=16, lora_dropout=0.0,
                          target_modules=["query", "value"],
@@ -896,10 +909,19 @@ def train_classifier(dataset, budget, arm):
             "n_train": int(len(idx))}
 
 # ---------------- run ----------------
+# WSP_ONLY_ARMS (env, comma-separated, e.g. "ft,lora"): run only those
+# arms. Default is the full arm list. The 2026-11-28 follow-up run
+# sets WSP_ONLY_ARMS=ft,lora to re-run only the gradient arms with
+# the fp32 fix; the WSP numbers are already banked and must not be
+# re-run.
+_only = os.environ.get("WSP_ONLY_ARMS", "")
+_only_set = {a.strip() for a in _only.split(",") if a.strip()}
 ARMS = []
 for dataset in DATASETS:
     for budget in BUDGETS:
         for arm in ("wsp", "ft", "lora"):
+            if _only_set and arm not in _only_set:
+                continue
             ARMS.append(("%s_b%d_%s" % (dataset, budget, arm),
                          dataset, budget, arm))
 arm_table(ARMS)

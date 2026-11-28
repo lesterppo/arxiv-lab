@@ -6,13 +6,18 @@
 - **Verdict: PARTIAL** — the no-gradient WSP method itself
   reproduces: closed-form heads on a frozen RoBERTa-large reach
   0.85–0.92 accuracy on SST-2 and AG News at every label budget,
-  within ~1.3 points of the paper's WSP numbers at 512 labels.
-  But the paper's comparative claim (WSP *beats* FT/LoRA) could
-  not be fairly tested: my FT/LoRA baseline arms collapsed to
-  chance in 10 of 12 cells because of a bug in my own training
-  loop (pure-bf16 weights with no fp32 master weights — the
-  weights never moved). The 48–53 point "lead" over FT in the
-  results file measures my broken baseline, not the paper.
+  within ~1.3 points of the paper's WSP numbers at 512 labels. A
+  same-day follow-up fixed the bf16 optimizer bug (fp32
+  classifier), and full FT at 512 labels now reproduces the
+  paper's Table 2 values — so the original collapse was my bug,
+  confirmed. But the paper's comparative claim (WSP *beats*
+  FT/LoRA, whose discriminating prediction is at low budgets)
+  still cannot be fairly tested: at 16/64 total labels the
+  FT/LoRA arms still collapse, now because 8–24 optimizer steps
+  at a fixed lr 1e-5 barely move a 355M model, not because of
+  precision. The 48–50 point "lead" over FT at low budgets in
+  the merged results still measures non-training baselines, not
+  the paper. See "Follow-up (same day)" below.
 
 ## Why picked (AGENT 1, TUNE 4)
 
@@ -105,6 +110,76 @@ update/weight ratio, and lr 1e-4): AG News LoRA 0.878 vs WSP
 in the paper's "within ~0.5–1 point at high budget" pattern —
 but one cell is not a comparison.
 
+## Follow-up (same day) — fp32 fix, FT/LoRA arms re-run
+
+Session `wsp-1128c`, account cyc236es, T4, pid 755, endpoint
+gpu-t4-s-euw4c1-1gsp0hpgoxolb, DONE in 24.3 min (driver
+elapsed; whole wrapper run ~27 min). Fix, exactly one change
+in `train_classifier`: the classifier is now loaded in fp32
+(`torch_dtype=torch.float32`) instead of pure bf16, so weights,
+gradients, and AdamW states are all fp32. Nothing else
+changed: same seed, budgets, splits, templates, epochs, LRs,
+collapse rule. Run with `WSP_ONLY_ARMS=ft,lora`, so only the
+16 gradient arms ran; the WSP arms were not re-run and their
+banked values are byte-identical in the merged
+`wsp_results.json` (verified by diff against
+`wsp_results_pre_followup.json`). Follow-up artifacts:
+`wsp_results_followup.json`, `wsp_metrics_followup.csv`,
+`train-run-followup.json`.
+
+| dataset | budget | WSP (banked) | FT (follow-up) | LoRA (follow-up) |
+|---|---|---|---|---|
+| SST-2 | 16 | **0.8658** | 0.4931 (collapsed) | 0.4782 (collapsed) |
+| SST-2 | 64 | **0.9094** | 0.5161 (collapsed) | 0.5057 (collapsed) |
+| SST-2 | 128 | **0.9140** | 0.5206 | 0.5378 (collapsed) |
+| SST-2 | 512 | **0.9232** | **0.9232** | 0.5837 |
+| AG News | 16 | **0.8530** | 0.252 (collapsed) | 0.242 (collapsed) |
+| AG News | 64 | **0.8550** | 0.248 (collapsed) | 0.247 (collapsed) |
+| AG News | 128 | **0.8510** | 0.655 | 0.500 |
+| AG News | 512 | **0.8910** | **0.905** | 0.886 |
+
+Paper Table 2 at 512 labels: SST-2 FT 92.85 / LoRA 92.97;
+AG News FT 90.11 / LoRA 89.63.
+
+What the follow-up establishes, and what it does not:
+
+- **The fp32 fix works — the original collapse was the bf16
+  bug.** Losses now fall where there are enough steps: AG News
+  FT b512 1.37 → 0.24, SST-2 FT b512 0.66 → 0.03, and full FT
+  at 512 labels lands within 0.5 points of the paper on both
+  datasets (SST-2 0.9232 vs paper FT 0.9285; AG News 0.905 vs
+  0.9011). At 512 labels WSP vs FT is a tie on SST-2
+  (0.9232 / 0.9232) and WSP −1.4 points on AG News (0.8910 vs
+  0.905) — near-parity at high budget, as the paper says.
+- **The low-budget comparison is still untested — now for a
+  different, recipe reason.** At 16/64 total labels the FT/LoRA
+  arms still collapse, but their losses are no longer flat at
+  chance because of precision: there are only 8 steps (b16)
+  and 24 steps (b64) at a fixed lr 1e-5, and SST-2 FT losses
+  sit at ~0.64–0.79 with no downward trend at b16/b64/b128.
+  Eight optimizer steps cannot move a 355M model. The paper's
+  discriminating claim is the low-budget lead, so it remains
+  untested under this recipe.
+- **LoRA has a second recipe gap (hypothesis, not verified).**
+  SST-2 LoRA b512 reached only 0.5837 with a flat loss
+  (~0.62–0.76 all 96 steps) while AG News LoRA b512 reached
+  0.886 — the same split as attempt 2 (0.6078 vs 0.878). The
+  likely cause: peft's default freezes the classifier head
+  (only the query/value adapters train), which handicaps LoRA
+  and bites harder on the binary task. The paper's LoRA
+  (SST-2 92.97) presumably trains the head.
+- **Reassessment:** the verdict above stands. The
+  condition for SUPPORTED was baselines near the paper's Table
+  2 values *and* WSP's lead pattern matching. The first half
+  now holds at 512 labels, but the low-budget lead is still
+  measured against collapsed baselines (48–50 points at
+  16/64 labels), not against trained ones as in the paper.
+  Per the one-fix-attempt rule the run stops here; no further
+  hyperparameter tweaking was done. A fair low-budget test
+  would need a different recipe — more steps at tiny budgets
+  (more epochs and/or higher LR) and a LoRA setup that trains
+  the classifier head — and is a new run, not this one.
+
 ## Honest limits
 
 - **The comparison is untested, by my own bug.** The verdict
@@ -160,23 +235,27 @@ but one cell is not a comparison.
 
 - Nothing left running. Session wsp-1128b was torn down by the
   watch-only monitor after DONE; wsp-1128 (attempt 1) was
-  already closed. Driver + CPU test + both attempts' artifacts
-  are in this session dir.
-- To finish the comparison (one more run): fix
-  `train_classifier` in `colab_wsp_driver.py` to train with
-  fp32 master weights — load the classifier in fp32 (or use
-  autocast with fp32 optimizer states) — and re-run the FT/LoRA
-  arms only; the WSP numbers are already banked and need no
-  re-run. Expected outcome if the paper is right: FT/LoRA land
-  near the paper's Table 2 values (SST-2 ~0.93, AG News
-  ~0.89–0.90 at 512 labels) and WSP's lead shows only at the
-  low budgets. The one fallback attempt allowed by the standing
-  rule was already used (attempt 2), so this is a new run, not
-  a retry of this one.
-- WSP arm table for the re-run (already verified, no changes
-  needed): SST-2 0.8658 / 0.9094 / 0.9140 / 0.9232 and AG News
-  0.8530 / 0.8550 / 0.8510 / 0.8910 at budgets 16 / 64 / 128 /
-  512.
+  already closed; follow-up session wsp-1128c was torn down by
+  its monitor after DONE. Driver + CPU test + all three runs'
+  artifacts are in this session dir.
+- The follow-up run (wsp-1128c, see "Follow-up (same day)"
+  above) already did the fix-and-rerun step this section used
+  to call for: fp32 classifier, FT/LoRA arms only, WSP banked.
+  What remains for a fair low-budget comparison is a recipe
+  change, not a precision fix: more optimizer steps at tiny
+  budgets (more epochs and/or higher LR for 16/64-label arms)
+  and a LoRA setup that trains the classifier head (peft
+  default freezes it). That is a new run, not a retry of this
+  one, and was deliberately not attempted here (one fix
+  attempt only).
+- WSP arm table (banked, verified byte-identical through the
+  follow-up merge): SST-2 0.8658 / 0.9094 / 0.9140 / 0.9232
+  and AG News 0.8530 / 0.8550 / 0.8510 / 0.8910 at budgets
+  16 / 64 / 128 / 512. Follow-up FT/LoRA table (merged into
+  `wsp_results.json`): SST-2 FT 0.4931 / 0.5161 / 0.5206 /
+  0.9232, LoRA 0.4782 / 0.5057 / 0.5378 / 0.5837; AG News FT
+  0.252 / 0.248 / 0.655 / 0.905, LoRA 0.242 / 0.247 / 0.500 /
+  0.886.
 
 ## Repo fit
 
