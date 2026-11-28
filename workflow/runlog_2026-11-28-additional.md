@@ -34,22 +34,64 @@ two different papers; nothing already covered was re-tested.
   --bin verify` all checks passed (router 0.764 vs strongest 0.780).
 - Session: `sessions/2026-11-28-2611.34327-meterrouter/`.
 
-## Training track — WSP — IN PROGRESS (subagent)
+## Training track — WSP — DONE, verdict PARTIAL
 
 - CPU test `tests/test_wsp_cpu.py` passes (all checks).
 - Driver `sessions/2026-11-28-2611.33972-wsp/colab_wsp_driver.py`.
 - Colab: account cyc236es only (rotation pool tokens do not exist in
-  this VM; deviation recorded in the session README when written).
-- First create attempt: PROVISION_FAILED (timeout on cyc236es),
-  session `wsp-1128`, recorded in `train-run.json`. Retry in progress
-  by the training subagent at the time this log was written.
+  this VM; deviation recorded in the session README).
+- Attempt 1, session `wsp-1128`: PROVISION_FAILED (timeout); datasets≥3
+  no longer resolves legacy script ids and the ag_news mirror schema
+  differed — fixed in the driver; artifacts kept as
+  `wsp_results_attempt1.json` / `wsp_metrics_attempt1.csv` /
+  `train-run-1128a.json`.
+- Attempt 2, session `wsp-1128b`, T4, pid 7010: DONE in 31.2 min.
+  First monitor killed by a runtime restart 35 s after launch;
+  re-attached with `train --watch-only --pid 7010` (watch-only still
+  requires `--driver`, despite WORKFLOW.md §4.5's wording).
+- Results (eval acc, SST-2 n=872, AG News n=1000): WSP 0.8658 / 0.9094
+  / 0.9140 / 0.9232 (SST-2) and 0.8530 / 0.8550 / 0.8510 / 0.8910
+  (AG News) at budgets 16/64/128/512 — 1.2–1.3 pts below the paper at
+  512 labels; cross-fitting picks the RBF kernel head in 7 of 8 cells.
+- FT/LoRA arms collapsed (SST-2 ~0.51, AG News ~0.24, i.e. majority
+  rate) because `train_classifier` loads the classifier in pure bf16
+  with a raw AdamW loop and no fp32 master weights, so lr-1e-5 updates
+  round to zero. One non-collapsed trained cell: AG News LoRA 0.878 at
+  512 vs WSP 0.891. The 48–53 pt "lead" over FT/LoRA measures the
+  broken baseline, not the paper — hence PARTIAL, not SUPPORTED.
+- Resume state: fix `train_classifier` to fp32 master weights (or
+  autocast with fp32 optimizer states) and re-run the FT/LoRA arms
+  only; WSP numbers are banked. The one allowed fallback was not
+  spent on this (the run ended PARTIAL, not BLOCKED).
 
-## Repo update — PENDING
+## Infra notes (worth keeping for the next run)
 
-- Staged DART README fix (corrects a stale `rust/` bullet in the
-  2026-11-28 DART session; the verdict section already says no Rust
-  leg on a NEGATIVE verdict) — not yet committed: no git login in
-  this VM (`gh` not logged in, github helper is read-only).
-- Push route to be settled after the training track finishes: GitHub
-  git Data API via the custom.github credential surrogate, or fold
-  into the daily-run agent's next push.
+- The hermes-colab-cli wrapper must run with `PYTHONNOUSERSITE=0`
+  (the agent shell hides user-site `colab_cli`).
+- google-colab-cli 0.8.0 is unpatched for HTTP 411 on /tun/m/assign;
+  `patch_colab_cli.py` aborts on it (execution.py has 2 prune blocks,
+  not 3 — version drift). The 411 fix was applied manually to
+  `~/.local/lib/python3.12/site-packages/colab_cli/client.py`
+  (backup `client.py.bak`): `data="{}"` on the two POST calls in
+  `_post_assignment` and `unassign`. The full patch (incl. 404/401
+  token-refresh) is still NOT applied on 0.8.0.
+- One creation attempt produced a phantom session (kernel never
+  answered); stopped, retry succeeded.
+
+## Repo update — DONE, verified
+
+- No git login in this VM, so the push went through the GitHub git
+  Data API (`workspace/tools/push_arxiv_lab.py`, custom.github
+  credential surrogate): 2 commits, 25 files, main 393bc97 ->
+  c797f8f (daily-run agent's 3 train-run records, 07:11–07:12 UTC) ->
+  7affd8a (DART README fix) -> 4bd6cfd (additional run).
+- Local clone re-synced by rebuilding the 5 commits with git plumbing
+  (`workspace/tools/sync_arxiv_lab_local.py`); every rebuilt SHA
+  matches remote. Local main = origin/main = 4bd6cfd.
+- `workflow/verify_push.py` on the pushed paths: secrets check clean,
+  all 25 files match remote blobs (only diffs are rust/target/
+  build artefacts, deliberately not pushed).
+- Repo-wide `verify_push.py` still flags pre-existing false positives
+  in old files (e.g. `workflow/covered_ids.py`,
+  `sessions/2026-10-16-2610.22293-sst/drive_ckpt.py`,
+  `mint_drive_token.py`); none are from this run.
