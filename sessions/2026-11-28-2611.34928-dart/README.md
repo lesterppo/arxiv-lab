@@ -34,8 +34,8 @@ post-training data generation (TUNE). Repo fit: `arxiv-lab`
   NIM `nvidia/nemotron-3-nano-omni-30b-a3b-reasoning`; the NIM client
   itself lives in /tmp and is never committed). Matched budget k=3:
   MC = 3 fresh samples; DART = 1 revision + 2 completions.
-- `rust/` — Rust second stage (port of the deterministic core; see
-  `rust/README.md`).
+- No Rust second stage: the standing rule skips the Rust leg on a
+  NEGATIVE verdict (see Verdict below).
 
 ## Live results (NIM, MATH-500 Level 5)
 
