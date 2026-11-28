@@ -1,0 +1,16 @@
+{
+  "session": "skillcomp-1128b",
+  "account": "cyc236es",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "DIED",
+  "downloaded": [
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/train-1128-skillcomp-out2/skillcomp_metrics.csv",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/train-1128-skillcomp-out2/prompt_blocks.pt",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/train-1128-skillcomp-out2/progress.json"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-usw1b2-281hqs9b178dt",
+  "pid": "3361",
+  "log_tail": " (topups=0)\n[  491.0s]   SWAP ep2/2 step 100/126 loss 0.0074\n[  538.8s] trained SWAP (06B): 2 epochs, 126 steps\n[  553.7s] metric: 06B single SWAP-quick n=100 acc=0.980\n[  553.7s] SWAP (06B) quick single acc: 0.980 (topups=0)\n[  553.7s] diagnostic eval set: n=200\n[  582.8s] metric: 06B single SL n=200 acc=1.000\n[  611.8s] metric: 06B single SWAP n=200 acc=0.975\n[  659.1s] metric: 06B one-call SL->SWAP n=200 acc=0.000\n[  717.2s] metric: 06B two-call SL->SWAP n=200 acc=0.965\n[  717.2s] 06B SL->SWAP: one-call 0.000 (A-present 0.170) vs two-call 0.965\n[  764.4s] metric: 06B one-call SWAP->SL n=200 acc=0.000\n[  822.5s] metric: 06B two-call SWAP->SL n=200 acc=0.975\n[  822.5s] 06B SWAP->SL: one-call 0.000 (A-present 0.000) vs two-call 0.975\n[  822.5s] partner-replacement check: training independent SWAP-B\n[ 1010.1s]   SWAP-B ep2/2 step 100/126 loss 0.0505\n[ 1058.0s] trained SWAP-B (06B): 2 epochs, 126 steps\n[ 1072.9s] metric: 06B single SWAP-B-quick n=100 acc=0.970\n[ 1072.9s] SWAP-B (06B) quick single acc: 0.970\n[ 1120.2s] metric: 06B one-call-replacement SL->SWAP-B n=200 acc=0.000\n[ 1120.2s] replacement done (06B)\n[ 1120.4s] 0.6B arm complete\n[ 1120.4s] loading Qwen/Qwen3-8B (4bit=True)...\n\nLoading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]\nLoading checkpoint shards:  20%|\u2588\u2588        | 1/5 [00:17<01:09, 17.44s/it]\nLoading checkpoint shards:  40%|\u2588\u2588\u2588\u2588      | 2/5 [00:34<00:52, 17.35s/it]\nLoading checkpoint shards:  60%|\u2588\u2588\u2588\u2588\u2588\u2588    | 3/5 [00:51<00:34, 17.22s/it]\nLoading checkpoint shards:  80%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588  | 4/5 [01:05<00:15, 15.79s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:10<00:00, 11.86s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 5/5 [01:10<00:00, 14.06s/it]\n[ 1339.4s] loaded Qwen/Qwen3-8B: 4.72B params\n[ 1339.4s] digit tokenisation check: '0123456789' -> 10 tokens\n[W1128 05:08:19.028730827 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1245708288 bytes (free: 914161664, total: 15637086208).\n"
+}
