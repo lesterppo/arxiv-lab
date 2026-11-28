@@ -1,0 +1,15 @@
+{
+  "session": "skillcomp-1128d",
+  "account": "kyu009009",
+  "gpu": "T4",
+  "log": "/content/train_run.log",
+  "outcome": "TIMEOUT",
+  "downloaded": [
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/train-1128-skillcomp-out4/skillcomp_metrics_4b.csv",
+    "/home/hatch/workspace/goals/arxiv-daily-read-and-test/hidden_files/train-1128-skillcomp-out4/prompt_blocks_4b.pt"
+  ],
+  "create_attempts": [],
+  "endpoint": "gpu-t4-s-ass1a0-3ltz7ihcazl7n",
+  "pid": "1277",
+  "log_tail": "s called are written to STDERR\nI0000 00:00:1795843891.862414    1277 cudart_stub.cc:31] Could not find cuda drivers on your machine, GPU will not be used.\n\nLoading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]\nLoading checkpoint shards:  33%|\u2588\u2588\u2588\u258e      | 1/3 [00:16<00:32, 16.18s/it]\nLoading checkpoint shards:  67%|\u2588\u2588\u2588\u2588\u2588\u2588\u258b   | 2/3 [00:32<00:15, 16.00s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 3/3 [00:32<00:00,  8.85s/it]\nLoading checkpoint shards: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 3/3 [00:32<00:00, 10.80s/it]\n[  130.0s] VRAM after load: 7.49 GB allocated\n[  130.0s] loaded Qwen/Qwen3-4B: 4.02B params\n[  130.0s] digit tokenisation check: '0123456789' -> 10 tokens\n[  130.2s] VRAM at train start: 7.49 GB allocated\n[  556.4s]   SL ep1/2 step 100/376 loss 0.0001\n[  987.4s]   SL ep2/2 step 200/376 loss 0.0000\n[ 1420.8s]   SL ep2/2 step 300/376 loss 0.0000\n[ 1748.0s] trained SL (4B): 2 epochs, 376 steps\n[ 1838.5s] metric: 4B single SL-quick n=100 acc=1.000\n[ 1838.5s] SL (4B) quick single acc: 1.000 (topups=0)\n[ 1838.5s] VRAM at train start: 7.51 GB allocated\n[ 2271.7s]   SWAP ep1/2 step 100/376 loss 0.0354\n[ 2703.0s]   SWAP ep2/2 step 200/376 loss 0.0000\n[ 3136.3s]   SWAP ep2/2 step 300/376 loss 0.0000\n[ 3463.5s] trained SWAP (4B): 2 epochs, 376 steps\n[ 3553.7s] metric: 4B single SWAP-quick n=100 acc=1.000\n[ 3553.7s] SWAP (4B) quick single acc: 1.000 (topups=0)\n[ 3553.7s] diagnostic eval set: n=200\n[ 3732.8s] metric: 4B single SL n=200 acc=1.000\n[ 3912.2s] metric: 4B single SWAP n=200 acc=0.995\n[ 4201.2s] metric: 4B one-call SL->SWAP n=200 acc=0.000\n[ 4559.8s] metric: 4B two-call SL->SWAP n=200 acc=1.000\n[ 4559.8s] 4B SL->SWAP: one-call 0.000 (A-present 0.045) vs two-call 1.000\n[ 4848.6s] metric: 4B one-call SWAP->SL n=200 acc=0.000\n[ 5206.9s] metric: 4B two-call SWAP->SL n=200 acc=0.995\n[ 5206.9s] 4B SWAP->SL: one-call 0.000 (A-present 0.000) vs two-call 0.995\n[ 5206.9s] partner-replacement check: training independent SWAP-B\n[ 5206.9s] VRAM at train start: 7.51 GB allocated\n"
+}
