@@ -1,0 +1,9 @@
+arm,model,condition,order,n,correct,accuracy,a_present,notes
+4B,Qwen/Qwen3-4B,single,SL-quick,100,100,1.0,,skill SL-quick alone
+4B,Qwen/Qwen3-4B,single,SWAP-quick,100,100,1.0,,skill SWAP-quick alone
+4B,Qwen/Qwen3-4B,single,SL,200,200,1.0,,skill SL alone
+4B,Qwen/Qwen3-4B,single,SWAP,200,199,0.995,,skill SWAP alone
+4B,Qwen/Qwen3-4B,one-call,SL->SWAP,200,0,0.0,0.045,both blocks in one call
+4B,Qwen/Qwen3-4B,two-call,SL->SWAP,200,200,1.0,,"sequential calls, explicit intermediate"
+4B,Qwen/Qwen3-4B,one-call,SWAP->SL,200,0,0.0,0.0,both blocks in one call
+4B,Qwen/Qwen3-4B,two-call,SWAP->SL,200,199,0.995,,"sequential calls, explicit intermediate"
