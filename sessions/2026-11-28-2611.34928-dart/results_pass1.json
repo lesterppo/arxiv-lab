@@ -1,0 +1,10 @@
+{
+ "n_screen": 30,
+ "greedy_solved": 23,
+ "n_unsolved": 7,
+ "k": 3,
+ "mc_recovery": 0.14285714285714285,
+ "dart_recovery": 0.14285714285714285,
+ "relative_gain": 0.0,
+ "wall_seconds": 2421.8
+}
